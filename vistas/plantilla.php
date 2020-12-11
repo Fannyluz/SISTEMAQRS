@@ -20,7 +20,8 @@
 		<section class="full-box page-content">
         <?php include "./vistas/inc/NavBar.php"?>
         </section>
-        
+		
+		<?php include "./vistas/inc/Footer.php"?>
 	</main>
 	
 	
