@@ -12,7 +12,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="../images/picture.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo SERVERURL; ?>vistas/images/picture.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
@@ -35,7 +35,7 @@
                       <li><a href="index3.html">Dashboard3</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fab fa-dashcube fa-fw"></i> Inicio <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="form.html">General Form</a></li>
                       <li><a href="form_advanced.html">Advanced Components</a></li>
@@ -45,7 +45,17 @@
                       <li><a href="form_buttons.html">Form Buttons</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fas fa-book fa-fw"></i>&nbsp; Casos <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i> Inicio <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="form.html">General Form</a></li>
+                      <li><a href="form_advanced.html">Advanced Components</a></li>
+                      <li><a href="form_validation.html">Form Validation</a></li>
+                      <li><a href="form_wizards.html">Form Wizard</a></li>
+                      <li><a href="form_upload.html">Form Upload</a></li>
+                      <li><a href="form_buttons.html">Form Buttons</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i>&nbsp; Casos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="general_elements.html">Agregar Caso</a></li>
                       <li><a href="media_gallery.html">Listar Caso</a></li>
@@ -53,14 +63,14 @@
                       
                     </ul>
                   </li>
-                  <li><a><i class="fas fa-pallet fa-fw"></i>&nbsp; Tipo QRS <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-bar-chart-o"></i>&nbsp; Tipo QRS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="tables.html">Agregar Tipo QRS</a></li>
 					  <li><a href="tables_dynamic.html">Listar Tipo QRS</a></li>
 					  <li><a href="tables_dynamic.html">Buscar Tipo QRS</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fas fa-users fa-fw"></i> Tipo Usuario <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-clone"></i> Tipo Usuario <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="chartjs.html">&nbsp; Agregar Tipo Usuario</a></li>
                       <li><a href="chartjs2.html">&nbsp; Listar Tipo Usuario</a></li>
@@ -68,7 +78,7 @@
                  
                     </ul>
                   </li>
-                  <li><a><i class="fas fa-users fa-fw"></i>Tipo Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user"></i>Tipo Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="fixed_sidebar.html">&nbsp; Agregar Tipo Personal UptVirtual</a></li>
 					  <li><a href="fixed_footer.html">&nbsp; Listar Tipo Personal UptVirtual</a></li>
@@ -78,14 +88,14 @@
                 </ul>
 
                 <ul class="nav side-menu">
-                  <li><a><i class="fas fa-user fa-fw"></i> Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user"></i> Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Agregar Personal UptVirtual</a></li>
                       <li><a href="projects.html">Listar Personal UptVirtual</a></li>
                       <li><a href="project_detail.html">Buscar Personal UptVirtual</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fas  fa-user fa-fw"></i> Usuario UptVirtual <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user"></i> Usuario UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="page_403.html">Agregar Usuario UptVirtual</a></li>
                       <li><a href="page_404.html">&nbsp; Listar Usuario UptVirtual</a></li>
@@ -93,7 +103,7 @@
                       
                     </ul>
                   </li>
-                  <li><a><i class="fas fa-pallet fa-fw"></i> Actividades Pendientes <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-sitemap"></i> Actividades Pendientes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="#level1_1">Listar Actividades</a>
                         </li>
@@ -102,7 +112,7 @@
                     </ul>
 				  </li>  
 				  
-				  <li><a><i class="fas fa-user fa-fw"></i> Reportes <span class="fa fa-chevron-down"></span></a>
+				  <li><a><i class="ffa fa-bar-chart-o"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="page_403.html">Agregar Usuario UptVirtual</a></li>
                       <li><a href="page_404.html">&nbsp; Listar Usuario UptVirtual</a></li>
@@ -147,7 +157,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/picture.jpg" alt="">John Doe
+                    <img src="<?php echo SERVERURL; ?>vistas/images/picture.jpg" alt="">John Doe
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;"> Perfil</a>

@@ -1,6 +1,6 @@
 <?php
 
-const SERVER="localhost:80";
+const SERVER="localhost:8080";
 const DB="bd_sistemasqrs";
 const USER="root";
 const PASS="root";
