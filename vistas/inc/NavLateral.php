@@ -75,7 +75,7 @@
                   <li><a><i class="fa fa-user"></i> Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Personal UptVirtual</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Listar Personal UptVirtual</a></li>
+                      <li><a href=" <?php echo SERVERURL?>personal-uptvirtual/">Listar Personal UptVirtual</a></li>
                       <li><a href=" <?php echo SERVERURL?>nombre/">Buscar Personal UptVirtual</a></li>
                     </ul>
                   </li>
