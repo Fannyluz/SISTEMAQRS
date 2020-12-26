@@ -9,7 +9,19 @@
 
 </head>
 <body>
-	
+	<?php
+	$peticionAjax=false;
+	require_once "./controladores/vistasControlador.php";
+	$IV =  new vistasControlador();
+
+	$vistas = $IV->obtener_vistas_controlador();
+
+	if($vistas=="login" || $vistas=="404"){
+		require_once "./vistas/contenidos/".$vistas."-view.php";
+	} 
+	else{
+
+	?>
 	<!-- Main container -->
 	<main class="full-box main-container">
 
@@ -18,16 +30,21 @@
 
 		<!-- Page content -->
 		<section class="full-box page-content">
-        <?php include "./vistas/inc/NavBar.php"?>
+		<?php 
+		include "./vistas/inc/NavBar.php";
+		include $vistas;
+		?>
+	
         </section>
 		
 		<?php include "./vistas/inc/Footer.php"?>
 	</main>
 	
+	<?php
+	} 
+	include "./vistas/inc/Script.php"
+	?>
 	
-	<!--=============================================
-	=            Include JavaScript files           =
-	==============================================-->
-	<?php include "./vistas/inc/Script.php"?>
+	
 </body>
 </html>
