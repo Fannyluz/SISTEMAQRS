@@ -1200,10 +1200,10 @@ body {
   overflow: hidden; }
 
 .progress-bar-dark {
-  background-color: #34495E !important; }
+  background-color: #aaac33 !important; }
 
 .progress-bar-gray {
-  background-color: #BDC3C7 !important; }
+  background-color: #7e205e !important; }
 
 table.no-margin .progress {
   margin-bottom: 0; }
@@ -1354,7 +1354,7 @@ a:hover, a:focus {
   border-radius: 50%; }
 
 .nav-md ul.nav.child_menu li:after {
-  border-left: 1px solid #425668;
+  border-left: 1px solid #7b14a3;
   bottom: 0;
   content: "";
   left: 27px;

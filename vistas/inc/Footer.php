@@ -1,6 +1,6 @@
 <!-- footer content -->
         <footer>
-          <div class="pull-right">
+          <div class="">
             UPT VIRTUAL - Creaty By N - F
           </div>
           <div class="clearfix"></div>

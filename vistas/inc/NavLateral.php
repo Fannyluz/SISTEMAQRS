@@ -1,13 +1,32 @@
 <body class="nav-md">
     <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
+      <div class="main_container" style="background-color:#10226a">
+        <div class="col-md-3 left_col" style="background-color:#10226a">
+          <div class="left_col scroll-view" style="background-color:#10226a">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>UPT Virtual!</span></a>
+          
+          
+              <a class=" site_title left" style="background-color:#10226a">
+              <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="60" height="60">
+                  UPT VIRTUAL
+                  </a>
             </div>
 
-            <div class="clearfix"></div>
+            <div class="clearfix"  ></div>
+            
+            <div style="background-color:#fdaf17;">
+     
+            <font color="#10226a">
+          <align="center"><i>UNIVERSIDAD PRIVADA DE TACNA</i>
+          </font>
+
+          </div>
+
+            <div style="background-color:#FF0000;">
+<p> 
+
+</p>
+</div>
 
             <!-- menu profile quick info -->
             <div class="profile clearfix">
@@ -22,9 +41,10 @@
             <!-- /menu profile quick info -->
 
             <br />
+            <br/>
 
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="background-color:#10226a">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -36,16 +56,17 @@
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-table"></i>&nbsp; Casos <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-align-justify"></i>&nbsp; Casos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>agregar-casos/">Agregar Caso</a></li>
-                      <li><a href=" <?php echo SERVERURL?>listar-casos/">Listar Caso</a></li>
-                      <li><a href=" <?php echo SERVERURL?>home/">Buscar caso</a></li>
+                      
+                      <li><a href=" <?php echo SERVERURL?>agregar-casos/"><i class="fa fa-plus"></i> Agregar Caso</a></li>
+                      <li><a href=" <?php echo SERVERURL?>listar-casos/"><i class="fa fa-file-text-o"></i> Listar Caso</a></li>
+                    
                       
                     </ul>
                   </li>
                   
-                  <li><a><i class="fa fa-table"></i>&nbsp; Tipo QRS <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-list-alt"></i>&nbsp; Tipo QRS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Tipo QRS</a></li>
                       <li><a href=" <?php echo SERVERURL?>nombre/">Listar Tipos QRS</a></li>
@@ -54,7 +75,7 @@
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-clone"></i> Tipo Usuario <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-users"></i> Tipo Usuario <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Agregar Tipo Usuario</a></li>
                       <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Tipo Usuario</a></li>
@@ -62,7 +83,7 @@
                  
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-user"></i>Tipo Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-users"></i>Tipo Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Agregar Tipo Personal UptVirtual</a></li>
 					            <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Tipo Personal UptVirtual</a></li>
@@ -87,7 +108,7 @@
                       
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-sitemap"></i> Actividades Pendientes <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-paste"></i> Actividades Pendientes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades</a>
                         </li>

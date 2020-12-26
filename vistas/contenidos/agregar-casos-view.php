@@ -1,7 +1,7 @@
 <div class="right_col" role="main">
                 <div class="">
                     <div class="page-title">
-                        <div class="title_left">
+                        <div class="title_left" style="color:#10226a;">
                         <h3>UPT <small>Oficina de Educación Virtual</small></h3>
            
                         </div>
@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
-                                <div class="x_title">
+                                <div class="x_title" style="color:#10226a;">
                                 <h2>UPTvirtual <small>Agregar Casos</small></h2>
                                     
                                     <ul class="nav navbar-right panel_toolbox">
