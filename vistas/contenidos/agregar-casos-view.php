@@ -2,7 +2,8 @@
                 <div class="">
                     <div class="page-title">
                         <div class="title_left">
-                            <h3>Form Validation</h3>
+                        <h3>UPT <small>Oficina de Educación Virtual</small></h3>
+           
                         </div>
 
                         <div class="title_right">
@@ -22,7 +23,8 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Form validation <small>sub title</small></h2>
+                                <h2>UPTvirtual <small>Agregar Casos</small></h2>
+                                    
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -40,73 +42,44 @@
                                 </div>
                                 <div class="x_content">
                                     <form class="" action="" method="post" novalidate>
-                                        <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
+                                        
                                         </p>
-                                        <span class="section">Personal Info</span>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Name<span class="required">*</span></label>
+                                        <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
+
+                                        <div class="field item form-group center">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="ex. John f. Kennedy" required="required" />
+                                                <input  type="text" class="form-control has-feedback-left" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Ingrese el nombre" required="required" />
+                                                <span class="fa fa-user form-control-feedback" aria-hidden="true"></span>
+                                            </div>
+										</div>
+
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input  type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Occupation<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción</label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="occupation" data-validate-length-range="5,15" type="text" /></div>
+                                                <input class="form-control" class='optional' name="occupation" placeholder="Ingrese la descripción" data-validate-length-range="5,15" type="text" /></div>
                                         </div>
+
+
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">email<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="email" class='email' required="required" type="email" /></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="email" class='email' name="confirm_email" data-validate-linked='email' required='required' /></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Number <span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="number" class='number' name="number" data-validate-minmax="10,100" required='required'></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Date<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="date" required='required'></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Time<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='time' type="time" name="time" required='required'></div>
-                                        </div>
-                                        
-                                        <div class="field item form-group">
-											<label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
-											<div class="col-md-6 col-sm-6">
-												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="Minimum 8 Characters Including An Upper And Lower Case Letter, A Number And A Unique Character" required />
-												
-												<span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >
-													<i id="slash" class="fa fa-eye-slash"></i>
-													<i id="eye" class="fa fa-eye"></i>
-												</span>
+											<label class="col-form-label col-md-3 col-sm-3  label-align">Estado <span class="required">*</label>
+											<div class="col-md-6 col-sm-6 ">
+												<select class="select2_single form-control" tabindex="-1">
+													<option></option>
+													<option value="AK">Activo</option>
+													<option value="HI">Inactivo</option>
+												</select>
 											</div>
-										</div>
+                                        </div>
                                         
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Repeat password<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="password" name="password2" data-validate-linked='password' required='required' /></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Telephone<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
-                                        </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">message<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <textarea required="required" name='message'></textarea></div>
-                                        </div>
+
+                                      
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
@@ -116,7 +89,12 @@
                                             </div>
                                         </div>
                                     </form>
+                                
+                            
+                                
+                                
                                 </div>
+
                             </div>
                         </div>
                     </div>
