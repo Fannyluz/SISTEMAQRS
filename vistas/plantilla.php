@@ -23,7 +23,7 @@
 
 	?>
 	<!-- Main container -->
-	<main class="full-box main-container" style="background-color:#10226a">
+	<main class="full-box main-container" >
 
 		<!-- Nav lateral -->
         <?php include "./vistas/inc/Navlateral.php"?>

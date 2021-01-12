@@ -1,12 +1,18 @@
 <div>
       <a class="hiddenanchor" id="signup"></a>
       <a class="hiddenanchor" id="signin"></a>
-
+     
       <div class="login_wrapper">
+      <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="60" height="60">
+                  </a></h1>
+                  <br />
+            <br/>
+            <br />
+            <br/>
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1>Login Form</h1>
+              <h1>UPT VIRTUAL</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Username" required="" />
               </div>
@@ -29,8 +35,11 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <h1><i class="fa fa-paw"></i> UPT Virtual</h1>
+                  <p>Universidad Privada de Tacna
+                  Campus Capanique s/n, Apartado postal: 126, Tacna – Perú
+                  Fono-fax: 243380, 243381, 427212, Anexo 444, correo electrónico: uptvirtual@upt.edu.pe
+                  </p>
                 </div>
               </div>
             </form>
@@ -66,7 +75,10 @@
 
                 <div>
                   <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                  <p>Universidad Privada de Tacna
+                Campus Capanique s/n, Apartado postal: 126, Tacna – Perú
+                Fono-fax: 243380, 243381, 427212, Anexo 444, correo electrónico: uptvirtual@upt.edu.pe
+                </p>
                 </div>
               </div>
             </form>

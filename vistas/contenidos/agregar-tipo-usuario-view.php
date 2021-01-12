@@ -23,7 +23,7 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title" style="color:#10226a;">
-                                <h2>UPTvirtual <small>Agregar Casos</small></h2>
+                                <h2>UPTvirtual <small>Agregar Tipo Usuario</small></h2>
                                     
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -44,14 +44,17 @@
                                     <form class="" action="" method="post" novalidate>
                                         
                                         </p>
-                                        <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
+                                        <span class="section">Tipos de Usuarios que atiende la Oficina de Educación Virtual</span>
 
-                                    
+                                      
+
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción</label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="occupation" placeholder="Ingrese la descripción" data-validate-length-range="5,15" type="text" /></div>
+                                                <input  type="text" class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="Ingrese el nombre" required="required" />
+                                            </div>
                                         </div>
+                                    
 
 
                                         <div class="field item form-group">
@@ -65,14 +68,14 @@
 											</div>
                                         </div>
                                         
-
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Date<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="date" required='required'></div>
                                         </div>
-
                                         
+
+                                      
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">

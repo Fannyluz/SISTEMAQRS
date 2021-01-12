@@ -1,12 +1,12 @@
 <body class="nav-md">
     <div class="container body">
-      <div class="main_container" style="background-color:#10226a">
-        <div class="col-md-3 left_col" style="background-color:#10226a">
-          <div class="left_col scroll-view" style="background-color:#10226a">
+      <div class="main_container">
+        <div class="col-md-3 left_col" >
+          <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
           
           
-              <a class=" site_title left" style="background-color:#10226a">
+              <a class=" site_title left">
               <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="60" height="60">
                   UPT VIRTUAL
                   </a>
@@ -44,7 +44,7 @@
             <br/>
 
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="background-color:#10226a">
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
@@ -77,9 +77,8 @@
 
                   <li><a><i class="fa fa-users"></i> Tipo Usuario <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Agregar Tipo Usuario</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Tipo Usuario</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Buscar Tipo Usuario</a></li>
+                      <li><a href=" <?php echo SERVERURL?>agregar-tipo-usuario/">&nbsp; Agregar Tipo Usuario</a></li>
+                      <li><a href=" <?php echo SERVERURL?>listar-tipo-usuario/">&nbsp; Listar Tipo Usuario</a></li>
                  
                     </ul>
                   </li>
