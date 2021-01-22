@@ -17,6 +17,7 @@
             <div style="background-color:#fdaf17;">
      
             <font color="#10226a">
+
           <align="center"><i>UNIVERSIDAD PRIVADA DE TACNA</i>
           </font>
 
@@ -48,11 +49,10 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Empresa <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-home"></i> UPTvirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.html">General</a></li>
-                      <li><a href="index2.html">Misión</a></li>
-                      <li><a href="index3.html">Visión</a></li>
+                      <li><a href=" <?php echo SERVERURL?>general/">General</a></li>
+                      <li><a href=" <?php echo SERVERURL?>mision/"> Misión</a></li>
                     </ul>
                   </li>
 

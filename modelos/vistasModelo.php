@@ -5,7 +5,7 @@ class vistasModelo{
     /*------Modelo para obtener vistas -----*/
 
     protected static function obtener_vistas_modelo($vistas){
-        $listaBlanca=["home","agregar-casos","agregar-tipo-usuario","listar-casos","listar-tipo-usuario","personal-uptvirtual"];
+        $listaBlanca=["home","general","mision","agregar-casos","agregar-tipo-usuario","listar-casos","listar-tipo-usuario","personal-uptvirtual"];
         if(in_array($vistas,$listaBlanca)){
             if(is_file("./vistas/contenidos/".$vistas."-view.php"))
             {
