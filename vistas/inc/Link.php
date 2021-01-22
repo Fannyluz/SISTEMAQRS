@@ -19,6 +19,10 @@
     <link href="<?php echo SERVERURL; ?>vistas/build/css/custom.min.css" rel="stylesheet">
     
     
+
+
+
+    
     <!-- datatables Bootstrap-->
 
      <link href="<?php echo SERVERURL; ?>vistas/cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
