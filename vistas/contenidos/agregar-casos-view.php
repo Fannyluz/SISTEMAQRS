@@ -18,7 +18,6 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
@@ -41,7 +40,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="" action="" method="post" novalidate>
+                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="post" data-form="save" novalidate>
                                         
                                         </p>
                                         <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
