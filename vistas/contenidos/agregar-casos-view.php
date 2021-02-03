@@ -49,7 +49,10 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción</label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="occupation" placeholder="Ingrese la descripción" data-validate-length-range="5,15" type="text" /></div>
+                                                <input class="form-control" class='optional' 
+                                                name="caso_nombre_reg" id="caso_nombre" 
+                                                placeholder="Ingrese la descripción" 
+                                                data-validate-length-range="5,15" type="text" /></div>
                                         </div>
 
 
@@ -70,13 +73,15 @@
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="date" required='required'></div>
                                         </div>
+                                      
 
                                         
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
-                                                    <button type='submit' class="btn btn-primary">Submit</button>
-                                                    <button type='reset' class="btn btn-success">Reset</button>
+                                                <br>
+                                                    <button type='submit' class="btn btn-primary">Guardar</button>
+                                                    <button type='reset' class="btn btn-success">Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>

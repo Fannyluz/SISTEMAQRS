@@ -18,6 +18,13 @@
     <!-- Custom Theme Style -->
     <link href="<?php echo SERVERURL; ?>vistas/build/css/custom.min.css" rel="stylesheet">
     
+     <!-- sweet alert V8.13.0 CSS FILE -->
+     <link href="<?php echo SERVERURL; ?>vistas/css/sweetalert2.min.css" rel="stylesheet">
+    
+    <!-- sweet alert V8.13.0 CSS FILE -->
+    <script src="<?php echo SERVERURL; ?>vistas/js/sweetalert2.min.js"></script>
+    
+    
     
 
 

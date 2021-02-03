@@ -61,4 +61,6 @@
     <script src="<?php echo SERVERURL; ?>vistas/vendors/pdfmake/build/vfs_fonts.js"></script>
 
 
-    
+    <script src="<?php echo SERVERURL; ?>vistas/js/alertas.js"></script>
+
+
