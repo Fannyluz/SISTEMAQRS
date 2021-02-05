@@ -46,34 +46,22 @@
                                         <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
 
                                     
+                                    
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción</label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' 
-                                                name="caso_nombre_reg" id="caso_nombre" 
-                                                placeholder="Ingrese la descripción" 
-                                                data-validate-length-range="5,15" type="text" /></div>
-                                        </div>
-
-
-                                        <div class="field item form-group">
-											<label class="col-form-label col-md-3 col-sm-3  label-align">Estado <span class="required">*</label>
-											<div class="col-md-6 col-sm-6 ">
-												<select class="select2_single form-control" tabindex="-1">
-													<option></option>
-													<option value="AK">Activo</option>
-													<option value="HI">Inactivo</option>
-												</select>
-											</div>
+                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
+                                            </div>
                                         </div>
                                         
-
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Date<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="date" required='required'></div>
+                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" />
+                                            </div>
                                         </div>
-                                      
+
+
 
                                         
                                         <div class="ln_solid">

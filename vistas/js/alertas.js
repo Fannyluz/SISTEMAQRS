@@ -50,7 +50,7 @@ function enviar_formulario_ajax(e){
             fetch(action,config)
             .then(respuesta => respuesta.json())
             .then(respuesta => {
-                return alertas_ajax();
+                return alertas_ajax(respuesta);
             });
         }
       });
