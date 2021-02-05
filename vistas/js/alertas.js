@@ -8,15 +8,16 @@ function enviar_formulario_ajax(e){
     let action = this.getAttribute("action");
     let tipo = this.getAttribute("data-form");
 
-    // let encabezados = new headers()
+    let encabezados = new Headers();
 
     let config = {
         method: method,
-     //   headers: encabezados,
+        headers: encabezados,
         mode: 'cors',
         cache: 'no-cache',
-        body: data,
+        body: data
         }
+
     let texto_alerta;
 
     if(tipo==="save"){
@@ -40,20 +41,19 @@ function enviar_formulario_ajax(e){
         text: texto_alerta,
         type: 'question',
         showCancelButton: true,
-        showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: 'Aceptar',
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.value) {
-            fetch(action,config)
-            .then(respuesta => respuesta.json())
-            .then(respuesta => {
-                return alertas_ajax(respuesta);
-            });
+          fetch(action,config)
+          .then(respuesta=>respuesta.json())
+          .then(respuesta => {
+              return alertas_ajax(respuesta);
+          })
         }
-      });
+      })
 
 }
 
@@ -62,7 +62,7 @@ formularios_ajax.forEach(formularios => {
 });
 
 function alertas_ajax(alerta){
-    if(alerta.Alerta === "simple"){
+    if(alerta.Alerta=="simple"){
         Swal.fire({
             title: alerta.Titulo,
             text: alerta.Texto,

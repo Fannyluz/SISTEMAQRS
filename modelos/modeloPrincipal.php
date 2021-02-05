@@ -35,15 +35,7 @@ class modeloPrincipal{
 			$output=openssl_decrypt(base64_decode($string), METHOD, $key, 0, $iv);
 			return $output;
 		}
-            /*------Función para generar codigos aleatorios----*/
-            protected static function generar_codigo_aleatorio($letra, $longitud,$numero ){
-            for($i=1;$i<=$longitud; i++){
-                $aleatorio = rand(0,9);
-                $letra.= $aleatorio;
-            }
-            return $letra."-".$numero;
-        }
-
+        
         /*------Función para limpiar cadenas----*/
         protected static function limpiar_cadena($cadena){
             $cadena=trim($cadena);

@@ -7,10 +7,13 @@
      }
 
      class CasoControlador extends CasoModelo{
+      
            /*--- controlador agregar usuario--*/
            public function agregar_caso_controlador(){
+
             $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
             $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
+            
 
             //comprobar campos vacios
             if($nombre=="" || $descripcion==""){

@@ -40,7 +40,7 @@
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="post" data-form="save" novalidate>
+                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="save" novalidate>
                                         
                                         </p>
                                         <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
@@ -50,7 +50,7 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" data-validate-length-range="6" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
