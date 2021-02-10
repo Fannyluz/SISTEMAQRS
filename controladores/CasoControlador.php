@@ -25,7 +25,34 @@
                ];
                echo json_encode($alerta);
                exit();
+            }  else{
+               
+            }       
+
+            $datos_caso_registro=[
+               "Nombre"=>$nombre,
+               "Descripcion"=>$descripcion
+            ];
+
+            $agregar_caso=CasoModelo::agregar_caso_modelo($datos_caso_registro);
+
+            if($agregar_caso->rowCount()==1){
+               $alerta=[
+                  "Alerta"=>"limpiar",
+                  "Titulo"=>"Caso registrado",
+                  "Texto"=>"Los datos del nuevo caso se registraron satisfactoriamente",
+                  "Tipo"=>"success"
+               ];
+            }else {
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos podido registrar el caso",
+                  "Tipo"=>"error"
+               ];
             }
-        }
+
+      } // fin del controlador 
+
 
      }
