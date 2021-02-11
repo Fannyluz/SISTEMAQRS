@@ -51,9 +51,9 @@ function enviar_formulario_ajax(e){
           .then(respuesta=>respuesta.json())
           .then(respuesta => {
               return alertas_ajax(respuesta);
-          })
+          });
         }
-      })
+      });
 
 }
 

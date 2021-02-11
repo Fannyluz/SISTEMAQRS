@@ -45,8 +45,7 @@
                                         </p>
                                         <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
 
-                                    
-                                    
+
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
@@ -68,8 +67,8 @@
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
                                                 <br>
-                                                    <button type='submit' class="btn btn-primary">Guardar</button>
-                                                    <button type='reset' class="btn btn-success">Limpiar</button>
+                                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                                    <button type="reset" class="btn btn-success">Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>

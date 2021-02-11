@@ -8,7 +8,7 @@ if($peticionAjax){
 class modeloPrincipal{
         /*------Funcion para conectar a la base de Datos (BD) -----*/
         protected static function conectar(){
-            $conexion = new PDO(SGBD, USER, PASS);
+            $conexion = new PDO(SGBD,USER,PASS);
             $conexion->exec("SET CHARACTER SET utf8");
             return $conexion;
         }

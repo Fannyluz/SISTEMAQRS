@@ -1,6 +1,6 @@
 
 <?php
-    $peticionAjax = true;
+    $peticionAjax=true;
     require_once "../config/APP.php";
 
     if(isset($_POST['caso_nombre_reg'])){

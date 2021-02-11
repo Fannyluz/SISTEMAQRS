@@ -1,18 +1,15 @@
 <?php
 
-require_once "ModeloPrincipal.php";
+require_once "modeloPrincipal.php";
 
-class CasoModelo extends ModeloPrincipal{
+class CasoModelo extends modeloPrincipal{
  /*----- Modelo agregar casos */
     protected static function agregar_caso_modelo($datos){
-      $sql= ModeloPrincipal::conectar()->prepare("INSERT INTO tbl_caso
-      (Nombre,descripcion) VALUES
-      (:Nombre,:Descripcion)");
-
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO caso(Nombre,Descripcion) 
+      VALUES(:Nombre,:Descripcion)");
       $sql->bindParam(":Nombre",$datos['Nombre']);
       $sql->bindParam(":Descripcion",$datos['Descripcion']);
       $sql->execute();
-       return $sql;
-
+      return $sql;
     }
  }

@@ -6,6 +6,7 @@
         require_once "./modelos/CasoModelo.php";
      }
 
+
      class CasoControlador extends CasoModelo{
       
            /*--- controlador agregar usuario--*/
@@ -13,7 +14,6 @@
 
             $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
             $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
-            
 
             //comprobar campos vacios
             if($nombre=="" || $descripcion==""){
@@ -24,26 +24,42 @@
                   "Tipo"=>"error"
                ];
                echo json_encode($alerta);
+
                exit();
-            }  else{
-               
-            }       
+            }     
+            
+            //comprobar el nombre
+            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM caso WHERE Nombre='$nombre'");
+            if($check_nombreCaso->rowCount()>0){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"Existe un caso registrado con el mismo nombre, por favor registre un caso diferente",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+            }
+
 
             $datos_caso_registro=[
                "Nombre"=>$nombre,
                "Descripcion"=>$descripcion
             ];
 
-            $agregar_caso=CasoModelo::agregar_caso_modelo($datos_caso_registro);
 
+            $agregar_caso = CasoModelo::agregar_caso_modelo($datos_caso_registro);
+           
             if($agregar_caso->rowCount()==1){
+               
                $alerta=[
-                  "Alerta"=>"limpiar",
+                  "Alerta"=>"Limpiar",
                   "Titulo"=>"Caso registrado",
-                  "Texto"=>"Los datos del nuevo caso se registraron satisfactoriamente",
+                  "Texto"=>"Se registro los datos correctamente",
                   "Tipo"=>"success"
                ];
             }else {
+         
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -51,8 +67,8 @@
                   "Tipo"=>"error"
                ];
             }
-
+            
+            echo json_encode($alerta);
       } // fin del controlador 
-
-
+      
      }
