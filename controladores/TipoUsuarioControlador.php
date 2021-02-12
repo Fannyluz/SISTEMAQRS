@@ -1,21 +1,21 @@
 <?php
      
      if($peticionAjax){
-        require_once "../modelos/CasoModelo.php";
+        require_once "../modelos/TipoUsuarioModelo.php";
      }else{
-        require_once "./modelos/CasoModelo.php";
+        require_once "./modelos/TipoUsuarioModelo.php";
      }
 
 
-     class CasoControlador extends CasoModelo{
+     class TipoUsuarioControlador extends TipoUsuarioModelo{
       
            /*--- controlador agregar usuario--*/
-           public function agregar_caso_controlador(){
+           public function agregar_tipousuario_controlador(){
 
-            $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
-            $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
-            $fecha=modeloPrincipal::limpiar_cadena($_POST['caso_fecha_reg']);
-            $estado=modeloPrincipal::limpiar_cadena($_POST['caso_estado_reg']);
+            $nombre=modeloPrincipal::limpiar_cadena($_POST['tipousuario_nombre_reg']);
+            $descripcion=modeloPrincipal::limpiar_cadena($_POST['tipousuario_descripcion_reg']);
+            $fecha=modeloPrincipal::limpiar_cadena($_POST['tipousuario_fecha_reg']);
+            $estado=modeloPrincipal::limpiar_cadena($_POST['tipousuario_estado_reg']);
 
 
             //comprobar campos vacios
@@ -32,8 +32,8 @@
             }     
             
             //comprobar el nombre
-            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM caso WHERE Nombre='$nombre'");
-            if($check_nombreCaso->rowCount()>0){
+            $check_nombretipousuario=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM tipousuario WHERE Nombre='$nombre'");
+            if($check_nombretipousuario->rowCount()>0){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -45,7 +45,7 @@
             }
 
 
-            $datos_caso_registro=[
+            $datos_tipousuario_registro=[
                "Nombre"=>$nombre,
                "Descripcion"=>$descripcion,
                "Fecha"=>$fecha,
@@ -53,9 +53,9 @@
             ];
 
 
-            $agregar_caso = CasoModelo::agregar_caso_modelo($datos_caso_registro);
+            $agregar_tipousuario = TipoUsuarioModelo::agregar_tipousuario_modelo($datos_tipousuario_registro);
            
-            if($agregar_caso->rowCount()==1){
+            if($agregar_tipousuario->rowCount()==1){
                
                $alerta=[
                   "Alerta"=>"Limpiar",

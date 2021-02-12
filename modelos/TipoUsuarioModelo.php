@@ -2,10 +2,10 @@
 
 require_once "modeloPrincipal.php";
 
-class CasoModelo extends modeloPrincipal{
+class TipoUsuarioModelo extends modeloPrincipal{
  /*----- Modelo agregar casos */
-    protected static function agregar_caso_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO caso(Nombre,Descripcion,Fecha,Estado) 
+    protected static function agregar_tipousuario_modelo($datos){
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO tipousuario(Nombre,Descripcion,Fecha,Estado) 
       VALUES(:Nombre,:Descripcion,:Fecha,:Estado)");
       $sql->bindParam(":Nombre",$datos['Nombre']);
       $sql->bindParam(":Descripcion",$datos['Descripcion']);

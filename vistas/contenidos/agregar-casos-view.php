@@ -49,18 +49,32 @@
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" required='required'></div>
+                                        </div>
 
+                                         <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <select class="form-control" name="caso_estado_reg">
+                                                    <option value="1" selected="">Activo</option>
+                                                     <option value="2">Inactivo</option>
+                                                </select>
+                                            </div>
 
+                                        </div>
 
                                         
                                         <div class="ln_solid">

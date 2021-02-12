@@ -9,7 +9,7 @@
         $ins_caso = new CasoControlador();
 
             // agregar un caso
-            if(isset($_POST['caso_nombre_reg']) && isset($_POST['caso_descripcion_reg'])){
+            if(isset($_POST['caso_nombre_reg']) && isset($_POST['caso_descripcion_reg']) && isset($_POST['caso_estado_reg'])){
                 echo $ins_caso->agregar_caso_controlador();
             }
             
