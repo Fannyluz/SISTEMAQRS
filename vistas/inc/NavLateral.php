@@ -66,61 +66,58 @@
                     </ul>
                   </li>
                   
-                  <li><a><i class="fa fa-list-alt"></i>&nbsp; Tipo QRS <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-list-alt"></i>&nbsp; Tipo Actividad QRS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Tipo QRS</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Listar Tipos QRS</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Buscar caso</a></li>
-                      
+                      <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Tipo Actividad QRS</a></li>
+                      <li><a href=" <?php echo SERVERURL?>nombre/">Listar Tipos Actividad QRS</a></li>
+ 
                     </ul>
                   </li>
 
                   <li><a><i class="fa fa-users"></i> Tipo Usuario <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>agregar-tipo-usuario/">&nbsp; Agregar Tipo Usuario</a></li>
-                      <li><a href=" <?php echo SERVERURL?>listar-tipo-usuario/">&nbsp; Listar Tipo Usuario</a></li>
+                      <li><a href=" <?php echo SERVERURL?>agregar-tipo-usuario/">Agregar Tipo Usuario</a></li>
+                      <li><a href=" <?php echo SERVERURL?>listar-tipo-usuario/">Listar Tipo Usuario</a></li>
                  
                     </ul>
                   </li>
                   <li><a><i class="fa fa-users"></i>Tipo Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>agregar-tipo-personal/"><i class="fa fa-plus"></i> Agregar Tipo Personal UptVirtual</a></li>
-					            <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Tipo Personal UptVirtual</a></li>
-					            <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Buscar Tipo Personal UptVirtual</a></li>
+                      <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Tipo Personal UptVirtual</a></li>
+					            <li><a href=" <?php echo SERVERURL?>nombre/">Listar Tipo Personal UptVirtual</a></li>
+
                     </ul>
                   </li>
                 </ul>
 
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-user"></i> Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user"></i> Personales UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Personal UptVirtual</a></li>
                       <li><a href=" <?php echo SERVERURL?>personal-uptvirtual/">Listar Personal UptVirtual</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Buscar Personal UptVirtual</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-user"></i> Usuario UptVirtual <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-user"></i> Usuarios UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Usuario UptVirtual</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Usuario UptVirtual</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Buscar Usuario UptVirtual</a></li>
+                      <li><a href=" <?php echo SERVERURL?>nombre/">Listar Usuario UptVirtual</a></li>
                       
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-paste"></i> Actividades Pendientes <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-paste"></i> actividades QRS<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades</a>
-                        </li>
-                        <li><a href=" <?php echo SERVERURL?>nombre/">Asignar Actividades</a>
-                        </li>
+                      <li><a href=" <?php echo SERVERURL?>nombre/">Registrar Actividad QRS</a></li>
+                      <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades QRS</a></li>
                     </ul>
-				  </li>  
+              </li>  
+            <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades QRS Atendidas<span class="label label-success pull-right"></a></li>
+              <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-book"></i> Generar PDF - QRS Atendidas<span class="label label-success pull-right"></a></li>
 				  
 				  <li><a><i class="fa fa-bar-chart-o"></i> Reportes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Usuario UptVirtual</a></li>
                       <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Usuario UptVirtual</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Buscar Usuario UptVirtual</a></li>
+                  
                       
                     </ul>
 				  </li>
