@@ -84,7 +84,7 @@
                   </li>
                   <li><a><i class="fa fa-users"></i>Tipo Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>agregar-tiperson/"> Agregar Tipo Personal UptVirtual</a></li>
+                      <li><a href=" <?php echo SERVERURL?>agregar-tipo-personal/"><i class="fa fa-plus"></i> Agregar Tipo Personal UptVirtual</a></li>
 					            <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Tipo Personal UptVirtual</a></li>
 					            <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Buscar Tipo Personal UptVirtual</a></li>
                     </ul>

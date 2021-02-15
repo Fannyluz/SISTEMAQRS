@@ -3,7 +3,7 @@
 require_once "modeloPrincipal.php";
 
 class TipoPersonalModelo extends modeloPrincipal{
- /*----- Modelo agregar tipo personal */
+ /*----- Modelo agregar tipo personal -----*/
     protected static function agregar_tipopersonal_modelo($datos){
       $sql=modeloPrincipal::conectar()->prepare("INSERT INTO personaluptvirtual(CodPersonalUptVirtual,
       CodTipoPersonal,DNI,Nombres,Apellidos,Foto,CorreoElectronico,Celular,Direccion,Fecha,Estado) 

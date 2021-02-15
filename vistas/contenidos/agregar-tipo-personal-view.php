@@ -22,7 +22,7 @@
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title" style="color:#10226a;">
-                                <h2>UPTvirtual <small>Agregar Casos</small></h2>
+                                <h2>UPTvirtual <small>Agregar Tipo Personal </small></h2>
                                     
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -43,22 +43,72 @@
                                     <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="save" novalidate>
                                         
                                         </p>
-                                        <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
+                                        <span class="section">Agregar Personal para la Oficina de Educación Virtual</span>
 
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Codigo Personal<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese Codigo Personal" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Codigo Tipo Personal<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese Tipo Personal" required="required" />
                                             </div>
                                         </div>
+
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">DNI<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el DNI" required="required" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombres<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="3" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese el Nombre" required="required" />
+                                            </div>
+                                        </div>
+
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Apellidos<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el apellido" required="required" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="3" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la foto" required="required" />
+                                            </div>
+                                        </div>
+
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Correo Electronico<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese el Correo Electronico" required="required" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Celular<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="3" name="caso_descripcion_reg" id="caso_descripcion" placeholder="Ingrese el Celular" required="required" />
+                                            </div>
+                                        </div>
+
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Direccion<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_reg" id="caso_nombre" placeholder="Ingrese la Direccion" required="required" />
+                                            </div>
+                                        </div>
+                                        
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
