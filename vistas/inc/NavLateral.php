@@ -35,8 +35,10 @@
                 <img src="<?php echo SERVERURL; ?>vistas/images/picture.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <span>BIENVENIDO</span>
+                <h2><?php echo $_SESSION['usuario_spm']?> </h2>
+              <h2><?php echo $_SESSION['clave_spm']?> </h2>
+              <h2><?php echo $_SESSION['estado_spm']?> </h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -55,7 +57,7 @@
                       <li><a href=" <?php echo SERVERURL?>mision/"> Misión</a></li>
                     </ul>
                   </li>
-
+                  <?php if($_SESSION['estado_spm']==1){ ?>
                   <li><a><i class="fa fa-align-justify"></i>&nbsp; Casos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       
@@ -63,9 +65,9 @@
                       <li><a href=" <?php echo SERVERURL?>listar-casos/"><i class="fa fa-file-text-o"></i> Listar Caso</a></li>
                     
                       
-                    </ul>
+                  </ul>
                   </li>
-                  
+                   <?php } ?>       
                   <li><a><i class="fa fa-list-alt"></i>&nbsp; Tipo Actividad QRS <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Tipo Actividad QRS</a></li>

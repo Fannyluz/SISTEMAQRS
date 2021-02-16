@@ -37,8 +37,10 @@
             $row=$datos_cuenta->fetch();
             session_start(['name' => 'QRS']);
             $_SESSION['CodUsuarioPersonalUptVirtual_spm']=$row['CodUsuarioPersonalUptVirtual'];
+            $_SESSION['usuario_spm']=$row['Usuario'];
+            $_SESSION['clave_spm']=$row['Clave'];
+            $_SESSION['estado_spm']=$row['Estado'];
             return header("Location:".SERVERURL."home/");
-
          }else{
             echo '
             <script>
@@ -52,6 +54,24 @@
             ';
          }
         
-        }
+        }/**fin del controlador  */
+
+        /** controlador de forzar cierre de sesion */
+        public function forzar_cierre_sesion_controlador()
+        {
+         session_unset();
+         session_destroy();
+         if(headers_sent()){
+         return "<script> window.location.href='".SERVERURL."login/'; </script>";
+         }else{
+            return header("Location:".SERVERURL."login/");
+         }
+        }/**fin del controlador  */
+
+        /** cerrar la sesion */
+        public function cerrar_sesion_controlador()
+        {
+         session_start(['name' => 'QRS']);
+        }/**fin del controlador  */
      }
      

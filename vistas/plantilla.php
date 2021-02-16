@@ -20,7 +20,13 @@
 		require_once "./vistas/contenidos/".$vistas."-view.php";
 	} 
 	else{
-
+		session_start(['name' => 'QRS']);
+		require_once "./controladores/LoginControlador.php";
+		$lc = new LoginControlador();
+		if(!isset($_SESSION['clave_spm']) || !isset($_SESSION['usuario_spm'])){
+			echo $lc->forzar_cierre_sesion_controlador();
+		}
+		
 	?>
 	<!-- Main container -->
 	<main class="full-box main-container" >
