@@ -3,12 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2021 a las 01:38:57
+-- Tiempo de generación: 16-02-2021 a las 17:16:08
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.2
- create database sistemaqrs;
- use sistemaqrs;
- 
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -44,7 +42,9 @@ CREATE TABLE `caso` (
 INSERT INTO `caso` (`CodCaso`, `Nombre`, `Descripcion`, `Fecha`, `Estado`) VALUES
 (10, 'Aula Virtual', 'Problemas con el aula virtual', '11/02/2021', 1),
 (11, 'Aula Virtual', 'Problemas con el aula virtual', '11/02/2021', 1),
-(12, 'Sistema de Videoconferencia', 'erserer', '2021-02-11', 1);
+(12, 'Sistema de Videoconferencia', 'erserer', '2021-02-11', 1),
+(13, 'microsoft teams', 'problemas o incovenvientes con el uso de micr', '2021-02-12', 1),
+(14, 'nuevo', 'nyuevo', '2021-02-12', 1);
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,8 @@ CREATE TABLE `personaluptvirtual` (
 
 INSERT INTO `personaluptvirtual` (`CodPersonalUptVirtual`, `CodTipoPersonal`, `DNI`, `Nombres`, `Apellidos`, `Foto`, `CorreoElectronico`, `Celular`, `Direccion`, `Fecha`, `Estado`) VALUES
 (1, 1, '74569832', 'Francisco', 'Zapata', 'foto', 'francisco@gmail.com', '985632147', 'direccion', '11/02/2021', 1),
-(2, 3, '96587421', 'William', 'Rodriguez', 'foto', 'William@gmail.com', '965874213', 'direccion', '11/02/2021', 1);
+(2, 3, '96587421', 'William', 'Rodriguez', 'foto', 'William@gmail.com', '965874213', 'direccion', '11/02/2021', 1),
+(4, 1, '98653214', 'nelia', 'escalante', 'foto', 'correo', '965874512', 'direccion', '15/02/2021', 2);
 
 -- --------------------------------------------------------
 
@@ -156,7 +157,8 @@ CREATE TABLE `usuariopersonaluptvirtual` (
 
 INSERT INTO `usuariopersonaluptvirtual` (`CodUsuarioPersonalUptVirtual`, `CodPersonalUptVirtual`, `Usuario`, `Clave`, `Estado`, `Fecha`) VALUES
 (1, 1, 'francisco', 'francisco', 1, '11/02/2021'),
-(2, 2, 'william', 'william', 1, '11/02/2021');
+(2, 2, 'william', 'william123', 1, '11/02/2021'),
+(3, 4, 'nelia', 'nelia123456', 2, '15/02/2021');
 
 --
 -- Índices para tablas volcadas
@@ -208,13 +210,13 @@ ALTER TABLE `usuariopersonaluptvirtual`
 -- AUTO_INCREMENT de la tabla `caso`
 --
 ALTER TABLE `caso`
-  MODIFY `CodCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `CodCaso` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `personaluptvirtual`
 --
 ALTER TABLE `personaluptvirtual`
-  MODIFY `CodPersonalUptVirtual` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CodPersonalUptVirtual` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipopersonal`
@@ -238,7 +240,7 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT de la tabla `usuariopersonaluptvirtual`
 --
 ALTER TABLE `usuariopersonaluptvirtual`
-  MODIFY `CodUsuarioPersonalUptVirtual` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CodUsuarioPersonalUptVirtual` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
