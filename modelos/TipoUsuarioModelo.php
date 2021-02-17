@@ -14,4 +14,13 @@ class TipoUsuarioModelo extends modeloPrincipal{
       $sql->execute();
       return $sql;
     }
+    public function listar_tipousuario_modelo(){
+      $consulta="SELECT * FROM tipousuario";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+      
+  }
+
  }

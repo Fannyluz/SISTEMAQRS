@@ -77,12 +77,12 @@
       } // fin del controlador 
       
      
-      /*controlador listar usuario*/
+      /*controlador listar casos*/
       public function Listar_casos_controlador()
       {
          $datos=CasoModelo::listar_casos_modelo();
          return $datos;
-      }
+      } // fin del controlador 
+
       
-      // fin del controlador 
      }

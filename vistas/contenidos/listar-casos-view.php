@@ -70,6 +70,7 @@
                                 <td><?php echo $row['Nombre']?></td> 
                                 <td><?php echo $row['Descripcion']?></td> 
                                 <td><?php echo $row['Fecha']?></td> 
+                                
                                 <td><?php if($row['Estado']=="1")
                                 {
                                     echo $nuevoestado = "Activo";
@@ -79,10 +80,10 @@
                                  ?></td> 
 
                                 <td>
-                                                <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                                                    <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
-                                                </td>
+                                                <a href="#" class="btn btn-round btn-primary btn-sm"><i class="fa fa-folder"></i> </a>
+                                                    <a href="#" class="btn btn-round btn-info btn-sm"><i class="fa fa-pencil"></i> </a>
+                                                    <a href="#" class="btn btn-round btn-danger btn-sm"><i class="fa fa-trash-o"></i> </a>
+                                 </td>
                                 </tr>
                                 <?php }  ?>
                                

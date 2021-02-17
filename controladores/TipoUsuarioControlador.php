@@ -63,6 +63,7 @@
                   "Texto"=>"Se registro los datos correctamente",
                   "Tipo"=>"success"
                ];
+              
             }else {
          
                $alerta=[
@@ -75,5 +76,13 @@
             
             echo json_encode($alerta);
       } // fin del controlador 
-      
+
+      /*controlador listar casos*/
+      public function Listar_tipousuario_controlador()
+      {
+         $datos=TipoUsuarioModelo::listar_tipousuario_modelo();
+         return $datos;
+      } // fin del controlador 
+
+
      }
