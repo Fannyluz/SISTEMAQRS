@@ -13,7 +13,7 @@
         </div>
 
         <div>
-              <input type="password" class="form-control" id="UserPassword" name="clave_log" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required="" >
+              <input type="password" class="form-control" id="UserPassword" name="clave_log" pattern="[a-zA-Z0-9$@.-]{7,100}" required="" >
         </div>
 
         <button type="submit" class="btn btn-primary" style="background-color:#10226a;">Acceder</button>

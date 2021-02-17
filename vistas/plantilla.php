@@ -25,6 +25,7 @@
 		$lc = new LoginControlador();
 		if(!isset($_SESSION['clave_spm']) || !isset($_SESSION['usuario_spm'])){
 			echo $lc->forzar_cierre_sesion_controlador();
+			exit();
 		}
 		
 	?>
@@ -47,8 +48,9 @@
 	</main>
 	
 	<?php
+	include "./vistas/inc/LogOut.php";
 	} 
-	include "./vistas/inc/Script.php"
+	include "./vistas/inc/Script.php";
 	?>
 	
 	

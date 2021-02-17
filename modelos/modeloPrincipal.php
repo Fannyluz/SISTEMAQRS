@@ -22,13 +22,13 @@ class modeloPrincipal{
     /*------Encriptar cadenas----*/
         public function encryption($string){
 			$output=FALSE;
-			$key=hash('sha256', SECRET_KEY);
-			$iv=substr(hash('sha256', SECRET_IV), 0, 16);
-			$output=openssl_encrypt($string, METHOD, $key, 0, $iv);
-			$output=base64_encode($output);
-			return $output;
+            $key=hash('sha256', SECRET_KEY);
+            $iv=substr(hash('sha256', SECRET_IV), 0, 16);
+            $output=openssl_encrypt($string, METHOD, $key, 0, $iv);
+            $output=base64_encode($output);
+            return $output;
         }
-            /*------Dessencriptar cadenas ----*/
+            /*------Desencriptar cadenas ----*/
 		protected static function decryption($string){
 			$key=hash('sha256', SECRET_KEY);
 			$iv=substr(hash('sha256', SECRET_IV), 0, 16);

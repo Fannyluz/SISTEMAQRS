@@ -39,7 +39,9 @@
             $_SESSION['CodUsuarioPersonalUptVirtual_spm']=$row['CodUsuarioPersonalUptVirtual'];
             $_SESSION['usuario_spm']=$row['Usuario'];
             $_SESSION['clave_spm']=$row['Clave'];
+            $_SESSION['privilegio_spm']=$row['Privilegio'];
             $_SESSION['estado_spm']=$row['Estado'];
+            $_SESSION['token_spm']=md5(uniqid(mt_rand(),true));
             return header("Location:".SERVERURL."home/");
          }else{
             echo '
@@ -68,10 +70,33 @@
          }
         }/**fin del controlador  */
 
-        /** cerrar la sesion */
         public function cerrar_sesion_controlador()
         {
-         session_start(['name' => 'QRS']);
+             session_start(['name' => 'QRS']);
+             $token=modeloPrincipal::decryption($_POST['token']);
+             $token=modeloPrincipal::decryption($_POST['usuario']);
+             if($token==$_SESSION['token_spm'] && $usuario==$_SESSION['usuario_spm'])
+             {
+                session_unset();
+                session_destroy();
+                $alerta=[
+                    "Alerta"=>"redireccionar",
+                    "URL"=>SERVERURL."login/"
+                ];
+             }
+             else{
+                $alerta=[
+                      "Alerta"=>"simple",
+                      "Titulo"=>"Error al cerrar la sesion",
+                      "Texto"=>"No se pudo cerrar la sesion en el sistema",
+                      "Tipo"=>"error"
+                   ];
+              }
+              echo json_decode($alerta);
         }/**fin del controlador  */
+
+        
+
+
      }
      
