@@ -43,7 +43,4 @@ class CasoModelo extends modeloPrincipal{
       
   }
 
-
-
-
  }
