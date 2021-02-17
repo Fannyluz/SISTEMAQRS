@@ -76,4 +76,13 @@
             echo json_encode($alerta);
       } // fin del controlador 
       
+     
+      /*controlador listar usuario*/
+      public function Listar_casos_controlador()
+      {
+         $datos=CasoModelo::listar_casos_modelo();
+         return $datos;
+      }
+      
+      // fin del controlador 
      }
