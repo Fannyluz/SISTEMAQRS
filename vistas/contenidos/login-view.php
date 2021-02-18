@@ -16,7 +16,7 @@
               <input type="password" class="form-control" id="UserPassword" name="clave_log" pattern="[a-zA-Z0-9$@.-]{7,100}" required="" >
         </div>
 
-        <button type="submit" class="btn btn-primary" style="background-color:#10226a;">Acceder</button>
+        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">Acceder</button>
 
               <div class="separator">
                 <div>
