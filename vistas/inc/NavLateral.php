@@ -70,8 +70,8 @@
                    <?php if($_SESSION['privilegio_spm']==1){ ?>
                       <li><a><i class="fa fa-list-alt"></i>&nbsp; Tipo Actividad QRS <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                          <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Tipo Actividad QRS</a></li>
-                          <li><a href=" <?php echo SERVERURL?>nombre/">Listar Tipos Actividad QRS</a></li>
+                          <li><a href=" <?php echo SERVERURL?>agregar-tipo-qrs/">Agregar Tipo Actividad QRS</a></li>
+                          <li><a href=" <?php echo SERVERURL?>listar-tipo-qrs/">Listar Tipos Actividad QRS</a></li>
                         </ul>
                       </li>
                   <?php } ?>  

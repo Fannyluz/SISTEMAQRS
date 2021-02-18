@@ -17,7 +17,6 @@
                 </li>
 
               </ul>
-              <a href="#" class="btn-salir" > Cerrar Sesion</a>
             </nav>
           </div>
         </div>
