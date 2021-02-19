@@ -24,5 +24,13 @@ class CasoModelo extends modeloPrincipal{
       return $datos;
       
   }
+  protected static function eliminar_caso_modelo($codigo)
+  {
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM caso WHERE  CodCaso=:CodCaso");
+    $sql->bindParam(":CodCaso",$codigo);
+    $sql->execute();
+    return $sql;
+
+  }
 
  }

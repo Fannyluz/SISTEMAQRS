@@ -13,71 +13,54 @@ if($_SESSION['estado_spm']!=1){
                                 <div class="x_title" style="color:#10226a;">
                                 <h2>UPTvirtual <small>Agregar Tipo QRS</small></h2>
                                     
-                                    <ul class="nav navbar-right panel_toolbox">
-                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Settings 1</a>
-                                                <a class="dropdown-item" href="#">Settings 2</a>
-                                            </div>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
-                                    </ul>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoQrsAjax.php" method="POST" data-form="save" novalidate>
+                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/UsuarioPersonalUptVirtualAjax.php" method="POST" data-form="save" novalidate>
                                         
                                         </p>
                                         <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
 
+            
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Personal Uptvirtual<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Personal<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="tipoqrs_estado_reg">
+                                                <select class="form-control" name="personaluptvirtual_reg">
                                                     <option value="1" selected="">Activo</option>
                                                      <option value="2">Inactivo</option>
                                                 </select>
                                             </div>
                                         </div>
-
+                                     
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Usuario<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="tipoqrs_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" name="usuario_reg" id="usuario" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Clave<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="clave_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Repetir la Clave<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" />
-                                            </div>
-                                        </div>
+                                    
 
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="tipoqrs_fecha_reg" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="fecha_reg" required='required'></div>
                                         </div>
 
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="tipoqrs_estado_reg">
+                                                <select class="form-control" name="estado_reg">
                                                     <option value="1" selected="">Activo</option>
                                                      <option value="2">Inactivo</option>
                                                 </select>
@@ -97,14 +80,13 @@ if($_SESSION['estado_spm']!=1){
                                         </div>
                                        
                                         
-
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Privilegio<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="tipoqrs_estado_reg">
+                                                <select class="form-control" name="privilegio_reg">
                                                     <option value="1" selected="">Control Total</option>
                                                      <option value="2">Edición</option>
-                                                     <option value="2">Registrar</option>
+                                                     <option value="3">Registrar</option>
                                                 </select>
                                             </div>
                                         </div>

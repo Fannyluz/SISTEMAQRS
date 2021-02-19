@@ -25,34 +25,47 @@
                         
                             <thead>
                                 <tr>
-                                <th>Registro</th>
-                                <th>Registro</th>
-                                <th>Nombre</th>
+                                <th>Item</th>
+                                <th>nombres y Apellidos</th>
+                                <th>usuario</th>
+                                <th>Clave</th>
+                                <th>Privilegio</th>
+                                <th>fecha</th>
                                 <th>Estado</th>
-                                <th>Fecha</th>
                                 <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                             
-                                <?php 
-                               // require_once "./modelos/CasoModelo.php";
-                               // $casos=new CasoModelo();
-                                //$datos=$casos->get_casos();
+                       
+                                   <?php 
 
-                                require_once "./controladores/CasoControlador.php";
-                                $casos=new CasoControlador();
-                                $datos=$casos->Listar_casos_controlador();
+                                require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
+                                $casos=new UsuarioPersonalUptVirtualControlador();
+                                $datos=$casos->Listar_usuariopersonaluptvirtual_controlador();
                                 $count=1;
-                                $nuevoestado="Activo";
+                                $nuevoestado="";
+                                $nuevoPrivilegio="";
                                 foreach($datos as $row){ 
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['Nombre']?></td> 
-                                <td><?php echo $row['Descripcion']?></td> 
+                                <td><?php echo $row['CodPersonalUptVirtual']?></td> 
+                                <td><?php echo $row['Usuario']?></td> 
+                                <td><?php echo $row['Clave']?></td> 
+                                <td><?php if($row['Privilegio']=="1")
+                                {
+                                    echo $nuevoPrivilegio = "Control Total";
+                                }else if($row['Privilegio']=="2")
+                                {
+                                        echo $nuevoPrivilegio = "Edición";
+                                }
+                                else{
+                                    echo $nuevoPrivilegio = "Registrar";
+                                }
+                                 ?></td> 
+
                                 <td><?php echo $row['Fecha']?></td> 
-                                
                                 <td><?php if($row['Estado']=="1")
                                 {
                                     echo $nuevoestado = "Activo";
@@ -62,25 +75,10 @@
                                  ?></td> 
 
                                 <td>
-                                <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
-                                </a>
-                                <a href="#" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                 </a>
-                                                 
-            <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CodCaso']; ?>" />    
-                <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
-                <i class="fa fa-trash-o fa-sm"></i> 
-
-                </button>
-                </input>
-
-            </form> 
-
-                                                 
-                                               
-                                                
-                                 </td>
+                                    <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> </a>
+                                    <a href="#" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i> </a>
+                                    <a href="#" class="btn btn-round btn-outline-danger btn-sm"><i class="fa fa-trash-o fa-sm"></i> </a>
+                                </td>
                                 </tr>
                                 <?php }  ?>
 

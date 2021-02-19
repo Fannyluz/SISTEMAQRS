@@ -84,5 +84,59 @@
          return $datos;
       } // fin del controlador 
 
+      /*controlador eliminar casos*/
+      public function Eliminar_caso_controlador()
+      {
+        // recibiendo el codigo del caso
+      
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['caso_codigo_del']);
+
+         // recibiendo el caso 
+         if($codigo==1){
+          $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No podemos eliminar el caso principal del sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+         }
+         // comprobar el cso en BD
+         $check_caso=modeloPrincipal::ejecutar_consulta_simple("SELECT CodCaso FROM caso WHERE CodCaso='$codigo'");
+         if($check_caso->rowCount()<=0)
+         {
+           $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"El caso que intenta eliminar no existe en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+
+         }
+         
+//eliminar caso
+         $eliminar_caso=CasoModelo::eliminar_caso_modelo($codigo);
+         if($eliminar_caso->rowCount()==1){
+            $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Caso eliminado",
+                  "Texto"=>"el caso ha sido eliminado del sistema exitosamente",
+                  "Tipo"=>"success"
+               ];
+         }else{
+          $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos podido eliminar el caso, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+
+         }
+         echo json_encode($alerta);
+      } // fin del controlador 
+
       
      }

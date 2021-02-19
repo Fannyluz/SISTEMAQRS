@@ -109,8 +109,8 @@
                     <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
                     <li><a><i class="fa fa-user"></i> Usuarios UptVirtual <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href=" <?php echo SERVERURL?>agregar-usuario-uptvirtual/">Agregar Usuario UptVirtual</a></li>
-                        <li><a href=" <?php echo SERVERURL?>nombre/">Listar Usuario UptVirtual</a></li>
+                        <li><a href=" <?php echo SERVERURL?>agregar-usuariopersonal-uptvirtual/">Agregar Usuario UptVirtual</a></li>
+                        <li><a href=" <?php echo SERVERURL?>listar-usuario-personaluptvirtual/">Listar Usuario UptVirtual</a></li>
                       </ul>
                     </li>
                     <?php } ?>
