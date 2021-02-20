@@ -22,5 +22,12 @@ class TipoUsuarioModelo extends modeloPrincipal{
       return $datos;
       
   }
+  protected static function eliminar_tipousuario_modelo($codigo)
+  {
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM tipousuario WHERE  CodTipoUsuario=:CodTipoUsuario");
+    $sql->bindParam(":CodTipoUsuario",$codigo);
+    $sql->execute();
+    return $sql;
+  }
 
  }

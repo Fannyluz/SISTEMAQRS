@@ -22,5 +22,12 @@ class TipoQrsModelo extends modeloPrincipal{
       return $datos;
       
   }
+  protected static function eliminar_tipoqrs_modelo($codigo)
+  {
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM tipoqrs WHERE  CodTipoQRS=:CodTipoQRS");
+    $sql->bindParam(":CodTipoQRS",$codigo);
+    $sql->execute();
+    return $sql;
+  }
 
 }

@@ -30,7 +30,6 @@ class CasoModelo extends modeloPrincipal{
     $sql->bindParam(":CodCaso",$codigo);
     $sql->execute();
     return $sql;
-
   }
 
  }

@@ -28,8 +28,8 @@
                                 <th>Registro</th>
                                 <th>Registro</th>
                                 <th>Nombre</th>
-                                <th>Estado</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                                 <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -61,21 +61,22 @@
                                 }
                                  ?></td> 
 
+
                                 <td>
                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
                                 <a href="#" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                                  </a>
                                                  
-            <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CodCaso']; ?>" />    
-                <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
-                <i class="fa fa-trash-o fa-sm"></i> 
+                                    <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
+                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CodCaso']; ?>" />    
+                                        <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
+                                        <i class="fa fa-trash-o fa-sm"></i> 
 
-                </button>
-                </input>
+                                        </button>
+                                        </input>
 
-            </form> 
+                                    </form> 
 
                                                  
                                                

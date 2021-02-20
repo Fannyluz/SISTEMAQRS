@@ -81,4 +81,61 @@
          return $datos;
       } // fin del controlador 
 
+
+
+       /*controlador eliminar QRS*/
+       public function Eliminar_tipoqrs_controlador()
+       {
+         // recibiendo el codigo del QRS
+       
+          $codigo=modeloPrincipal::limpiar_cadena($_POST['qrs_codigo_del']);
+ 
+          // recibiendo el QRS 
+          if($codigo==1){
+           $alerta=[
+                   "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"No podemos eliminar el tipo QRS principal del sistema",
+                   "Tipo"=>"error"
+                ];
+                echo json_encode($alerta);
+                exit();
+          }
+          // comprobar el QRS en BD
+          $check_tipoqrs=modeloPrincipal::ejecutar_consulta_simple("SELECT CodTipoQRS  FROM tipoqrs WHERE CodTipoQRS ='$codigo'");
+          if($check_tipoqrs->rowCount()<=0)
+          {
+            $alerta=[
+                   "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"El tipo QRS que intenta eliminar no existe en el sistema",
+                   "Tipo"=>"error"
+                ];
+                echo json_encode($alerta);
+                exit();
+ 
+          }
+          
+ //eliminar QRS
+          $eliminar_tipoqrs=TipoQrsModelo::eliminar_tipoqrs_modelo($codigo);
+          if($eliminar_tipoqrs->rowCount()==1){
+             $alerta=[
+                   "Alerta"=>"recargar",
+                   "Titulo"=>"Caso eliminado",
+                   "Texto"=>"el tipo QRS ha sido eliminado del sistema exitosamente",
+                   "Tipo"=>"success"
+                ];
+          }else{
+           $alerta=[
+                   "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"No hemos podido eliminar el tipo QRS, por favor intente nuevamente",
+                   "Tipo"=>"error"
+                ];
+ 
+          }
+          echo json_encode($alerta);
+       } // fin del controlador 
+
+       
      }
