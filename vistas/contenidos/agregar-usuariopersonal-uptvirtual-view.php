@@ -25,9 +25,9 @@ if($_SESSION['estado_spm']!=1){
 
                       <?php 
 
-                                require_once "./controladores/CasoControlador.php";
-                                $casos=new CasoControlador();
-                                $datos=$casos->Listar_casos_controlador();
+                                require_once "./controladores/PersonalControlador.php";
+                                $casos=new PersonalControlador();
+                                $datos=$casos->Listar_personal_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
@@ -38,7 +38,7 @@ if($_SESSION['estado_spm']!=1){
                                     <div class="col-md-6 col-sm-6">
                                         <select class="form-control" name="personaluptvirtual_reg">
                             <?php foreach($datos as $row){ ?>
-                                        <option value=<?php echo $row['CodCaso']?>><?php echo $row['Nombre']?></option>
+                                        <option value=<?php echo $row['CodPersonalUptVirtual']?>><?php echo $row['DNI']?> (<?php echo $row['Nombres']?> <?php echo $row['Apellidos']?>)</option>
                                     <?php }?>
                                                 </select>
                                             </div>
