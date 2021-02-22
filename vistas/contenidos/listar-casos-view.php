@@ -36,9 +36,6 @@
                             <tbody>
                             
                                 <?php 
-                               // require_once "./modelos/CasoModelo.php";
-                               // $casos=new CasoModelo();
-                                //$datos=$casos->get_casos();
 
                                 require_once "./controladores/CasoControlador.php";
                                 $casos=new CasoControlador();

@@ -15,20 +15,31 @@ if($_SESSION['estado_spm']!=1){
                                     
                                     <div class="clearfix"></div>
                                 </div>
+
                                 <div class="x_content">
+
                                     <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/UsuarioPersonalUptVirtualAjax.php" method="POST" data-form="save" novalidate>
                                         
                                         </p>
                                         <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
 
-            
+                      <?php 
 
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Personal<span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="personaluptvirtual_reg">
-                                                    <option value="1" selected="">Activo</option>
-                                                     <option value="2">Inactivo</option>
+                                require_once "./controladores/CasoControlador.php";
+                                $casos=new CasoControlador();
+                                $datos=$casos->Listar_casos_controlador();
+                                $count=1;
+                                $nuevoestado="Activo";
+                                ?>
+
+                                <div class="field item form-group">
+                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Personal<span class="required">*</span></label>
+
+                                    <div class="col-md-6 col-sm-6">
+                                        <select class="form-control" name="personaluptvirtual_reg">
+                            <?php foreach($datos as $row){ ?>
+                                        <option value=<?php echo $row['CodCaso']?>><?php echo $row['Nombre']?></option>
+                                    <?php }?>
                                                 </select>
                                             </div>
                                         </div>

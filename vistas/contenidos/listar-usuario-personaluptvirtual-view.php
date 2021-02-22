@@ -76,6 +76,7 @@
 
                                 <td>
                                     <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> </a>
+                                    
                                     <a href="<?php echo SERVERURL?>agregar-casos/<?php echo $row['CodUsuarioPersonalUptVirtual']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-pencil fa-sm"></i> </a>
                                   
 
