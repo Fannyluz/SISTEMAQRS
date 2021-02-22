@@ -19,7 +19,7 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
       return $sql;
     }
     public function listar_usuariopersonaluptvirtual_modelo(){
-      $consulta="SELECT * FROM usuariopersonaluptvirtual";
+      $consulta="SELECT * FROM usuariopersonaluptvirtual INNER JOIN personaluptvirtual ON usuariopersonaluptvirtual.CodPersonalUptVirtual =personaluptvirtual.CodPersonalUptVirtual";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
@@ -28,7 +28,7 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
   }
   protected static function eliminar_usuariopersonaluptvirtual_modelo($codigo)
   {
-    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM usuariopersonaluptvirtual WHERE  CodUsuarioPersonalUptVirtual=:CodUsuarioPersonalUptVirtual");
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM usuariopersonaluptvirtual WHERE CodUsuarioPersonalUptVirtual=:CodUsuarioPersonalUptVirtual");
     $sql->bindParam(":CodUsuarioPersonalUptVirtual",$codigo);
     $sql->execute();
     return $sql;

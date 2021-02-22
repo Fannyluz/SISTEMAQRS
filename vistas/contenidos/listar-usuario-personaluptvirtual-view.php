@@ -26,6 +26,7 @@
                             <thead>
                                 <tr>
                                 <th>Item</th>
+                                <th>DNI</th>
                                 <th>nombres y Apellidos</th>
                                 <th>usuario</th>
                                 <th>Clave</th>
@@ -50,7 +51,8 @@
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['CodPersonalUptVirtual']?></td> 
+                                <td><?php echo $row['DNI']?></td> 
+                                <td><?php echo $row['Nombres']?>  <?php echo $row['Apellidos']?></td> 
                                 <td><?php echo $row['Usuario']?></td> 
                                 <td><?php echo $row['Clave']?></td> 
                                 <td><?php if($row['Privilegio']=="1")
