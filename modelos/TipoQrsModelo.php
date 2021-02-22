@@ -2,10 +2,10 @@
 
 require_once "modeloPrincipal.php";
 
-class TipoUsuarioModelo extends modeloPrincipal{
+class TipoQrsModelo extends modeloPrincipal{
  /*----- Modelo agregar casos */
-    protected static function agregar_tipousuario_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO tipousuario(Nombre,Descripcion,Fecha,Estado) 
+    protected static function agregar_tipoqrs_modelo($datos){
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO tipoqrs(Nombre,Descripcion,Fecha,Estado) 
       VALUES(:Nombre,:Descripcion,:Fecha,:Estado)");
       $sql->bindParam(":Nombre",$datos['Nombre']);
       $sql->bindParam(":Descripcion",$datos['Descripcion']);
@@ -14,20 +14,20 @@ class TipoUsuarioModelo extends modeloPrincipal{
       $sql->execute();
       return $sql;
     }
-    public function listar_tipousuario_modelo(){
-      $consulta="SELECT * FROM tipousuario";
+    public function listar_tipoqrs_modelo(){
+      $consulta="SELECT * FROM tipoqrs";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
       return $datos;
       
   }
-  protected static function eliminar_tipousuario_modelo($codigo)
+  protected static function eliminar_tipoqrs_modelo($codigo)
   {
-    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM tipousuario WHERE  CodTipoUsuario=:CodTipoUsuario");
-    $sql->bindParam(":CodTipoUsuario",$codigo);
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM tipoqrs WHERE  CodTipoQRS=:CodTipoQRS");
+    $sql->bindParam(":CodTipoQRS",$codigo);
     $sql->execute();
     return $sql;
   }
 
- }
+}

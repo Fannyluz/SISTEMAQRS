@@ -69,7 +69,7 @@ function alertas_ajax(alerta){
             type: alerta.Tipo,
             confirmButtonText: 'Aceptar'
           });
-    } else if(alerta.Alerta === "recargar"){
+    } else if(alerta.Alerta == "recargar"){
         Swal.fire({
             title: alerta.Titulo,
             text: alerta.Texto,
@@ -80,7 +80,7 @@ function alertas_ajax(alerta){
                 location.reload();
             }
           });
-    }else if(alerta.Alerta === "Limpiar"){
+    }else if(alerta.Alerta == "Limpiar"){
         Swal.fire({
             title: alerta.Titulo,
             text: alerta.Texto,
@@ -91,7 +91,7 @@ function alertas_ajax(alerta){
                 document.querySelector(".FormularioAjax").reset();
             }
           });
-    }else if (lerta.Alerta === "redireccionar"){
+    }else if (lerta.Alerta == "redireccionar"){
         window.location.href=alerta.URL;
     }
 
