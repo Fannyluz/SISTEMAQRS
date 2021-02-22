@@ -49,8 +49,8 @@
                            <div class="clearfix"></div>
                     <?php 
 
-                            require_once "./controladores/personal.php";
-                                $casos=new personal();
+                            require_once "./controladores/PersonalControlador.php";
+                                $casos=new PersonalControlador();
                                 $datos=$casos->Listar_personal_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
