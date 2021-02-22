@@ -26,6 +26,13 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
       return $datos;
       
   }
+  protected static function eliminar_usuariopersonaluptvirtual_modelo($codigo)
+  {
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM usuariopersonaluptvirtual WHERE  CodUsuarioPersonalUptVirtual=:CodUsuarioPersonalUptVirtual");
+    $sql->bindParam(":CodUsuarioPersonalUptVirtual",$codigo);
+    $sql->execute();
+    return $sql;
+  }
 
 
  }

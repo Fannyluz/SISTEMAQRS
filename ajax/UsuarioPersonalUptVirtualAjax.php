@@ -2,7 +2,7 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['usuario_reg'])){
+    if(isset($_POST['usuario_reg'])|| isset($_POST['usuariopersonaluptvirtual_codigo_del'])){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/UsuarioPersonalUptVirtualControlador.php";
         $ins_caso = new UsuarioPersonalUptVirtualControlador();
@@ -11,7 +11,11 @@
             if(isset($_POST['usuario_reg']) && isset($_POST['clave_reg']) && isset($_POST['estado_reg'])){
                 echo $ins_caso->agregar_usuariopersonaluptvirtual_controlador();
             }
-            
+
+            // Eliminar un usuario personal uptvirtual
+            if(isset($_POST['usuariopersonaluptvirtual_codigo_del'])){
+                echo $ins_caso->Eliminar_usuariopersonaluptvirtual_ontrolador();
+            }
         
     }else{
         session_start(['name' => 'QRS']);

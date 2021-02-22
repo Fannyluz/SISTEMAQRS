@@ -61,4 +61,60 @@
       } // fin del controlador 
 
 
+       /*controlador eliminar usuario personal uptvirtual*/
+        public function Eliminar_usuariopersonaluptvirtual_ontrolador()
+        {
+          // recibiendo el codigo del Tipo usuario
+        
+           $codigo=modeloPrincipal::limpiar_cadena($_POST['usuariopersonaluptvirtual_codigo_del']);
+  
+           // recibiendo el Tipo usuario 
+           if($codigo==1){
+            $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"No podemos eliminar el tipo usuario principal del sistema",
+                    "Tipo"=>"error"
+                 ];
+                 echo json_encode($alerta);
+                 exit();
+           }
+           // comprobar el Tipo usuario en BD
+           $check_usuariopersonaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT CodUsuarioPersonalUptVirtual  FROM usuariopersonaluptvirtual WHERE CodUsuarioPersonalUptVirtual='$codigo'");
+           if($check_usuariopersonaluptvirtual->rowCount()<=0)
+           {
+             $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"El tipo QRS que intenta eliminar no existe en el sistema",
+                    "Tipo"=>"error"
+                 ];
+                 echo json_encode($alerta);
+                 exit();
+  
+           }
+           
+  //eliminar Tipo usuario
+           $eliminar_usuariopersonaluptvirtual=UsuarioPersonalUptVirtualModelo::eliminar_usuariopersonaluptvirtual_modelo($codigo);
+           if($eliminar_usuariopersonaluptvirtual->rowCount()==1){
+              $alerta=[
+                    "Alerta"=>"recargar",
+                    "Titulo"=>"Caso eliminado",
+                    "Texto"=>"el tipo usuario ha sido eliminado del sistema exitosamente",
+                    "Tipo"=>"success"
+                 ];
+           }else{
+            $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"No hemos podido eliminar el tipo usuario, por favor intente nuevamente",
+                    "Tipo"=>"error"
+                 ];
+  
+           }
+           echo json_encode($alerta);
+        } // fin del controlador 
+
+
+
 }

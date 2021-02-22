@@ -76,8 +76,17 @@
 
                                 <td>
                                     <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> </a>
-                                    <a href="#" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i> </a>
-                                    <a href="#" class="btn btn-round btn-outline-danger btn-sm"><i class="fa fa-trash-o fa-sm"></i> </a>
+                                    <a href="<?php echo SERVERURL?>agregar-casos/<?php echo $row['CodUsuarioPersonalUptVirtual']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-pencil fa-sm"></i> </a>
+                                  
+
+                                    <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/UsuarioPersonalUptVirtualAjax.php" method="POST" data-form="delete" novalidate> 
+                                        <input type="hidden" name="usuariopersonaluptvirtual_codigo_del" value="<?php echo $row['CodUsuarioPersonalUptVirtual']; ?>" />    
+                                            <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
+                                            <i class="fa fa-trash-o fa-sm"></i> 
+
+                                            </button>
+                                            </input>
+                                        </form> 
                                 </td>
                                 </tr>
                                 <?php }  ?>
