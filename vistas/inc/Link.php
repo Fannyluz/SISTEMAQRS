@@ -23,8 +23,7 @@
     
     <!-- sweet alert V8.13.0 CSS FILE -->
     <script src="<?php echo SERVERURL; ?>vistas/js/sweetalert2.min.js"></script>
-    
-    
+
     
 
 

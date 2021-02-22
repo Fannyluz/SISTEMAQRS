@@ -1,27 +1,21 @@
 <?php
      
      if($peticionAjax){
-        require_once "../modelos/TipoPersonalModelo.php";
+        require_once "../modelos/RolModelo.php";
      }else{
-        require_once "./modelos/TipoPersonalModelo.php"; 
+        require_once "./modelos/RolModelo.php";
      }
 
 
-     class TipoPersonalControlador extends TipoPersonalModelo{
+     class RolControlador extends RolModelo{
       
-           /*--- controlador agregar tipo personal--*/ 
-           public function agregar_tipopersonal_controlador(){
-
-            $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
-            $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
-            $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
-            $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
-            $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
-            $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
-            $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
-            $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
-            $fecha=modeloPrincipal::limpiar_cadena($_POST['caso_fecha_reg']);
-            $estado=modeloPrincipal::limpiar_cadena($_POST['caso_estado_reg']);
+           /*--- controlador agregar usuario--*/
+           public function agregar_rol_controlador(){
+            
+            $nombre=modeloPrincipal::limpiar_cadena($_POST['rol_nombre_reg']);
+            $descripcion=modeloPrincipal::limpiar_cadena($_POST['rol_descripcion_reg']);
+            $fecha=modeloPrincipal::limpiar_cadena($_POST['rol_fecha_reg']);
+            $estado=modeloPrincipal::limpiar_cadena($_POST['rol_estado_reg']);
 
 
             //comprobar campos vacios
@@ -38,8 +32,8 @@
             }     
             
             //comprobar el nombre
-            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM caso WHERE Nombre='$nombre'");
-            if($check_nombreCaso->rowCount()>0){
+            $check_codRol=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM rolpersonal WHERE Nombre='$nombre'");
+            if($check_codRol->rowCount()>0){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -51,7 +45,8 @@
             }
 
 
-            $datos_caso_registro=[
+            $datos_rol_registro=[
+               
                "Nombre"=>$nombre,
                "Descripcion"=>$descripcion,
                "Fecha"=>$fecha,
@@ -59,9 +54,9 @@
             ];
 
 
-            $agregar_caso = CasoModelo::agregar_caso_modelo($datos_caso_registro);
+            $agregar_rol = RolModelo::agregar_rol_modelo($datos_rol_registro);
            
-            if($agregar_caso->rowCount()==1){
+            if($agregar_rol->rowCount()==1){
                
                $alerta=[
                   "Alerta"=>"Limpiar",

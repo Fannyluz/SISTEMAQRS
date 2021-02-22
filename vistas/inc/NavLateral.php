@@ -85,7 +85,7 @@
                   </li>
                   <li><a><i class="fa fa-users"></i>Rol Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>agregar-tipo-personal/">Agregar Rol Personal UptVirtual</a></li>
+                      <li><a href=" <?php echo SERVERURL?>agregar-rol-personal/">Agregar Rol Personal UptVirtual</a></li>
 					            <li><a href=" <?php echo SERVERURL?>nombre/">Listar Rol Personal UptVirtual</a></li>
 
                     </ul>
@@ -95,7 +95,7 @@
                 <ul class="nav side-menu">
                   <li><a><i class="fa fa-user"></i> Personales UptVirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Personal UptVirtual</a></li>
+                      <li><a href=" <?php echo SERVERURL?>agregar-personal/">Agregar Personal UptVirtual</a></li>
                       <li><a href=" <?php echo SERVERURL?>personal-uptvirtual/">Listar Personal UptVirtual</a></li>
                     </ul>
                   </li>
