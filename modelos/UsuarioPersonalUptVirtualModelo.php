@@ -19,7 +19,10 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
       return $sql;
     }
     public function listar_usuariopersonaluptvirtual_modelo(){
-      $consulta="SELECT * FROM usuariopersonaluptvirtual";
+      $consulta="SELECT CodPersonalUptVirtual,
+      Usuario,Clave, 
+      Privilegio,
+      Fecha FROM usuariopersonaluptvirtual ";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
