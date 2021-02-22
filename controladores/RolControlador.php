@@ -76,5 +76,15 @@
             
             echo json_encode($alerta);
       } // fin del controlador 
+
+      /*controlador listar personales de la oficina de educación virtual*/
+      public function Listar_rolpersonal_controlador()
+      {
+         $datos=RolModelo::listar_rolpersonal_modelo();
+         return $datos;
+      } // fin del controlador 
+
+
+
       
      }

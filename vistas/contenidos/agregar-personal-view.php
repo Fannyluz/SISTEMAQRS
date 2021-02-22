@@ -45,11 +45,23 @@
                                         </p>
                                         <span class="section">Agregar el Rol para el Personal de la Oficina de Educación Virtual</span>
 
+
+                                        <?php 
+
+                                        require_once "./controladores/RolControlador.php";
+                                        $casos=new RolControlador();
+                                        $datos=$casos->Listar_rolpersonal_controlador();
+                                        $count=1;
+                                        $nuevoestado="Activo";
+                                        ?>
+
                                         <div class="field item form-group">
                                             <label for="" class="col-form-label col-md-3 col-sm-3  label-align">Rol Personal<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                             <select id="rol_nombre_reg" name="rol_nombre_reg" class="form-control" value="<?php echo $CodRolPersonal; ?>" >
-                                            
+                                            <?php foreach($datos as $row){ ?>
+                                        <option value=<?php echo $row['CodRolPersonal']?>><?php echo $row['Nombre']?></option>
+                                        <?php }?>
        
                                             </select>
 
