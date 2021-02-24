@@ -3,27 +3,14 @@
      if($peticionAjax){
         require_once "../modelos/PersonalModelo.php";
      }else{
-        require_once "./modelos/PersonalModelo.php";  
-
-       /* $rol = new Rol();
-
-        switch($GET["op"]){
-           case "combo":
-            $dato=$producto->get_rolpersonal($_POST["CodRolPersonal"]);
-            if(is_array($dato)==true and count($dato)>0){
-               $html="<option value='".$row['CodRolPersonal']."'>".$row['Nombre']."</option>";
-            }
-            echo $html;
-        }
-        break;*/
+        require_once "./modelos/PersonalModelo.php";
      }
-
-     class PersonalControlador extends PersonalModelo{
+  class PersonalControlador extends PersonalModelo{
       
-           /*--- controlador agregar tipo personal--*/ 
-           public function agregar_personal_controlador(){
+           /*--- controlador agregar personal--*/
+           public function agregar_personal_controlador(){ 
 
-            $rolnombre=modeloPrincipal::limpiar_cadena($_POST['rol_nombre_reg']);
+            $rolpersonal=modeloPrincipal::limpiar_cadena($_POST['rol_nombre_reg']);
             $dni=modeloPrincipal::limpiar_cadena($_POST['personal_dni_reg']);
             $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_reg']);
             $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_reg']);
@@ -33,46 +20,25 @@
             $direccion=modeloPrincipal::limpiar_cadena($_POST['personal_direccion_reg']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['personal_fecha_reg']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['personal_estado_reg']);
-
-
-            //comprobar campos vacios
-            if($nombre=="" || $descripcion==""){
-               $alerta=[
-                  "Alerta"=>"simple",
-                  "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"No has llenado todos los campos obligatorios",
-                  "Tipo"=>"error"
-               ];
-               echo json_encode($alerta);
-
-               exit();
-            }     
             
-            //comprobar el nombre
-            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM caso WHERE Nombre='$nombre'");
-            if($check_nombreCaso->rowCount()>0){
-               $alerta=[
-                  "Alerta"=>"simple",
-                  "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"Existe un caso registrado con el mismo nombre, por favor registre un caso diferente",
-                  "Tipo"=>"error"
-               ];
-               echo json_encode($alerta);
-               exit();
-            }
 
-
-            $datos_caso_registro=[
-               "Nombre"=>$nombre,
-               "Descripcion"=>$descripcion,
+            $datos_personal_registro=[
+               "CodRolPersonal"=>$rolpersonal,
+               "DNI"=>$dni,
+               "Nombres"=>$nombre,
+               "Apellidos"=>$apellido,
+               "Foto"=>$foto,
+               "CorreoElectronico"=>$correo,
+               "Celular"=>$celular,
+               "Direccion"=>$direccion,
                "Fecha"=>$fecha,
                "Estado"=>$estado
             ];
 
 
-            $agregar_caso = CasoModelo::agregar_caso_modelo($datos_caso_registro);
+            $agregar_personal = PersonalModelo::agregar_personal_modelo($datos_personal_registro);
            
-            if($agregar_caso->rowCount()==1){
+            if($agregar_personal->rowCount()==1){
                
                $alerta=[
                   "Alerta"=>"Limpiar",
@@ -80,6 +46,7 @@
                   "Texto"=>"Se registro los datos correctamente",
                   "Tipo"=>"success"
                ];
+              
             }else {
          
                $alerta=[
@@ -93,12 +60,68 @@
             echo json_encode($alerta);
       } // fin del controlador 
 
-         /*controlador listar personales de la oficina de educación virtual*/
-         public function Listar_personal_controlador()
-         {
-            $datos=PersonalModelo::listar_personal_modelo();
-            return $datos;
-         } // fin del controlador 
-   
+      /*controlador listar casos*/
+      public function Listar_personal_controlador()
+      {
+         $datos=PersonalModelo::listar_personal_modelo();
+         return $datos;
+      } // fin del controlador 
 
-     }
+
+       /*controlador eliminar usuario personal uptvirtual*/
+        public function Eliminar_personal_ontrolador()
+        {
+          // recibiendo el codigo del Tipo usuario
+        
+           $codigo=modeloPrincipal::limpiar_cadena($_POST['rolpersonal_nombre_reg']); 
+  
+           // recibiendo el Tipo usuario 
+           if($codigo==1){
+            $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"No podemos eliminar el tipo usuario principal del sistema",
+                    "Tipo"=>"error"
+                 ];
+                 echo json_encode($alerta);
+                 exit();
+           }
+           // comprobar el Tipo usuario en BD
+           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT CodRolPersonal  FROM personaluptvirtual WHERE CodRolPersonal='$rolpersonal'");
+           if($check_personaluptvirtual->rowCount()<=0)
+           {
+             $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"El tipo QRS que intenta eliminar no existe en el sistema",
+                    "Tipo"=>"error"
+                 ];
+                 echo json_encode($alerta);
+                 exit();
+  
+           }
+           
+  //eliminar Tipo usuario
+           $eliminar_personal=PersonalModelo::eliminar_personal_modelo($rolpersonal);
+           if($eliminar_personal_modelo->rowCount()==1){
+              $alerta=[
+                    "Alerta"=>"recargar",
+                    "Titulo"=>"Caso eliminado",
+                    "Texto"=>"el tipo usuario ha sido eliminado del sistema exitosamente",
+                    "Tipo"=>"success"
+                 ];
+           }else{
+            $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"No hemos podido eliminar el tipo usuario, por favor intente nuevamente",
+                    "Tipo"=>"error"
+                 ];
+  
+           }
+           echo json_encode($alerta);
+        } // fin del controlador 
+
+
+
+}

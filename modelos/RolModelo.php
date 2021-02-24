@@ -15,7 +15,7 @@ class RolModelo extends modeloPrincipal{
       $sql->execute();
       return $sql;
     }
-    public function listar_rolpersonal_modelo(){
+    public function listar_rol_modelo(){
         $consulta="SELECT * FROM rolpersonal";
         $conexion=modeloPrincipal::conectar();
         $datos=$conexion->query($consulta);

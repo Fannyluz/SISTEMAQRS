@@ -78,9 +78,9 @@
       } // fin del controlador 
 
       /*controlador listar personales de la oficina de educación virtual*/
-      public function Listar_rolpersonal_controlador()
+      public function Listar_rol_controlador()
       {
-         $datos=RolModelo::listar_rolpersonal_modelo();
+         $datos=RolModelo::listar_rol_modelo();
          return $datos;
       } // fin del controlador 
 

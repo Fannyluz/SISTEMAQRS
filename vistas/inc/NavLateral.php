@@ -89,7 +89,7 @@
                     <li><a><i class="fa fa-users"></i>Rol Personal UptVirtual <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href=" <?php echo SERVERURL?>agregar-rol-personal/">Agregar Rol Personal UptVirtual</a></li>
-  					            <li><a href=" <?php echo SERVERURL?>nombre/">Listar Rol Personal UptVirtual</a></li>
+  					            <li><a href=" <?php echo SERVERURL?>listar-rol/">Listar Rol Personal UptVirtual</a></li>
                       </ul>
                     </li>
                   <?php } ?> 
@@ -98,7 +98,7 @@
                       <ul class="nav child_menu">
                         <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
                         <li><a href=" <?php echo SERVERURL?>agregar-personal/">Agregar Personal UptVirtual</a></li>
-                        <li><a href=" <?php echo SERVERURL?>personal-uptvirtual/">Listar Personal UptVirtual</a></li>
+                        <li><a href=" <?php echo SERVERURL?>listar-personal/">Listar Personal UptVirtual</a></li>
                         <?php } ?> 
                         <?php if($_SESSION['privilegio_spm']==3){ ?>
                          <li><a href=" <?php echo SERVERURL?>personal-uptvirtual/">Personales UptVirtual</a></li>
