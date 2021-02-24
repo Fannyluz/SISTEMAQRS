@@ -54,7 +54,7 @@
                   <li><a><i class="fa fa-home"></i> UPTvirtual <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href=" <?php echo SERVERURL?>general/">General</a></li>
-                      <li><a href=" <?php echo SERVERURL?>mision/"> Misión</a></li>
+                      <li><a href=" <?php echo SERVERURL?>mision/">Nosotros</a></li>
                     </ul>
                   </li>
                   
@@ -114,25 +114,43 @@
                       </ul>
                     </li>
                     <?php } ?>
-                  
+
+                  <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
                     <li><a><i class="fa fa-paste"></i> actividades QRS<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href=" <?php echo SERVERURL?>nombre/">Registrar Actividad QRS</a></li>
                         <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades QRS</a></li>
                       </ul>
                    </li>  
+                   <?php } ?>
 
+                   <?php if($_SESSION['privilegio_spm']==3){ ?>
+                   <li><a><i class="fa fa-paste"></i> actividades QRS - U<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+                        <li><a href=" <?php echo SERVERURL?>nombre/">Registrar Actividad QRS - U</a></li>
+                        <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades QRS - U</a></li>
+                      </ul>
+                   </li> 
+                    <?php } ?>
+           
+            <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
             <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades QRS Atendidas<span class="label label-success pull-right"></a></li>
-              <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-book"></i> Generar PDF - QRS Atendidas<span class="label label-success pull-right"></a></li>
-				  
-				  <li><a><i class="fa fa-bar-chart-o"></i> Reportes <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Agregar Usuario UptVirtual</a></li>
-                      <li><a href=" <?php echo SERVERURL?>nombre/">&nbsp; Listar Usuario UptVirtual</a></li>
-                  
-                      
-                    </ul>
-				  </li>
+            <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades QRS Pendientes<span class="label label-success pull-right"></a></li>
+            <?php } ?>
+
+             <?php if($_SESSION['privilegio_spm']==3){ ?>
+            <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades Atendidas - U<span class="label label-success pull-right"></a></li>
+            <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades Pendientes-U<span class="label label-success pull-right"></a></li>
+              <?php } ?>
+
+              <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
+              <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-book"></i> Generar EXCEL -PDF - Actividades QRS<span class="label label-success pull-right"></a></li>
+                <?php } ?>
+
+                <?php if($_SESSION['privilegio_spm']==3){ ?>
+                <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-book"></i> Generar EXCEL -PDF - Actividades QRS -U<span class="label label-success pull-right"></a></li>
+				        <?php } ?>
+
                 </ul>
               </div>  
 

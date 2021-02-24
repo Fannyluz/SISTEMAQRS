@@ -26,7 +26,7 @@
                                     Es el órgano de apoyo encargado de la administración y mantenimiento del sistema de aula virtual, sistema de videoconferencia y soporte informático de aplicaciones orientadas a cubrir las necesidades de la educación no presencial de la Universidad Privada de Tacna y depende del Vicerrectorado Académico.</p>
                                 </div>
 
-                                <h2>Misión</h2>
+                                <h2>Objetivo</h2>
                                     
                                    
                                     <div class="clearfix"></div>

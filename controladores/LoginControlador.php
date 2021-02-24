@@ -42,7 +42,7 @@
             $_SESSION['privilegio_spm']=$row['Privilegio'];
             $_SESSION['estado_spm']=$row['Estado'];
             $_SESSION['token_spm']=md5(uniqid(mt_rand(),true));
-            return header("Location:".SERVERURL."home/");
+            return header("Location:".SERVERURL."general/");
          }else{
             echo '
             <script>
