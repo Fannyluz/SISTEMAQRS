@@ -28,19 +28,19 @@
          }
 
          $datos_login=[
-            "Usuario"=>$usuario,
-            "Clave "=>$clave
+            "UPUusuario"=>$usuario,
+            "UPUclave"=>$clave
          ];
          $datos_cuenta=LoginModelo::iniciar_sesion_modelo($datos_login);
          if($datos_cuenta->rowCount()==1)
          {
             $row=$datos_cuenta->fetch();
             session_start(['name' => 'QRS']);
-            $_SESSION['CodUsuarioPersonalUptVirtual_spm']=$row['CodUsuarioPersonalUptVirtual'];
-            $_SESSION['usuario_spm']=$row['Usuario'];
-            $_SESSION['clave_spm']=$row['Clave'];
-            $_SESSION['privilegio_spm']=$row['Privilegio'];
-            $_SESSION['estado_spm']=$row['Estado'];
+            $_SESSION['CodUsuarioPersonalUptVirtual_spm']=$row['UPUcodigo'];
+            $_SESSION['usuario_spm']=$row['UPUusuario'];
+            $_SESSION['clave_spm']=$row['UPUclave'];
+            $_SESSION['privilegio_spm']=$row['UPUprivilegio'];
+            $_SESSION['estado_spm']=$row['UPUestado'];
             $_SESSION['token_spm']=md5(uniqid(mt_rand(),true));
             return header("Location:".SERVERURL."general/");
          }else{

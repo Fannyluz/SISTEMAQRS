@@ -63,12 +63,12 @@
                                     <div class="col-sm-12">
                                       <h4 class="brief"><i>Personal UPT Virtual</i></h4>
                                       <div class="left col-md-7 col-sm-7" >
-                                        <h2><?php echo $row['Nombres']?> <?php echo $row['Apellidos']?></h2>
-                                        <p><strong>Rol: </strong> <?php echo $row['CodRolPersonal']?> </p>
+                                        <h2><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></h2>
+                                        <p><strong>Rol: </strong> <?php echo $row['ROPcodigo']?> </p>
                                         <ul class="list-unstyled">
-                                          <li><i class="fa fa-building"></i> <?php echo $row['Direccion']?></li>
-                                          <li><i class="fa fa-envelope"></i> <?php echo $row['CorreoElectronico']?></li>
-                                          <li><i class="fa fa-phone"></i> <?php echo $row['Celular']?></li>
+                                          <li><i class="fa fa-building"></i> <?php echo $row['PEUdireccion']?></li>
+                                          <li><i class="fa fa-envelope"></i> <?php echo $row['PEUcorreoElectronico']?></li>
+                                          <li><i class="fa fa-phone"></i> <?php echo $row['PEUcelular']?></li>
                                         </ul>
                                       </div>
                                       <div class="right col-md-5 col-sm-5 text-center">
@@ -78,7 +78,7 @@
                                     <div class=" profile-bottom text-center">
                                       <div class=" col-sm-6 emphasis">
                                         <p class="ratings">
-                                          <a><?php if($row['Estado']=="1")
+                                          <a><?php if($row['PEUestado']=="1")
                                           {
                                               echo $nuevoestado = "Activo";
                                               ?>

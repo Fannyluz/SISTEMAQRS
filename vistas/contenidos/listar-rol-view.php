@@ -49,11 +49,11 @@
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['Nombre']?></td> 
-                                <td><?php echo $row['Descripcion']?></td> 
-                                <td><?php echo $row['Fecha']?></td> 
+                                <td><?php echo $row['ROPnombre']?></td> 
+                                <td><?php echo $row['ROPdescripcion']?></td> 
+                                <td><?php echo $row['ROPfecha']?></td> 
                                 
-                                <td><?php if($row['Estado']=="1")
+                                <td><?php if($row['ROPestado']=="1")
                                 {
                                     echo $nuevoestado = "Activo";
                                 }else{
@@ -69,7 +69,7 @@
                                                  </a>
                                                  
                                     <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CodCaso']; ?>" />    
+                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['ROPcodigo']; ?>" />    
                                         <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
                                         <i class="fa fa-trash-o fa-sm"></i> 
 

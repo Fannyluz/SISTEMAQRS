@@ -14,25 +14,25 @@ public function get_rolpersonal($CodRolPersonal){
  /*----- fin obtener datos -----*/
   /*----- Modelo agregar tipo personal -----*/ 
  protected static function agregar_personal_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO personaluptvirtual(
-      CodRolPersonal,DNI,Nombres,Apellidos,Foto,CorreoElectronico,Celular,Direccion,Fecha,Estado) 
-      VALUES(:CodRolPersonal,:DNI,:Nombres,:Apellidos,:Foto,:CorreoElectronico,:Celular,:Direccion,:Fecha,:Estado)");
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevpeutpersonaluptvirtual(
+      ROPcodigo,PEUDNI,PEUnombres,ApePEUapellidosllidos,PEUfoto,PEUcorreoElectronico,PEUcelular,PEUdireccion,PEUfecha,PEUestado) 
+      VALUES(:ROPcodigo,:PEUDNI,:PEUnombres,:PEUapellidos,:PEUfoto,:PEUcorreoElectronico,:PEUcelular,:PEUdireccion,:PEUfecha,:PEUestado)");
       
-      $sql->bindParam(":CodRolPersonal",$datos['CodRolPersonal']);
-      $sql->bindParam(":DNI",$datos['DNI']);
-      $sql->bindParam(":Nombres",$datos['Nombres']);
-      $sql->bindParam(":Apellidos",$datos['Apellidos']);
-      $sql->bindParam(":Foto",$datos['Foto']);
-      $sql->bindParam(":CorreoElectronico",$datos['CorreoElectronico']);
-      $sql->bindParam(":Celular",$datos['Celular']);
-      $sql->bindParam(":Direccion",$datos['Direccion']);
-      $sql->bindParam(":Fecha",$datos['Fecha']);
-      $sql->bindParam(":Estado",$datos['Estado']);
+      $sql->bindParam(":ROPcodigo",$datos['ROPcodigo']);
+      $sql->bindParam(":PEUDNI",$datos['PEUDNI']);
+      $sql->bindParam(":PEUnombres",$datos['PEUnombres']);
+      $sql->bindParam(":PEUapellidos",$datos['PEUapellidos']);
+      $sql->bindParam(":PEUfoto",$datos['PEUfoto']);
+      $sql->bindParam(":PEUcorreoElectronico",$datos['PEUcorreoElectronico']);
+      $sql->bindParam(":PEUcelular",$datos['PEUcelular']);
+      $sql->bindParam(":PEUdireccion",$datos['PEUdireccion']);
+      $sql->bindParam(":PEUfecha",$datos['PEUfecha']);
+      $sql->bindParam(":PEUestado",$datos['PEUestado']);
       $sql->execute();
       return $sql;
     }
     public function listar_personal_modelo(){
-        $consulta="SELECT * FROM personaluptvirtual";
+        $consulta="SELECT * FROM oevpeutpersonaluptvirtual";
         $conexion=modeloPrincipal::conectar();
         $datos=$conexion->query($consulta);
         $datos=$datos->fetchAll();

@@ -51,14 +51,14 @@
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['DNI']?></td> 
-                                <td><?php echo $row['Nombres']?>  <?php echo $row['Apellidos']?></td> 
-                                <td><?php echo $row['Usuario']?></td> 
-                                <td><?php echo $row['Clave']?></td> 
-                                <td><?php if($row['Privilegio']=="1")
+                                <td><?php echo $row['PEUDNI']?></td> 
+                                <td><?php echo $row['PEUnombres']?>  <?php echo $row['PEUapellidos']?></td> 
+                                <td><?php echo $row['UPUusuario']?></td> 
+                                <td><?php echo $row['UPUclave']?></td> 
+                                <td><?php if($row['UPUprivilegio']=="1")
                                 {
                                     echo $nuevoPrivilegio = "Control Total";
-                                }else if($row['Privilegio']=="2")
+                                }else if($row['UPUprivilegio']=="2")
                                 {
                                         echo $nuevoPrivilegio = "Edición";
                                 }
@@ -67,8 +67,8 @@
                                 }
                                  ?></td> 
 
-                                <td><?php echo $row['Fecha']?></td> 
-                                <td><?php if($row['Estado']=="1")
+                                <td><?php echo $row['UPUfecha']?></td> 
+                                <td><?php if($row['UPUestado']=="1")
                                 {
                                     echo $nuevoestado = "Activo";
                                 }else{
@@ -78,11 +78,11 @@
 
                                 <td>
                                     <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> </a>
-                                    <a href="<?php echo SERVERURL?>agregar-casos/<?php echo $row['CodUsuarioPersonalUptVirtual']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-pencil fa-sm"></i> </a>
+                                    <a href="<?php echo SERVERURL?>agregar-casos/<?php echo $row['UPUcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-pencil fa-sm"></i> </a>
                                   
 
                                     <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/UsuarioPersonalUptVirtualAjax.php" method="POST" data-form="delete" novalidate> 
-                                        <input type="hidden" name="usuariopersonaluptvirtual_codigo_del" value="<?php echo $row['CodUsuarioPersonalUptVirtual']; ?>" />    
+                                        <input type="hidden" name="usuariopersonaluptvirtual_codigo_del" value="<?php echo $row['UPUcodigo']; ?>" />    
                                             <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
                                             <i class="fa fa-trash-o fa-sm"></i> 
 

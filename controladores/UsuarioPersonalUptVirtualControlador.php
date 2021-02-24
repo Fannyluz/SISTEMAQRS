@@ -20,12 +20,12 @@
 
 
             $datos_usuariopersonaluptvirtual_registro=[
-               "CodPersonalUptVirtual"=>$personaluptvirtual,
-               "Usuario"=>$usuario,
-               "Clave"=>$clave,
-               "Privilegio"=>$privilegio,
-               "Fecha"=>$fecha,
-               "Estado"=>$estado
+               "PEUcodigo"=>$personaluptvirtual,
+               "UPUusuario"=>$usuario,
+               "UPUclave"=>$clave,
+               "UPUprivilegio"=>$privilegio,
+               "UPUfecha"=>$fecha,
+               "UPUestado"=>$estado
             ];
 
 
@@ -80,7 +80,7 @@
                  exit();
            }
            // comprobar el Tipo usuario en BD
-           $check_usuariopersonaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT CodUsuarioPersonalUptVirtual  FROM usuariopersonaluptvirtual WHERE CodUsuarioPersonalUptVirtual='$codigo'");
+           $check_usuariopersonaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT UPUcodigo  FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo='$codigo'");
            if($check_usuariopersonaluptvirtual->rowCount()<=0)
            {
              $alerta=[

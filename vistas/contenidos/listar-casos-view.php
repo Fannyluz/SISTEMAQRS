@@ -49,11 +49,11 @@
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['Nombre']?></td> 
-                                <td><?php echo $row['Descripcion']?></td> 
-                                <td><?php echo $row['Fecha']?></td> 
+                                <td><?php echo $row['CASnombre']?></td> 
+                                <td><?php echo $row['CASdescripcion']?></td> 
+                                <td><?php echo $row['CASfecha']?></td> 
                                 
-                                <td><?php if($row['Estado']=="1")
+                                <td><?php if($row['CASestado']=="1")
                                 {
                                     echo $nuevoestado = "Activo";
                                 }else{
@@ -65,11 +65,11 @@
                                 <td>
                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
-                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CodCaso']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                                  </a>
                                                  
                                     <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CodCaso']; ?>" />    
+                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CAScodigo']; ?>" />    
                                         <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
                                         <i class="fa fa-trash-o fa-sm"></i> 
 

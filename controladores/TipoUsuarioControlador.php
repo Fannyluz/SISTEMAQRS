@@ -32,7 +32,7 @@
             }     
             
             //comprobar el nombre
-            $check_nombretipousuario=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM tipousuario WHERE Nombre='$nombre'");
+            $check_nombretipousuario=modeloPrincipal::ejecutar_consulta_simple("SELECT TIUNombre FROM oevtiuttipousuario WHERE TIUNombre='$nombre'");
             if($check_nombretipousuario->rowCount()>0){
                $alerta=[
                   "Alerta"=>"simple",
@@ -46,10 +46,10 @@
 
 
             $datos_tipousuario_registro=[
-               "Nombre"=>$nombre,
-               "Descripcion"=>$descripcion,
-               "Fecha"=>$fecha,
-               "Estado"=>$estado
+               "TIUNombre"=>$nombre,
+               "TIUDescripcion"=>$descripcion,
+               "TIUFecha"=>$fecha,
+               "TIUEstado"=>$estado
             ];
 
 
@@ -105,7 +105,7 @@
                  exit();
            }
            // comprobar el Tipo usuario en BD
-           $check_tipousuario=modeloPrincipal::ejecutar_consulta_simple("SELECT CodTipoUsuario  FROM tipousuario WHERE CodTipoUsuario='$codigo'");
+           $check_tipousuario=modeloPrincipal::ejecutar_consulta_simple("SELECT TIUcodigo  FROM oevtiuttipousuario WHERE TIUcodigo='$codigo'");
            if($check_tipousuario->rowCount()<=0)
            {
              $alerta=[

@@ -49,11 +49,11 @@
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['Nombre']?></td> 
-                                <td><?php echo $row['Descripcion']?></td> 
-                                <td><?php echo $row['Fecha']?></td> 
+                                <td><?php echo $row['TIPnombre']?></td> 
+                                <td><?php echo $row['TIPdescripcion']?></td> 
+                                <td><?php echo $row['TIPfecha']?></td> 
                                 
-                                <td><?php if($row['Estado']=="1")
+                                <td><?php if($row['TIPestado']=="1")
                                 {
                                     echo $nuevoestado = "Activo";
                                 }else{
@@ -68,7 +68,7 @@
                                                     </a>
                                                     
                                         <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoQrsAjax.php" method="POST" data-form="delete" novalidate>
-                                        <input type="hidden" name="qrs_codigo_del" value="<?php echo $row['CodTipoQRS']; ?>" />    
+                                        <input type="hidden" name="qrs_codigo_del" value="<?php echo $row['TIPcodigo']; ?>" />    
                                             <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
                                             <i class="fa fa-trash-o fa-sm"></i> 
 

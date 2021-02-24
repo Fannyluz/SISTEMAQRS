@@ -38,7 +38,7 @@ if($_SESSION['estado_spm']!=1){
                                     <div class="col-md-6 col-sm-6">
                                         <select class="form-control" name="personaluptvirtual_reg">
                             <?php foreach($datos as $row){ ?>
-                                        <option value=<?php echo $row['CodPersonalUptVirtual']?>><?php echo $row['DNI']?> (<?php echo $row['Nombres']?> <?php echo $row['Apellidos']?>)</option>
+                                        <option value=<?php echo $row['PEUcodigo']?>><?php echo $row['PEUDNI']?> (<?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?>)</option>
                                     <?php }?>
                                                 </select>
                                             </div>

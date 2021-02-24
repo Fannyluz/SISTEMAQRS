@@ -30,7 +30,7 @@
             }     
             
             //comprobar el nombre
-            $check_nombretipoqrs=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM tipoqrs WHERE Nombre='$nombre'");
+            $check_nombretipoqrs=modeloPrincipal::ejecutar_consulta_simple("SELECT TIPnombre FROM oevtipttipoqrs WHERE TIPnombre='$nombre'");
             if($check_nombretipoqrs->rowCount()>0){
                $alerta=[
                   "Alerta"=>"simple",
@@ -44,10 +44,10 @@
 
 
             $datos_tipoqrs_registro=[
-               "Nombre"=>$nombre,
-               "Descripcion"=>$descripcion,
-               "Fecha"=>$fecha,
-               "Estado"=>$estado
+               "TIPnombre"=>$nombre,
+               "TIPdescripcion"=>$descripcion,
+               "TIPfecha"=>$fecha,
+               "TIPestado"=>$estado
             ];
 
 
@@ -102,7 +102,7 @@
                 exit();
           }
           // comprobar el QRS en BD
-          $check_tipoqrs=modeloPrincipal::ejecutar_consulta_simple("SELECT CodTipoQRS  FROM tipoqrs WHERE CodTipoQRS ='$codigo'");
+          $check_tipoqrs=modeloPrincipal::ejecutar_consulta_simple("SELECT TIPcodigo  FROM oevtipttipoqrs WHERE TIPcodigo  ='$codigo'");
           if($check_tipoqrs->rowCount()<=0)
           {
             $alerta=[

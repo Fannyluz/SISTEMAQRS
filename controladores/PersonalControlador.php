@@ -23,16 +23,16 @@
             
 
             $datos_personal_registro=[
-               "CodRolPersonal"=>$rolpersonal,
-               "DNI"=>$dni,
-               "Nombres"=>$nombre,
-               "Apellidos"=>$apellido,
-               "Foto"=>$foto,
-               "CorreoElectronico"=>$correo,
-               "Celular"=>$celular,
-               "Direccion"=>$direccion,
-               "Fecha"=>$fecha,
-               "Estado"=>$estado
+               "ROPcodigo"=>$rolpersonal,
+               "PEUDNI"=>$dni,
+               "PEUnombres"=>$nombre,
+               "PEUapellidos"=>$apellido,
+               "PEUfoto"=>$foto,
+               "PEUcorreoElectronico"=>$correo,
+               "PEUcelular"=>$celular,
+               "PEUdireccion"=>$direccion,
+               "PEUfecha"=>$fecha,
+               "PEUestado"=>$estado
             ];
 
 
@@ -87,7 +87,7 @@
                  exit();
            }
            // comprobar el Tipo usuario en BD
-           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT CodRolPersonal  FROM personaluptvirtual WHERE CodRolPersonal='$rolpersonal'");
+           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo   FROM oevroptrolpersonal WHERE ROPcodigo ='$rolpersonal'");
            if($check_personaluptvirtual->rowCount()<=0)
            {
              $alerta=[

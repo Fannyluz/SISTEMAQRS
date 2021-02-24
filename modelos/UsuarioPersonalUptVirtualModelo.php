@@ -7,19 +7,19 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
  /*----- Modelo agregar casos */
 
     protected static function agregar_usuariopersonaluptvirtual_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO usuariopersonaluptvirtual(CodPersonalUptVirtual,Usuario,Clave,Privilegio,Fecha,Estado) 
-      VALUES(:CodPersonalUptVirtual,:Usuario,:Clave,:Privilegio,:Fecha,:Estado)");
-      $sql->bindParam(":CodPersonalUptVirtual",$datos['CodPersonalUptVirtual']);
-      $sql->bindParam(":Usuario",$datos['Usuario']);
-      $sql->bindParam(":Clave",$datos['Clave']);
-      $sql->bindParam(":Privilegio",$datos['Privilegio']);
-      $sql->bindParam(":Fecha",$datos['Fecha']);
-      $sql->bindParam(":Estado",$datos['Estado']);
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevuputusuariopersonaluptvirtual(PEUcodigo,UPUusuario,UPUclave,UPUprivilegio,UPUfecha,UPUestado) 
+      VALUES(:PEUcodigo,:UPUusuario,:UPUclave,:UPUprivilegio,:UPUfecha,:UPUestado)");
+      $sql->bindParam(":PEUcodigo",$datos['PEUcodigo']);
+      $sql->bindParam(":UPUusuario",$datos['UPUusuario']);
+      $sql->bindParam(":UPUclave",$datos['UPUclave']);
+      $sql->bindParam(":UPUprivilegio",$datos['UPUprivilegio']);
+      $sql->bindParam(":UPUfecha",$datos['UPUfecha']);
+      $sql->bindParam(":UPUestado",$datos['UPUestado']);
       $sql->execute();
       return $sql;
     }
     public function listar_usuariopersonaluptvirtual_modelo(){
-      $consulta="SELECT * FROM usuariopersonaluptvirtual INNER JOIN personaluptvirtual ON usuariopersonaluptvirtual.CodPersonalUptVirtual =personaluptvirtual.CodPersonalUptVirtual";
+      $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual INNER JOIN oevpeutpersonaluptvirtual ON oevuputusuariopersonaluptvirtual.PEUcodigo=oevpeutpersonaluptvirtual.PEUcodigo";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
@@ -28,8 +28,8 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
   }
   protected static function eliminar_usuariopersonaluptvirtual_modelo($codigo)
   {
-    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM usuariopersonaluptvirtual WHERE CodUsuarioPersonalUptVirtual=:CodUsuarioPersonalUptVirtual");
-    $sql->bindParam(":CodUsuarioPersonalUptVirtual",$codigo);
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo=:UPUcodigo");
+    $sql->bindParam(":UPUcodigo",$codigo);
     $sql->execute();
     return $sql;
   }

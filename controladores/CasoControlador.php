@@ -32,7 +32,7 @@
             }     
             
             //comprobar el nombre
-            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM caso WHERE Nombre='$nombre'");
+            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT CASnombre FROM oevcastcaso WHERE CASnombre='$nombre'");
             if($check_nombreCaso->rowCount()>0){
                $alerta=[
                   "Alerta"=>"simple",
@@ -46,10 +46,10 @@
 
 
             $datos_caso_registro=[
-               "Nombre"=>$nombre,
-               "Descripcion"=>$descripcion,
-               "Fecha"=>$fecha,
-               "Estado"=>$estado
+               "CASnombre"=>$nombre,
+               "CASdescripcion"=>$descripcion,
+               "CASfecha"=>$fecha,
+               "CASestado"=>$estado
             ];
 
 
@@ -103,7 +103,7 @@
                exit();
          }
          // comprobar el cso en BD
-         $check_caso=modeloPrincipal::ejecutar_consulta_simple("SELECT CodCaso FROM caso WHERE CodCaso='$codigo'");
+         $check_caso=modeloPrincipal::ejecutar_consulta_simple("SELECT CAScodigo FROM oevcastcaso WHERE CAScodigo='$codigo'");
          if($check_caso->rowCount()<=0)
          {
            $alerta=[

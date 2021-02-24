@@ -32,7 +32,7 @@
             }     
             
             //comprobar el nombre
-            $check_codRol=modeloPrincipal::ejecutar_consulta_simple("SELECT Nombre FROM rolpersonal WHERE Nombre='$nombre'");
+            $check_codRol=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPnombre FROM oevroptrolpersonal WHERE ROPnombre='$nombre'");
             if($check_codRol->rowCount()>0){
                $alerta=[
                   "Alerta"=>"simple",
@@ -47,10 +47,10 @@
 
             $datos_rol_registro=[
                
-               "Nombre"=>$nombre,
-               "Descripcion"=>$descripcion,
-               "Fecha"=>$fecha,
-               "Estado"=>$estado
+               "ROPnombre"=>$nombre,
+               "ROPdescripcion"=>$descripcion,
+               "ROPfecha"=>$fecha,
+               "ROPestado"=>$estado
             ];
 
 
