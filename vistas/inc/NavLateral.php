@@ -135,7 +135,7 @@
            
             <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
             <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades QRS Atendidas<span class="label label-success pull-right"></a></li>
-            <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades QRS Pendientes<span class="label label-success pull-right"></a></li>
+            <li><a href=" <?php echo SERVERURL?>Listar-actividadPendienteAll/"><i class="fa fa-check"></i> Actividades QRS Pendientes<span class="label label-success pull-right"></a></li>
             <?php } ?>
 
              <?php if($_SESSION['privilegio_spm']==3){ ?>
