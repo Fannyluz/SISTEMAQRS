@@ -23,6 +23,7 @@
                                     de organizar, normar, coordinar y supervisar la ejecución de los programas de educación a distancia, 
                                     propuestos por las facultades y escuela de Postgrado, para la comunidad universitaria y población en general. 
                                     <br>
+                                    <br>
                                     Es el órgano de apoyo encargado de la administración y mantenimiento del sistema de aula virtual, sistema de videoconferencia y soporte informático de aplicaciones orientadas a cubrir las necesidades de la educación no presencial de la Universidad Privada de Tacna y depende del Vicerrectorado Académico.</p>
                                 </div>
 

@@ -15,7 +15,7 @@ public function get_rolpersonal($CodRolPersonal){
   /*----- Modelo agregar tipo personal -----*/ 
  protected static function agregar_personal_modelo($datos){
       $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevpeutpersonaluptvirtual(
-      ROPcodigo,PEUDNI,PEUnombres,ApePEUapellidosllidos,PEUfoto,PEUcorreoElectronico,PEUcelular,PEUdireccion,PEUfecha,PEUestado) 
+      ROPcodigo,PEUDNI,PEUnombres,PEUapellidos,PEUfoto,PEUcorreoElectronico,PEUcelular,PEUdireccion,PEUfecha,PEUestado) 
       VALUES(:ROPcodigo,:PEUDNI,:PEUnombres,:PEUapellidos,:PEUfoto,:PEUcorreoElectronico,:PEUcelular,:PEUdireccion,:PEUfecha,:PEUestado)");
       
       $sql->bindParam(":ROPcodigo",$datos['ROPcodigo']);

@@ -3,7 +3,7 @@
     require_once "../config/APP.php";
 
 
-    if(isset($_POST['rol_nombre_reg'] || isset($_POST['rolpersonal_nombre_reg'] )){
+    if(isset($_POST['personal_dni_reg'])){
         /*--- Instanacia al controlador-- */
         require_once "../controladores/PersonalControlador.php";
         $ins_person = new PersonalControlador();

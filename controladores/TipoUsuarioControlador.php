@@ -32,7 +32,7 @@
             }     
             
             //comprobar el nombre
-            $check_nombretipousuario=modeloPrincipal::ejecutar_consulta_simple("SELECT TIUNombre FROM oevtiuttipousuario WHERE TIUNombre='$nombre'");
+            $check_nombretipousuario=modeloPrincipal::ejecutar_consulta_simple("SELECT TIUnombre FROM oevtiuttipousuario WHERE TIUnombre='$nombre'");
             if($check_nombretipousuario->rowCount()>0){
                $alerta=[
                   "Alerta"=>"simple",
@@ -46,10 +46,10 @@
 
 
             $datos_tipousuario_registro=[
-               "TIUNombre"=>$nombre,
-               "TIUDescripcion"=>$descripcion,
-               "TIUFecha"=>$fecha,
-               "TIUEstado"=>$estado
+               "TIUnombre"=>$nombre,
+               "TIUdescripcion"=>$descripcion,
+               "TIUfecha"=>$fecha,
+               "TIUestado"=>$estado
             ];
 
 

@@ -5,12 +5,12 @@ require_once "modeloPrincipal.php";
 class TipoUsuarioModelo extends modeloPrincipal{
  /*----- Modelo agregar casos */
     protected static function agregar_tipousuario_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevtiuttipousuario(TIUNombre,TIUDescripcion,TIUFecha,TIUEstado) 
-      VALUES(:TIUNombre,:TIUDescripcion,:TIUFecha,:TIUEstado)");
-      $sql->bindParam(":TIUNombre",$datos['TIUNombre']);
-      $sql->bindParam(":TIUDescripcion",$datos['TIUDescripcion']);
-      $sql->bindParam(":TIUFecha",$datos['TIUFecha']);
-      $sql->bindParam(":TIUEstado",$datos['TIUEstado']);
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevtiuttipousuario(TIUnombre,TIUdescripcion,TIUfecha,TIUestado) 
+      VALUES(:TIUnombre,:TIUdescripcion,:TIUfecha,:TIUestado)");
+      $sql->bindParam(":TIUnombre",$datos['TIUnombre']);
+      $sql->bindParam(":TIUdescripcion",$datos['TIUdescripcion']);
+      $sql->bindParam(":TIUfecha",$datos['TIUfecha']);
+      $sql->bindParam(":TIUestado",$datos['TIUestado']);
       $sql->execute();
       return $sql;
     }

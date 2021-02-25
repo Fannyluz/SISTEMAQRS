@@ -87,7 +87,7 @@
                  exit();
            }
            // comprobar el Tipo usuario en BD
-           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo   FROM oevroptrolpersonal WHERE ROPcodigo ='$rolpersonal'");
+           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo   FROM oevroptrolpersonal WHERE ROPcodigo='$rolpersonal'");
            if($check_personaluptvirtual->rowCount()<=0)
            {
              $alerta=[

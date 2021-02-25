@@ -66,10 +66,10 @@
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['TIUNombre']?></td> 
-                                <td><?php echo $row['TIUDescripcion']?></td> 
-                                <td><?php echo $row['TIUFecha']?></td> 
-                                <td><?php if($row['TIUEstado']=="1")
+                                <td><?php echo $row['TIUnombre']?></td> 
+                                <td><?php echo $row['TIUdescripcion']?></td> 
+                                <td><?php echo $row['TIUfecha']?></td> 
+                                <td><?php if($row['TIUestado']=="1")
                                 {
                                     echo $nuevoestado = "Activo";
                                 }else{

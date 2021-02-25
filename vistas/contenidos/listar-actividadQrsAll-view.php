@@ -9,7 +9,7 @@
                             <div class="x_panel">
 
                                 <div class="x_title" style="color:#10226a;">
-                                    <h2>UPTvirtual <small>Lista de Roles</small></h2>                      
+                                    <h2>UPTvirtual <small>Lista de Casos</small></h2>                      
                                     <div class="clearfix"></div>
                                 </div>
 
@@ -25,9 +25,17 @@
                         
                             <thead>
                                 <tr>
-                                <th>N°</th>
-                                <th>Nombre</th>
+                                <th>Nº</th>
+                                <th>Tipo</th>
+                                <th>Caso</th>
+                                <th>Tipo Emisor</th>
+                                <th>Personal UptVirtual (Destinatario)</th>
+                                <th>Codigo</th>
+                                <th>Nombres</th>
+                                <th>Apellidos</th>
                                 <th>Descripcion</th>
+                                <th>Celular</th>
+                                <th>CorreoElectronico</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
@@ -36,40 +44,50 @@
                             <tbody>
                             
                                 <?php 
-                               // require_once "./modelos/CasoModelo.php";
-                               // $casos=new CasoModelo();
-                                //$datos=$casos->get_casos();
-
-                                require_once "./controladores/RolControlador.php";
-                                $casos=new RolControlador();
-                                $datos=$casos->Listar_rol_controlador();
+                                require_once "./controladores/ActividadQrsControlador.php";
+                                $casos=new ActividadQrsControlador();
+                                $datos=$casos->listar_ActividadQrsAll_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
-                                foreach($datos as $row){ 
-                                    ?>
+foreach($datos as $row){  
+
+?>
+
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['ROPnombre']?></td> 
-                                <td><?php echo $row['ROPdescripcion']?></td> 
-                                <td><?php echo $row['ROPfecha']?></td> 
+                                <td><?php echo $row['TIPnombre']?></td> 
+                                <td><?php echo $row['CASnombre']?></td> 
+                                <td><?php echo $row['TIUnombre']?></td> 
+                                <td><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></td> 
+                                <td><?php echo $row['ACTcodigoUPT'] ?></td> 
+                                <td><?php echo $row['ACTnombres']?></td>
+                                <td><?php echo $row['ACTapellidos']?></td> 
+                                <td><?php echo $row['ACTDescripcion']?></td> 
+                                <td><?php echo $row['ACTcelular']?></td>
+                                <td><?php echo $row['ACTcorreoelectronico']?></td> 
+                                <td><?php echo $row['ACTfecha']?></td>
                                 
-                                <td><?php if($row['ROPestado']=="1")
+                                <td><?php if($row['ACTestado']=="1")
                                 {
-                                    echo $nuevoestado = "Activo";
-                                }else{
-                                    echo $nuevoestado = "Inactivo";
+                                    echo $nuevoestado = "Pendiente";
+                                }else if($row['ACTestado']=="2")
+                                {
+                                     echo $nuevoestado = "Atendido";
+                                }
+                                else{
+                                    echo $nuevoestado = "Rechazado";
                                 }
                                  ?></td> 
 
-
+                                
                                 <td>
                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
-                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                                  </a>
                                                  
                                     <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['ROPcodigo']; ?>" />    
+                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CAScodigo']; ?>" />    
                                         <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
                                         <i class="fa fa-trash-o fa-sm"></i> 
 
@@ -82,8 +100,12 @@
                                                
                                                 
                                  </td>
-                                </tr>
-                                <?php }  ?>
+                            </tr>
+
+<?php
+
+                                    }
+                                    ?>
 
                                 
                                

@@ -119,7 +119,7 @@
                     <li><a><i class="fa fa-paste"></i> actividades QRS<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href=" <?php echo SERVERURL?>nombre/">Registrar Actividad QRS</a></li>
-                        <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades QRS</a></li>
+                        <li><a href=" <?php echo SERVERURL?>listar-actividadQrsAll/">Listar Actividades QRS</a></li>
                       </ul>
                    </li>  
                    <?php } ?>

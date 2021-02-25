@@ -28,6 +28,7 @@
                                           virtual es cada vez más usado en el vocabulario de todas las personas que están
                                           estudiando o formándose como futuros profesionales.
                                           <br>
+                                          <br>
                                           Un aula virtual es un entorno digital en el que se puede llevar a cabo un proceso de
                                           intercambio de conocimientos que tiene por objetivo posibilitar un aprendizaje entre
                                           los usuarios que participan en el aula. En otras palabras, un aula virtual es un espacio
@@ -37,6 +38,7 @@
                                           el aula virtual no tiene límites físicos ni temporales, el estudiante puede acceder a ella
                                           cuando quiera para tomar sus clases, sin tener que estar sujeto a horarios ni a
                                           desplazamientos físicos.
+                                          <br>
                                           <br>
                                           La Universidad, para poder seguir formando profesionales en las actuales
                                           circunstancias, debe disponer de un LMS (sistema de gestión de aprendizaje) y de
