@@ -24,5 +24,13 @@
          return $datos;
       } // fin del controlador 
 
+      /*controlador eliminar casos*/
+      public function listar_ActividadQrsPendientes_controlador()
+      {
+      	$codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($codigo);
+         return $datos;
+        
+      } // fin del controlador 
       
      }
