@@ -65,13 +65,17 @@
                                 <td><?php echo $row['PEUdireccion']?></td>  
                                 <td><?php echo $row['PEUfecha']?></td> 
                                 
-                                <td><?php if($row['PEUestado']=="1")
-                                {
-                                    echo $nuevoestado = "Activo";
+                               <td><?php if($row['PEUestado']=="1")
+                                { ?>
+                                     <span class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Activo"; ?></span>
+                                    <?php
+                                    
                                 }else{
-                                    echo $nuevoestado = "Inactivo";
+                                    ?>  <span class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Inactivo"; ?></span>
+                                    <?php
                                 }
                                  ?></td> 
+                                
 
 
                                 <td>

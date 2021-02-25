@@ -54,13 +54,16 @@
                                 <td><?php echo $row['CASfecha']?></td> 
                                 
                                 <td><?php if($row['CASestado']=="1")
-                                {
-                                    echo $nuevoestado = "Activo";
+                                { ?>
+                                     <span class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Activo"; ?></span>
+                                    <?php
+                                    
                                 }else{
-                                    echo $nuevoestado = "Inactivo";
+                                    ?>  <span class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Inactivo"; ?></span>
+                                    <?php
                                 }
                                  ?></td> 
-
+                               
 
                                 <td>
                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 

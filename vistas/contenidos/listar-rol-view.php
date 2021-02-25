@@ -54,12 +54,16 @@
                                 <td><?php echo $row['ROPfecha']?></td> 
                                 
                                 <td><?php if($row['ROPestado']=="1")
-                                {
-                                    echo $nuevoestado = "Activo";
+                                { ?>
+                                     <span class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Activo"; ?></span>
+                                    <?php
+                                    
                                 }else{
-                                    echo $nuevoestado = "Inactivo";
+                                    ?>  <span class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Inactivo"; ?></span>
+                                    <?php
                                 }
                                  ?></td> 
+                               
 
 
                                 <td>

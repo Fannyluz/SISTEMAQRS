@@ -69,13 +69,16 @@ foreach($datos as $row){
                                 
                                 <td><?php if($row['ACTestado']=="1")
                                 {
-                                    echo $nuevoestado = "Pendiente";
+                                    ?>  <label class="badge bg-warning" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Pendiente"; ?></label>
+                                    <?php
                                 }else if($row['ACTestado']=="2")
                                 {
-                                     echo $nuevoestado = "Atendido";
+                                     ?>  <label class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Atendido"; ?></label>
+                                    <?php
                                 }
                                 else{
-                                    echo $nuevoestado = "Rechazado";
+                                     ?>  <label class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Rechazado"; ?></label>
+                                    <?php
                                 }
                                  ?></td> 
 
@@ -84,15 +87,11 @@ foreach($datos as $row){
                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
                                 <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                 </a>
-
-                                                 
-                                               
+                                                 </a>           
                                                 
                                  </td>
                             </tr>
-
-<?php
+							<?php
 
                                     }
                                     ?>

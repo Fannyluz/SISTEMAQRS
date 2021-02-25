@@ -69,13 +69,16 @@ foreach($datos as $row){
                                 
                                 <td><?php if($row['ACTestado']=="1")
                                 {
-                                    echo $nuevoestado = "Pendiente";
+                                    ?>  <label class="badge bg-warning" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Pendiente"; ?></label>
+                                    <?php
                                 }else if($row['ACTestado']=="2")
                                 {
-                                     echo $nuevoestado = "Atendido";
+                                   ?>  <label class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Atendido"; ?></label>
+                                    <?php
                                 }
                                 else{
-                                    echo $nuevoestado = "Rechazado";
+                                     ?>  <label class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Rechazado"; ?></label>
+                                    <?php
                                 }
                                  ?></td> 
 

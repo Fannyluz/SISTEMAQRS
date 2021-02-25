@@ -57,24 +57,33 @@
                                 <td><?php echo $row['UPUclave']?></td> 
                                 <td><?php if($row['UPUprivilegio']=="1")
                                 {
-                                    echo $nuevoPrivilegio = "Control Total";
+                                     ?>  <span class="badge bg-primary" style="background-color:#10226a;color:white;"><?php echo $nuevoPrivilegio = "Control Total"; ?></span>
+                                    <?php
                                 }else if($row['UPUprivilegio']=="2")
                                 {
-                                        echo $nuevoPrivilegio = "Edición";
+                                    ?>  <span class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoPrivilegio = "Edición"; ?></span>
+                                    <?php
+                                        
                                 }
                                 else{
-                                    echo $nuevoPrivilegio = "Registrar";
+                                     ?>  <span class="badge bg-dark" style="background-color:#10226a;color:white;"><?php echo $nuevoPrivilegio = "Registrar"; ?></span>
+                                    <?php
+        
                                 }
                                  ?></td> 
 
                                 <td><?php echo $row['UPUfecha']?></td> 
                                 <td><?php if($row['UPUestado']=="1")
-                                {
-                                    echo $nuevoestado = "Activo";
+                                { ?>
+                                     <span class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Activo"; ?></span>
+                                    <?php
+                                    
                                 }else{
-                                    echo $nuevoestado = "Inactivo";
+                                    ?>  <span class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Inactivo"; ?></span>
+                                    <?php
                                 }
                                  ?></td> 
+                               
 
                                 <td>
                                     <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> </a>
