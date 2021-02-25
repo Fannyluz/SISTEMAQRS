@@ -24,7 +24,16 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
       return $datos;
-      
+  }
+ 
+  public function Obtener_usuariopersonaluptvirtual_modelo($codigo){
+      $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual AS up 
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+      INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE up.PEUcodigo=$codigo";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
   }
   protected static function eliminar_usuariopersonaluptvirtual_modelo($codigo)
   {

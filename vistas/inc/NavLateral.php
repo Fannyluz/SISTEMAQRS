@@ -36,6 +36,8 @@
               </div>
               <div class="profile_info">
                 <span>BIENVENIDO</span>
+                <h2><?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?> </h2>
+                <h2><?php echo $_SESSION['personal_spm']?> </h2>
                 <h2><?php echo $_SESSION['usuario_spm']?> </h2>
               <h2><?php echo $_SESSION['estado_spm']?> </h2>
               <h2><?php echo $_SESSION['privilegio_spm']?> </h2>
@@ -127,7 +129,7 @@
                    <?php if($_SESSION['privilegio_spm']==3){ ?>
                    <li><a><i class="fa fa-paste"></i> actividades QRS - U<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href=" <?php echo SERVERURL?>nombre/">Registrar Actividad QRS - U</a></li>
+                        <li><a href=" <?php echo SERVERURL?>agregar-actividadQRS/">Registrar Actividad QRS - U</a></li>
                         <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades QRS - U</a></li>
                       </ul>
                    </li> 

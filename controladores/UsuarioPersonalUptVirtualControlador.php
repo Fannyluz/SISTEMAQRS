@@ -60,6 +60,14 @@
          return $datos;
       } // fin del controlador 
 
+/*controlador obtener usuario _codigo*/
+         public function Obtener_usuariopersonaluptvirtual_controlador()
+      {
+        $codigo=$_SESSION['personal_spm'];
+        $datos=UsuarioPersonalUptVirtualModelo::Obtener_usuariopersonaluptvirtual_modelo($codigo);
+         return $datos;
+        
+      } // fin del controlador 
 
        /*controlador eliminar usuario personal uptvirtual*/
         public function Eliminar_usuariopersonaluptvirtual_ontrolador()

@@ -37,6 +37,7 @@
             $row=$datos_cuenta->fetch();
             session_start(['name' => 'QRS']);
             $_SESSION['CodUsuarioPersonalUptVirtual_spm']=$row['UPUcodigo'];
+            $_SESSION['personal_spm']=$row['PEUcodigo'];
             $_SESSION['usuario_spm']=$row['UPUusuario'];
             $_SESSION['clave_spm']=$row['UPUclave'];
             $_SESSION['privilegio_spm']=$row['UPUprivilegio'];
