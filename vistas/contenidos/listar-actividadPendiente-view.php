@@ -31,8 +31,7 @@ se<div class="right_col" role="main">
                                 <th>Tipo Emisor</th>
                                 <th>Personal UptVirtual (Destinatario)</th>
                                 <th>Codigo</th>
-                                <th>Nombres</th>
-                                <th>Apellidos</th>
+                                <th>Nombres y Apellidos</th>
                                 <th>Descripcion</th>
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
@@ -60,8 +59,7 @@ foreach($datos as $row){
                                 <td><?php echo $row['TIUnombre']?></td> 
                                 <td><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></td> 
                                 <td><?php echo $row['ACTcodigoUPT'] ?></td> 
-                                <td><?php echo $row['ACTnombres']?></td>
-                                <td><?php echo $row['ACTapellidos']?></td> 
+                                <td><?php echo $row['ACTnombres']?> <?php echo $row['ACTapellidos']?></td>
                                 <td><?php echo $row['ACTDescripcion']?></td> 
                                 <td><?php echo $row['ACTcelular']?></td>
                                 <td><?php echo $row['ACTcorreoelectronico']?></td> 
