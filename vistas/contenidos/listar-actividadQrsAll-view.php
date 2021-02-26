@@ -31,8 +31,7 @@
                                 <th>Tipo Emisor</th>
                                 <th>Personal UptVirtual (Destinatario)</th>
                                 <th>Codigo</th>
-                                <th>Nombres</th>
-                                <th>Apellidos</th>
+                                <th>Nombres y Apellidos</th>
                                 <th>Descripcion</th>
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
@@ -60,8 +59,7 @@ foreach($datos as $row){
                                 <td><?php echo $row['TIUnombre']?></td> 
                                 <td><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></td> 
                                 <td><?php echo $row['ACTcodigoUPT'] ?></td> 
-                                <td><?php echo $row['ACTnombres']?></td>
-                                <td><?php echo $row['ACTapellidos']?></td> 
+                                <td><?php echo $row['ACTnombres']?> <?php echo $row['ACTapellidos']?></td>
                                 <td><?php echo $row['ACTDescripcion']?></td> 
                                 <td><?php echo $row['ACTcelular']?></td>
                                 <td><?php echo $row['ACTcorreoelectronico']?></td> 
@@ -87,19 +85,7 @@ foreach($datos as $row){
                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
                                 <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                 </a>
-                                                 
-                                    <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['CAScodigo']; ?>" />    
-                                        <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
-                                        <i class="fa fa-trash-o fa-sm"></i> 
-
-                                        </button>
-                                        </input>
-
-                                    </form> 
-
-                                                 
+                                                 </a>         
                                                
                                                 
                                  </td>

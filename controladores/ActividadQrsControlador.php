@@ -10,8 +10,6 @@
      class ActividadQrsControlador extends ActividadQrsModelo{
       
 
-
-
       /*--- controlador agregar usuario--*/
            public function agregar_ActividadQRS_controlador(){
             $personal=modeloPrincipal::limpiar_cadena($_POST['personal_reg']);

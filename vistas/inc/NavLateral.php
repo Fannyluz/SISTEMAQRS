@@ -36,17 +36,15 @@
               </div>
               <div class="profile_info">
                 <span>BIENVENIDO</span>
+                 <!--
                 <h2><?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?> </h2>
                 <h2><?php echo $_SESSION['personal_spm']?> </h2>
-                <h2><?php echo $_SESSION['usuario_spm']?> </h2>
-              <h2><?php echo $_SESSION['estado_spm']?> </h2>
-              <h2><?php echo $_SESSION['privilegio_spm']?> </h2>
+                <h2><?php echo $_SESSION['usuario_spm']?> </h2>-->
+                <h2><?php echo $_SESSION['nombres_spm']?> <?php echo $_SESSION['apellidos_spm']?></h2>
+                <h2><?php echo $_SESSION['rolpersonal_spm']?> </h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
-
-            <br />
-            <br/>
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">

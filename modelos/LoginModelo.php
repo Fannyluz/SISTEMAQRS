@@ -6,11 +6,14 @@
         /* Modelo de iniciar sesion*/
 
         protected static function iniciar_sesion_modelo($datos){
-            $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevuputusuariopersonaluptvirtual WHERE
-             UPUusuario=:UPUusuario AND UPUclave=:UPUclave");
+            $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevuputusuariopersonaluptvirtual AS up
+                INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+                INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo
+                WHERE up.UPUusuario=:UPUusuario AND up.UPUclave=:UPUclave");
             $sql->bindParam(":UPUusuario",$datos['UPUusuario']);
             $sql->bindParam(":UPUclave",$datos['UPUclave']);
             $sql->execute();
             return $sql;
         }
+      
     }
