@@ -49,7 +49,8 @@
 
 
                            <div class="clearfix"></div>
-                    <?php 
+
+                            <?php 
 
                             require_once "./controladores/PersonalControlador.php";
                                 $casos=new PersonalControlador();
@@ -58,6 +59,7 @@
                                 $nuevoestado="Activo";
                             foreach($datos as $row){ 
                                     ?>
+
                                 <div class="col-md-4 col-sm-4  profile_details">
                                   
                                   <div class="well profile_view" >
@@ -66,7 +68,7 @@
                                       <h4 class="brief"><i>Personal UPT Virtual</i></h4>
                                       <div class="left col-md-7 col-sm-7" >
                                         <h2><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></h2>
-                                        <p><strong>Rol: </strong> <?php echo $row['ROPcodigo']?> </p>
+                                        <p><strong>Rol: </strong> <?php echo $row['ROPnombre']?> </p>
                                         <ul class="list-unstyled">
                                           <li><i class="fa fa-building"></i> <?php echo $row['PEUdireccion']?></li>
                                           <li><i class="fa fa-envelope"></i> <?php echo $row['PEUcorreoElectronico']?></li>
