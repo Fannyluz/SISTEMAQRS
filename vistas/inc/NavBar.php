@@ -12,7 +12,7 @@
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="javascript:;" style="color:#10226a;"> Perfil</a>
-                    <a href="#" class="btn-exit-system" > Cerrar Sesion</a>
+                    <a href="#" class="btn-exit-system" > Cerrar Sesion</a> 
                   </div>
                 </li>
 

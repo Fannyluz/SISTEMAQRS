@@ -11,7 +11,7 @@
 
         /* controlador iniciar sesion */
         public function iniciar_sesion_controlador(){
-         $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_log']);
+         $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_log']); 
          $clave=modeloPrincipal::limpiar_cadena($_POST['clave_log']);
           //comprobar campos vacios
           if($usuario=="" || $clave==""){
@@ -59,7 +59,7 @@
         
         }/**fin del controlador  */
 
-        /** controlador de forzar cierre de sesion */
+        /** controlador para forzar cierre de sesion */
         public function forzar_cierre_sesion_controlador()
         {
          session_unset();
@@ -71,12 +71,13 @@
          }
         }/**fin del controlador  */
 
+        /** controlador cierre de sesion */
         public function cerrar_sesion_controlador()
         {
-             session_start(['name' => 'QRS']);
+             session_start(['name' => 'QRS']); 
              $token=modeloPrincipal::decryption($_POST['token']);
-             $token=modeloPrincipal::decryption($_POST['usuario']);
-             if($token==$_SESSION['token_spm'] && $usuario==$_SESSION['usuario_spm'])
+             $usuario=modeloPrincipal::decryption($_POST['usuario']);
+             if($token==$_SESSION['clave_spm'] && $usuario==$_SESSION['usuario_spm'])
              {
                 session_unset();
                 session_destroy();
@@ -88,7 +89,7 @@
              else{
                 $alerta=[
                       "Alerta"=>"simple",
-                      "Titulo"=>"Error al cerrar la sesion",
+                      "Titulo"=>"Ocurrió un error inesperado",
                       "Texto"=>"No se pudo cerrar la sesion en el sistema",
                       "Tipo"=>"error"
                    ];
