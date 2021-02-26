@@ -153,8 +153,9 @@ if($_SESSION['estado_spm']!=1){
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="ACTestado_reg">
-                                                    <option value="1" selected="">Activo</option>
-                                                     <option value="2">Inactivo</option>
+                                                    <option value="1" selected="">Pendiente</option>
+                                                     <option value="2">Atendido</option>
+                                                     <option value="2">Rechazado</option>
                                                 </select>
                                             </div>
                                         </div>
