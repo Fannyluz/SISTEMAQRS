@@ -38,6 +38,9 @@
             session_start(['name' => 'QRS']);
             $_SESSION['CodUsuarioPersonalUptVirtual_spm']=$row['UPUcodigo'];
             $_SESSION['personal_spm']=$row['PEUcodigo'];
+            $_SESSION['nombres_spm']=$row['PEUnombres'];
+            $_SESSION['apellidos_spm']=$row['PEUapellidos'];
+            $_SESSION['rolpersonal_spm']=$row['ROPnombre'];
             $_SESSION['usuario_spm']=$row['UPUusuario'];
             $_SESSION['clave_spm']=$row['UPUclave'];
             $_SESSION['privilegio_spm']=$row['UPUprivilegio'];
@@ -95,8 +98,6 @@
               }
               echo json_decode($alerta);
         }/**fin del controlador  */
-
-        
 
 
      }
