@@ -13,9 +13,14 @@
                     
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;" style="color:#10226a;"> Perfil</a>
-                    <a class="dropdown-item"  href="javascript:;" class="btn-exit-system" > Cerrar Sesion</a>
+                    <a class="dropdown-item"  href="javascript:;" style="color:#10226a;"> Perfil
+                    <i class="fa fa-cogs"></i>
+                    </a>
+                    <a class="dropdown-item"  href="javascript:;" class="btn-exit-system" > Cerrar Sesion
+                    <i class="fa fa-power-off"></i>
+                    </a>
                   </div>
+                  
                 </li>
 
               </ul>

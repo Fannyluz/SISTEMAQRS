@@ -21,15 +21,18 @@
 	} 
 	else{
 		session_start(['name' => 'QRS']);
+
 		require_once "./controladores/LoginControlador.php";
-		$lc = new LoginControlador();
-		if(!isset($_SESSION['clave_spm']) || !isset($_SESSION['usuario_spm'])){
+		$lc = new LoginControlador();  
+		if(!isset($_SESSION['clave_spm']) || !isset($_SESSION['usuario_spm']) || !isset($_SESSION['privilegio_spm']) 
+		|| !isset($_SESSION['CodUsuarioPersonalUptVirtual_spm'])
+		){
 			echo $lc->forzar_cierre_sesion_controlador();
 			exit();
 		}
 		
 	?>
-	<!-- Main container -->
+	<!-- Main container $_SESSION['token_spm'] isset($_SESSION['clave_spm']) $_SESSION['privilegio_spm']-->
 	<main class="full-box main-container" >
 
 		<!-- Nav lateral -->

@@ -11,15 +11,15 @@
 				cancelButtonColor:'#d33',
 				confirmButtonText:'Si, salir',
 				cancelButtonText: 'No, cancelar'
-			}).then((result)=>{
-				if(result.value){
+			}).then((result)=> {
+				if (result.value){
 					let url='<?php echo SERVERURL; ?> ajax/LoginAjax.php';
-					let token='<?php echo $lc->encryption($_SESSION['clave_spm']); ?>';
+					let clave='<?php echo $lc->encryption($_SESSION['clave_spm']); ?>';
 					let usuario='<?php echo $lc->encryption($_SESSION['usuario_spm']); ?>';
 
 
 					let datos = new FormData();
-					datos.append("token",token);
+					datos.append("clave",clave);
 					datos.append("usuario",usuario);
 
 					fetch(url,{

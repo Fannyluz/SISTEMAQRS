@@ -118,7 +118,7 @@
                   <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
                     <li><a><i class="fa fa-paste"></i> actividades QRS<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href=" <?php echo SERVERURL?>nombre/">Registrar Actividad QRS</a></li>
+                        <li><a href=" <?php echo SERVERURL?>agregar-actividadesQRSALL/">Registrar Actividad QRS</a></li>
                         <li><a href=" <?php echo SERVERURL?>listar-actividadQrsAll/">Listar Actividades QRS</a></li>
                       </ul>
                    </li>  
@@ -128,18 +128,18 @@
                    <li><a><i class="fa fa-paste"></i> actividades QRS - U<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href=" <?php echo SERVERURL?>agregar-actividadQRS/">Registrar Actividad QRS - U</a></li>
-                        <li><a href=" <?php echo SERVERURL?>nombre/">Listar Actividades QRS - U</a></li>
+                        <li><a href=" <?php echo SERVERURL?>listar-actividadesQRSU/">Listar Actividades QRS - U</a></li>
                       </ul>
                    </li> 
                     <?php } ?>
-           
+            
             <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
-            <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades QRS Atendidas<span class="label label-success pull-right"></a></li>
+            <li><a href=" <?php echo SERVERURL?>listar-actividadAtendidasAll/"><i class="fa fa-check"></i> Actividades QRS Atendidas<span class="label label-success pull-right"></a></li>
             <li><a href=" <?php echo SERVERURL?>listar-actividadPendienteAll/"><i class="fa fa-check"></i> Actividades QRS Pendientes<span class="label label-success pull-right"></a></li>
             <?php } ?>
 
              <?php if($_SESSION['privilegio_spm']==3){ ?>
-            <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-check"></i> Actividades Atendidas - U<span class="label label-success pull-right"></a></li>
+            <li><a href=" <?php echo SERVERURL?>listar-actividadAtendidasU/"><i class="fa fa-check"></i> Actividades Atendidas - U<span class="label label-success pull-right"></a></li>
             <li><a href=" <?php echo SERVERURL?>listar-actividadPendiente/"><i class="fa fa-check"></i> Actividades Pendientes-U<span class="label label-success pull-right"></a></li>
               <?php } ?>
 
@@ -159,17 +159,17 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              <a data-toggle="tooltip" data-placement="top" title="Inicio">
+                <span class="fa fa-home" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              <a data-toggle="tooltip" data-placement="top" title="Lugar">
+                <span class="fa fa-building" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              <a data-toggle="tooltip" data-placement="top" title="Facebook">
+                <span class="fa fa-facebook-official" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              <a class="btn-exit-system" data-toggle="tooltip" data-placement="top" title="Salir" href="javascript:;">
+                <span class="glyphicon glyphicon-off" aria-hidden="true" ></span>
               </a>
             </div>
             <!-- /menu footer buttons -->

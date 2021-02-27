@@ -51,10 +51,10 @@
             }
             
             echo json_encode($alerta);
-      } // fin del controlador 
+      } // fin del controlador  
 
       /*controlador listar casos*/
-      public function Listar_usuariopersonaluptvirtual_controlador()
+      public function Listar_usuariopersonaluptvirtual_controlador() 
       {
          $datos=UsuarioPersonalUptVirtualModelo::listar_usuariopersonaluptvirtual_modelo();
          return $datos;

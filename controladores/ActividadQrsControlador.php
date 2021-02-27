@@ -90,6 +90,7 @@
          return $datos;
       } // fin del controlador 
 
+      
        /*controlador listar actividades pendientes All*/
       public function listar_ActividadQrsPendientesAll_controlador()
       {
@@ -105,5 +106,29 @@
          return $datos;
         
       } // fin del controlador 
+
+      public function listar_ActividadQrsU_controlador()
+      {
+      	$codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $datos=ActividadQrsModelo::listar_ActividadQrsU_modelo($codigo);
+         return $datos;
+        
+      } // fin del controlador 
       
+      /*controlador listar actividadespendientes cpn codigo correspondiente*/
+      public function listar_ActividadQrsAtendidasU_controlador()
+      {
+      	$codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasU_modelo($codigo);
+         return $datos;
+        
+      } // fin del controlador 
+
+
+      /*controlador listar actividades pendientes All*/
+      public function listar_ActividadQrsAtendidasAll_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
+         return $datos;
+      } // fin del controlador 
      }

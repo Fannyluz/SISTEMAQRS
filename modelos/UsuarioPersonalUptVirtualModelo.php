@@ -18,13 +18,28 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
       $sql->execute();
       return $sql;
     }
-    public function listar_usuariopersonaluptvirtual_modelo(){
-      $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual INNER JOIN oevpeutpersonaluptvirtual ON oevuputusuariopersonaluptvirtual.PEUcodigo=oevpeutpersonaluptvirtual.PEUcodigo";
-      $conexion=modeloPrincipal::conectar();
-      $datos=$conexion->query($consulta);
-      $datos=$datos->fetchAll();
-      return $datos;
-  }
+   // public function listar_usuariopersonaluptvirtual_modelo(){
+     // $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual 
+    //  INNER JOIN oevpeutpersonaluptvirtual 
+     // ON oevuputusuariopersonaluptvirtual.PEUcodigo=oevpeutpersonaluptvirtual.PEUcodigo";
+     // $conexion=modeloPrincipal::conectar();
+     // $datos=$conexion->query($consulta);
+     // $datos=$datos->fetchAll();
+     // return $datos;
+ // }
+
+  //probar 
+  public function listar_usuariopersonaluptvirtual_modelo(){
+    $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual AS up 
+    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+    INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo ";
+    $conexion=modeloPrincipal::conectar();
+    $datos=$conexion->query($consulta);
+    $datos=$datos->fetchAll();
+    return $datos;
+}
+
+  //
  
   public function Obtener_usuariopersonaluptvirtual_modelo($codigo){
       $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual AS up 

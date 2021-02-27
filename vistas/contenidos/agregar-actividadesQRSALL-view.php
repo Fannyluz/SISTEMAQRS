@@ -26,7 +26,7 @@ if($_SESSION['estado_spm']!=1){
 
                                 <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
-                                $tipoqrs=new UsuarioPersonalUptVirtualControlador(); 
+                                $tipoqrs=new UsuarioPersonalUptVirtualControlador();
                                 $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
@@ -36,7 +36,9 @@ if($_SESSION['estado_spm']!=1){
                                  <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Personal UptVirtual:</b><span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
                                     <select class="form-control" name="personal_reg" >
-                                        
+                                        <?php foreach($datosTipoQRS as $row){ ?>
+                                            <option value=<?php echo $row['UPUcodigo']?>><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>)</option>
+                                        <?php }?>
                                     </select>
                                     </div>
                             </div>
@@ -62,7 +64,7 @@ if($_SESSION['estado_spm']!=1){
                                 <?php 
                                 require_once "./controladores/CasoControlador.php";
                                 $caso=new CasoControlador();
-                                $datosCaso=$caso->Listar_casos_controlador();
+                                $datosCaso=$caso->Listar_casos_controlador(); 
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>

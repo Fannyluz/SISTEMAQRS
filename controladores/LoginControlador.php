@@ -42,10 +42,10 @@
             $_SESSION['apellidos_spm']=$row['PEUapellidos'];
             $_SESSION['rolpersonal_spm']=$row['ROPnombre'];
             $_SESSION['usuario_spm']=$row['UPUusuario'];
-            $_SESSION['clave_spm']=$row['UPUclave'];
+            $_SESSION['clave_spm']=md5(uniqid(mt_rand(),true));
             $_SESSION['privilegio_spm']=$row['UPUprivilegio'];
             $_SESSION['estado_spm']=$row['UPUestado'];
-            $_SESSION['token_spm']=md5(uniqid(mt_rand(),true));
+            
             return header("Location:".SERVERURL."general/");
          }else{
             echo '
@@ -70,7 +70,7 @@
          if(headers_sent()){
          return "<script> window.location.href='".SERVERURL."login/'; </script>";
          }else{
-            return header("Location:".SERVERURL."login/");
+            return header("Location:".SERVERURL."login/"); 
          }
         }/**fin del controlador  */
 
@@ -78,9 +78,9 @@
         public function cerrar_sesion_controlador()
         {
              session_start(['name' => 'QRS']); 
-             $token=modeloPrincipal::decryption($_POST['token']);
              $usuario=modeloPrincipal::decryption($_POST['usuario']);
-             if($token==$_SESSION['clave_spm'] && $usuario==$_SESSION['usuario_spm'])
+             $clave=modeloPrincipal::decryption($_POST['clave']);
+             if($usuario==$_SESSION['usuario_spm'] && $clave==$_SESSION['clave_spm'])
              {
                 session_unset();
                 session_destroy();
@@ -97,7 +97,7 @@
                       "Tipo"=>"error"
                    ];
               }
-              echo json_decode($alerta);
+              echo json_encode($alerta);
         }/**fin del controlador  */
 
 

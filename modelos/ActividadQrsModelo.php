@@ -24,7 +24,7 @@ class ActividadQrsModelo extends modeloPrincipal{
       return $sql;
     }
 
-    public function listar_ActividadQrsAll_modelo(){
+    public function listar_ActividadQrsAll_modelo(){ 
       $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
@@ -36,7 +36,7 @@ class ActividadQrsModelo extends modeloPrincipal{
       $datos=$datos->fetchAll();
       return $datos;
   }
-  public function listar_ActividadQrsPendientesAll_modelo(){
+  public function listar_ActividadQrsPendientesAll_modelo(){ 
       $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
@@ -64,5 +64,49 @@ class ActividadQrsModelo extends modeloPrincipal{
       return $datos;
   }
 
+
+  public function listar_ActividadQrsU_modelo($codigo){ 
+    $consulta="SELECT * FROM oevactpactividadqrs AS act
+    INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+    INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+    INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+    INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.UPUcodigo=$codigo";
+    $conexion=modeloPrincipal::conectar();
+    $datos=$conexion->query($consulta);
+    $datos=$datos->fetchAll();
+    return $datos;
+}
+
+
+protected static function listar_ActividadQrsAtendidasU_modelo($codigo)
+  {
+    $consulta="SELECT * FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+      INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE act.UPUcodigo=$codigo && act.ACTestado=2";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  }
+
+
+
+  public function listar_ActividadQrsAtendidasAll_modelo(){ 
+    $consulta="SELECT * FROM oevactpactividadqrs AS act
+    INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+    INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+    INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+    INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=2";
+    $conexion=modeloPrincipal::conectar();
+    $datos=$conexion->query($consulta);
+    $datos=$datos->fetchAll();
+    return $datos;
+}
 
  }
