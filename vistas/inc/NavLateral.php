@@ -140,16 +140,21 @@
 
              <?php if($_SESSION['privilegio_spm']==3){ ?>
             <li><a href=" <?php echo SERVERURL?>listar-actividadAtendidasU/"><i class="fa fa-check"></i> Actividades Atendidas - U<span class="label label-success pull-right"></a></li>
-            <li><a href=" <?php echo SERVERURL?>listar-actividadPendiente/"><i class="fa fa-check"></i> Actividades Pendientes-U<span class="label label-success pull-right"></a></li>
+            <li><a href=" <?php echo SERVERURL?>listar-actividadPendiente/"><i class="fa fa-clock-o"></i> Actividades Pendientes-U<span class="label label-success pull-right"></a></li>
               <?php } ?>
-
+              
               <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
               <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-book"></i> Generar EXCEL -PDF - Actividades QRS<span class="label label-success pull-right"></a></li>
                 <?php } ?>
 
                 <?php if($_SESSION['privilegio_spm']==3){ ?>
-                <li><a href=" <?php echo SERVERURL?>nombre/"><i class="fa fa-book"></i> Generar EXCEL -PDF - Actividades QRS -U<span class="label label-success pull-right"></a></li>
-				        <?php } ?>
+                <li><a><i class="fa fa-book"></i> Generar EXCEL -PDF - Actividades QRS -U<span class="fa fa-chevron-down"></span></a>
+				        <ul class="nav child_menu">
+                      <li><a href=" <?php echo SERVERURL?>nombre/">Excel</a></li>
+                      <li><a href="vistas/fpdf-view.php/">PDF</a></li>
+                    </ul>
+                    </li>
+                <?php } ?>
 
                 </ul>
               </div>  
