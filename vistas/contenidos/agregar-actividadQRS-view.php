@@ -24,10 +24,10 @@ if($_SESSION['estado_spm']!=1){
                 <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
 
 
-                                <?php 
+                                 <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
-                                $tipoqrs=new UsuarioPersonalUptVirtualControlador(); 
-                                $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_controlador();
+                                $personal=new UsuarioPersonalUptVirtualControlador();
+                                $datosPersonal=$personal->Obtener_usuariopersonaluptvirtual_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
@@ -36,7 +36,9 @@ if($_SESSION['estado_spm']!=1){
                                  <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Personal UptVirtual:</b><span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
                                     <select class="form-control" name="personal_reg" >
-                                        
+                                        <?php foreach($datosPersonal as $row){ ?>
+                                            <option value=<?php echo $row['UPUcodigo']?>><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>)</option>
+                                        <?php }?>
                                     </select>
                                     </div>
                             </div>
