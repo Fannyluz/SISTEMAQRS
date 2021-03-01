@@ -109,4 +109,14 @@ protected static function listar_ActividadQrsAtendidasU_modelo($codigo)
     return $datos;
 }
 
+    public function excel(){ 
+      $consulta="SELECT * FROM oevactpactividadqrs";
+    $conexion=modeloPrincipal::conectar();
+    $datos=$conexion->query($consulta);
+    $datos=$datos->fetchAll();
+    return $datos;
+    }
+
+
+
  }

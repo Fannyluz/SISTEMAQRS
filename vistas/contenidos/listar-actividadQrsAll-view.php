@@ -16,7 +16,17 @@
                                 <div class="x_content">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        
+
+    <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
+     <input type="hidden" name="export" value="export" />    
+       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar Actividades
+
+        </button>
+      </input>
+
+    </form> 
+
 
                                            
                                         <div class="card-box table-responsive">

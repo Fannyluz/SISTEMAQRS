@@ -131,4 +131,290 @@
          $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
          return $datos;
       } // fin del controlador 
+
+      public function generarexcelActividadQRSALL_Controlador()
+      {
+        $output = '';
+       $datos=ActividadQrsModelo::listar_ActividadQrsAll_modelo();
+        $count=1;
+        $nuevoestado="Activo";
+       
+          $output .= '
+           <table class="table" bordered="1">  
+                            <tr>  
+                                 <th>Item</th>
+                                <th>Tipo</th>
+                                <th>Caso</th>
+                                <th>Tipo Emisor</th>
+                                <th>Personal UptVirtual (Destinatario)</th>
+                                <th>Codigo</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Descripcion</th>
+                                <th>Celular</th>
+                                <th>CorreoElectronico</th>
+                                <th>Fecha</th>
+                                <th>Estado</th> 
+                            </tr>
+          ';
+          foreach($datos as $row){  
+           $output .= '
+            <tr>  
+                                 <td>'.$count++.'</td> 
+                                 <td>'.$row["TIPnombre"].'</td>
+                                 <td>'.$row["CASnombre"].'</td>
+                                 <td>'.$row["TIUnombre"].'</td>
+                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                 <td>'.$row["ACTcodigoUPT"].'</td>  
+                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                 <td>'.$row["ACTDescripcion"].'</td>  
+                                 <td>'.$row["ACTcelular"].'</td> 
+                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                 <td>'.$row["ACTfecha"].'</td>
+                                 <td>'.$row["ACTestado"].'</td>
+                            </tr>
+           ';
+          }
+          $output .= '</table>';
+          header('Content-Type: application/xls');
+          header('Content-Disposition: attachment; filename=ActividadesQrsALL.xls');
+          echo $output;
+         
+              }
+ public function generarexcelActividades_Controlador()
+      {
+        $output = '';
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportar']);
+        $datos=ActividadQrsModelo::listar_ActividadQrsU_modelo($codigo);
+        $count=1;
+        $nuevoestado="Activo";
+       
+          $output .= '
+           <table class="table" bordered="1">  
+                            <tr>  
+                                 <th>Item</th>
+                                <th>Tipo</th>
+                                <th>Caso</th>
+                                <th>Tipo Emisor</th>
+                                <th>Personal UptVirtual (Destinatario)</th>
+                                <th>Codigo</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Descripcion</th>
+                                <th>Celular</th>
+                                <th>CorreoElectronico</th>
+                                <th>Fecha</th>
+                            </tr>
+          ';
+          foreach($datos as $row){  
+           $output .= '
+            <tr>  
+                                 <td>'.$count++.'</td> 
+                                 <td>'.$row["TIPnombre"].'</td>
+                                 <td>'.$row["CASnombre"].'</td>
+                                 <td>'.$row["TIUnombre"].'</td>
+                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                 <td>'.$row["ACTcodigoUPT"].'</td>  
+                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                 <td>'.$row["ACTDescripcion"].'</td>  
+                                 <td>'.$row["ACTcelular"].'</td> 
+                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                 <td>'.$row["ACTfecha"].'</td>
+                            </tr>
+           ';
+          }
+          $output .= '</table>';
+          header('Content-Type: application/xls');
+          header('Content-Disposition: attachment; filename=ActividadesQRS.xls');
+          echo $output;
+         
+              }
+    public function generarexcelActividadPendientesQRSALL_Controlador()
+      {
+        $output = '';
+       $datos=ActividadQrsModelo::listar_ActividadQrsPendientesAll_modelo();
+        $count=1;
+        $nuevoestado="Activo";
+       
+          $output .= '
+           <table class="table" bordered="1">  
+                            <tr>  
+                                 <th>Item</th>
+                                <th>Tipo</th>
+                                <th>Caso</th>
+                                <th>Tipo Emisor</th>
+                                <th>Personal UptVirtual (Destinatario)</th>
+                                <th>Codigo</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Descripcion</th>
+                                <th>Celular</th>
+                                <th>CorreoElectronico</th>
+                                <th>Fecha</th>
+                            </tr>
+          ';
+          foreach($datos as $row){  
+           $output .= '
+            <tr>  
+                                 <td>'.$count++.'</td> 
+                                 <td>'.$row["TIPnombre"].'</td>
+                                 <td>'.$row["CASnombre"].'</td>
+                                 <td>'.$row["TIUnombre"].'</td>
+                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                 <td>'.$row["ACTcodigoUPT"].'</td>  
+                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                 <td>'.$row["ACTDescripcion"].'</td>  
+                                 <td>'.$row["ACTcelular"].'</td> 
+                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                 <td>'.$row["ACTfecha"].'</td>
+                            </tr>
+           ';
+          }
+          $output .= '</table>';
+          header('Content-Type: application/xls');
+          header('Content-Disposition: attachment; filename=ActividadesPendientesGeneral.xls');
+          echo $output;
+         
+              }
+
+
+    public function generarexcelActividadAtendidasQRSALL_Controlador()
+      {
+        $output = '';
+       $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
+        $count=1;
+        $nuevoestado="Activo";
+       
+          $output .= '
+           <table class="table" bordered="1">  
+                            <tr>  
+                                 <th>Item</th>
+                                <th>Tipo</th>
+                                <th>Caso</th>
+                                <th>Tipo Emisor</th>
+                                <th>Personal UptVirtual (Destinatario)</th>
+                                <th>Codigo</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Descripcion</th>
+                                <th>Celular</th>
+                                <th>CorreoElectronico</th>
+                                <th>Fecha</th>
+                            </tr>
+          ';
+          foreach($datos as $row){  
+           $output .= '
+            <tr>  
+                                 <td>'.$count++.'</td> 
+                                 <td>'.$row["TIPnombre"].'</td>
+                                 <td>'.$row["CASnombre"].'</td>
+                                 <td>'.$row["TIUnombre"].'</td>
+                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                 <td>'.$row["ACTcodigoUPT"].'</td>  
+                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                 <td>'.$row["ACTDescripcion"].'</td>  
+                                 <td>'.$row["ACTcelular"].'</td> 
+                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                 <td>'.$row["ACTfecha"].'</td>
+                            </tr>
+           ';
+          }
+          $output .= '</table>';
+          header('Content-Type: application/xls');
+          header('Content-Disposition: attachment; filename=ActividadesAtentidasAGeneral.xls');
+          echo $output;
+         
+              }
+  public function generarexcelActividadPendientesQRS_Controlador()
+      {
+        $output = '';
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarActividadesPendientes']);
+        $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($codigo);
+        $count=1;
+        $nuevoestado="Activo";
+       
+          $output .= '
+           <table class="table" bordered="1">  
+                            <tr>  
+                                 <th>Item</th>
+                                <th>Tipo</th>
+                                <th>Caso</th>
+                                <th>Tipo Emisor</th>
+                                <th>Personal UptVirtual (Destinatario)</th>
+                                <th>Codigo</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Descripcion</th>
+                                <th>Celular</th>
+                                <th>CorreoElectronico</th>
+                                <th>Fecha</th>
+                            </tr>
+          ';
+          foreach($datos as $row){  
+           $output .= '
+            <tr>  
+                                 <td>'.$count++.'</td> 
+                                 <td>'.$row["TIPnombre"].'</td>
+                                 <td>'.$row["CASnombre"].'</td>
+                                 <td>'.$row["TIUnombre"].'</td>
+                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                 <td>'.$row["ACTcodigoUPT"].'</td>  
+                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                 <td>'.$row["ACTDescripcion"].'</td>  
+                                 <td>'.$row["ACTcelular"].'</td> 
+                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                 <td>'.$row["ACTfecha"].'</td>
+                            </tr>
+           ';
+          }
+          $output .= '</table>';
+          header('Content-Type: application/xls');
+          header('Content-Disposition: attachment; filename=ActividadesPendientes.xls');
+          echo $output;
+         
+              }
+
+              public function generarexcelActividadAtendidasQRS_Controlador()
+      {
+        $output = '';
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarActividadesAtendidas']);
+        $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasU_modelo($codigo);
+        $count=1;
+        $nuevoestado="Activo";
+       
+          $output .= '
+           <table class="table" bordered="1">  
+                            <tr>  
+                                 <th>Item</th>
+                                <th>Tipo</th>
+                                <th>Caso</th>
+                                <th>Tipo Emisor</th>
+                                <th>Personal UptVirtual (Destinatario)</th>
+                                <th>Codigo</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Descripcion</th>
+                                <th>Celular</th>
+                                <th>CorreoElectronico</th>
+                                <th>Fecha</th>
+                            </tr>
+          ';
+          foreach($datos as $row){  
+           $output .= '
+            <tr>  
+                                 <td>'.$count++.'</td> 
+                                 <td>'.$row["TIPnombre"].'</td>
+                                 <td>'.$row["CASnombre"].'</td>
+                                 <td>'.$row["TIUnombre"].'</td>
+                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                 <td>'.$row["ACTcodigoUPT"].'</td>  
+                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                 <td>'.$row["ACTDescripcion"].'</td>  
+                                 <td>'.$row["ACTcelular"].'</td> 
+                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                 <td>'.$row["ACTfecha"].'</td>
+                            </tr>
+           ';
+          }
+          $output .= '</table>';
+          header('Content-Type: application/xls');
+          header('Content-Disposition: attachment; filename=ActividadesAtendidas.xls');
+          echo $output;
+         
+              }
+
      }
