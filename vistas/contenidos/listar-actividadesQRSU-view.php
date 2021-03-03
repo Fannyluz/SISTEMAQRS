@@ -23,7 +23,7 @@ se<div class="right_col" role="main">
 <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
      <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
-        Exportar Actividades EXCEL
+        Exportar Excel
 
         </button>
       </input>
