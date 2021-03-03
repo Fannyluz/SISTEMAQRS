@@ -16,16 +16,21 @@ se<div class="right_col" role="main">
                                 <div class="x_content">
                                     <div class="row">
                                         <div class="col-sm-12">
+
+
+                        
                                         
 <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
      <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
-        Exportar Actividades
+        Exportar Actividades EXCEL
 
         </button>
       </input>
 
     </form> 
+
+    
                                            
                                         <div class="card-box table-responsive">
                         
@@ -48,6 +53,12 @@ se<div class="right_col" role="main">
                                 <th>Acciones</th>
                                 </tr>
                             </thead>
+
+                            <!-- CONTENEDOR DONDE SE IMPRIMEN LA CONSULTA POR FECHAS 
+					<tbody id="actualizar">
+						<?php include('./includes/imprimir_bitacora.php'); ?>
+					</tbody>
+-->
                             <tbody>
                             
                                 <?php 

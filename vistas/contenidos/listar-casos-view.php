@@ -17,7 +17,16 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                         
-
+                                        <div class="col-sm-12">
+						<div id="datatable_length">
+							<!-- RANGO DE FECHAS A BUSCAR Y EXPORTAR -->
+							<label style="font-weight: normal;">Desde: <input class="form-control" type="date" id="bd-desde"/></label>
+							<label style="font-weight: normal;">Hasta: <input class="form-control" type="date" id="bd-hasta"/></label>
+							<button id="rango_fecha" class="btn-sm btn-primary">Buscar</button>
+							<!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
+							<a onClick="javascript:reportePDF();" class="btn-sm btn-danger" style="padding: 8px 15px; cursor: pointer; position: relative;">Exportar PDF<span><img src="./cargando.gif" class="cargando hide"></span></a>
+						</div>
+					</div>
                                            
                                         <div class="card-box table-responsive">
                         
@@ -33,6 +42,9 @@
                                 <th>Acciones</th>
                                 </tr>
                             </thead>
+                           <!--  <tbody id="actualizar">
+						
+					</tbody>-->
                             <tbody>
                             
                                 <?php 
@@ -107,4 +119,60 @@
         </div>
  </div>
 
+
+ <div class="modal fade" id="ver-pdf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="x_panel">
+		<div class="x_title">
+			<h2 class="text-center">Reporte Generado</h2>
+			<div class="clearfix"></div>
+		</div>
+
+		 <div id="view_pdf"></div>
+			<a id="cancel" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cancelar</a>
+		</div>
+	</div>
+</div>
+	
+<script type="text/javascript">
+(function(){	
+	$('#rango_fecha').on('click',function(){
+		var desde = $('#bd-desde').val();
+		var hasta = $('#bd-hasta').val();
+		var url = '../dao/busca_por_fecha.php';
+		$.ajax({
+		type:'POST', 
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('#actualizar').html(datos);
+		}
+	});
+	return false;
+	});
+})();
+	
+function reportePDF(){
+	var desde = $('#bd-desde').val();
+	var hasta = $('#bd-hasta').val();
+	var url = '../dao/exportar_pdf.php';
+	$('.cargando').removeClass('hide');
+	$.ajax({
+		type:'POST',
+		url:url,
+		data:'desde='+desde+'&hasta='+hasta,
+		success: function(datos){
+			$('.cargando').addClass('hide');
+			$('#ver-pdf').modal({
+				show:true,
+				backdrop:'static'
+			});	
+			PDFObject.embed("../temp/reporte.pdf", "#view_pdf");
+		}
+	});
+	return false;
+}
+
+
+</script>
  

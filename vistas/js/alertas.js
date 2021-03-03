@@ -91,7 +91,7 @@ function alertas_ajax(alerta){
                 document.querySelector(".FormularioAjax").reset();
             }
           });
-    }else if (alerta.Alerta === "redireccionar"){
+    }else if (alerta.Alerta == "redireccionar"){
         window.location.href=alerta.URL;
     }
 

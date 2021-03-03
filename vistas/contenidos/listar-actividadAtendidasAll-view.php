@@ -1,4 +1,4 @@
-se<div class="right_col" role="main">
+<div class="right_col" role="main">
         <div class="">
         
  

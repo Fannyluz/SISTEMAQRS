@@ -8,19 +8,20 @@
 				type: 'question',
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',
-				cancelButtonColor:'#d33',
+				cancelButtonColor:'#d33', 
 				confirmButtonText:'Si, salir',
 				cancelButtonText: 'No, cancelar'
 			}).then((result)=> {
 				if (result.value){
 					let url='<?php echo SERVERURL; ?> ajax/LoginAjax.php';
-					let clave='<?php echo $lc->encryption($_SESSION['clave_spm']); ?>';
 					let usuario='<?php echo $lc->encryption($_SESSION['usuario_spm']); ?>';
+					let clave='<?php echo $lc->encryption($_SESSION['clave_spm']); ?>';
+					
 
 
 					let datos = new FormData();
-					datos.append("clave",clave);
 					datos.append("usuario",usuario);
+					datos.append("clave",clave);
 
 					fetch(url,{
 						method: 'POST',

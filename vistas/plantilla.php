@@ -20,7 +20,7 @@
 		require_once "./vistas/contenidos/".$vistas."-view.php";
 	} 
 	else{
-		session_start(['name' => 'QRS']);
+		session_start(['name' => 'QRS']); 
 
 		require_once "./controladores/LoginControlador.php";
 		$lc = new LoginControlador();  

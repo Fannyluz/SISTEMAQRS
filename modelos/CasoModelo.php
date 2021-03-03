@@ -32,4 +32,53 @@ class CasoModelo extends modeloPrincipal{
     return $sql;
   }
 
+  /*protected function buscar_fecha($fecha_desde, $fecha_hasta)
+  {
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevcastcaso WHERE  CASfecha BETWEEN "'.$fecha_desde.'" AND "'.$fecha_hasta.'" ");
+    $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  } vamos a ver XD */
+
+  function fechaNormal($fecha){
+		$nfecha = date('d/m/Y',strtotime($fecha));
+		return $nfecha;
+	}
+
+  public function allBitacora(){
+    try{
+      $pdo = AccesoDB::getConnectionPDO();
+      
+      $sql = 'SELECT * FROM oevcastcaso ORDER BY CAScodigo DESC';
+      
+      $stmt = $pdo->query($sql);
+      $stmt->execute();
+      
+      $return = $stmt->fetchAll();
+      return $return;
+      
+    } catch (Exception $e){
+      throw $e;
+    }	
+  }
+
+  public function buscarAllBitacoraFecha($desde,$hasta){
+    try{
+      $pdo = AccesoDB::getConnectionPDO();
+      
+      $sql = 'SELECT * FROM oevcastcaso WHERE CASfecha BETWEEN "'.$desde.'" AND "'.$hasta.'" ORDER BY CAScodigo DESC';
+      
+      $stmt = $pdo->prepare($sql);
+      $stmt->execute();
+      
+      $return = $stmt->fetchAll();
+      return $return;
+      
+    } catch (Exception $e){
+      throw $e;
+    }	
+  }
+
  }
+ ?>
