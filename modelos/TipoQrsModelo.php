@@ -29,5 +29,14 @@ class TipoQrsModelo extends modeloPrincipal{
     $sql->execute();
     return $sql;
   }
+//datos tipo qrs
+   protected static function Ver_tipoqrs_Modelo($codigo)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevtipttipoqrs WHERE  TIPcodigo=:TIPcodigo");
+    $sql->bindParam(":TIPcodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
 
 }

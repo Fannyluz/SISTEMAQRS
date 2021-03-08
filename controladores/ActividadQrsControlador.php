@@ -417,4 +417,14 @@
          
               }
 
+
+/*mostrar datos detallados de actividades QRS pendientes ALL */
+      public function Ver_ActividadesQrsPendientesALL_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+         $datos=ActividadQrsModelo::Ver_actividadesQrsPendientesAll_Modelo($codigo);
+         return $datos;
+
+      } // fin del controlador 
+
      }

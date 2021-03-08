@@ -1,3 +1,9 @@
+<?php 
+if($_SESSION['privilegio_spm']!=1){
+    echo $lc->forzar_cierre_sesion_controlador();
+    exit();
+}
+?>
 <div class="right_col" role="main">
         <div class="">
         
@@ -66,19 +72,26 @@
                                
 
                              <td>
-                                    <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
-                                    </a>
-                                    <a href="#" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                    </a>
+                                    
                                                     
-                                        <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoQrsAjax.php" method="POST" data-form="delete" novalidate>
+                            <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoQrsAjax.php" method="POST" data-form="delete" novalidate>
+
+                            
+                            
+                                <a href="<?php echo SERVERURL?>ver-tipo-qrs/<?php echo $row['TIPcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+                                </a>
+
+                                <a href="<?php echo SERVERURL?>ver-tipo-qrs/<?php echo $row['TIPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                </a>
+
+                                                    
                                         <input type="hidden" name="qrs_codigo_del" value="<?php echo $row['TIPcodigo']; ?>" />    
                                             <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
                                             <i class="fa fa-trash-o fa-sm"></i> 
 
                                             </button>
                                             </input>
-                                        </form> 
+                            </form> 
                 
                                     </td>
                                 </tr>

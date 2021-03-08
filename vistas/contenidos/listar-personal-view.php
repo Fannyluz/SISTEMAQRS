@@ -1,3 +1,9 @@
+<?php 
+if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
+    echo $lc->forzar_cierre_sesion_controlador();
+    exit();
+}
+?>
 <div class="right_col" role="main">
         <div class="">
         
@@ -79,9 +85,9 @@
 
 
                                 <td>
-                                <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
-                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['PEUcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                                  </a>
                                                  
                                     <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>

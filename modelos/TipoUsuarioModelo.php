@@ -14,6 +14,7 @@ class TipoUsuarioModelo extends modeloPrincipal{
       $sql->execute();
       return $sql;
     }
+
     public function listar_tipousuario_modelo(){
       $consulta="SELECT * FROM oevtiuttipousuario";
       $conexion=modeloPrincipal::conectar();
@@ -22,6 +23,7 @@ class TipoUsuarioModelo extends modeloPrincipal{
       return $datos;
       
   }
+
   protected static function eliminar_tipousuario_modelo($codigo)
   {
     $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevtiuttipousuario WHERE  TIUcodigo=:TIUcodigo");
@@ -29,5 +31,16 @@ class TipoUsuarioModelo extends modeloPrincipal{
     $sql->execute();
     return $sql;
   }
+
+  //ver datos tipo usuario
+   protected static function Ver_tipousuario_Modelo($codigo)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevtiuttipousuario WHERE  TIUcodigo=:TIUcodigo");
+    $sql->bindParam(":TIUcodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
+
 
  }

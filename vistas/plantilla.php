@@ -21,6 +21,7 @@
 	} 
 	else{
 		session_start(['name' => 'QRS']); 
+		$pagina=explode("/",$_GET['views']);
 
 		require_once "./controladores/LoginControlador.php";
 		$lc = new LoginControlador();  

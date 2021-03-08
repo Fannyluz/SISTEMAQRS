@@ -1,4 +1,10 @@
-se<div class="right_col" role="main">
+<?php 
+if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
+    echo $lc->forzar_cierre_sesion_controlador();
+    exit();
+}
+?>
+<div class="right_col" role="main">
         <div class="">
         
 
@@ -91,10 +97,11 @@ foreach($datos as $row){
 
                                 
                                 <td>
-                                <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+                                <a href="<?php echo SERVERURL?>ver-actividadPendienteAll/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
-                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                 </a>           
+
+                                <a href="<?php echo SERVERURL?>ver-actividadPendienteAll<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                </a>       
                                                 
                                  </td>
                             </tr>

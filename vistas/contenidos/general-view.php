@@ -58,7 +58,7 @@
                                 $casos=new PersonalControlador();
                                 $datos=$casos->Listar_personal_controlador();
                                 $count=1;
-                                $nuevoestado="Activo";
+                                $nuevoestado="";
                             foreach($datos as $row){ 
                                     ?>
 

@@ -60,7 +60,7 @@
          return $datos;
       } // fin del controlador 
 
-/*controlador obtener usuario _codigo*/
+      /*controlador obtener usuario _codigo para asi poder obtener la informacion para el formario de agregar actividad qrs personal*/
          public function Obtener_usuariopersonaluptvirtual_controlador()
       {
         $codigo=$_SESSION['personal_spm'];
@@ -123,6 +123,13 @@
            echo json_encode($alerta);
         } // fin del controlador 
 
+/*mostrar informacion detallada del usuario personal de la oficina */
+      public function Ver_usuariopersonaluptvirtual_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+         $datos=UsuarioPersonalUptVirtualModelo::Ver_usuariopersonaluptvirtual_Modelo($codigo);
+         return $datos;
 
+      } // fin del controlador 
 
 }

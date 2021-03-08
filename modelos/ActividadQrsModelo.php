@@ -117,6 +117,27 @@ protected static function listar_ActividadQrsAtendidasU_modelo($codigo)
     return $datos;
     }
 
+//ver datos de actividades pendientes All
+   protected static function Ver_actividadesQrsPendientesAll_Modelo($codigo)
+  {
 
+    $consulta="SELECT * FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=1";
+
+
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevactpactividadqrs AS act 
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=1 and act.ACTcodigo=:ACTcodigo");
+    $sql->bindParam(":ACTcodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
 
  }

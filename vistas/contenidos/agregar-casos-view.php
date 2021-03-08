@@ -1,5 +1,5 @@
 <?php 
-if($_SESSION['estado_spm']!=1){
+if($_SESSION['privilegio_spm']!=1){
     echo $lc->forzar_cierre_sesion_controlador();
     exit();
 }
@@ -87,8 +87,8 @@ if($_SESSION['estado_spm']!=1){
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
                                                 <br>
-                                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                                    <button type="reset" class="btn btn-success">Limpiar</button>
+                                                    <button type="submit" class="btn btn-round btn-primary">Guardar</button>
+                                                    <button type="reset" class="btn btn-round btn-success">Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>

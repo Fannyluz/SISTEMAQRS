@@ -117,7 +117,7 @@
 
          }
          
-//eliminar caso
+        //eliminar caso
          $eliminar_caso=CasoModelo::eliminar_caso_modelo($codigo);
          if($eliminar_caso->rowCount()==1){
             $alerta=[
@@ -138,5 +138,14 @@
          echo json_encode($alerta);
       } // fin del controlador 
 
-      
+       /*controlador datos del caso*/
+      public function Ver_caso_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+         $datos=CasoModelo::Ver_Caso_Modelo($codigo);
+         return $datos;
+
+      } // fin del controlador 
+
+
      }

@@ -1,3 +1,9 @@
+<?php 
+if($_SESSION['privilegio_spm']!=1){
+    echo $lc->forzar_cierre_sesion_controlador();
+    exit();
+}
+?>
 <div class="right_col" role="main">
                 <div class="">
                     <div class="page-title">
@@ -80,8 +86,8 @@
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
-                                                    <button type='submit' class="btn btn-primary">Guardar</button>
-                                                    <button type='reset' class="btn btn-success">Limpiar</button>
+                                                    <button type='submit' class="btn btn-round btn-primary">Guardar</button>
+                                                    <button type='reset' class="btn btn-round btn-success">Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>

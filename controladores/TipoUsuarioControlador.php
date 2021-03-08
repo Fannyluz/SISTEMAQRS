@@ -141,5 +141,14 @@
         } // fin del controlador 
 
         
+        /*mostrar datos del tipo qrs */
+      public function Ver_tipousuario_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+         $datos=TipoUsuarioModelo::Ver_tipousuario_Modelo($codigo);
+         return $datos;
+
+      } // fin del controlador 
+
 
      }

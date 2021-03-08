@@ -1,3 +1,9 @@
+<?php 
+if($_SESSION['privilegio_spm']!=1){
+    echo $lc->forzar_cierre_sesion_controlador();
+    exit();
+}
+?>
 <div class="right_col" role="main">
         <div class="">
         

@@ -79,6 +79,16 @@ class CasoModelo extends modeloPrincipal{
       throw $e;
     }	
   }
+//datos del caso
+   protected static function Ver_Caso_Modelo($codigo)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevcastcaso WHERE  CAScodigo=:CAScodigo");
+    $sql->bindParam(":CAScodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
+
 
  }
  ?>
