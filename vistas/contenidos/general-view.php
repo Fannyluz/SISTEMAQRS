@@ -49,7 +49,9 @@
                                 </div>
 
 
-
+<h3><b><u>Personales de la Oficina de Educación Virtual</u></b></h3>
+<br>
+<br>
                            <div class="clearfix"></div>
 
                             <?php 
@@ -67,7 +69,7 @@
                                   <div class="well profile_view" >
                                    
                                     <div class="col-sm-12">
-                                      <h4 class="brief"><i>Personal UPT Virtual</i></h4>
+                                      <h4 class="brief" style="background-color:#fdaf17;"></i></h4>
                                       <div class="left col-md-7 col-sm-7" >
                                         <h2><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></h2>
                                         <p><strong>Rol: </strong> <?php echo $row['ROPnombre']?> </p>
@@ -107,9 +109,9 @@
                                       </div>
                                       <div class=" col-sm-6 emphasis">
                                         
-                                        <button  class="btn btn btn-sm" style="background-color:#fdaf17;color:white;">
-                                          <i class="fa fa-eye"> </i> Ver
-                                        </button>
+                                        
+                                        <a href="<?php echo SERVERURL?>ver-usuariopersonal-uptvirtual/<?php echo $row['PEUcodigo']; ?>" class="btn btn-round btn-outline btn-sm" style="background-color:#fdaf17;color:white;"><i class="fa fa-eye fa-sm"></i> Ver
+                                        </a>
                                       </div>
                                     </div>
                                   </div>

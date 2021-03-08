@@ -12,16 +12,7 @@ if($_SESSION['privilegio_spm']!=1){
            
                         </div>
 
-                        <div class="title_right">
-                            <div class="col-md-5 col-sm-5 form-group pull-right top_search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search for...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">Go!</button>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="clearfix"></div>
                     <div class="row">
@@ -33,15 +24,7 @@ if($_SESSION['privilegio_spm']!=1){
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                <a class="dropdown-item" href="#">Settings 1</a>
-                                                <a class="dropdown-item" href="#">Settings 2</a>
-                                            </div>
-                                        </li>
-                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                        </li>
+                                       
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
@@ -87,8 +70,8 @@ if($_SESSION['privilegio_spm']!=1){
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
                                                 <br>
-                                                    <button type="submit" class="btn btn-round btn-primary">Guardar</button>
-                                                    <button type="reset" class="btn btn-round btn-success">Limpiar</button>
+                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Guardar</button>
+                                                    <button type="reset" class="btn btn-round" style="background-color:#fdaf17;color:white;">Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>

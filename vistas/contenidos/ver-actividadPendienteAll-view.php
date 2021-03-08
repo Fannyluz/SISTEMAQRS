@@ -22,7 +22,7 @@ if($datos_caso->rowCount()==1){
               <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Información detallada del caso</h2>
+                    <h2>Información detallada de la actividad pendiente</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -50,15 +50,13 @@ if($datos_caso->rowCount()==1){
                            <p><strong>Apellidos: </strong><?php echo $campos['ACTapellidos']?></p>
                            <p><strong>Descripción: </strong> <?php echo $campos['ACTDescripcion']?></p>
                           <ul class="list-unstyled">
-                                         
-                                          <br>
+
                                           <li><i class="fa fa-envelope"></i> <?php echo $campos['ACTcorreoelectronico']?></li>
                                           <br>
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['ACTcelular']?></li>
                                 </ul>
 </h6>
-                         
-                          <br>
+
                           <?php if($campos['ACTestado']=="1")
                                 {
                                     ?> <h5> <label class="badge bg-warning" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Pendiente"; ?></label></h5>

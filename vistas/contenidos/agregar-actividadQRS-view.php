@@ -12,7 +12,11 @@ if($_SESSION['privilegio_spm']!=3){
                             <div class="x_panel">
                                 <div class="x_title" style="color:#10226a;">
                                 <h2>UPTvirtual <small>Agregar Actividad QRS</small></h2>
-                                    
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                       
+                                    </ul>
                                     <div class="clearfix"></div>
                                 </div>
 
@@ -165,8 +169,8 @@ if($_SESSION['privilegio_spm']!=3){
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
                                                 <br>
-                                                    <button type="submit" class="btn btn-round btn-primary">Guardar</button>
-                                                    <button type="reset" class="btn btn-round btn-success">Limpiar</button>
+                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Guardar</button>
+                                                    <button type="reset" class="btn btn-round" style="background-color:#fdaf17;color:white;">Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>

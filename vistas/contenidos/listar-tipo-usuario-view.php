@@ -11,16 +11,6 @@ if($_SESSION['privilegio_spm']!=1){
                     <h3>UPT <small>Oficina de Educación Virtual</small></h3>
                 </div>
 
-                <div class="title_right">
-                    <div class="col-md-5 col-sm-6 col-xs-12 form-group pull-right top_search">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                        <button class="btn btn-secondary" type="button">Go!</button>
-                        </span>
-                    </div>
-                    </div>
-                </div>
 
 
 
@@ -33,7 +23,12 @@ if($_SESSION['privilegio_spm']!=1){
                             <div class="x_panel">
 
                                 <div class="x_title" style="color:#10226a;">
-                                    <h2>UPTvirtual <small>Lista de Casos</small></h2>                      
+                                    <h2>UPTvirtual <small>Lista Tipos de Usuarios (Emisor)</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                       
+                                    </ul>                      
                                     <div class="clearfix"></div>
                                 </div>
 
@@ -41,7 +36,9 @@ if($_SESSION['privilegio_spm']!=1){
                                     <div class="row">
                                         <div class="col-sm-12">
                                         
-
+                                        <p align="right">
+                            <a href="<?php echo SERVERURL?>agregar-tipo-usuario/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
+                                </a></p>
                                            
                                         <div class="card-box table-responsive">
                         

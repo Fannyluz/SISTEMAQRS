@@ -94,17 +94,18 @@
                     </li>
                   <?php } ?> 
 
+
+                  <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
                     <li><a><i class="fa fa-user"></i> Personales UptVirtual <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
+                      
                         <li><a href=" <?php echo SERVERURL?>agregar-personal/">Agregar Personal UptVirtual</a></li>
                         <li><a href=" <?php echo SERVERURL?>listar-personal/">Listar Personal UptVirtual</a></li>
-                        <?php } ?> 
-                        <?php if($_SESSION['privilegio_spm']==3){ ?>
-                         <li><a href=" <?php echo SERVERURL?>personal-uptvirtual/">Personales UptVirtual</a></li>
-                          <?php } ?> 
                       </ul>
                     </li>
+                  <?php } ?> 
+
+
 
                     <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
                     <li><a><i class="fa fa-user"></i> Usuarios UptVirtual <span class="fa fa-chevron-down"></span></a>
@@ -143,18 +144,9 @@
             <li><a href=" <?php echo SERVERURL?>listar-actividadPendiente/"><i class="fa fa-clock-o"></i> Actividades Pendientes-U<span class="label label-success pull-right"></a></li>
               <?php } ?>
               
-              <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
-              <li><a href=" <?php echo SERVERURL?>listar-excel/"><i class="fa fa-book"></i> Generar EXCEL -PDF - Actividades QRS<span class="label label-success pull-right"></a></li>
-                <?php } ?>
+            
 
-                <?php if($_SESSION['privilegio_spm']==3){ ?>
-                <li><a><i class="fa fa-book"></i> Generar EXCEL -PDF - Actividades QRS -U<span class="fa fa-chevron-down"></span></a>
-				        <ul class="nav child_menu">
-                      <li><a href=" <?php echo SERVERURL?>nombre/">Excel</a></li>
-                      <li><a href="vistas/fpdf-view.php/">PDF</a></li>
-                    </ul>
-                    </li>
-                <?php } ?>
+                
 
                 </ul>
               </div>  

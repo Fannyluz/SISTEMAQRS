@@ -15,10 +15,15 @@ if($_SESSION['privilegio_spm']!=1){
                             <div class="x_panel">
 
                                 <div class="x_title" style="color:#10226a;">
-                                    <h2>UPTvirtual <small>Lista de Casos</small></h2>                      
+                                    <h2>UPTvirtual <small>Lista de Casos</small></h2>
+                                     <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                       
+                                    </ul>                      
                                     <div class="clearfix"></div>
                                 </div>
-
+                                
                                 <div class="x_content">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -31,9 +36,17 @@ if($_SESSION['privilegio_spm']!=1){
 							<button id="rango_fecha" class="btn-sm btn-primary">Buscar</button>
 							<!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
 							<a onClick="javascript:reportePDF();" class="btn-sm btn-danger" style="padding: 8px 15px; cursor: pointer; position: relative;">Exportar PDF<span><img src="./cargando.gif" class="cargando hide"></span></a>
+
+                            <p align="right">
+                            <a href="<?php echo SERVERURL?>agregar-casos/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
+                                </a></p>
 						</div>
 					</div>
-                                           
+                                    
+
+                                
+       <br>
+
                                         <div class="card-box table-responsive">
                         
                         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
