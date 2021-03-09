@@ -58,8 +58,9 @@ if($datos_caso->rowCount()==1){
                                               ?>
                                               <h5><?php echo $nuevoestado = "Activo"?></h5>
                                               <h5>
+                                              
+                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
-                                              <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;" </span></a>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
                                               </h5>
                                               <?php

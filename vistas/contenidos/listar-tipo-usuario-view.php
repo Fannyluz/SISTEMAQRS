@@ -90,7 +90,7 @@ if($_SESSION['privilegio_spm']!=1){
                                          <a href="<?php echo SERVERURL?>ver-tipo-usuario/<?php echo $row['TIUcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                         </a>
 
-                                        <a href="<?php echo SERVERURL?>ver-tipo-usuario/<?php echo $row['TIUcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                        <a href="<?php echo SERVERURL?>editar-tipo-usuario/<?php echo $row['TIUcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                         </a>
                                     
                                         <input type="hidden" name="tipousuario_codigo_del" value="<?php echo $row['TIUcodigo']; ?>" />    

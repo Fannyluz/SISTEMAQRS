@@ -13,11 +13,40 @@
             $personaluptvirtual=modeloPrincipal::limpiar_cadena($_POST['personaluptvirtual_reg']);
             $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_reg']);
             $clave=modeloPrincipal::limpiar_cadena($_POST['clave_reg']);
+            $repetirclave=modeloPrincipal::limpiar_cadena($_POST['repetirclave_reg']);
             $privilegio=modeloPrincipal::limpiar_cadena($_POST['privilegio_reg']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['fecha_reg']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['estado_reg']);
             
 
+
+            //comprobar campos vacios
+            if($usuario=="" || $clave=="" || $repetirclave==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }     
+            
+
+        //comprobar la clave
+            if($clave!=$repetirclave)
+            {
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"las claves deben ser iguales, por favir ingrese nuevamente",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }
 
             $datos_usuariopersonaluptvirtual_registro=[
                "PEUcodigo"=>$personaluptvirtual,
@@ -49,6 +78,8 @@
                   "Tipo"=>"error"
                ];
             }
+
+
             
             echo json_encode($alerta);
       } // fin del controlador  

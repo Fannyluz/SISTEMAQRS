@@ -59,7 +59,13 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Clave<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="clave_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input type="password" class="form-control" name="clave_reg" id="clave" placeholder="Ingrese la clave" required="required" />
+                                            </div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Repita la Clave<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input  type="password" class="form-control" name="repetirclave_reg" id="clave" placeholder="Repita la clave" required="required" />
                                             </div>
                                         </div>
                                     
