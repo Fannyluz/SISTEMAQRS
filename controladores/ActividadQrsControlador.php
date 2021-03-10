@@ -99,7 +99,7 @@
       } // fin del controlador 
 
       /*controlador listar actividadespendientes cpn codigo correspondiente*/
-      public function listar_ActividadQrsPendientes_controlador()
+      public function listar_ActividadQrsPendientes_controlador() 
       {
       	$codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
         $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($codigo);

@@ -36,12 +36,12 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
         </button>
       </input>
- 
-    </form>
-    <a href="../vistas/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+      <a href="../vistas/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
         </a>
+    </form>
+    
                              <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>
