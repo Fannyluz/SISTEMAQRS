@@ -417,12 +417,30 @@
          
               }
 
+/*mostrar datos detallados de actividades QRS pendientes ALL */
+      public function Ver_ActividadesQrs_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+         $datos=ActividadQrsModelo::Ver_actividadesQrs_Modelo($codigo);
+         return $datos;
+
+      } // fin del controlador
 
 /*mostrar datos detallados de actividades QRS pendientes ALL */
       public function Ver_ActividadesQrsPendientesALL_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
          $datos=ActividadQrsModelo::Ver_actividadesQrsPendientesAll_Modelo($codigo);
+         return $datos;
+
+      } // fin del controlador 
+
+      /*mostrar datos detallados de actividades QRS pendientes Personal */
+      public function Ver_ActividadesQrsPendientes_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+        $codigoUsuario=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::Ver_actividadesQrsPendientes_Modelo($codigo,$codigoUsuario);
          return $datos;
 
       } // fin del controlador 
