@@ -37,8 +37,13 @@ if($_SESSION['privilegio_spm']!=3){
 
         </button>
       </input>
+      <a href="../vistas/pdfActividadesU.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar PDF 
 
+        </a>
     </form> 
+
+    
                                     <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadQRS/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>
@@ -67,17 +72,14 @@ if($_SESSION['privilegio_spm']!=3){
                                 </tr>
                             </thead>
 
-                            <!-- CONTENEDOR DONDE SE IMPRIMEN LA CONSULTA POR FECHAS 
-					<tbody id="actualizar">
-						<?php include('./includes/imprimir_bitacora.php'); ?>
-					</tbody>
--->
+                           
+
                             <tbody>
                             
                                 <?php 
                                 require_once "./controladores/ActividadQrsControlador.php";
                                 $casos=new ActividadQrsControlador();
-                                $datos=$casos->listar_ActividadQrsU_controlador(); 
+                                $datos=$casos->listar_ActividadQrsU_controlador();  
                                 $count=1;
                                 $nuevoestado="Activo";
 foreach($datos as $row){  

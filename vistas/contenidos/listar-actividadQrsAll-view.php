@@ -33,9 +33,15 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         Exportar Excel
 
         </button>
+        
       </input>
+      <a href="../vistas/pdfActividadesAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar PDF 
 
+        </a>
     </form> 
+    
+ 
 
 
                                        <p align="right">
