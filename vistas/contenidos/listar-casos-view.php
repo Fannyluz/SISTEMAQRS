@@ -30,13 +30,8 @@ if($_SESSION['privilegio_spm']!=1){
                                         
                                         <div class="col-sm-12">
 						<div id="datatable_length">
-							<!-- RANGO DE FECHAS A BUSCAR Y EXPORTAR -->
-							<label style="font-weight: normal;">Desde: <input class="form-control" type="date" id="bd-desde"/></label>
-							<label style="font-weight: normal;">Hasta: <input class="form-control" type="date" id="bd-hasta"/></label>
-							<button id="rango_fecha" class="btn-sm btn-primary">Buscar</button>
-							<!-- BOTON PARA EXPORTAR EL RANGO DE FECHAS -->
-							<a onClick="javascript:reportePDF();" class="btn-sm btn-danger" style="padding: 8px 15px; cursor: pointer; position: relative;">Exportar PDF<span><img src="./cargando.gif" class="cargando hide"></span></a>
-
+							
+	
                             <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-casos/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>
