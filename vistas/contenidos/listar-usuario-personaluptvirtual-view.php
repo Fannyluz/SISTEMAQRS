@@ -42,7 +42,6 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <th>DNI</th>
                                 <th>nombres y Apellidos</th>
                                 <th>usuario</th>
-                                <th>Clave</th>
                                 <th>Privilegio</th>
                                 <th>fecha</th>
                                 <th>Estado</th>
@@ -67,7 +66,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <td><?php echo $row['PEUDNI']?></td> 
                                 <td><?php echo $row['PEUnombres']?>  <?php echo $row['PEUapellidos']?></td> 
                                 <td><?php echo $row['UPUusuario']?></td> 
-                                <td><?php echo $row['UPUclave']?></td> 
+                              
                                 <td><?php if($row['UPUprivilegio']=="1")
                                 {
                                      ?>  <span class="badge bg-primary" style="background-color:#10226a;color:white;"><?php echo $nuevoPrivilegio = "Control Total"; ?></span>
