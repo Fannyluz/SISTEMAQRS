@@ -45,7 +45,8 @@ if($_SESSION['privilegio_spm']!=1){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="tipousuario_descripcion_reg" id="tipousuario_descripcion" placeholder="Ingrese la descripción" required="required" />
+                                                <textarea class="form-control" data-validate-length-range="3" name="tipousuario_descripcion_reg" id="tipousuario_descripcion" placeholder="Ingrese la descripción" required="required"></textarea>
+    
                                             </div>
                                         </div>
                                         <div class="field item form-group">

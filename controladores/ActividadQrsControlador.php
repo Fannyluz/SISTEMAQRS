@@ -435,7 +435,7 @@
 
       } // fin del controlador 
 
-      /*mostrar datos detallados de actividades QRS pendientes Personal */
+/*mostrar datos detallados de actividades QRS pendientes Personal */
       public function Ver_ActividadesQrsPendientes_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);

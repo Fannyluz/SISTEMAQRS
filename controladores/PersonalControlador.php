@@ -122,6 +122,15 @@
            echo json_encode($alerta);
         } // fin del controlador 
 
+/*controlador ver  personal*/
+      public function Ver_Personal_controlador($codigo)
+      {
+         $codigo=modeloPrincipal::limpiar_cadena($codigo);
+         $datos=PersonalModelo::Ver_Personal_Modelo($codigo);
+         return $datos;
 
+      } // fin del controlador
 
+     
+ 
 }

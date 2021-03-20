@@ -48,7 +48,9 @@ if($datos_caso->rowCount()==1){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_reg" value="<?php echo $campos['TIPdescripcion']?>" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" />
+                                              
+                                                <textarea class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_reg" value="" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" ><?php echo $campos['TIPdescripcion']?></textarea>
+
                                             </div>
                                         </div>
                                         <div class="field item form-group">

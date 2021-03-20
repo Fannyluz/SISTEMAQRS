@@ -139,7 +139,9 @@ protected static function listar_ActividadQrsAtendidasU_modelo($codigo)
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
       INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
       INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
-      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=1 and act.ACTcodigo=:ACTcodigo");
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+      INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo  
+      WHERE act.ACTestado=1 and act.ACTcodigo=:ACTcodigo");
     $sql->bindParam(":ACTcodigo",$codigo);
     $sql->execute();
     return $sql;
@@ -153,7 +155,9 @@ protected static function listar_ActividadQrsAtendidasU_modelo($codigo)
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
       INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
       INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
-      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=1 and act.ACTcodigo=:ACTcodigo and  act.UPUcodigo=$codigoUsuario");
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo 
+      INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo 
+      WHERE act.ACTestado=1 and act.ACTcodigo=:ACTcodigo and  act.UPUcodigo=$codigoUsuario");
     $sql->bindParam(":ACTcodigo",$codigo);
     $sql->execute();
     return $sql;

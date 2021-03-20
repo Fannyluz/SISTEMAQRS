@@ -4,6 +4,15 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     exit();
 }
 ?>
+<?php 
+require_once "./controladores/UsuarioPersonalUptVirtualControlador.php"; 
+$nuevoestado="";
+$ins_caso = new UsuarioPersonalUptVirtualControlador();
+$datos_caso= $ins_caso->Ver_usuariopersonaluptvirtual_controlador($pagina[1]);
+if($datos_caso->rowCount()==1){
+  $campos=$datos_caso->fetch();
+?>
+
 <div class="right_col" role="main">
             
                     <div class="clearfix"></div>
@@ -27,7 +36,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         </p>
                                         <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
 
-                      <?php 
+                                <?php 
 
                                 require_once "./controladores/PersonalControlador.php";
                                 $casos=new PersonalControlador();
@@ -38,55 +47,57 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                                 <div class="field item form-group">
                                  <label class="col-form-label col-md-3 col-sm-3  label-align">Personal<span class="required">*</span></label>
-
                                     <div class="col-md-6 col-sm-6">
                                         <select class="form-control" name="personaluptvirtual_reg">
-                            <?php foreach($datos as $row){ ?>
-                                        <option value=<?php echo $row['PEUcodigo']?>><?php echo $row['PEUDNI']?> (<?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?>)</option>
-                                        <?php }?>
-                                                </select>
-                                            </div>
-                                </div>
-                                     
+                            			<?php foreach($datos as $row){ ?>
 
-                                        <div class="field item form-group">
+											<option  <?php echo $row['PEUcodigo'] == $campos['PEUcodigo'] ? 'selected' : ''; ?> value="<?php echo $campos['PEUcodigo']?>"><?php echo $row['PEUDNI']?> (<?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?>) </option>
+
+                                        <?php }?>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                    	<div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Usuario<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="usuario_reg" id="usuario" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" name="usuario_reg" id="usuario" value="<?php echo $campos['UPUusuario']?>" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Clave<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input type="password" class="form-control" name="clave_reg" id="clave" placeholder="Ingrese la clave" required="required" />
+                                                <input type="password" class="form-control" name="clave_reg"  value="<?php echo $campos['UPUclave']?>" id="clave" placeholder="Ingrese la clave" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Repita la Clave<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input  type="password" class="form-control" name="repetirclave_reg" id="clave" placeholder="Repita la clave" required="required" />
+                                                <input  type="password" class="form-control" name="repetirclave_reg" value="<?php echo $campos['UPUclave']?>"id="clave" placeholder="Repita la clave" required="required" />
                                             </div>
                                         </div>
-                                    
-
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="fecha_reg" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" value="<?php echo $campos['UPUfecha']?>" required='required'></div>
                                         </div>
 
 
-                                        <div class="field item form-group">
+
+                                       <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="estado_reg">
-                                                    <option value="1" selected="">Activo</option>
-                                                     <option value="2">Inactivo</option>
+                                                <select class="form-control" name="caso_estado_reg">
+                                                    <option <?php echo $campos['UPUestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>
+                                                    <option <?php echo $campos['UPUestado'] == 2 ? 'selected' : ''; ?> value="2">Inactivo</option>
                                                 </select>
                                             </div>
+
                                         </div>
+
                                         <br>
 
                                         <div class="field item form-group">
@@ -100,36 +111,34 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         
                                         </div>
                                        
-                                        
-                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Privilegio<span class="required">*</span></label>
+
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="privilegio_reg">
-                                                    <option value="1" selected="">Control Total</option>
-                                                     <option value="2">Edición</option>
-                                                     <option value="3">Registrar</option>
+                                                <select class="form-control" name="caso_estado_reg">
+                                                    <option <?php echo $campos['UPUprivilegio'] == 1 ? 'selected' : ''; ?> value="1">Control Total</option>
+                                                    <option <?php echo $campos['UPUprivilegio'] == 2 ? 'selected' : ''; ?> value="2">Registrar</option>
+                                                    <option <?php echo $campos['UPUprivilegio'] == 2 ? 'selected' : ''; ?> value="2">Edición</option>
                                                 </select>
                                             </div>
+
                                         </div>
 
-
-                                   
-
-
+     
                                         
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
                                                 <br>
-                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Guardar</button>
-                                                    <button type="reset" class="btn btn-round" style="background-color:#fdaf17;color:white;">Limpiar</button>
+                                                    <a href="<?php echo SERVERURL?>listar-usuario-personaluptvirtual/" class="btn btn-round btn-danger"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                                                        </a>
+                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Actualizar</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
                                 
-                            
-                                
+                                                          
                                 
                                 </div>
 
@@ -138,6 +147,10 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                     </div>
                 </div>
             </div>
+            <?php
+}
+?>
+
             <?php
 	include "./vistas/inc/validator.php"
 	?>

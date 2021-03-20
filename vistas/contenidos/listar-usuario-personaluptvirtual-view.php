@@ -106,7 +106,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     <a href="<?php echo SERVERURL?>ver-usuariopersonal-uptvirtual/<?php echo $row['UPUcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                         </a>
 
-                                    <a href="<?php echo SERVERURL?>ver-usuariopersonal-uptvirtual/<?php echo $row['UPUcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                    <a href="<?php echo SERVERURL?>editar-usuariopersonal-uptvirtual/<?php echo $row['UPUcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                     </a>
 
                                         <input type="hidden" name="usuariopersonaluptvirtual_codigo_del" value="<?php echo $row['UPUcodigo']; ?>" />    

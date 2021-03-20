@@ -35,7 +35,7 @@ if($datos_caso->rowCount()==1){
 
                     <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
 
-                      <h3 class="prod_title"><b>Destinatario al personal <?php echo $campos['PEUnombres']?> <?php echo $campos['PEUapellidos']?></b></h3>
+                      <h3 class="prod_title"><b>Dirigido a:</b> <?php echo $campos['PEUnombres']?> <?php echo $campos['PEUapellidos']?> - <?php echo $campos['ROPnombre']?></h3>
 
                       <div class="">
                       	<h6>

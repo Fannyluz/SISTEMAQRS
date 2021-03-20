@@ -40,4 +40,16 @@ public function get_rolpersonal($CodRolPersonal){
         return $datos;
         
     }
+
+    //ver personal
+   protected static function Ver_Personal_Modelo($codigo)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevpeutpersonaluptvirtual WHERE  PEUcodigo=:PEUcodigo");
+    $sql->bindParam(":PEUcodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
+
+
  }
