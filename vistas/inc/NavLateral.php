@@ -77,10 +77,10 @@
                   <?php } ?>  
 
                   <?php if($_SESSION['privilegio_spm']==1){ ?>
-                    <li><a><i class="fa fa-users"></i> Tipo Usuario <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-users"></i> Tipo Usuario (Emisor) <span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
-                        <li><a href=" <?php echo SERVERURL?>agregar-tipo-usuario/">Agregar Tipo Usuario</a></li>
-                        <li><a href=" <?php echo SERVERURL?>listar-tipo-usuario/">Listar Tipo Usuario</a></li>
+                        <li><a href=" <?php echo SERVERURL?>agregar-tipo-usuario/">Agregar Tipo Usuario(Emisor)</a></li>
+                        <li><a href=" <?php echo SERVERURL?>listar-tipo-usuario/">Listar Tipo Usuario(Emisor)</a></li>
                       </ul>
                     </li>
                   <?php } ?> 
