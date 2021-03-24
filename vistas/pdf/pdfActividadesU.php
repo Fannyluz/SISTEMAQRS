@@ -12,6 +12,7 @@ function Header()
     $this->SetFont('Arial','B',15);
     // Movernos a la derecha
     $this->Cell(115);
+    //$this->Cell(115);
     // Título
     $this->Write(5,'Reporte de Actividades');
     // Salto de línea
