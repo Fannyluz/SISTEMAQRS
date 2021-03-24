@@ -29,11 +29,23 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         
 
    
-         <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
+<form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
+
+  
+    <div class="field item form-group">
+        <div>
+              <label><b>...Desde...</b> <span class="required"></span></label>
+             <input class="form-control" class='date' type="date" name="desde" id="desde"required='required'>
+         </div><b> ...</b>
+         <div>
+              <label><b>Hasta...</b><span class="required"></span></label>
+             <input class="form-control" class='date' type="date" name="hasta"id="hasta" required='required'>
+         </div>
+    </div>
+
      <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar Excel
-
         </button>
       </input>
       <a href="../vistas/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
