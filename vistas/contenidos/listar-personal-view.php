@@ -32,7 +32,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                             <thead>
                                 <tr>
                                 <th>N°</th>
-                                <th>N°</th>
+                                <th>Rol</th>
                                 <th>DNI</th>
                                 <th>Nombre</th>
                                 <th>Apellidos</th>
@@ -61,7 +61,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     ?>
                                 <tr>
                                 <td><?php echo $count++?></td> 
-                                <td><?php echo $row['ROPcodigo']?></td> 
+                                <td><?php echo $row['ROPnombre']?></td> 
                                 <td><?php echo $row['PEUDNI']?></td>
                                 <td><?php echo $row['PEUnombres']?></td> 
                                 <td><?php echo $row['PEUapellidos']?></td>
@@ -85,20 +85,24 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
 
                                 <td>
-                                 <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
-                                </a>
-                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                 </a>
-                                                 
-                                    <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['PEUcodigo']; ?>" />    
-                                        <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
-                                        <i class="fa fa-trash-o fa-sm"></i> 
+                                <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="delete" novalidate>
 
-                                        </button>
-                                        </input>
+<a href="<?php echo SERVERURL?>ver-personal/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+</a> 
 
-                                    </form> 
+<a href="<?php echo SERVERURL?>editar-personal/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+</a>
+
+
+<input type="hidden" name="caso_codigo_del" value="<?php echo $row['ROPcodigo']; ?>" />    
+<button type="submit" class="btn btn-round btn-outline-danger btn-sm">
+        <i class="fa fa-trash-o fa-sm"></i> 
+
+</button>
+</input>
+
+
+</form>
 
                                                  
                                                

@@ -36,6 +36,15 @@ if($_SESSION['privilegio_spm']!=3){
       </input>
 
     </form> 
+    <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
+     <input type="hidden" name="exportarActividadesAtendidas" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
+       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar Word
+
+        </button>
+      </input>
+      
+    </form> 
                     <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadQRS/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>

@@ -104,7 +104,7 @@ if($_SESSION['privilegio_spm']!=1){
                                 <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
 
                                 <a href="<?php echo SERVERURL?>ver-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
-                                </a>
+                                </a> 
 
                                 <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>

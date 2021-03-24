@@ -35,12 +35,22 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
         </button>
       </input>
-      <a href="../vistas/pdfAtendidasAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+      <a href="../vistas/pdf/pdfAtendidasAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
         </a>
     </form> 
+    <p align="left">
+    <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
+     <input type="hidden" name="exportAtendidasAll" value="exportAtendidasAll" />    
+       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar Word
 
+        </button>
+      </input>
+      
+    </form> 
+    </p>
    
       <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo

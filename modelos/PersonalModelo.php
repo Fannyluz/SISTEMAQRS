@@ -41,8 +41,21 @@ public function get_rolpersonal($CodRolPersonal){
         
     }
 
-    //ver personal
-   protected static function Ver_Personal_Modelo($codigo)
+    //ver personal PROBAR
+    //ver datos de actividades QRS
+protected static function Ver_Personal_Modelo($codigo)
+{
+  $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevpeutpersonaluptvirtual AS pu 
+  INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo");
+  $sql->bindParam(":PEUcodigo",$codigo);
+  $sql->execute();
+  return $sql;
+}
+
+
+
+
+protected static function Veer_personal_Modelo($codigo)
   {
 
     $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevpeutpersonaluptvirtual WHERE  PEUcodigo=:PEUcodigo");
@@ -50,6 +63,5 @@ public function get_rolpersonal($CodRolPersonal){
     $sql->execute();
     return $sql;
   }
-
 
  }

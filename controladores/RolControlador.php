@@ -84,7 +84,14 @@
          return $datos;
       } // fin del controlador 
 
+  /*controlador datos del caso*/
+  public function Ver_rol_controlador($codigo)
+  {
+    $codigo=modeloPrincipal::limpiar_cadena($codigo);
+     $datos=RolModelo::Ver_Rol_Modelo($codigo);
+     return $datos;
 
+  } // fin del controlador
 
       
      }
