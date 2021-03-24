@@ -24,4 +24,14 @@ class RolModelo extends modeloPrincipal{
         
     }
 
+
+    //datos del caso
+   protected static function Ver_Rol_Modelo($codigo)
+   {
+ 
+     $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevroptrolpersonal WHERE  ROPcodigo=:ROPcodigo");
+     $sql->bindParam(":ROPcodigo",$codigo);
+     $sql->execute();
+     return $sql;
+   }
  }

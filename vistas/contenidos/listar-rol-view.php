@@ -63,7 +63,7 @@ if($_SESSION['privilegio_spm']!=1){
                                 { ?>
                                      <span class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Activo"; ?></span>
                                     <?php
-                                    
+                                     
                                 }else{
                                     ?>  <span class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Inactivo"; ?></span>
                                     <?php
@@ -73,20 +73,24 @@ if($_SESSION['privilegio_spm']!=1){
 
 
                                 <td>
-                                <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+                                <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/RolAjax.php" method="POST" data-form="delete" novalidate>
+
+                                <a href="<?php echo SERVERURL?>ver-rol/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+                                </a> 
+
+                                <a href="<?php echo SERVERURL?>editar-rol/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>
-                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                 </a>
-                                                 
-                                    <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
-                                        <input type="hidden" name="caso_codigo_del" value="<?php echo $row['ROPcodigo']; ?>" />    
-                                        <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
+
+
+                                <input type="hidden" name="rol_codigo_del" value="<?php echo $row['ROPcodigo']; ?>" />    
+                                <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
                                         <i class="fa fa-trash-o fa-sm"></i> 
 
-                                        </button>
-                                        </input>
+                                </button>
+                                </input>
 
-                                    </form> 
+
+                            </form>
 
                                                  
                                                

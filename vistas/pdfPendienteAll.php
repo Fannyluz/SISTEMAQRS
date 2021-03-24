@@ -65,7 +65,8 @@ $pdf = new PDF();
 $pdf-> AliasNbPages();
 $pdf->AliasNbPages();
 $pdf->AddPage('landscape');
-$pdf->SetFont('Times','',8);
+$pdf->SetFont('Times','',8); 
+
 //$pdf->SetPaper("letter","landscape");
 
 

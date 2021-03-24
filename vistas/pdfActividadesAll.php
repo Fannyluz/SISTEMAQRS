@@ -68,9 +68,9 @@ $pdf->SetFont('Times','',8);
 
 while ($row = $resultado->fetch_assoc()){
     $pdf->Cell(10,10, $row['ACTcodigo'], 1, 0, 'C', 0);
-    $pdf->Cell(10,10, $row['TIPcodigo'], 1, 0, 'C', 0);
-    $pdf->Cell(10,10, $row['CAScodigo'], 1, 0, 'C', 0);
-    $pdf->Cell(15,10, $row['TIUcodigo'], 1, 0, 'C', 0);
+    $pdf->Cell(10,10, $row['TIPnombre'], 1, 0, 'C', 0);
+    $pdf->Cell(10,10, $row['CASnombre'], 1, 0, 'C', 0);
+    $pdf->Cell(15,10, $row['TIUnombre'], 1, 0, 'C', 0);
     $pdf->Cell(30,10, $row['UPUcodigo'], 1, 0, 'C', 0);
     $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
     $pdf->Cell(25,10, $row['ACTnombres'], 1, 0, 'C', 0);

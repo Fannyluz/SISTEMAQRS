@@ -42,6 +42,15 @@ if($_SESSION['privilegio_spm']!=3){
 
         </a>
     </form> 
+    <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
+     <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
+       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar Word
+
+        </button>
+      </input>
+      
+    </form> 
 
     
                                     <p align="right">
