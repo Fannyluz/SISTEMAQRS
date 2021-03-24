@@ -72,6 +72,8 @@ if($datos_caso->rowCount()==1){
                                     </div>
                                 </div>
                                      
+
+                                     
                                 <?php 
                                 require_once "./controladores/CasoControlador.php";
                                 $caso=new CasoControlador();
@@ -93,6 +95,9 @@ if($datos_caso->rowCount()==1){
                                     </select>
                                     </div> 
                                 </div>
+
+
+
 
                                 <?php 
                                 require_once "./controladores/TipoUsuarioControlador.php";
@@ -177,6 +182,8 @@ if($datos_caso->rowCount()==1){
                                             </div>
 
                                         </div>
+
+
 
                                         <div class="ln_solid">
                                             <div class="form-group">
