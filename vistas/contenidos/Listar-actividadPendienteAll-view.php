@@ -37,7 +37,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         </button>
 
       </input>
-      <a href="../vistas/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+      <a href="../vistas/pdf/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
         </a>

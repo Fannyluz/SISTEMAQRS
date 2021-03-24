@@ -1,5 +1,5 @@
 <?php
-require('../fpdf/fpdf.php');
+require('../../fpdf/fpdf.php');
 
 class PDF extends FPDF
 {
@@ -9,15 +9,15 @@ function Header()
     // Logo
     
     // Arial bold 15
-    $this->SetFont('Arial','B',7);
+    $this->SetFont('Arial','B',15);
     // Movernos a la derecha
     $this->Cell(115);
     // Título
-    $this->Cell(70,10,'Reporte de Actividades',1,0,'C');
+    $this->Write(5,'Reporte de Actividades');
     // Salto de línea
     $this->Ln(20);
-
-    $this->Cell(10,10, utf8_decode("N°"), 1, 0, 'C', 0);
+    $this->SetFont('Arial','B',7);
+    $this->Cell(7,10, utf8_decode("N°"), 1, 0, 'C', 0);
     $this->Cell(10,10, "Tipo", 1, 0, 'C', 0);
     $this->Cell(10,10, "Caso", 1, 0, 'C', 0);
     $this->Cell(15,10, "Emisor", 1, 0, 'C', 0);
@@ -44,8 +44,8 @@ function Footer()
 }
 }
 
-require '../config/APP.php';
-require '../config/SERVER.php';
+require '../../config/APP.php';
+require '../../config/SERVER.php';
 
 //$consulta = "SELECT * FROM oevactpactividadqrs";
 //$codigo="SELECT * FROM oevactpactividadqrs";
@@ -66,21 +66,24 @@ $pdf->AliasNbPages();
 $pdf->AddPage('landscape');
 $pdf->SetFont('Times','',8);
 
-
+$i = 1;
 while ($row = $resultado->fetch_assoc()){
-    $pdf->Cell(10,10, $row['ACTcodigo'], 1, 0, 'C', 0);
-    $pdf->Cell(10,10, $row['TIPcodigo'], 1, 0, 'C', 0);
-    $pdf->Cell(10,10, $row['CAScodigo'], 1, 0, 'C', 0);
-    $pdf->Cell(15,10, $row['TIUcodigo'], 1, 0, 'C', 0);
-    $pdf->Cell(30,10, $row['UPUcodigo'], 1, 0, 'C', 0);
+    $pdf->Cell(7,10, $i,1,0,'C',0);
+    //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
+    $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+    //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+    $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+    $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+    $pdf->Cell(30,10,utf8_decode( $row['UPUusuario']), 1, 0, 'C', 0);
     $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-    $pdf->Cell(25,10, $row['ACTnombres'], 1, 0, 'C', 0);
-    $pdf->Cell(25,10, $row['ACTapellidos'], 1, 0, 'C', 0);
-    $pdf->Cell(40,10, $row['ACTDescripcion'], 1, 0, 'C', 0);
+    $pdf->Cell(25,10,utf8_decode( $row['ACTnombres']), 1, 0, 'C', 0);
+    $pdf->Cell(25,10,utf8_decode( $row['ACTapellidos']), 1, 0, 'C', 0);
+    $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
     $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
     $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
     $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
     $pdf->Cell(15,10, $row['ACTestado'], 1, 1, 'C', 0);
+    $i++;
 }
 $pdf->Output();
 ?>

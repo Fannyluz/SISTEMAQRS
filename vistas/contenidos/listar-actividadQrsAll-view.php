@@ -35,7 +35,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         </button>
         
       </input>
-      <a href="../vistas/pdfActividadesAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+      <a href="../vistas/pdf/pdfActividadesAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
         </a>
@@ -49,15 +49,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
       </input>
       
     </form> 
-    <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
-     <input type="hidden" name="export" value="export" />    
-       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
-        Exportar PDF
-
-        </button>
-      </input>
-      
-    </form>
+    
     
  
 
