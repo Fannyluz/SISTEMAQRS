@@ -26,9 +26,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <div class="x_content">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                        
-
-   
+  <!-- Esto es un comentario 
    <div class="field item form-group">
         <div>
               <label><b>...Desde...</b> <span class="required"></span></label>
@@ -39,7 +37,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
              <input class="form-control" class='date' type="date" name="hasta"id="hasta" required='required'>
          </div>
     </div>
-
+-->
 
 <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
 
@@ -50,14 +48,14 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar Excel </button>
 
-      
-    </form>
-
-    </input>
+      </input>
       <a href="../vistas/pdf/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
         </a>
+    </form>
+
+    
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
      

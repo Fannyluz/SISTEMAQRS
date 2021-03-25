@@ -27,12 +27,13 @@ if($_SESSION['privilegio_spm']!=1){
             <div class="x_content">
                 <div class="row">
                  <div class="col-sm-12">
-                                      
-                                      <div class="field item form-group">
+                                      <!-- Esto es un comentario 
+                                /* Aquí puedes escribir tu comentario 
+                                <div class="field item form-group">
                                             <label class="col-form-label col-md-6 col-sm-6 label-align">fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="" required='required'></div>
-                                </div>
+                                </div>*/-->
 
                      <div class="col-sm-12">
 						<div id="datatable_length">
