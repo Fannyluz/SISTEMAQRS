@@ -125,7 +125,7 @@
          }
          
          // comprobar el personal en la tabla actividad QRS -BD
-         $check_personal_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigo' LIMIT 1");
+         $check_personal_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo FROM oevuputusuariopersonaluptvirtual WHERE PEUcodigo='$codigo' LIMIT 1");
 
 
          if($check_personal_actividadQRS->rowCount()>0)
