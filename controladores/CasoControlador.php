@@ -19,7 +19,7 @@
 
 
             //comprobar campos vacios
-            if($nombre=="" || $descripcion==""){
+            if($nombre=="" || $fecha=="" || $estado==""){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -83,6 +83,12 @@
          $datos=CasoModelo::listar_casos_modelo();
          return $datos;
       } // fin del controlador 
+      /*controlador listar casos*/
+      public function Listar_casos_estado_controlador()
+      {
+         $datos=CasoModelo::listar_casos_estado_modelo();
+         return $datos;
+      } // fin del controlador
 
       /*controlador eliminar casos*/
       public function Eliminar_caso_controlador()
@@ -102,8 +108,10 @@
                echo json_encode($alerta);
                exit();
          }
-         // comprobar el cso en BD
+         // comprobar el caso en BD
          $check_caso=modeloPrincipal::ejecutar_consulta_simple("SELECT CAScodigo FROM oevcastcaso WHERE CAScodigo='$codigo'");
+
+
          if($check_caso->rowCount()<=0)
          {
            $alerta=[
@@ -117,6 +125,23 @@
 
          }
          
+         // comprobar el caso en la tabla actividad QRS -BD
+         $check_caso_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT CAScodigo FROM oevactpactividadqrs WHERE CAScodigo='$codigo' LIMIT 1");
+
+
+         if($check_caso_actividadQRS->rowCount()>0)
+         {
+           $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No podemos eliminar el caso, debido a que actividades asociados, recomendamos deshabilitar el caso si ya no sera usado en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+
+         }
+
         //eliminar caso
          $eliminar_caso=CasoModelo::eliminar_caso_modelo($codigo);
          if($eliminar_caso->rowCount()==1){

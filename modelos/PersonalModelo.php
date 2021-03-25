@@ -40,6 +40,25 @@ public function get_rolpersonal($CodRolPersonal){
         return $datos;
         
     }
+    //LISTAR ESTADO =ACTIVO
+    public function listar_personal_Estado_modelo(){
+        $consulta="SELECT * FROM oevpeutpersonaluptvirtual AS pu 
+        INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE PEUestado=1";
+        $conexion=modeloPrincipal::conectar();
+        $datos=$conexion->query($consulta);
+        $datos=$datos->fetchAll();
+        return $datos;
+        
+    }
+    //eliminar
+
+    protected static function eliminar_personal_modelo($codigo)
+  {
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevpeutpersonaluptvirtual WHERE PEUcodigo=:PEUcodigo");
+    $sql->bindParam(":PEUcodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
 
     //ver personal PROBAR
     //ver datos de actividades QRS

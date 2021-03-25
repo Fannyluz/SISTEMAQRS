@@ -22,6 +22,15 @@ class TipoQrsModelo extends modeloPrincipal{
       return $datos;
       
   }
+  // listar por estado=activo
+  public function listar_tipoqrs_estado_modelo(){
+      $consulta="SELECT * FROM oevtipttipoqrs WHERE TIPestado=1";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+      
+  }
   protected static function eliminar_tipoqrs_modelo($codigo)
   {
     $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevtipttipoqrs WHERE  TIPcodigo =:TIPcodigo");

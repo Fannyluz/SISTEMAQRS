@@ -17,15 +17,23 @@ class CasoModelo extends modeloPrincipal{
       return $sql;
     }
     public function listar_casos_modelo(){
-      $numero=0;
-      $consulta="
-      SELECT * FROM oevcastcaso ORDER BY CASfecha DESC";
+      $consulta="SELECT * FROM oevcastcaso ORDER BY CASfecha DESC";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
       return $datos;
       
   }
+//estado =activo
+  public function listar_casos_estado_modelo(){
+      $consulta="SELECT * FROM oevcastcaso WHERE CASestado=1";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+      
+  }
+
   protected static function eliminar_caso_modelo($codigo)
   {
     $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevcastcaso WHERE  CAScodigo=:CAScodigo");

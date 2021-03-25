@@ -19,7 +19,7 @@
 
 
             //comprobar campos vacios
-            if($nombre=="" || $descripcion==""){
+            if($nombre=="" || $fecha=="" || $estado==""){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -37,7 +37,7 @@
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"Existe un caso registrado con el mismo nombre, por favor registre un caso diferente",
+                  "Texto"=>"Existe un rol registrado con el mismo nombre, por favor registre un rol diferente",
                   "Tipo"=>"error"
                ];
                echo json_encode($alerta);

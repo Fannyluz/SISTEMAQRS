@@ -30,7 +30,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
                                 $tipoqrs=new UsuarioPersonalUptVirtualControlador();
-                                $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_controlador();
+                                $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_estado_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
@@ -48,7 +48,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <?php 
                                 require_once "./controladores/TipoQrsControlador.php";
                                 $tipoqrs=new TipoQrsControlador();
-                                $datosTipoQRS=$tipoqrs->Listar_tipoqrs_controlador();
+                                $datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
@@ -67,7 +67,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <?php 
                                 require_once "./controladores/CasoControlador.php";
                                 $caso=new CasoControlador();
-                                $datosCaso=$caso->Listar_casos_controlador(); 
+                                $datosCaso=$caso->Listar_casos_estado_controlador(); 
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
@@ -87,7 +87,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <?php 
                                 require_once "./controladores/TipoUsuarioControlador.php";
                                 $tipoUsuario=new TipoUsuarioControlador();
-                                $datosUsuario=$tipoUsuario->Listar_tipousuario_controlador();
+                                $datosUsuario=$tipoUsuario->Listar_tipousuario_estado_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>

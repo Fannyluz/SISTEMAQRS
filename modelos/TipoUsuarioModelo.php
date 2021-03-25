@@ -24,6 +24,15 @@ class TipoUsuarioModelo extends modeloPrincipal{
       
   }
 
+ public function listar_tipousuario_estado_modelo(){
+      $consulta="SELECT * FROM oevtiuttipousuario WHERE TIUestado=1";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+      
+  }
+
   protected static function eliminar_tipousuario_modelo($codigo)
   {
     $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevtiuttipousuario WHERE  TIUcodigo=:TIUcodigo");

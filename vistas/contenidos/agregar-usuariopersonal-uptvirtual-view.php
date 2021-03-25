@@ -31,7 +31,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                                 require_once "./controladores/PersonalControlador.php";
                                 $casos=new PersonalControlador();
-                                $datos=$casos->Listar_personal_controlador();
+                                $datos=$casos->Listar_personal_estado_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>

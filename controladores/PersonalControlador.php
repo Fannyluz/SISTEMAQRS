@@ -21,6 +21,19 @@
             $fecha=modeloPrincipal::limpiar_cadena($_POST['personal_fecha_reg']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['personal_estado_reg']);
             
+          //comprobar campos vacios
+            if($dni=="" || $nombre=="" || $apellido=="" || $celular=="" || $fecha=="" || $estado==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }     
+            
 
             $datos_personal_registro=[
                "ROPcodigo"=>$rolpersonal,
@@ -67,27 +80,35 @@
          return $datos;
       } // fin del controlador 
 
+/*controlador listar personal estado=activo*/
+      public function Listar_personal_estado_controlador()
+      {
+         $datos=PersonalModelo::listar_personal_Estado_modelo();
+         return $datos;
+      } // fin del controlador 
+
+
 
        /*controlador eliminar usuario personal uptvirtual*/
-        public function Eliminar_personal_ontrolador()
+        public function Eliminar_personal_controlador()
         {
           // recibiendo el codigo del Tipo usuario
         
-           $codigo=modeloPrincipal::limpiar_cadena($_POST['rolpersonal_nombre_reg']); 
+           $codigo=modeloPrincipal::limpiar_cadena($_POST['personal_codigo_del']); 
   
            // recibiendo el Tipo usuario 
            if($codigo==1){
             $alerta=[
                     "Alerta"=>"simple",
                     "Titulo"=>"Ocurrio un error inesperado",
-                    "Texto"=>"No podemos eliminar el tipo usuario principal del sistema",
+                    "Texto"=>"No podemos eliminar el personal principal del sistema",
                     "Tipo"=>"error"
                  ];
                  echo json_encode($alerta);
                  exit();
            }
            // comprobar el Tipo usuario en BD
-           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo   FROM oevroptrolpersonal WHERE ROPcodigo='$rolpersonal'");
+           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo  FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigo'");
            if($check_personaluptvirtual->rowCount()<=0)
            {
              $alerta=[
@@ -100,10 +121,25 @@
                  exit();
   
            }
+
+           // comprobar el Tipo usuario en BD
+           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo FROM oevuputusuariopersonaluptvirtual WHERE PEUcodigo='$codigo' LIMIT 1");
+           if($check_personaluptvirtual->rowCount()>0)
+           {
+             $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"No podemos eliminar el personal, debido que ya cuenta con un Usuario, recomendamos deshabilitar el personal si ya no sera usado en el sistema ",
+                    "Tipo"=>"error"
+                 ];
+                 echo json_encode($alerta);
+                 exit();
+  
+           }
            
   //eliminar Tipo usuario
-           $eliminar_personal=PersonalModelo::eliminar_personal_modelo($rolpersonal);
-           if($eliminar_personal_modelo->rowCount()==1){
+           $eliminar_personal=PersonalModelo::eliminar_personal_modelo($codigo);
+           if($eliminar_personal->rowCount()==1){
               $alerta=[
                     "Alerta"=>"recargar",
                     "Titulo"=>"Caso eliminado",

@@ -17,7 +17,7 @@
 
 
             //comprobar campos vacios
-            if($nombre=="" || $descripcion==""){
+            if($nombre=="" || $fecha=="" || $estado==""){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -81,6 +81,14 @@
          return $datos;
       } // fin del controlador 
 
+/*controlador listar tipoqrs estado=activo*/
+      public function Listar_tipoqrs_estado_controlador()
+      {
+         $datos=TipoQrsModelo::listar_tipoqrs_estado_modelo();
+         return $datos;
+      } // fin del controlador 
+
+
 
 
        /*controlador eliminar QRS*/
@@ -109,6 +117,21 @@
                    "Alerta"=>"simple",
                    "Titulo"=>"Ocurrio un error inesperado",
                    "Texto"=>"El tipo QRS que intenta eliminar no existe en el sistema",
+                   "Tipo"=>"error"
+                ];
+                echo json_encode($alerta);
+                exit();
+ 
+          }
+
+      // comprobar si existe el tipo qrs en las actividades registradas
+          $check_tipoqrs_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT TIPcodigo FROM oevactpactividadqrs WHERE TIPcodigo='$codigo'LIMIT 1");
+          if($check_tipoqrs_actividadQRS->rowCount()>0)
+          {
+            $alerta=[
+                   "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"No podemos eliminar este tipo de QRS, debido a que existe actividades registrados",
                    "Tipo"=>"error"
                 ];
                 echo json_encode($alerta);
