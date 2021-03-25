@@ -171,7 +171,7 @@ protected static function Ver_actividadesQrs_Modelo($codigo)
   return $sql;
 }
 
-<<<<<<< HEAD
+
 //editar caso
    protected static function Editar_ActividadQRS_Modelo($datos)
   {
@@ -196,7 +196,7 @@ protected static function Ver_actividadesQrs_Modelo($codigo)
     return $sql;
   }
 
-=======
+
 //ver datos de actividades atendidas
 protected static function Ver_actividadesQrsAtendidas_Modelo($codigo,$codigoUsuario)
 {
@@ -212,6 +212,6 @@ protected static function Ver_actividadesQrsAtendidas_Modelo($codigo,$codigoUsua
   $sql->execute();
   return $sql;
 }
->>>>>>> 711f411d13a96f6daaa8264bcbc066b67d87623e
+
 
 }
