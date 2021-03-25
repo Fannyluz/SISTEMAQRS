@@ -51,7 +51,7 @@ public function get_rolpersonal($CodRolPersonal){
         
     }
     //eliminar
-
+ 
     protected static function eliminar_personal_modelo($codigo)
   {
     $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevpeutpersonaluptvirtual WHERE PEUcodigo=:PEUcodigo");

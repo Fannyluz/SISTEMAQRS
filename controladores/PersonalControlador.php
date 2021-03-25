@@ -89,74 +89,79 @@
 
 
 
-       /*controlador eliminar usuario personal uptvirtual*/
-        public function Eliminar_personal_controlador()
-        {
-          // recibiendo el codigo del Tipo usuario
-        
-           $codigo=modeloPrincipal::limpiar_cadena($_POST['personal_codigo_del']); 
-  
-           // recibiendo el Tipo usuario 
-           if($codigo==1){
-            $alerta=[
-                    "Alerta"=>"simple",
-                    "Titulo"=>"Ocurrio un error inesperado",
-                    "Texto"=>"No podemos eliminar el personal principal del sistema",
-                    "Tipo"=>"error"
-                 ];
-                 echo json_encode($alerta);
-                 exit();
-           }
-           // comprobar el Tipo usuario en BD
-           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo  FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigo'");
-           if($check_personaluptvirtual->rowCount()<=0)
-           {
-             $alerta=[
-                    "Alerta"=>"simple",
-                    "Titulo"=>"Ocurrio un error inesperado",
-                    "Texto"=>"El tipo Personal que intenta eliminar no existe en el sistema",
-                    "Tipo"=>"error"
-                 ];
-                 echo json_encode($alerta);
-                 exit();
-  
-           }
+       /*controlador eliminar casos*/
+      public function Eliminar_personal_controlador()
+      {
+        // recibiendo el codigo del caso
+      
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['personal_codigo_del']);
 
-           // comprobar el Tipo usuario en BD
-           $check_personaluptvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo FROM oevuputusuariopersonaluptvirtual WHERE PEUcodigo='$codigo' LIMIT 1");
-           if($check_personaluptvirtual->rowCount()>0)
-           {
-             $alerta=[
-                    "Alerta"=>"simple",
-                    "Titulo"=>"Ocurrio un error inesperado",
-                    "Texto"=>"No podemos eliminar el personal, debido que ya cuenta con un Usuario, recomendamos deshabilitar el personal si ya no sera usado en el sistema ",
-                    "Tipo"=>"error"
-                 ];
-                 echo json_encode($alerta);
-                 exit();
-  
-           }
-           
-  //eliminar Tipo usuario
-           $eliminar_personal=PersonalModelo::eliminar_personal_modelo($codigo);
-           if($eliminar_personal->rowCount()==1){
-              $alerta=[
-                    "Alerta"=>"recargar",
-                    "Titulo"=>"Caso eliminado",
-                    "Texto"=>"el tipo usuario ha sido eliminado del sistema exitosamente",
-                    "Tipo"=>"success"
-                 ];
-           }else{
+         // recibiendo el caso 
+         if($codigo==1){
+          $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No podemos eliminar el personal principal del sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+         }
+         // comprobar el personal en BD
+         $check_personal=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo FROM oevcastcaso WHERE ROPcodigo='$codigo'");
+
+
+         if($check_personal->rowCount()<=0)
+         {
+           $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"El personal que intenta eliminar no existe en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+
+         }
+         
+         // comprobar el personal en la tabla actividad QRS -BD
+         $check_personal_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigo' LIMIT 1");
+
+
+         if($check_personal_actividadQRS->rowCount()>0)
+         {
+           $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No podemos eliminar el caso, debido a que actividades asociados, recomendamos deshabilitar el caso si ya no sera usado en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+
+         }
+
+        //eliminar caso
+         $eliminar_personal=PersonalModelo::eliminar_personal_modelo($codigo);
+         if($eliminar_personal->rowCount()==1){
             $alerta=[
-                    "Alerta"=>"simple",
-                    "Titulo"=>"Ocurrio un error inesperado",
-                    "Texto"=>"No hemos podido eliminar el tipo usuario, por favor intente nuevamente",
-                    "Tipo"=>"error"
-                 ];
-  
-           }
-           echo json_encode($alerta);
-        } // fin del controlador 
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Personal eliminado",
+                  "Texto"=>"el personal ha sido eliminado del sistema exitosamente",
+                  "Tipo"=>"success"
+               ];
+         }else{
+          $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos podido eliminar el personal, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+
+         }
+         echo json_encode($alerta);
+      } // fin del controlador 
+
 
 /*controlador ver  personal*/
       public function Ver_personal_controlador($codigo)

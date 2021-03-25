@@ -18,7 +18,7 @@
             && isset($_POST['personal_estado_reg']) ){
                 echo $ins_person->agregar_personal_controlador();
             }
-            // Eliminar un personal
+            // Eliminar un caso
             if(isset($_POST['personal_codigo_del'])){
                 echo $ins_person->Eliminar_personal_controlador();
             }

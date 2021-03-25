@@ -148,59 +148,5 @@ if($_SESSION['privilegio_spm']!=1){
  </div>
 
 
- <div class="modal fade" id="ver-pdf" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="x_panel">
-		<div class="x_title">
-			<h2 class="text-center">Reporte Generado</h2>
-			<div class="clearfix"></div>
-		</div>
-
-		 <div id="view_pdf"></div>
-			<a id="cancel" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Cancelar</a>
-		</div>
-	</div>
-</div>
-	
-<script type="text/javascript">
-(function(){	
-	$('#rango_fecha').on('click',function(){
-		var desde = $('#bd-desde').val();
-		var hasta = $('#bd-hasta').val();
-		var url = '../dao/busca_por_fecha.php';
-		$.ajax({
-		type:'POST', 
-		url:url,
-		data:'desde='+desde+'&hasta='+hasta,
-		success: function(datos){
-			$('#actualizar').html(datos);
-		}
-	});
-	return false;
-	});
-})();
-	
-function reportePDF(){
-	var desde = $('#bd-desde').val();
-	var hasta = $('#bd-hasta').val();
-	var url = '../dao/exportar_pdf.php';
-	$('.cargando').removeClass('hide');
-	$.ajax({
-		type:'POST',
-		url:url,
-		data:'desde='+desde+'&hasta='+hasta,
-		success: function(datos){
-			$('.cargando').addClass('hide');
-			$('#ver-pdf').modal({
-				show:true,
-				backdrop:'static'
-			});	
-			PDFObject.embed("../temp/reporte.pdf", "#view_pdf");
-		}
-	});
-	return false;
-}
-
-
 </script>
  
