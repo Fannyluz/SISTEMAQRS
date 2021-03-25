@@ -11,4 +11,4 @@ const METHOD="AES-256-CBC";
 const SECRET_KEY='$SISTEMAQRS@2020';
 const SECRET_IV='101712';
 
-$mysqli = new mysqli("localhost:8080","root", "rootfanny","sistemaqrs");
+$mysqli = new mysqli(SERVER,USER,PASS,DB);
