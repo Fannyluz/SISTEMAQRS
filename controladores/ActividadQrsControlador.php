@@ -740,6 +740,15 @@
          return $datos;
 
       } // fin del controlador 
+      /*mostrar datos detallados de actividades QRS atendidas Personal */
+      public function Ver_ActividadesQrsAtendidas_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+        $codigoUsuario=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::Ver_actividadesQrsAtendidas_Modelo($codigo,$codigoUsuario);
+         return $datos;
+
+      } // fin del controlador 
 
 
       //probar word
