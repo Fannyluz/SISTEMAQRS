@@ -91,7 +91,7 @@ class CasoModelo extends modeloPrincipal{
     return $sql;
   }
 
-//editar caso
+//editar caso 
    protected static function Editar_Caso_Modelo($datos)
   {
 
