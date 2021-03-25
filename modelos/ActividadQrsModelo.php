@@ -64,7 +64,7 @@ class ActividadQrsModelo extends modeloPrincipal{
       return $datos;
   }
 
-
+//probar fpdf con estos registros
   public function listar_ActividadQrsU_modelo($codigo){ 
     $consulta="SELECT * FROM oevactpactividadqrs AS act
     INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo

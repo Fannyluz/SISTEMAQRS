@@ -1,6 +1,8 @@
 <?php
 require('../../fpdf/fpdf.php');
 
+
+
 class PDF extends FPDF
 {
 // Cabecera de página 
@@ -47,16 +49,31 @@ function Footer()
 
 require '../../config/APP.php';
 require '../../config/SERVER.php';
+///require '../../ajax/ActividadQrsAjax.php';
+//require '../../modelos/ActividadQrsModelo.php';
+//public function listar_ActividadQrsU_modelo($codigo){ 
+   // $consulta="SELECT * FROM oevactpactividadqrs AS act
+   // INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+   // INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+   // INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+   // INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+  //  INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.UPUcodigo=$codigo ORDER BY ACTfecha DESC";
+   // $conexion=modeloPrincipal::conectar();
+   // $datos=$conexion->query($consulta);
+   // $datos=$datos->fetchAll();
+   // return $datos;
+//}
+//$model = new ActividadQrsControlador();
 
 //$consulta = "SELECT * FROM oevactpactividadqrs";
-//$codigo="SELECT * FROM oevactpactividadqrs";
+$id_estudiante=$_GET['estudiante_id'];
 $consulta="SELECT * FROM oevactpactividadqrs AS act
 INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
 INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
 INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
 INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
 INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
-INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE act.UPUcodigo && act.ACTestado=1";
+INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE act.UPUcodigo=$id_estudiante ORDER BY ACTfecha DESC";
   
 
 $resultado = $mysqli->query($consulta );
@@ -68,23 +85,45 @@ $pdf->AddPage('landscape');
 $pdf->SetFont('Times','',8);
 
 $i = 1;
-while ($row = $resultado->fetch_assoc()){
+while ($row = $resultado->fetch_assoc())
+//{
+   // $pdf->Cell(7,10, $i,1,0,'C',0);
+    //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
+   // $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+    //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+   // $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+   // $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+   // $pdf->Cell(30,10,utf8_decode( $row['UPUusuario']), 1, 0, 'C', 0);
+    //$pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+   // $pdf->Cell(25,10,utf8_decode( $row['ACTnombres']), 1, 0, 'C', 0);
+   // $pdf->Cell(25,10,utf8_decode( $row['ACTapellidos']), 1, 0, 'C', 0);
+   // $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
+   // $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+   // $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+   // $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+   // $pdf->Cell(15,10, $row['ACTestado'], 1, 1, 'C', 0);
+   // $i++;
+//}
+//$i = 1;
+//$estudiantes = $model->listar_ActividadQrsPendientes_controlador();
+//foreach($estudiantes as $estudiantes)
+{
     $pdf->Cell(7,10, $i,1,0,'C',0);
     //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-    $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
-    //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+   $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
     $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-    $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-    $pdf->Cell(30,10,utf8_decode( $row['UPUusuario']), 1, 0, 'C', 0);
+   $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+   $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+   $pdf->Cell(30,10,utf8_decode( $row['UPUusuario']), 1, 0, 'C', 0);
     $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-    $pdf->Cell(25,10,utf8_decode( $row['ACTnombres']), 1, 0, 'C', 0);
-    $pdf->Cell(25,10,utf8_decode( $row['ACTapellidos']), 1, 0, 'C', 0);
-    $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
-    $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
-    $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-    $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
-    $pdf->Cell(15,10, $row['ACTestado'], 1, 1, 'C', 0);
-    $i++;
+   $pdf->Cell(25,10,utf8_decode( $row['ACTnombres']), 1, 0, 'C', 0);
+   $pdf->Cell(25,10,utf8_decode( $row['ACTapellidos']), 1, 0, 'C', 0);
+   $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
+   $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+   $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+   $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+   $pdf->Cell(15,10, $row['ACTestado'], 1, 1, 'C', 0);
+   $i++;
 }
 $pdf->Output();
 ?>
