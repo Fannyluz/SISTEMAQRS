@@ -50,14 +50,14 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar Excel </button>
 
-      </input>
+      
+    </form>
+
+    </input>
       <a href="../vistas/pdf/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
         </a>
-    </form>
-
-    
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
      
