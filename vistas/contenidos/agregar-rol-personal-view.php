@@ -66,10 +66,11 @@ if($_SESSION['privilegio_spm']!=1){
                                                 <input class="form-control" data-validate-length-range="3" name="rol_descripcion_reg" id="rol_descripcion" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
+                                        <?php $fcha = date("Y-m-d");?>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="rol_fecha_reg" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="rol_fecha_reg" value="<?php echo $fcha;?>" required='required'></div>
                                         </div>
 
                                          <div class="field item form-group">
