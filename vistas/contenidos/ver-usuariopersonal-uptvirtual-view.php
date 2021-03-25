@@ -6,10 +6,10 @@ if($_SESSION['privilegio_spm']!=1){
 ?>
 <div class="right_col" role="main">
 <?php 
-require_once "./controladores/UsuarioPersonalUptVirtualControlador.php"; 
+require_once "./controladores/PersonalControlador.php"; 
 $nuevoestado="";
-$ins_caso = new UsuarioPersonalUptVirtualControlador();
-$datos_caso= $ins_caso->Ver_usuariopersonaluptvirtual_controlador($pagina[1]);
+$ins_caso = new PersonalControlador();
+$datos_caso= $ins_caso->Ver_personal_controlador($pagina[1]);
 if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch();
 ?>
@@ -49,7 +49,6 @@ if($datos_caso->rowCount()==1){
                         <div class="product_price">
                           <h6>
                           <p><strong>DNI: </strong> <?php echo $campos['PEUDNI']?></p>
-                          <p><strong>Usuario: </strong><?php echo $campos['UPUusuario']?></p>
                           <p><strong>Rol: </strong> <?php echo $campos['ROPnombre']?> </p>
                            <ul class="list-unstyled">
                                           <li><i class="fa fa-building"></i> <?php echo $campos['PEUdireccion']?></li>
@@ -58,28 +57,9 @@ if($datos_caso->rowCount()==1){
                                           <br>
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['PEUcelular']?></li>
                                         </ul>
+<br>
 
-<br>
-                            <strong>Privilegio: </strong> <?php if($campos['UPUprivilegio']=="1")
-                                {
-                                     ?>  <span class="badge bg-primary" style="background-color:#10226a;color:white;"><?php echo $nuevoPrivilegio = "Control Total"; ?></span>
-                                    <?php
-                                }else if($campos['UPUprivilegio']=="2")
-                                {
-                                    ?>  <span class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoPrivilegio = "Edición"; ?></span>
-                                    <?php
-                                        
-                                }
-                                else{
-                                     ?>  <span class="badge bg-dark" style="background-color:#10226a;color:white;"><?php echo $nuevoPrivilegio = "Registrar"; ?></span>
-                                    <?php
-        
-                                }
-                                 ?>
-</h6>
-<br>
-<br>
-                          <?php if($campos['UPUestado']=="1")
+                          <?php if($campos['PEUestado']=="1")
                           {
 
                                               ?>
@@ -104,7 +84,7 @@ if($datos_caso->rowCount()==1){
                           ?>
                           <br>
 
-                          <span class="price-tax"><?php echo $campos['UPUfecha']?></span>
+                          <span class="price-tax"><?php echo $campos['PEUfecha']?></span>
                           <br>
                         </div>
                       </div>
@@ -112,7 +92,7 @@ if($datos_caso->rowCount()==1){
                       <div class="product_social">
                         <ul class="list-inline display-layout">
                           
-                          <a href="<?php echo SERVERURL?>listar-usuario-personaluptvirtual/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                          <a href="<?php echo SERVERURL?>general/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
                                 </a>
 
                         </ul>

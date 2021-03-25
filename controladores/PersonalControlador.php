@@ -126,7 +126,7 @@
       public function Ver_personal_controlador($codigo)
       {
          $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=PersonalModelo::Veer_personal_modelo($codigo);
+         $datos=PersonalModelo::Veer_personal_Modelo($codigo);
          return $datos;
 
       } // fin del controlador

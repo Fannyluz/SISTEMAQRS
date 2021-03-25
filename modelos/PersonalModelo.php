@@ -58,7 +58,9 @@ protected static function Ver_Personal_Modelo($codigo)
 protected static function Veer_personal_Modelo($codigo)
   {
 
-    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevpeutpersonaluptvirtual WHERE  PEUcodigo=:PEUcodigo");
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevpeutpersonaluptvirtual AS pu 
+  INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo 
+  WHERE PEUcodigo=:PEUcodigo");
     $sql->bindParam(":PEUcodigo",$codigo);
     $sql->execute();
     return $sql;
