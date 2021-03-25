@@ -125,8 +125,8 @@
       } // fin del controlador 
 
 
-      /*controlador listar actividades pendientes All*/
-      public function listar_ActividadQrsAtendidasAll_controlador()
+      /*controlador listar actividades pendientes All*/ 
+      public function listar_ActividadQrsAtendidasAll_controlador() 
       {
          $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
          return $datos;
@@ -730,6 +730,15 @@
          return $datos;
 
       } // fin del controlador 
+      /*mostrar datos detallados de actividades QRS atendidas ALL */
+      public function Ver_ActividadesQrsAtendidasALL_controlador($codigo)
+      {
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);  
+         $datos=ActividadQrsModelo::Ver_actividadesQrsAtendidasAll_Modelo($codigo);
+         return $datos;
+
+      } 
+      // fin del controlador 
 
 /*mostrar datos detallados de actividades QRS pendientes Personal */
       public function Ver_ActividadesQrsPendientes_controlador($codigo)

@@ -73,13 +73,7 @@ if($datos_caso->rowCount()==1){
                                                 <input class="form-control" name="personal_apellido_up" value="<?php echo $campos['PEUapellidos']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
-                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Foto:</b><span class="required">*</span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                             <textarea class="form-control" name="personal_foto_up"  value="" id="clave" placeholder="Ingrese la descripción" required="required"><?php echo $campos['PEUfoto']?></textarea>
-
-                                            </div>
-                                        </div>
+                                       
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">

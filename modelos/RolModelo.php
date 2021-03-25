@@ -34,4 +34,28 @@ class RolModelo extends modeloPrincipal{
      $sql->execute();
      return $sql;
    }
+
+
+   //editar caso 
+   protected static function Editar_Rol_Modelo($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevroptrolpersonal SET ROPnombre=:ROPnombre,ROPdescripcion=:ROPdescripcion,ROPfecha=:ROPfecha,ROPestado=:ROPestado WHERE ROPcodigo=:CODIGO");
+
+   $sql->bindParam(":ROPnombre",$datos['ROPnombre']);
+   $sql->bindParam(":ROPdescripcion",$datos['ROPdescripcion']);
+   $sql->bindParam(":ROPfecha",$datos['ROPfecha']);
+   $sql->bindParam(":ROPestado",$datos['ROPestado']);
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
+    return $sql;
+  }
+
+  protected static function eliminar_rol_modelo($codigo)
+  {
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevroptrolpersonal WHERE  ROPcodigo=:ROPcodigo");
+    $sql->bindParam(":ROPcodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
  }

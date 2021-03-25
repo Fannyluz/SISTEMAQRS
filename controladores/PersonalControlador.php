@@ -14,7 +14,6 @@
             $dni=modeloPrincipal::limpiar_cadena($_POST['personal_dni_reg']);
             $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_reg']);
             $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_reg']);
-            $foto=modeloPrincipal::limpiar_cadena($_POST['personal_foto_reg']);
             $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_reg']);
             $celular=modeloPrincipal::limpiar_cadena($_POST['personal_celular_reg']);
             $direccion=modeloPrincipal::limpiar_cadena($_POST['personal_direccion_reg']);
@@ -40,7 +39,6 @@
                "PEUDNI"=>$dni,
                "PEUnombres"=>$nombre,
                "PEUapellidos"=>$apellido,
-               "PEUfoto"=>$foto,
                "PEUcorreoElectronico"=>$correo,
                "PEUcelular"=>$celular,
                "PEUdireccion"=>$direccion,
@@ -133,7 +131,7 @@
            $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"No podemos eliminar el caso, debido a que actividades asociados, recomendamos deshabilitar el caso si ya no sera usado en el sistema",
+                  "Texto"=>"No podemos eliminar el personal, debido a que cuenta con su usuario, recomendamos deshabilitar el personal si ya no sera usado en el sistema",
                   "Tipo"=>"error"
                ];
                echo json_encode($alerta);
@@ -172,6 +170,16 @@
 
       } // fin del controlador
 
+      /*controlador ver  perfil*/
+      public function Ver_perfil_controlador($codigo)
+      {
+         $codigo=$_SESSION['personal_spm'];
+         $codigo=modeloPrincipal::limpiar_cadena($codigo);
+         $datos=PersonalModelo::Veer_perfil_Modelo($codigo);
+         return $datos;
+
+      } // fin del controlador
+      
      /*controlador editar personal*/
      public function Editar_personal_controlador()
      {
@@ -200,7 +208,6 @@
        $dni=modeloPrincipal::limpiar_cadena($_POST['personal_dni_up']);
        $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_up']);
        $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_up']);
-       $foto=modeloPrincipal::limpiar_cadena($_POST['personal_foto_up']);
        $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_up']);
        $celular=modeloPrincipal::limpiar_cadena($_POST['personal_celular_up']);
        $direccion=modeloPrincipal::limpiar_cadena($_POST['personal_direccion_up']);
@@ -227,7 +234,6 @@
             "PEUDNI"=>$dni,
             "PEUnombres"=>$nombre,
             "PEUapellidos"=>$apellido,
-            "PEUfoto"=>$foto,
             "PEUcorreoElectronico"=>$correo,
             "PEUcelular"=>$celular,
             "PEUdireccion"=>$direccion,

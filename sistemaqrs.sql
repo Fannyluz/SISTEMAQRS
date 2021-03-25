@@ -93,7 +93,6 @@ CREATE TABLE `oevpeutpersonaluptvirtual` (
   `PEUDNI` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUnombres` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUapellidos` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `PEUfoto` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUcorreoElectronico` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUcelular` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUdireccion` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
@@ -105,13 +104,13 @@ CREATE TABLE `oevpeutpersonaluptvirtual` (
 -- Volcado de datos para la tabla `oevpeutpersonaluptvirtual`
 --
 
-INSERT INTO `oevpeutpersonaluptvirtual` (`PEUcodigo`, `ROPcodigo`, `PEUDNI`, `PEUnombres`, `PEUapellidos`, `PEUfoto`, `PEUcorreoElectronico`, `PEUcelular`, `PEUdireccion`, `PEUfecha`, `PEUestado`) VALUES
-(1, 1, '78965214', 'William', 'Rodriguez', 'foto', 'wvrodriguez@upt.pe', '965874123', 'dirección', '2021-02-25', 1),
-(2, 2, '96875412', 'Tito', 'Ale Nieto', 'foto', 'titofale@gmail.com', '983 625 569', 'direccion', '2021-02-25', 1),
-(3, 3, '74562015', 'Fanny', 'Clemente Cruz', 'foto', 'secuptvirtual@upt.pe', '965741236', 'dirección', '2021-02-25', 1),
-(4, 1, '78596321', 'Francisco', 'Zapata', 'foto', 'fzapatam@upt.pe', '987456321', 'direccion', '2021-02-25', 1),
-(5, 5, '78526143', 'Gisela', 'Flores Colque', 'foto', 'giselafloresc13@gmail.com', '963214587', 'direccion', '2021-02-25', 1),
-(6, 4, '95632147', 'jenny', 'Huayta Curo', 'foto', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1);
+INSERT INTO `oevpeutpersonaluptvirtual` (`PEUcodigo`, `ROPcodigo`, `PEUDNI`, `PEUnombres`, `PEUapellidos`, `PEUcorreoElectronico`, `PEUcelular`, `PEUdireccion`, `PEUfecha`, `PEUestado`) VALUES
+(1, 1, '78965214', 'William', 'Rodriguez', 'wvrodriguez@upt.pe', '965874123', 'dirección', '2021-02-25', 1),
+(2, 2, '96875412', 'Tito', 'Ale Nieto', 'titofale@gmail.com', '983 625 569', 'direccion', '2021-02-25', 1),
+(3, 3, '74562015', 'Fanny', 'Clemente Cruz', 'secuptvirtual@upt.pe', '965741236', 'dirección', '2021-02-25', 1),
+(4, 1, '78596321', 'Francisco', 'Zapata', 'fzapatam@upt.pe', '987456321', 'direccion', '2021-02-25', 1),
+(5, 5, '78526143', 'Gisela', 'Flores Colque', 'giselafloresc13@gmail.com', '963214587', 'direccion', '2021-02-25', 1),
+(6, 4, '95632147', 'jenny', 'Huayta Curo', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1);
 
 -- --------------------------------------------------------
 

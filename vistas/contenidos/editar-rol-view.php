@@ -34,41 +34,43 @@ if($_SESSION['privilegio_spm']!=1){
                                     <?php 
 require_once "./controladores/RolControlador.php"; 
 $nuevoestado="";
-$ins_caso = new RolControlador();
-$datos_caso= $ins_caso->Ver_rol_controlador($pagina[1]);
-if($datos_caso->rowCount()==1){
-  $campos=$datos_caso->fetch();
+$ins_rol = new RolControlador();
+$datos_rol= $ins_rol->Ver_rol_controlador($pagina[1]);
+if($datos_rol->rowCount()==1){
+  $campos=$datos_rol->fetch(); 
 ?>                     
-                         <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/RolAjax.php" method="POST" data-form="save" novalidate>
+          <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/RolAjax.php" method="POST" data-form="update" novalidate>
+            
+            <input type="hidden" name="rol_codigo_up" value="<?php echo $pagina[1]?>">
                                         
                                         </p>
-                                        <span class="section">Roles de la Oficina de Educación Virtual</span>
+                                        <span class="section">Casos que atiende la Oficina de Educación Virtual</span>
 
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="caso_nombre_update" value="<?php echo $campos['ROPnombre']?>" id="rol_nombre" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="rol_nombre_up" value="<?php echo $campos['ROPnombre']?>" id="rop_nombre_up" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                  <textarea class="form-control" data-validate-length-range="3" name="caso_descripcion_reg" value="" id="caso_descripcion" placeholder="Ingrese la descripción" required="required"><?php echo $campos['ROPdescripcion']?> </textarea>
+                                                  <textarea class="form-control" data-validate-length-range="3" name="rol_descripcion_up" id="rol_descripcion_up" placeholder="Ingrese la descripción" required="required"><?php echo $campos['ROPdescripcion']?> </textarea>
 
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" value="<?php echo $campos['ROPfecha']?>" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="rol_fecha_up" value="<?php echo $campos['ROPfecha']?>" required='required'></div>
                                         </div>
 
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="caso_estado_reg">
+                                                <select class="form-control" name="rol_estado_up">
                                                     <option <?php echo $campos['ROPestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>
                                                     <option <?php echo $campos['ROPestado'] == 2 ? 'selected' : ''; ?> value="2">Inactivo</option>
                                                 </select>
@@ -105,6 +107,5 @@ if($datos_caso->rowCount()==1){
                         </div>
                     </div>
                 </div>
-            </div>                             
-                                        
+            </div>                     
                                         

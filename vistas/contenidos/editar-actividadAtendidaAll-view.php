@@ -1,5 +1,5 @@
 <?php 
-if($_SESSION['privilegio_spm']!=3){
+if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     echo $lc->forzar_cierre_sesion_controlador();
     exit();
 }
@@ -9,39 +9,33 @@ if($_SESSION['privilegio_spm']!=3){
 require_once "./controladores/ActividadQrsControlador.php"; 
 $nuevoestado="";
 $ins_caso = new ActividadQrsControlador();
-$datos_caso= $ins_caso->Ver_ActividadesQrsPendientes_controlador($pagina[1]);
+$datos_caso= $ins_caso->Ver_ActividadesQrsAtendidasALL_controlador($pagina[1]);
 if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch();
 ?>
-            
                     <div class="clearfix"></div>
-                    <div class="row"> 
+                    <div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title" style="color:#10226a;">
-                                <h2>UPTvirtual <small>Agregar Actividad QRS</small></h2>
+                                <h2>UPTvirtual <small>Editar Actividad QRS Atendidas    </small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
-                                       
                                     </ul>
                                     <div class="clearfix"></div>
                                 </div>
 
                                 <div class="x_content">
 
-  <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="update" novalidate>
+    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="update" novalidate>  
 
-    <input type="hidden" name="ActividadQRS_codigo_up" value="<?php echo $pagina[1]?>">
-                                        
+      <input type="hidden" name="ActividadQRS_codigo_up" value="<?php echo $pagina[1]?>">           
                 </p>
-                <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
-
-
-                                 <?php 
+                                <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
-                                $personal=new UsuarioPersonalUptVirtualControlador();
-                                $datosPersonal=$personal->Obtener_usuariopersonaluptvirtual_controlador();
+                                $tipoqrs=new UsuarioPersonalUptVirtualControlador();
+                                $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
@@ -50,9 +44,10 @@ if($datos_caso->rowCount()==1){
                                  <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Personal UptVirtual:</b><span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
                                     <select class="form-control" name="personal_up" >
-                                        <?php foreach($datosPersonal as $row){ ?>
+                                        <?php foreach($datosTipoQRS as $row){ ?>
 
                                             <option  <?php echo $row['UPUcodigo'] == $campos['UPUcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['UPUcodigo']?>"><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>) </option>
+
 
                                         <?php }?>
                                     </select>
@@ -72,7 +67,7 @@ if($datos_caso->rowCount()==1){
                                     <select class="form-control" name="tipo_up">
                                         <?php foreach($datosTipoQRS as $row){ ?>
 
-                                           <option  <?php echo $row['TIPcodigo'] == $campos['TIPcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['TIPcodigo']?>"><?php echo $row['TIPnombre']?></option>
+                                            <option  <?php echo $row['TIPcodigo'] == $campos['TIPcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['TIPcodigo']?>"><?php echo $row['TIPnombre']?></option>
 
                                         <?php }?>
                                     </select>
@@ -80,11 +75,11 @@ if($datos_caso->rowCount()==1){
                                 </div>
                                      
 
-
+                                     
                                 <?php 
                                 require_once "./controladores/CasoControlador.php";
                                 $caso=new CasoControlador();
-                                $datosCaso=$caso->Listar_casos_controlador();
+                                $datosCaso=$caso->Listar_casos_controlador(); 
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
@@ -96,12 +91,13 @@ if($datos_caso->rowCount()==1){
                                     <select class="form-control" name="caso_up">
                                         <?php foreach($datosCaso as $row){ ?>
 
-                                           <option  <?php echo $row['CAScodigo'] == $campos['CAScodigo'] ? 'selected' : ''; ?> value="<?php echo $row['CAScodigo']?>"><?php echo $row['CASnombre']?></option>
+                                            <option  <?php echo $row['CAScodigo'] == $campos['CAScodigo'] ? 'selected' : ''; ?> value="<?php echo $row['CAScodigo']?>"><?php echo $row['CASnombre']?></option>
 
                                         <?php }?>
                                     </select>
                                     </div> 
                                 </div>
+
 
 
 
@@ -127,6 +123,8 @@ if($datos_caso->rowCount()==1){
                                     </div>
                                 </div>
 
+
+                                 
 
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
@@ -181,19 +179,19 @@ if($datos_caso->rowCount()==1){
                                                 <select class="form-control" name="ACTestado_up">
                                                     <option <?php echo $campos['ACTestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>
                                                     <option <?php echo $campos['ACTestado'] == 2 ? 'selected' : ''; ?> value="2">Atendido</option>
-                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="3">Rechazado</option>
+                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="2">Rechazado</option>
                                                 </select>
                                             </div>
 
                                         </div>
 
-                                        <br>
+
 
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
                                                 <br>
-                                                    <a href="<?php echo SERVERURL?>listar-actividadPendiente/" class="btn btn-round btn-danger"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                                                    <a href="<?php echo SERVERURL?>listar-actividadAtendidasAll/" class="btn btn-round btn-danger"><i class="fa fa-mail-reply fa-sm"></i> Atras
                                                         </a>
                                                     <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Actualizar</button>
                                                 </div>
@@ -211,7 +209,8 @@ if($datos_caso->rowCount()==1){
                     </div>
                 </div>
 
-                <?php
+
+<?php
 }
 ?>
             </div>

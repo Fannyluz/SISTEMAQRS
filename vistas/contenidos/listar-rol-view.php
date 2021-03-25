@@ -83,10 +83,10 @@ if($_SESSION['privilegio_spm']!=1){
 
 
                                 <td>
-                                <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/RolAjax.php" method="POST" data-form="delete" novalidate>
+                                <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/RolAjax.php" method="POST" data-form="delete" novalidate> 
 
                                 <a href="<?php echo SERVERURL?>ver-rol/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
-                                </a> 
+                                </a>  
 
                                 <a href="<?php echo SERVERURL?>editar-rol/<?php echo $row['ROPcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>
@@ -94,7 +94,7 @@ if($_SESSION['privilegio_spm']!=1){
 
                                 <input type="hidden" name="rol_codigo_del" value="<?php echo $row['ROPcodigo']; ?>" />    
                                 <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
-                                        <i class="fa fa-trash-o fa-sm"></i> 
+                                        <i class="fa fa-trash-o fa-sm"></i>  
 
                                 </button>
                                 </input>

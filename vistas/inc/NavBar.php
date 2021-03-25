@@ -13,7 +13,7 @@
                     
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;" style="color:#10226a;"> Perfil
+                    <a class="dropdown-item"  href="<?php echo SERVERURL?>perfil/" style="color:#10226a;"> Perfil
                     <i class="fa fa-cogs"></i>
                     </a>
                     <a class="dropdown-item"  href="<?php echo SERVERURL?>cerrar/" class="btn-exit-system" >Cerrar

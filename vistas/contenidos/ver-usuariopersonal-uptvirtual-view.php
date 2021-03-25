@@ -8,7 +8,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2 && $_SESSION
 <?php 
 require_once "./controladores/PersonalControlador.php"; 
 $nuevoestado="";
-$ins_caso = new PersonalControlador();
+$ins_caso = new PersonalControlador(); 
 $datos_caso= $ins_caso->Ver_personal_controlador($pagina[1]);
 if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch();
@@ -92,7 +92,7 @@ if($datos_caso->rowCount()==1){
                       <div class="product_social">
                         <ul class="list-inline display-layout">
                           
-                          <a href="<?php echo SERVERURL?>listar-usuario-personaluptvirtual/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                          <a href="<?php echo SERVERURL?>general/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
                                 </a>
 
                         </ul>

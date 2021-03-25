@@ -15,14 +15,13 @@ public function get_rolpersonal($CodRolPersonal){
   /*----- Modelo agregar tipo personal -----*/ 
  protected static function agregar_personal_modelo($datos){
       $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevpeutpersonaluptvirtual(
-      ROPcodigo,PEUDNI,PEUnombres,PEUapellidos,PEUfoto,PEUcorreoElectronico,PEUcelular,PEUdireccion,PEUfecha,PEUestado) 
-      VALUES(:ROPcodigo,:PEUDNI,:PEUnombres,:PEUapellidos,:PEUfoto,:PEUcorreoElectronico,:PEUcelular,:PEUdireccion,:PEUfecha,:PEUestado)");
+      ROPcodigo,PEUDNI,PEUnombres,PEUapellidos,,PEUcorreoElectronico,PEUcelular,PEUdireccion,PEUfecha,PEUestado) 
+      VALUES(:ROPcodigo,:PEUDNI,:PEUnombres,:PEUapellidos,:PEUcorreoElectronico,:PEUcelular,:PEUdireccion,:PEUfecha,:PEUestado)");
       
       $sql->bindParam(":ROPcodigo",$datos['ROPcodigo']);
       $sql->bindParam(":PEUDNI",$datos['PEUDNI']);
       $sql->bindParam(":PEUnombres",$datos['PEUnombres']);
       $sql->bindParam(":PEUapellidos",$datos['PEUapellidos']);
-      $sql->bindParam(":PEUfoto",$datos['PEUfoto']);
       $sql->bindParam(":PEUcorreoElectronico",$datos['PEUcorreoElectronico']);
       $sql->bindParam(":PEUcelular",$datos['PEUcelular']);
       $sql->bindParam(":PEUdireccion",$datos['PEUdireccion']);
@@ -85,19 +84,30 @@ protected static function Veer_personal_Modelo($codigo)
     return $sql;
   }
 
+
+  protected static function Veer_perfil_Modelo($codigo)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevpeutpersonaluptvirtual AS pu 
+  INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo 
+  WHERE PEUcodigo=:PEUcodigo");
+    $sql->bindParam(":PEUcodigo",$codigo);
+    $sql->execute();
+    return $sql;
+  }
+
   //editar personal de la oficina
   protected static function Editar_Personal_Modelo($datos)
   {
 
     $sql=modeloPrincipal::conectar()->prepare("UPDATE oevpeutpersonaluptvirtual SET ROPcodigo=:ROPcodigo, PEUDNI=:PEUDNI,
-    PEUnombres=:PEUnombres, PEUapellidos=:PEUapellidos, PEUfoto=:PEUfoto, PEUcorreoElectronico=:PEUcorreoElectronico, PEUcelular=:PEUcelular,
+    PEUnombres=:PEUnombres, PEUapellidos=:PEUapellidos, PEUcorreoElectronico=:PEUcorreoElectronico, PEUcelular=:PEUcelular,
     PEUdireccion=:PEUdireccion, PEUfecha=:PEUfecha, PEUestado=:PEUestado WHERE PEUcodigo=:CODIGO");
 
    $sql->bindParam(":ROPcodigo",$datos['ROPcodigo']);
    $sql->bindParam(":PEUDNI",$datos['PEUDNI']);
    $sql->bindParam(":PEUnombres",$datos['PEUnombres']);
    $sql->bindParam(":PEUapellidos",$datos['PEUapellidos']);
-   $sql->bindParam(":PEUfoto",$datos['PEUfoto']);
    $sql->bindParam(":PEUcorreoElectronico",$datos['PEUcorreoElectronico']);
    $sql->bindParam(":PEUcelular",$datos['PEUcelular']);
    $sql->bindParam(":PEUdireccion",$datos['PEUdireccion']);

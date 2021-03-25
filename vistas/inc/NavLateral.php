@@ -159,17 +159,17 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Inicio">
-                <span class="fa fa-home" aria-hidden="true"></span>
+              <a data-toggle="tooltip" href="https://twitter.com/uptvirtual?lang=es" data-placement="top" title="Inicio">
+                <span class="fa fa-twitter" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lugar">
+              <a data-toggle="tooltip" href="http://www.upt.edu.pe/upt/web/index.php" data-placement="top" title="Lugar">
                 <span class="fa fa-building" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Facebook">
+              <a data-toggle="tooltip" href="https://web.facebook.com/UPToficial/" data-placement="top" title="Facebook">
                 <span class="fa fa-facebook-official" aria-hidden="true"></span>
               </a>
-              <a class="btn-exit-system" data-toggle="tooltip" data-placement="top" title="Salir" href="javascript:;">
-                <span class="glyphicon glyphicon-off" aria-hidden="true" ></span>
+              <a data-toggle="tooltip" href="https://www.youtube.com/channel/UCbzoMPKjgtTG7la-v5XAqbA" data-toggle="tooltip" data-placement="top" title="Youtube" href="javascript:;">
+                <span class="fa fa-youtube" aria-hidden="true" ></span>
               </a>
             </div>
             <!-- /menu footer buttons -->
