@@ -28,7 +28,7 @@ if($datos_caso->rowCount()==1){
 
                                 <div class="x_content">
 
-                <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="save" novalidate>             
+                <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="update" novalidate>             
                 
                 <input type="hidden" name="personal_codigo_up" value="<?php echo $pagina[1]?>">
                 </p>
@@ -111,9 +111,8 @@ if($datos_caso->rowCount()==1){
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="personal_estado_up">
-                                                    <option <?php echo $campos['PEUestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>
-                                                    <option <?php echo $campos['PEUestado'] == 2 ? 'selected' : ''; ?> value="2">Atendido</option>
-                                                    <option <?php echo $campos['PEUestado'] == 3 ? 'selected' : ''; ?> value="2">Rechazado</option>
+                                                    <option <?php echo $campos['PEUestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>
+                                                    <option <?php echo $campos['PEUestado'] == 2 ? 'selected' : ''; ?> value="2">Inactivo</option>
                                                 </select>
                                             </div>
 
