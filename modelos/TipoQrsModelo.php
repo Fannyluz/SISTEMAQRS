@@ -15,7 +15,7 @@ class TipoQrsModelo extends modeloPrincipal{
       return $sql;
     }
     public function listar_tipoqrs_modelo(){
-      $consulta="SELECT * FROM oevtipttipoqrs";
+      $consulta="SELECT * FROM oevtipttipoqrs ORDER BY TIPfecha DESC";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
@@ -38,5 +38,21 @@ class TipoQrsModelo extends modeloPrincipal{
     $sql->execute();
     return $sql;
   }
+
+  //editar caso
+   protected static function Editar_tipoqrs_Modelo($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevtipttipoqrs SET TIPnombre=:TIPnombre,TIPdescripcion=:TIPdescripcion,TIPfecha=:TIPfecha,TIPestado=:TIPestado WHERE TIPcodigo=:CODIGO");
+
+   $sql->bindParam(":TIPnombre",$datos['TIPnombre']);
+   $sql->bindParam(":TIPdescripcion",$datos['TIPdescripcion']);
+   $sql->bindParam(":TIPfecha",$datos['TIPfecha']);
+   $sql->bindParam(":TIPestado",$datos['TIPestado']);
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
+    return $sql;
+  }
+
 
 }

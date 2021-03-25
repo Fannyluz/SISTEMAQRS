@@ -163,4 +163,102 @@
 
       } // fin del controlador 
 
+
+
+/*controlador editar UsuarioPersonal*/
+      public function Editar_usuariopersonaluptvirtual_controlador()
+      {
+        //recuperar el codigo
+      
+    $codigo=modeloPrincipal::limpiar_cadena($_POST['UsuarioPersonalUPTvirtual_codigo_up']);
+
+           //comprobar caso en la base de datos
+        $check_UsuarioPersonalUPTvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo='$codigo'");
+
+        if($check_UsuarioPersonalUPTvirtual->rowCount()<=0){
+            $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos encontrado ningun usuario personal de UPTvirtual en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+        }else
+        {
+          $campos=$check_UsuarioPersonalUPTvirtual->fetch();
+        }
+
+
+            $personaluptvirtual=modeloPrincipal::limpiar_cadena($_POST['personaluptvirtual_up']);
+            $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_up']);
+            $clave=modeloPrincipal::limpiar_cadena($_POST['clave_up']);
+            $repetirclave=modeloPrincipal::limpiar_cadena($_POST['repetirclave_up']);
+            $privilegio=modeloPrincipal::limpiar_cadena($_POST['privilegio_up']);
+            $fecha=modeloPrincipal::limpiar_cadena($_POST['fecha_up']);
+            $estado=modeloPrincipal::limpiar_cadena($_POST['estado_up']);
+
+//comprobar campos vacios
+            if($usuario=="" || $clave=="" || $repetirclave==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }     
+            
+//comprobar la clave
+            if($clave!=$repetirclave)
+            {
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"las claves deben ser iguales, por favir ingrese nuevamente",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }
+
+
+            $datos_UsuarioPersonalUPTvirtual_update=[
+                "PEUcodigo"=>$personaluptvirtual,
+               "UPUusuario"=>$usuario,
+               "UPUclave"=>$clave,
+               "UPUprivilegio"=>$privilegio,
+               "UPUfecha"=>$fecha,
+               "UPUestado"=>$estado,
+               "CODIGO"=>$codigo
+            ];
+
+         if(UsuarioPersonalUptVirtualModelo::Editar_usuariopersonaluptvirtual_Modelo($datos_UsuarioPersonalUPTvirtual_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Usuario personal de UPTvirtual Actualizado",
+                  "Texto"=>"los datos se actualizaron correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+
+      } // fin del controlador 
+
+
+
+
+
 }

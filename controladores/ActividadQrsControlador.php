@@ -1035,4 +1035,96 @@
               }
 
               //fin del word
+
+/*controlador editar Actividad QRS*/
+      public function Editar_ActividadQRS_controlador()
+      {
+        //recuperar el codigo
+      
+    $codigo=modeloPrincipal::limpiar_cadena($_POST['ActividadQRS_codigo_up']);
+
+           //comprobar caso en la base de datos
+        $check_ActividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevactpactividadqrs WHERE ACTcodigo='$codigo'");
+
+        if($check_ActividadQRS->rowCount()<=0){
+            $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos encontrado la ActividadQRS en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+        }else
+        {
+          $campos=$check_ActividadQRS->fetch();
+        }
+
+
+            $personal=modeloPrincipal::limpiar_cadena($_POST['personal_up']);
+            $tipo=modeloPrincipal::limpiar_cadena($_POST['tipo_up']);
+            $caso=modeloPrincipal::limpiar_cadena($_POST['caso_up']);
+            $tipoemisor=modeloPrincipal::limpiar_cadena($_POST['tipousuario_up']);
+            $codigoUPT=modeloPrincipal::limpiar_cadena($_POST['codigo_up']);
+            $nombres=modeloPrincipal::limpiar_cadena($_POST['ACTnombres_up']);
+            $apellidos=modeloPrincipal::limpiar_cadena($_POST['ACTapellidos_up']);
+            $descripcion=modeloPrincipal::limpiar_cadena($_POST['ACTdescripcion_up']);
+            $celular=modeloPrincipal::limpiar_cadena($_POST['ACTcelular_up']);
+            $correoElectronico=modeloPrincipal::limpiar_cadena($_POST['ACTcorreoElectronico_up']);
+            $fecha=modeloPrincipal::limpiar_cadena($_POST['ACTfecha_up']);
+            $estado=modeloPrincipal::limpiar_cadena($_POST['ACTestado_up']);
+
+
+ //comprobar campos vacios
+            if($nombres=="" || $apellidos=="" || $descripcion=="" || $celular==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }   
+
+
+            $datos_actividadQRS_update=[
+              "TIPcodigo"=>$tipo,
+               "CAScodigo"=>$caso,
+               "TIUcodigo"=>$tipoemisor,
+               "UPUcodigo"=>$personal,
+               "ACTcodigoUPT"=>$codigoUPT,
+               "ACTnombres"=>$nombres,
+               "ACTapellidos"=>$apellidos,
+               "ACTDescripcion"=>$descripcion,
+               "ACTcelular"=>$celular,
+               "ACTcorreoelectronico"=>$correoElectronico,
+               "ACTfecha"=>$fecha,
+               "ACTestado"=>$estado,
+               "CODIGO"=>$codigo
+            ];
+
+         if(ActividadQrsModelo::Editar_ActividadQRS_Modelo($datos_actividadQRS_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Actividad QRS Actualizado",
+                  "Texto"=>"los datos se actualizaron correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+
+      } // fin del controlador 
+
+
      }

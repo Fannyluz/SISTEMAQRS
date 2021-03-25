@@ -147,4 +147,77 @@
       } // fin del controlador 
 
 
+      /*controlador editar tipoqrs*/
+      public function Editar_tipoqrs_controlador()
+      {
+        //recuperar el codigo
+      
+    $codigo=modeloPrincipal::limpiar_cadena($_POST['tipoQRS_codigo_up']);
+
+           //comprobar caso en la base de datos
+        $check_tipoQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevtipttipoqrs WHERE TIPcodigo='$codigo'");
+
+        if($check_tipoQRS->rowCount()<=0){
+            $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos encontrado el tipoQRS en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+        }else
+        {
+          $campos=$check_tipoQRS->fetch();
+        }
+
+            $nombre=modeloPrincipal::limpiar_cadena($_POST['tipoqrs_nombre_up']);
+            $descripcion=modeloPrincipal::limpiar_cadena($_POST['tipoqrs_descripcion_up']);
+            $fecha=modeloPrincipal::limpiar_cadena($_POST['tipoqrs_fecha_up']);
+            $estado=modeloPrincipal::limpiar_cadena($_POST['tipoqrs_estado_up']);
+
+ //comprobar campos vacios
+            if($nombre==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            } 
+
+
+
+            $datos_tipoqrs_update=[
+               "TIPnombre"=>$nombre,
+               "TIPdescripcion"=>$descripcion,
+               "TIPfecha"=>$fecha,
+               "TIPestado"=>$estado,
+               "CODIGO"=>$codigo
+            ];
+
+         if(TipoQrsModelo::Editar_tipoqrs_Modelo($datos_tipoqrs_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"TipoQRS Actualizado",
+                  "Texto"=>"los datos se actualizaron correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+
+      } // fin del controlador
+
      }

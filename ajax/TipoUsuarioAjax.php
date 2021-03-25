@@ -2,19 +2,24 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['tipousuario_nombre_reg']) || isset($_POST['tipousuario_codigo_del'])){
+    if(isset($_POST['tipousuario_nombre_reg']) || isset($_POST['tipousuario_codigo_del']) || isset($_POST['tipoUsuario_codigo_up'])){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/TipoUsuarioControlador.php";
-        $ins_caso = new TipoUsuarioControlador();
+        $ins_tipoUsuario = new TipoUsuarioControlador();
 
             // agregar un caso
             if(isset($_POST['tipousuario_nombre_reg']) && isset($_POST['tipousuario_descripcion_reg']) && isset($_POST['tipousuario_estado_reg'])){
-                echo $ins_caso->agregar_tipousuario_controlador();
+                echo $ins_tipoUsuario->agregar_tipousuario_controlador();
             }
 
             // Eliminar un tipousuario
             if(isset($_POST['tipousuario_codigo_del'])){
-                echo $ins_caso->Eliminar_tipousuario_controlador();
+                echo $ins_tipoUsuario->Eliminar_tipousuario_controlador();
+            }
+
+            // Editar un tipousuario
+            if(isset($_POST['tipoUsuario_codigo_up'])){
+                echo $ins_tipoUsuario->Editar_tipousuario_controlador();
             }
         
     }else{

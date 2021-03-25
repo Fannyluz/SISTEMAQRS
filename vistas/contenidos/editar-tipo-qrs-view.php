@@ -32,16 +32,20 @@ if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch();
 ?>
 
-                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoQrsAjax.php" method="POST" data-form="save" novalidate>
+        <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoQrsAjax.php" method="POST" data-form="update" novalidate>
+
+              <input type="hidden" name="tipoQRS_codigo_up" value="<?php echo $pagina[1]?>">
+
+
                                         
-                                        </p>
-                                        <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
+                </p>
+            <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
 
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="tipoqrs_nombre_reg" value="<?php echo $campos['TIPnombre']?>" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="tipoqrs_nombre_up" value="<?php echo $campos['TIPnombre']?>" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
@@ -49,20 +53,20 @@ if($datos_caso->rowCount()==1){
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                               
-                                                <textarea class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_reg" value="" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" ><?php echo $campos['TIPdescripcion']?></textarea>
+                                                <textarea class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_up" value="" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" ><?php echo $campos['TIPdescripcion']?></textarea>
 
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" value="<?php echo $campos['TIPfecha']?>" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="tipoqrs_fecha_up" value="<?php echo $campos['TIPfecha']?>" required='required'></div>
                                         </div>
 
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="caso_estado_reg">
+                                                <select class="form-control" name="tipoqrs_estado_up">
                                                     <option <?php echo $campos['TIPestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>
                                                     <option <?php echo $campos['TIPestado'] == 2 ? 'selected' : ''; ?> value="2">Inactivo</option>
                                                 </select>

@@ -40,7 +40,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
          </div>
     </div>
 
-    
+
 <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
 
   

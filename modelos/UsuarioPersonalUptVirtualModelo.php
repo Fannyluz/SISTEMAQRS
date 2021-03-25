@@ -59,6 +59,23 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
     $sql->execute();
     return $sql;
   }
+  //editar usuario personal de la oficina
+   protected static function Editar_usuariopersonaluptvirtual_Modelo($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevuputusuariopersonaluptvirtual SET PEUcodigo=:PEUcodigo,UPUusuario=:UPUusuario,UPUclave=:UPUclave,UPUprivilegio=:UPUprivilegio,UPUfecha=:UPUfecha,UPUestado=:UPUestado WHERE UPUcodigo =:CODIGO");
+
+   $sql->bindParam(":PEUcodigo",$datos['PEUcodigo']);
+   $sql->bindParam(":UPUusuario",$datos['UPUusuario']);
+   $sql->bindParam(":UPUclave",$datos['UPUclave']);
+   $sql->bindParam(":UPUprivilegio",$datos['UPUprivilegio']);
+   $sql->bindParam(":UPUfecha",$datos['UPUfecha']);
+   $sql->bindParam(":UPUestado",$datos['UPUestado']);
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
+    return $sql;
+  }
+
 
 
  }

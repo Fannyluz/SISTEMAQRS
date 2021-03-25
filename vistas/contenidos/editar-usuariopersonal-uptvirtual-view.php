@@ -31,9 +31,11 @@ if($datos_caso->rowCount()==1){
 
                                 <div class="x_content">
 
-                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/UsuarioPersonalUptVirtualAjax.php" method="POST" data-form="save" novalidate>
+ <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/UsuarioPersonalUptVirtualAjax.php" method="POST" data-form="update" novalidate>
+
+    <input type="hidden" name="UsuarioPersonalUPTvirtual_codigo_up" value="<?php echo $pagina[1]?>">
                                         
-                                        </p>
+                                 </p>
                                         <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
 
                                 <?php 
@@ -48,10 +50,10 @@ if($datos_caso->rowCount()==1){
                                 <div class="field item form-group">
                                  <label class="col-form-label col-md-3 col-sm-3  label-align">Personal<span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
-                                        <select class="form-control" name="personaluptvirtual_reg">
+                                        <select class="form-control" name="personaluptvirtual_up">
                             			<?php foreach($datos as $row){ ?>
 
-											<option  <?php echo $row['PEUcodigo'] == $campos['PEUcodigo'] ? 'selected' : ''; ?> value="<?php echo $campos['PEUcodigo']?>"><?php echo $row['PEUDNI']?> (<?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?>) </option>
+											<option  <?php echo $row['PEUcodigo'] == $campos['PEUcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['PEUcodigo']?>"><?php echo $row['PEUDNI']?> (<?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?>) </option>
 
                                         <?php }?>
                                         </select>
@@ -62,27 +64,27 @@ if($datos_caso->rowCount()==1){
                                     	<div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Usuario<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="usuario_reg" id="usuario" value="<?php echo $campos['UPUusuario']?>" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" name="usuario_up" id="usuario" value="<?php echo $campos['UPUusuario']?>" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Clave<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input type="password" class="form-control" name="clave_reg"  value="<?php echo $campos['UPUclave']?>" id="clave" placeholder="Ingrese la clave" required="required" />
+                                                <input type="password" class="form-control" name="clave_up"  value="<?php echo $campos['UPUclave']?>" id="clave" placeholder="Ingrese la clave" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Repita la Clave<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input  type="password" class="form-control" name="repetirclave_reg" value="<?php echo $campos['UPUclave']?>"id="clave" placeholder="Repita la clave" required="required" />
+                                                <input  type="password" class="form-control" name="repetirclave_up" value="<?php echo $campos['UPUclave']?>"id="clave" placeholder="Repita la clave" required="required" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" value="<?php echo $campos['UPUfecha']?>" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="fecha_up" value="<?php echo $campos['UPUfecha']?>" required='required'></div>
                                         </div>
 
 
@@ -90,7 +92,7 @@ if($datos_caso->rowCount()==1){
                                        <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="caso_estado_reg">
+                                                <select class="form-control" name="estado_up">
                                                     <option <?php echo $campos['UPUestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>
                                                     <option <?php echo $campos['UPUestado'] == 2 ? 'selected' : ''; ?> value="2">Inactivo</option>
                                                 </select>
@@ -115,10 +117,10 @@ if($datos_caso->rowCount()==1){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="caso_estado_reg">
+                                                <select class="form-control" name="privilegio_up">
                                                     <option <?php echo $campos['UPUprivilegio'] == 1 ? 'selected' : ''; ?> value="1">Control Total</option>
-                                                    <option <?php echo $campos['UPUprivilegio'] == 2 ? 'selected' : ''; ?> value="2">Registrar</option>
                                                     <option <?php echo $campos['UPUprivilegio'] == 2 ? 'selected' : ''; ?> value="2">Edición</option>
+                                                    <option <?php echo $campos['UPUprivilegio'] == 3 ? 'selected' : ''; ?> value="3">Registrar</option>
                                                 </select>
                                             </div>
 

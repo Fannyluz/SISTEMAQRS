@@ -17,7 +17,9 @@ class CasoModelo extends modeloPrincipal{
       return $sql;
     }
     public function listar_casos_modelo(){
-      $consulta="SELECT * FROM oevcastcaso";
+      $numero=0;
+      $consulta="
+      SELECT * FROM oevcastcaso ORDER BY CASfecha DESC";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
@@ -89,6 +91,20 @@ class CasoModelo extends modeloPrincipal{
     return $sql;
   }
 
+//editar caso
+   protected static function Editar_Caso_Modelo($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevcastcaso SET CASnombre=:CASnombre,CASdescripcion=:CASdescripcion,CASfecha=:CASfecha,CASestado=:CASestado WHERE CAScodigo=:CODIGO");
+
+   $sql->bindParam(":CASnombre",$datos['CASnombre']);
+   $sql->bindParam(":CASdescripcion",$datos['CASdescripcion']);
+   $sql->bindParam(":CASfecha",$datos['CASfecha']);
+   $sql->bindParam(":CASestado",$datos['CASestado']);
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
+    return $sql;
+  }
 
  }
  ?>

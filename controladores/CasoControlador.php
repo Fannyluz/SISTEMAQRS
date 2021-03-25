@@ -9,7 +9,7 @@
 
      class CasoControlador extends CasoModelo{
       
-           /*--- controlador agregar usuario--*/
+            /*--- controlador agregar usuario--*/
            public function agregar_caso_controlador(){
 
             $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
@@ -148,4 +148,77 @@
       } // fin del controlador 
 
 
+/*controlador editar caso*/
+      public function Editar_caso_controlador()
+      {
+        //recuperar el codigo
+      
+    $codigo=modeloPrincipal::limpiar_cadena($_POST['caso_codigo_up']);
+
+           //comprobar caso en la base de datos
+        $check_casos=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevcastcaso WHERE CAScodigo='$codigo'");
+
+        if($check_casos->rowCount()<=0){
+            $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos encontrado el caso en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+        }else
+        {
+          $campos=$check_casos->fetch();
+        }
+
+         $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_up']);
+            $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_up']);
+            $fecha=modeloPrincipal::limpiar_cadena($_POST['caso_fecha_up']);
+            $estado=modeloPrincipal::limpiar_cadena($_POST['caso_estado_up']);
+
+ //comprobar campos vacios
+            if($nombre==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            } 
+
+
+
+            $datos_caso_update=[
+               "CASnombre"=>$nombre,
+               "CASdescripcion"=>$descripcion,
+               "CASfecha"=>$fecha,
+               "CASestado"=>$estado,
+               "CODIGO"=>$codigo
+            ];
+
+         if(CasoModelo::Editar_Caso_Modelo($datos_caso_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Caso Actualizado",
+                  "Texto"=>"los datos se actualizaron correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+
+      } // fin del controlador 
+      
      }

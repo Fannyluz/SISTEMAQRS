@@ -41,7 +41,10 @@ if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch();
 ?>
 
-                                   <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoUsuarioAjax.php" method="POST" data-form="save" novalidate>
+        <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/TipoUsuarioAjax.php" method="POST" data-form="update" novalidate>
+
+        <input type="hidden" name="tipoUsuario_codigo_up" value="<?php echo $pagina[1]?>">
+
                                         <span class="section">Tipos de Usuarios que atiende la Oficina de Educación Virtual</span>
 
                                       
@@ -49,14 +52,14 @@ if($datos_caso->rowCount()==1){
                                        <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="tipousuario_nombre_reg" value="<?php echo $campos['TIUnombre']?>" id="tipousuario_nombre" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="tipousuario_nombre_up" value="<?php echo $campos['TIUnombre']?>" id="tipousuario_nombre_up" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <textarea class="form-control" data-validate-length-range="3" name="tipousuario_descripcion_reg" value="" id="tipousuario_nombre" id="tipousuario_descripcion" placeholder="Ingrese la descripción" required="required"><?php echo $campos['TIUdescripcion']?></textarea>
+                                                <textarea class="form-control" data-validate-length-range="3" name="tipousuario_descripcion_up" value="" id="tipousuario_nombre" id="tipousuario_descripcion_up" placeholder="Ingrese la descripción" required="required"><?php echo $campos['TIUdescripcion']?></textarea>
                                                
                                             </div>
                                         </div>
@@ -64,13 +67,13 @@ if($datos_caso->rowCount()==1){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" value="<?php echo $campos['TIUfecha']?>" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="tipousuario_fecha_up" value="<?php echo $campos['TIUfecha']?>" required='required'></div>
                                         </div>
 
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="caso_estado_reg">
+                                                <select class="form-control" name="tipousuario_estado_up">
                                                     <option <?php echo $campos['TIUestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>
                                                     <option <?php echo $campos['TIUestado'] == 2 ? 'selected' : ''; ?> value="2">Inactivo</option>
                                                 </select>

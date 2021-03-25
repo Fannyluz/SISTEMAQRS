@@ -94,5 +94,6 @@ function alertas_ajax(alerta){
     }else if (alerta.Alerta == "redireccionar"){
         window.location.href=alerta.URL;
     }
+    
 
 }

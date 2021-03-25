@@ -40,8 +40,8 @@ if($_SESSION['privilegio_spm']!=1){
                             <thead>
                                 <tr>
                                 <th>Registro</th>
-                                <th>Registro</th>
                                 <th>Nombre</th>
+                                <th>Descripción</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
@@ -62,7 +62,7 @@ if($_SESSION['privilegio_spm']!=1){
                                 foreach($datos as $row){ 
                                     ?>
                                 <tr>
-                                <td><?php echo $count++?></td> 
+                                 <td><?php echo $count++?></td> 
                                 <td><?php echo $row['TIPnombre']?></td> 
                                 <td><?php echo $row['TIPdescripcion']?></td> 
                                 <td><?php echo $row['TIPfecha']?></td> 

@@ -70,14 +70,15 @@ if($_SESSION['privilegio_spm']!=1){
                                         <div class="ln_solid">
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
+                                                    <br>
+                                                    <a href="<?php echo SERVERURL?>listar-tipo-usuario/" class="btn btn-round btn-danger"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                                                   </a>
                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Guardar</button>
                                                     <button type="reset" class="btn btn-round" style="background-color:#fdaf17;color:white;">Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </form>
-                                
-                            
                                 
                                 
                                 </div>

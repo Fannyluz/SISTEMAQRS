@@ -28,7 +28,10 @@ if($datos_caso->rowCount()==1){
 
                                 <div class="x_content">
 
-                <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="save" novalidate>             
+ <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="update" novalidate>
+
+<input type="hidden" name="ActividadQRS_codigo_up" value="<?php echo $pagina[1]?>">
+
                 </p>
                                 <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
@@ -41,10 +44,10 @@ if($datos_caso->rowCount()==1){
                             <div class="field item form-group">
                                  <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Personal UptVirtual:</b><span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
-                                    <select class="form-control" name="personal_reg" >
+                                    <select class="form-control" name="personal_up" >
                                         <?php foreach($datosTipoQRS as $row){ ?>
 
-                                            <option  <?php echo $row['UPUcodigo'] == $campos['UPUcodigo'] ? 'selected' : ''; ?> value="<?php echo $campos['UPUcodigo']?>"><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>) </option>
+                                            <option  <?php echo $row['UPUcodigo'] == $campos['UPUcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['UPUcodigo']?>"><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>) </option>
 
 
                                         <?php }?>
@@ -62,10 +65,10 @@ if($datos_caso->rowCount()==1){
                                 <div class="field item form-group">
                                  <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo:</b><span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
-                                    <select class="form-control" name="tipo_reg">
+                                    <select class="form-control" name="tipo_up">
                                         <?php foreach($datosTipoQRS as $row){ ?>
 
-                                            <option  <?php echo $row['TIPcodigo'] == $campos['TIPcodigo'] ? 'selected' : ''; ?> value="<?php echo $campos['TIPcodigo']?>"><?php echo $row['TIPnombre']?></option>
+                                            <option  <?php echo $row['TIPcodigo'] == $campos['TIPcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['TIPcodigo']?>"><?php echo $row['TIPnombre']?></option>
 
                                         <?php }?>
                                     </select>
@@ -84,10 +87,10 @@ if($datos_caso->rowCount()==1){
                                  <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Caso:</b><span class="required">*</span></label>
 
                                     <div class="col-md-6 col-sm-6">
-                                    <select class="form-control" name="caso_reg">
+                                    <select class="form-control" name="caso_up">
                                         <?php foreach($datosCaso as $row){ ?>
 
-                                            <option  <?php echo $row['CAScodigo'] == $campos['CAScodigo'] ? 'selected' : ''; ?> value="<?php echo $campos['CAScodigo']?>"><?php echo $row['CASnombre']?></option>
+                                            <option  <?php echo $row['CAScodigo'] == $campos['CAScodigo'] ? 'selected' : ''; ?> value="<?php echo $row['CAScodigo']?>"><?php echo $row['CASnombre']?></option>
 
                                         <?php }?>
                                     </select>
@@ -106,10 +109,10 @@ if($datos_caso->rowCount()==1){
                                    <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
 
                                     <div class="col-md-6 col-sm-6">
-                                    <select class="form-control" name="tipousuario_reg">
+                                    <select class="form-control" name="tipousuario_up">
                                         <?php foreach($datosUsuario as $row){ ?>
 
-                                            <option  <?php echo $row['TIUcodigo'] == $campos['TIUcodigo'] ? 'selected' : ''; ?> value="<?php echo $campos['TIUcodigo']?>"><?php echo $row['TIUnombre']?></option>
+                                            <option  <?php echo $row['TIUcodigo'] == $campos['TIUcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['TIUcodigo']?>"><?php echo $row['TIUnombre']?></option>
 
                                         <?php }?>
                                     </select>
@@ -122,46 +125,46 @@ if($datos_caso->rowCount()==1){
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="codigo_reg"  value="<?php echo $campos['ACTcodigoUPT']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                                <input class="form-control" name="codigo_up"  value="<?php echo $campos['ACTcodigoUPT']?>" id="usuario" placeholder="Ingrese el nombre" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTnombres_reg"  value="<?php echo $campos['ACTnombres']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="ACTnombres_up"  value="<?php echo $campos['ACTnombres']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Apellidos:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTapellidos_reg" value="<?php echo $campos['ACTapellidos']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="ACTapellidos_up" value="<?php echo $campos['ACTapellidos']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Descripción:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                             <textarea class="form-control" name="ACTdescripcion_reg"  value="" id="clave" placeholder="Ingrese la descripción" required="required"><?php echo $campos['ACTDescripcion']?></textarea>
+                                             <textarea class="form-control" name="ACTdescripcion_up"  value="" id="clave" placeholder="Ingrese la descripción" required="required"><?php echo $campos['ACTDescripcion']?></textarea>
 
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTcelular_reg" value="<?php echo $campos['ACTcelular']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="ACTcelular_up" value="<?php echo $campos['ACTcelular']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTcorreoElectronico_reg" value="<?php echo $campos['ACTcorreoelectronico']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                                <input class="form-control" name="ACTcorreoElectronico_up" value="<?php echo $campos['ACTcorreoelectronico']?>" id="usuario" placeholder="Ingrese el nombre" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>fecha</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" value="<?php echo $campos['ACTfecha']?>" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="ACTfecha_up" value="<?php echo $campos['ACTfecha']?>" required='required'></div>
                                         </div>
                                     
 
@@ -169,10 +172,10 @@ if($datos_caso->rowCount()==1){
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="caso_estado_reg">
+                                                <select class="form-control" name="ACTestado_up">
                                                     <option <?php echo $campos['ACTestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>
                                                     <option <?php echo $campos['ACTestado'] == 2 ? 'selected' : ''; ?> value="2">Atendido</option>
-                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="2">Rechazado</option>
+                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="3">Rechazado</option>
                                                 </select>
                                             </div>
 

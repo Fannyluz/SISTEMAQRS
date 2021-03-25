@@ -56,8 +56,8 @@ if($_SESSION['privilegio_spm']!=1){
                             <thead>
                                 <tr>
                                 <th>Registro</th>
-                                <th>Registro</th>
                                 <th>Nombre</th>
+                                <th>Descripción</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>

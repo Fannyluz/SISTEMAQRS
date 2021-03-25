@@ -151,4 +151,79 @@
       } // fin del controlador 
 
 
+/*controlador editar caso*/
+      public function Editar_tipousuario_controlador()
+      {
+        //recuperar el codigo
+      
+    $codigo=modeloPrincipal::limpiar_cadena($_POST['tipoUsuario_codigo_up']);
+
+           //comprobar caso en la base de datos
+        $check_tipoUsuario=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevtiuttipousuario WHERE TIUcodigo='$codigo'");
+
+        if($check_tipoUsuario->rowCount()<=0){
+            $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos encontrado el caso en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+        }else
+        {
+          $campos=$check_tipoUsuario->fetch();
+        }
+
+
+           $nombre=modeloPrincipal::limpiar_cadena($_POST['tipousuario_nombre_up']);
+            $descripcion=modeloPrincipal::limpiar_cadena($_POST['tipousuario_descripcion_up']);
+            $fecha=modeloPrincipal::limpiar_cadena($_POST['tipousuario_fecha_up']);
+            $estado=modeloPrincipal::limpiar_cadena($_POST['tipousuario_estado_up']);
+
+ //comprobar campos vacios
+            if($nombre==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            } 
+
+
+
+            $datos_tipoUsuario_update=[
+               "TIUnombre"=>$nombre,
+               "TIUdescripcion"=>$descripcion,
+               "TIUfecha"=>$fecha,
+               "TIUestado"=>$estado,
+               "CODIGO"=>$codigo
+            ];
+
+         if(TipoUsuarioModelo::Editar_tipousuario_Modelo($datos_tipoUsuario_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Tipo Usuari-Emisor Actualizado",
+                  "Texto"=>"los datos se actualizaron correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+
+      } // fin del controlador 
+
+
      }

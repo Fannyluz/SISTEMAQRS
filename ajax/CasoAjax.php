@@ -3,7 +3,7 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['caso_nombre_reg']) || isset($_POST['caso_codigo_del'])){
+    if(isset($_POST['caso_nombre_reg']) || isset($_POST['caso_codigo_del']) || isset($_POST['caso_codigo_up'])){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/CasoControlador.php";
         $ins_caso = new CasoControlador();
@@ -18,6 +18,11 @@
                 echo $ins_caso->Eliminar_caso_controlador();
             }
             
+             // editar un caso
+            if(isset($_POST['caso_codigo_up'])){
+                echo $ins_caso->Editar_caso_controlador();
+            }
+
         
     }else{
         session_start(['name' => 'QRS']);

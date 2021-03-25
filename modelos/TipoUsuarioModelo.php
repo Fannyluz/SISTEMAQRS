@@ -16,7 +16,7 @@ class TipoUsuarioModelo extends modeloPrincipal{
     }
 
     public function listar_tipousuario_modelo(){
-      $consulta="SELECT * FROM oevtiuttipousuario";
+      $consulta="SELECT * FROM oevtiuttipousuario ORDER BY TIUfecha DESC";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
@@ -39,6 +39,20 @@ class TipoUsuarioModelo extends modeloPrincipal{
     $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevtiuttipousuario WHERE  TIUcodigo=:TIUcodigo");
     $sql->bindParam(":TIUcodigo",$codigo);
     $sql->execute();
+    return $sql;
+  }
+//editar tipo usuario - emisor
+   protected static function Editar_tipousuario_Modelo($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevtiuttipousuario SET TIUnombre=:TIUnombre,TIUdescripcion=:TIUdescripcion,TIUfecha=:TIUfecha,TIUestado=:TIUestado WHERE TIUcodigo=:CODIGO");
+
+   $sql->bindParam(":TIUnombre",$datos['TIUnombre']);
+   $sql->bindParam(":TIUdescripcion",$datos['TIUdescripcion']);
+   $sql->bindParam(":TIUfecha",$datos['TIUfecha']);
+   $sql->bindParam(":TIUestado",$datos['TIUestado']);
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
     return $sql;
   }
 
