@@ -102,16 +102,16 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         </div>
                                         
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="personal_foto_reg" id="personal_foto" placeholder="Ingrese la foto" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="personal_foto_reg" id="personal_foto" placeholder="Ingrese la foto" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Correo Electronico<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Correo Electronico<span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="personal_correo_reg" id="personal_correo" placeholder="Ingrese el Correo Electronico" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="personal_correo_reg" id="personal_correo" placeholder="Ingrese el Correo Electronico" />
                                             </div>
                                         </div>
                                         
@@ -123,9 +123,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         </div>
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Direccion<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Direccion<span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="3" name="personal_direccion_reg" id="personal_direccion" placeholder="Ingrese la Direccion" required="required" />
+                                                <input class="form-control" data-validate-length-range="3" name="personal_direccion_reg" id="personal_direccion" placeholder="Ingrese la Direccion"/>
                                             </div>
                                         </div>
                                        <?php $fcha = date("Y-m-d");?> 
@@ -151,8 +151,11 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                             <div class="form-group">
                                                 <div class="col-md-6 offset-md-3">
                                                 <br>
-                                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                                    <button type="reset" class="btn btn-success">Limpiar</button>
+                                                <a href="<?php echo SERVERURL?>listar-personal/" class="btn btn-round btn-danger"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                                                        </a>
+                                                        <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Guardar</button>
+                                                    <button type="reset" class="btn btn-round" style="background-color:#fdaf17;color:white;">Limpiar</button>
+                                                
                                                 </div>
                                             </div>
                                         </div>

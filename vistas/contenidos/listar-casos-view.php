@@ -50,7 +50,7 @@ if($_SESSION['privilegio_spm']!=1){
                                 
        <br>
 
-                                        <div class="card-box table-responsive">
+            <div class="card-box table-responsive">
                         
                         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                         

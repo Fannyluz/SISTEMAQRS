@@ -23,6 +23,16 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     <div class="row">
                                         <div class="col-sm-12">
                                         
+            <div class="col-sm-12">
+                        <div id="datatable_length">
+                            
+                               
+
+                            <p align="right">
+                            <a href="<?php echo SERVERURL?>agregar-personal/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
+                                </a></p>
+                        </div>
+                    </div>
 
                                            
                                         <div class="card-box table-responsive">

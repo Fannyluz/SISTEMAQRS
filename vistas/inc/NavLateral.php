@@ -7,16 +7,19 @@
           
           
               <a class=" site_title left">
-              <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="60" height="60">
+              <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="50" height="50" class="img-circle">
                   UPT VIRTUAL
                   </a>
-            </div>
 
+            </div>
+</br>
+              </br></br>
+              </br>
             <div class="clearfix"  ></div>
             
             <div style="background-color:#fdaf17;">
      
-            <font color="#10226a">
+            <font color="#10226a" SIZE=2>
 
           <align="center"><i>UNIVERSIDAD PRIVADA DE TACNA</i>
           </font>
