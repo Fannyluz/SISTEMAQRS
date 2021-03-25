@@ -50,7 +50,7 @@ if($_SESSION['privilegio_spm']!=3){
                                 </a></p>
                                 
                                            
-                                        <div class="card-box table-responsive">
+                         <div class="card-box table-responsive">
                         
                         <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                         
@@ -113,10 +113,11 @@ foreach($datos as $row){
 
                                 
                                 <td>
-                                <a href="#" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+                                <a href="<?php echo SERVERURL?>ver-actividadAtendidaU/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
-                                <a href="<?php echo SERVERURL?>editar-caso/<?php echo $row['CAScodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                                 </a>           
+
+                                <a href="<?php echo SERVERURL?>editar-actividadAtendidaU/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                </a>            
                                                 
                                  </td>
                             </tr>
