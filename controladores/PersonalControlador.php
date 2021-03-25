@@ -172,7 +172,7 @@
      {
        //recuperar el codigo
      
-   $codigo=modeloPrincipal::limpiar_cadena($_POST['personal_codigo_up']);
+        $codigo=modeloPrincipal::limpiar_cadena($_POST['personal_codigo_up']);
 
           //comprobar caso en la base de datos
        $check_casos=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigo'");
@@ -227,7 +227,8 @@
             "PEUcelular"=>$celular,
             "PEUdireccion"=>$direccion,
             "PEUfecha"=>$fecha,
-            "PEUestado"=>$estado
+            "PEUestado"=>$estado,
+            "CODIGO"=>$codigo
            ];
 
         if(PersonalModelo::Editar_Personal_Modelo($datos_personal_update)){

@@ -3,7 +3,7 @@
     require_once "../config/APP.php";
 
 
-    if(isset($_POST['personal_dni_reg']) || isset($_POST['personal_codigo_del'])){
+    if(isset($_POST['personal_dni_reg']) || isset($_POST['personal_codigo_del']) || isset($_POST['personal_codigo_up'])){
         /*--- Instanacia al controlador-- */
         require_once "../controladores/PersonalControlador.php";
         $ins_person = new PersonalControlador();
@@ -22,6 +22,13 @@
             if(isset($_POST['personal_codigo_del'])){
                 echo $ins_person->Eliminar_personal_controlador();
             }
+
+            // Editar un personal
+            if(isset($_POST['personal_codigo_up'])){
+                echo $ins_person->Editar_personal_controlador();
+            }
+
+            
 
             
         
