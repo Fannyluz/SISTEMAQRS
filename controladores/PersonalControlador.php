@@ -108,7 +108,7 @@
                exit();
          }
          // comprobar el personal en BD
-         $check_personal=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo FROM oevcastcaso WHERE PEUcodigo='$codigo'");
+         $check_personal=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcodigo FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigo'");
 
 
          if($check_personal->rowCount()<=0)

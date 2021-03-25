@@ -1,9 +1,9 @@
 <?php
 
-const SERVER="localhost:80";
+const SERVER="localhost:8080";
 const DB="sistemaqrs";
 const USER="root";
-const PASS=""; 
+const PASS="rootfanny"; 
 
 const SGBD="mysql:host:80=".SERVER.";dbname=".DB;
 
