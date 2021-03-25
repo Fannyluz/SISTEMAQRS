@@ -21,7 +21,7 @@
 
 
             //comprobar campos vacios
-            if($usuario=="" || $clave=="" || $repetirclave==""){
+            if($usuario=="" || $clave=="" || $repetirclave=="" || $privilegio==""|| $fecha=="" || $estado==""){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -33,6 +33,18 @@
                exit();
             }     
             
+//comprobar el nombre
+            $check_nombre=modeloPrincipal::ejecutar_consulta_simple("SELECT UPUusuario FROM oevuputusuariopersonaluptvirtual WHERE UPUusuario='$usuario'");
+            if($check_nombre->rowCount()>0){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"Existe un usuario registrado con el mismo nombre, por favor registre un usuario diferente",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+            }
 
         //comprobar la clave
             if($clave!=$repetirclave)
@@ -91,6 +103,14 @@
          return $datos;
       } // fin del controlador 
 
+   /*controlador listar usuario personal estado=activo*/
+      public function Listar_usuariopersonaluptvirtual_estado_controlador() 
+      {
+         $datos=UsuarioPersonalUptVirtualModelo::listar_usuariopersonaluptvirtual_estado_modelo();
+         return $datos;
+      } // fin del controlador 
+
+
       /*controlador obtener usuario _codigo para asi poder obtener la informacion para el formario de agregar actividad qrs personal*/
          public function Obtener_usuariopersonaluptvirtual_controlador()
       {
@@ -125,7 +145,22 @@
              $alerta=[
                     "Alerta"=>"simple",
                     "Titulo"=>"Ocurrio un error inesperado",
-                    "Texto"=>"El tipo QRS que intenta eliminar no existe en el sistema",
+                    "Texto"=>"El usuario que intenta eliminar no existe en el sistema",
+                    "Tipo"=>"error"
+                 ];
+                 echo json_encode($alerta);
+                 exit();
+  
+           }
+
+           // comprobar el Tipo usuario en las actividades qrs
+           $check_usuariopersonaluptvirtual_Actividades=modeloPrincipal::ejecutar_consulta_simple("SELECT UPUcodigo FROM oevactpactividadqrs WHERE UPUcodigo='$codigo' LIMIT 1");
+           if($check_usuariopersonaluptvirtual_Actividades->rowCount()>0)
+           {
+             $alerta=[
+                    "Alerta"=>"simple",
+                    "Titulo"=>"Ocurrio un error inesperado",
+                    "Texto"=>"No podemos eliminar el usuario, debido que tiene actividades registrados a su cargo",
                     "Tipo"=>"error"
                  ];
                  echo json_encode($alerta);

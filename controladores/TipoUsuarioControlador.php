@@ -19,7 +19,7 @@
 
 
             //comprobar campos vacios
-            if($nombre=="" || $descripcion==""){
+            if($nombre=="" || $fecha=="" || $estado==""){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -37,7 +37,7 @@
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"Existe un caso registrado con el mismo nombre, por favor registre un caso diferente",
+                  "Texto"=>"Existe un Tipo de Usuario registrado con el mismo nombre, por favor registre un caso diferente",
                   "Tipo"=>"error"
                ];
                echo json_encode($alerta);
@@ -84,6 +84,13 @@
          return $datos;
       } // fin del controlador 
 
+/*controlador listar casos estado=1*/
+      public function Listar_tipousuario_estado_controlador()
+      {
+         $datos=TipoUsuarioModelo::listar_tipousuario_estado_modelo();
+         return $datos;
+      } // fin del controlador 
+
 
 
         /*controlador eliminar Tipo usuario*/
@@ -119,6 +126,21 @@
   
            }
            
+           // comprobar el Tipo usuario existe en las actividades registradas
+           $check_tipousuario_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT TIUcodigo  FROM oevactpactividadqrs WHERE TIUcodigo='$codigo' LIMIT 1");
+           if($check_tipousuario_actividadQRS->rowCount()>0)
+           {
+             $alerta=[
+                    "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"No podemos eliminar este tipo de usuario(Emisor), debido a que actividades asociados, recomendamos deshabilitar el tipo usuario si ya no sera usado en el sistema",
+                   "Tipo"=>"error"
+                 ];
+                 echo json_encode($alerta);
+                 exit();
+  
+           }
+
   //eliminar Tipo usuario
            $eliminar_tipousuario=TipoUsuarioModelo::eliminar_tipousuario_modelo($codigo);
            if($eliminar_tipousuario->rowCount()==1){
