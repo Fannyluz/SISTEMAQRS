@@ -92,7 +92,7 @@ if($datos_caso->rowCount()==1){
                       <div class="product_social">
                         <ul class="list-inline display-layout">
                           
-                          <a href="<?php echo SERVERURL?>general/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                          <a href="<?php echo SERVERURL?>listar-usuario-personaluptvirtual/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
                                 </a>
 
                         </ul>

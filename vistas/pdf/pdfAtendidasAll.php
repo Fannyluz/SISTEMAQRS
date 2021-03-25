@@ -86,6 +86,6 @@ while ($row = $resultado->fetch_assoc()){
     $pdf->Cell(15,10, $row['ACTestado'], 1, 1, 'C', 0);
     $i++;
 }
-//$pdf->Output();
-$pdf->Output('D','Actividades Atendidas.pdf');
+$pdf->Output();
+//$pdf->Output('D','Actividades Atendidas.pdf');
 ?>

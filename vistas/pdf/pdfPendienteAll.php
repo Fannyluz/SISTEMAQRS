@@ -49,7 +49,7 @@ function Footer()
 
 require '../../config/APP.php';
 require '../../config/SERVER.php';
-
+//require '../../config/cn.php';
 //$consulta = "SELECT * FROM oevactpactividadqrs";  
 
 $consulta="SELECT * FROM oevactpactividadqrs AS act

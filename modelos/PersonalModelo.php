@@ -66,4 +66,27 @@ protected static function Veer_personal_Modelo($codigo)
     return $sql;
   }
 
+  //editar personal de la oficina
+  protected static function Editar_Personal_Modelo($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevpeutpersonaluptvirtual SET PEUcodigo=:PEUcodigo, ROPcodigo=:ROPcodigo, PEUDNI=:PEUDNI,
+    PEUnombres=:PEUnombres, PEUapellidos=:PEUapellidos, PEUfoto=:PEUfoto, PEUcorreoElectronico=:PEUcorreoElectronico, PEUcelular=:PEUcelular,
+    PEUdireccion=:PEUdireccion, PEUfecha=:PEUfecha, PEUestado=:PEUestado WHERE PEUcodigo =:CODIGO");
+
+   $sql->bindParam(":PEUcodigo",$datos['PEUcodigo']);
+   $sql->bindParam(":ROPcodigo",$datos['ROPcodigo']);
+   $sql->bindParam(":PEUDNI",$datos['PEUDNI']);
+   $sql->bindParam(":PEUnombres",$datos['PEUnombres']);
+   $sql->bindParam(":PEUapellidos",$datos['PEUapellidos']);
+   $sql->bindParam(":PEUfoto",$datos['PEUfoto']);
+   $sql->bindParam(":PEUcorreoElectronico",$datos['PEUcorreoElectronico']);
+   $sql->bindParam(":PEUcelular",$datos['PEUcelular']);
+   $sql->bindParam(":PEUdireccion",$datos['PEUdireccion']);
+   $sql->bindParam(":PEUfecha",$datos['PEUfecha']);
+   $sql->bindParam(":PEUestado",$datos['PEUestado']);
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
+    return $sql;
+  }
  }

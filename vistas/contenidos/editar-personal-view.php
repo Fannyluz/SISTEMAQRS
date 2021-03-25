@@ -6,12 +6,12 @@ if($_SESSION['privilegio_spm']!=1 ){
 ?>
 <div class="right_col" role="main">
 <?php 
-require_once "./controladores/ActividadQrsControlador.php"; 
+require_once "./controladores/PersonalControlador.php"; 
 $nuevoestado="";
-$ins_caso = new ActividadQrsControlador();
-$datos_caso= $ins_caso->Ver_ActividadesQrs_controlador($pagina[1]);
+$ins_caso = new PersonalControlador();
+$datos_caso= $ins_caso->Ver_Personal_controlador($pagina[1]);
 if($datos_caso->rowCount()==1){
-  $campos=$datos_caso->fetch();
+  $campos=$datos_caso->fetch(); 
 ?>
                     <div class="clearfix"></div>
                     <div class="row">
@@ -29,6 +29,8 @@ if($datos_caso->rowCount()==1){
                                 <div class="x_content">
 
                 <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="save" novalidate>             
+                
+                <input type="hidden" name="personal_codigo_up" value="<?php echo $pagina[1]?>">
                 </p>
                                 
                                 <?php 
@@ -42,10 +44,10 @@ if($datos_caso->rowCount()==1){
                                 <div class="field item form-group">
                                  <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Rol:</b><span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
-                                    <select class="form-control" name="tipo_reg">
+                                    <select class="form-control" name="rol_nombre_up"> 
                                         <?php foreach($datosTipoQRS as $row){ ?>
 
-                                            <option  <?php echo $row['ROPcodigo'] == $campos['ROPcodigo'] ? 'selected' : ''; ?> value="<?php echo $campos['ROPcodigo']?>"><?php echo $row['ROPnombre']?></option>
+                                            <option  <?php echo $row['ROPcodigo'] == $campos['ROPcodigo'] ? 'selected' : ''; ?> value="<?php echo $row['ROPcodigo']?>"><?php echo $row['ROPnombre']?></option>
 
                                         <?php }?>
                                     </select>
@@ -54,53 +56,53 @@ if($datos_caso->rowCount()==1){
                        
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>DNI:</b><span class="required"></span></label>
-                                            <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="codigo_reg"  value="<?php echo $campos['PEUDNI']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                            <div class="col-md-6 col-sm-6"> 
+                                                <input class="form-control" name="personal_dni_up"  value="<?php echo $campos['PEUDNI']?>" id="usuario" placeholder="Ingrese el nombre" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTnombres_reg"  value="<?php echo $campos['PEUnombres']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="personal_nombre_up"  value="<?php echo $campos['PEUnombres']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Apellidos:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTapellidos_reg" value="<?php echo $campos['PEUapellidos']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="personal_apellido_up" value="<?php echo $campos['PEUapellidos']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Foto:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                             <textarea class="form-control" name="ACTdescripcion_reg"  value="" id="clave" placeholder="Ingrese la descripción" required="required"><?php echo $campos['PEUfoto']?></textarea>
+                                             <textarea class="form-control" name="personal_foto_up"  value="" id="clave" placeholder="Ingrese la descripción" required="required"><?php echo $campos['PEUfoto']?></textarea>
 
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTcelular_reg" value="<?php echo $campos['PEUcorreoElectronico']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="personal_correo_up" value="<?php echo $campos['PEUcorreoElectronico']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTcorreoElectronico_reg" value="<?php echo $campos['PEUcelular']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                                <input class="form-control" name="personal_celular_up" value="<?php echo $campos['PEUcelular']?>" id="usuario" placeholder="Ingrese el nombre" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Direccion:</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTcorreoElectronico_reg" value="<?php echo $campos['PEUdireccion']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                                <input class="form-control" name="personal_direccion_up" value="<?php echo $campos['PEUdireccion']?>" id="usuario" placeholder="Ingrese el nombre" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="caso_fecha_reg" value="<?php echo $campos['PEUfecha']?>" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="personal_fecha_up" value="<?php echo $campos['PEUfecha']?>" required='required'></div>
                                         </div>
                                     
 
@@ -108,7 +110,7 @@ if($datos_caso->rowCount()==1){
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <select class="form-control" name="caso_estado_reg">
+                                                <select class="form-control" name="personal_estado_up">
                                                     <option <?php echo $campos['PEUestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>
                                                     <option <?php echo $campos['PEUestado'] == 2 ? 'selected' : ''; ?> value="2">Atendido</option>
                                                     <option <?php echo $campos['PEUestado'] == 3 ? 'selected' : ''; ?> value="2">Rechazado</option>
