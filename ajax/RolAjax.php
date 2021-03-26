@@ -3,7 +3,7 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['rol_nombre_reg']) || isset($_POST['rol_codigo_up']) || isset($_POST['rol_codigo_del'])){
+    if(isset($_POST['rol_nombre_reg']) || isset($_POST['rol_codigo_up' ]) || isset($_POST['rol_codigo_del' ])){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/RolControlador.php";
         $ins_rol = new RolControlador();
@@ -14,17 +14,12 @@
             }
             // editar un caso
            if(isset($_POST['rol_codigo_up'])){
-            echo $ins_rol->Editar_rol_controlador();
-
-            // Eliminar un caso
+            echo $ins_rol->Editar_rol_controlador(); 
+            } 
+             // Eliminar un caso
             if(isset($_POST['rol_codigo_del'])){
                 echo $ins_rol->Eliminar_rol_controlador();
             }
-
-          
-
-            
-        } 
         
     }else{
         session_start(['name' => 'QRS']);
