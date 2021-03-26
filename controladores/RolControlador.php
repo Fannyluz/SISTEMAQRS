@@ -189,7 +189,7 @@ public function Eliminar_rol_controlador()
          exit();
    }
    // comprobar el caso en BD
-   $check_rol=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo FROM oevpeutpersonaluptvirtual WHERE ROPcodigo='$codigo'");
+   $check_rol=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo FROM oevroptrolpersonal WHERE ROPcodigo='$codigo'");
 
 
    if($check_rol->rowCount()<=0)
@@ -206,7 +206,7 @@ public function Eliminar_rol_controlador()
    }
    
    // comprobar el caso en la tabla actividad QRS -BD
-   $check_rol_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo FROM oevpeutpersonaluptvirtual WHERE ROPcodigo='$codigo' LIMIT 1");
+   $check_rol_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo FROM oevactpactividadqrs WHERE ROPcodigo='$codigo' LIMIT 1");
 
 
    if($check_rol_actividadQRS->rowCount()>0)
