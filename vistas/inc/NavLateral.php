@@ -6,7 +6,7 @@
             <div class="navbar nav_title" style="border: 0;">
           
           
-              <a class=" site_title left">
+              <a class=" site_title left"> 
               <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="50" height="50" class="img-circle">
                   UPT VIRTUAL
                   </a>
@@ -35,7 +35,7 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?php echo SERVERURL; ?>vistas/images/foto.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>BIENVENIDO</span>

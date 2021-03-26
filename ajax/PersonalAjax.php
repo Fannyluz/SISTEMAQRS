@@ -20,7 +20,7 @@
             }
             // Eliminar un caso
             if(isset($_POST['personal_codigo_del'])){
-                echo $ins_person->Eliminar_personal_controlador();
+                echo $ins_person->eliminar_personal_controlador();
             }
 
             // Editar un personal

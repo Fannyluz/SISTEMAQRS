@@ -15,12 +15,12 @@
            // editar un caso
            if(isset($_POST['rol_codigo_up'])){
             echo $ins_rol->Editar_rol_controlador();
-
+           }
             // Eliminar un caso
             if(isset($_POST['rol_codigo_del'])){
                 echo $ins_rol->Eliminar_rol_controlador();
             }
-        } 
+        
         
     }else{
         session_start(['name' => 'QRS']);
