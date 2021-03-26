@@ -63,7 +63,7 @@ class RolModelo extends modeloPrincipal{
 
   protected static function eliminar_rol_modelo($codigo) 
   {
-    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevroptrolpersonal WHERE  ROPcodigo=:ROPcodigo");
+    $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevroptrolpersonal WHERE ROPcodigo=:ROPcodigo");
     $sql->bindParam(":ROPcodigo",$codigo);
     $sql->execute();
     return $sql;
