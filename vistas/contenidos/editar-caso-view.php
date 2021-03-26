@@ -36,6 +36,7 @@ require_once "./controladores/CasoControlador.php";
 $nuevoestado="";
 $ins_caso = new CasoControlador();
 $datos_caso= $ins_caso->Ver_caso_controlador($pagina[1]);
+
 if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch(); 
 ?>                     

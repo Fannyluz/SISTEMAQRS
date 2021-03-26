@@ -16,7 +16,8 @@ class RolModelo extends modeloPrincipal{
       return $sql;
     }
     public function listar_rol_modelo(){
-        $consulta="SELECT * FROM oevroptrolpersonal ORDER BY ROPfecha DESC";
+        $hoy = getdate();
+        $consulta="SELECT * FROM oevroptrolpersonal ORDER BY ROPfecha,$hoy DESC";
         $conexion=modeloPrincipal::conectar();
         $datos=$conexion->query($consulta);
         $datos=$datos->fetchAll();
@@ -25,6 +26,7 @@ class RolModelo extends modeloPrincipal{
     }
 // listar rol estado=activo
      public function listar_rol_estado_modelo(){
+
         $consulta="SELECT * FROM oevroptrolpersonal WHERE ROPestado=1";
         $conexion=modeloPrincipal::conectar();
         $datos=$conexion->query($consulta);

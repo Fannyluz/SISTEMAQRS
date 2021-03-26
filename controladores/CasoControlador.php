@@ -167,7 +167,8 @@
       public function Ver_caso_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=CasoModelo::Ver_Caso_Modelo($codigo);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=CasoModelo::Ver_Caso_Modelo($codigodesencriptado);
          return $datos;
 
       } // fin del controlador 

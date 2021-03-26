@@ -17,6 +17,7 @@ class CasoModelo extends modeloPrincipal{
       return $sql;
     }
     public function listar_casos_modelo(){
+        
       $consulta="SELECT * FROM oevcastcaso ORDER BY CASfecha DESC";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
