@@ -78,7 +78,7 @@
                                           <li><i class="fa fa-envelope"></i> <?php echo $row['PEUcorreoElectronico']?></li>
                                           <li><i class="fa fa-phone"></i> <?php echo $row['PEUcelular']?></li>
                                         </ul>
-                                      </div>
+                                      </div> 
                                       <div class="right col-md-5 col-sm-5 text-center">
                                         <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" alt="" class="img-circle img-fluid">
                                       </div>
