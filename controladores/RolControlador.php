@@ -232,7 +232,7 @@ public function Eliminar_rol_controlador()
    }
 
   //eliminar caso
-   $eliminar_rol=RolModelo::eliminar_rol_modelo($codigo);
+   $eliminar_rol=RolModelo::Eliminar_rol_modelo($codigo);
    if($eliminar_rol->rowCount()==1){
       $alerta=[
             "Alerta"=>"recargar",

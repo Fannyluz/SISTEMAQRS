@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2021 a las 22:56:04
+-- Tiempo de generación: 26-03-2021 a las 03:16:50
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.2
 
@@ -36,7 +36,7 @@ CREATE TABLE `oevactpactividadqrs` (
   `ACTcodigoUPT` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `ACTnombres` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `ACTapellidos` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `ACTDescripcion` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `ACTDescripcion` varchar(450) COLLATE utf8_spanish2_ci NOT NULL,
   `ACTcelular` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `ACTcorreoelectronico` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `ACTfecha` date NOT NULL,
@@ -65,7 +65,7 @@ INSERT INTO `oevactpactividadqrs` (`ACTcodigo`, `TIPcodigo`, `CAScodigo`, `TIUco
 CREATE TABLE `oevcastcaso` (
   `CAScodigo` int(11) NOT NULL,
   `CASnombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `CASdescripcion` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `CASdescripcion` varchar(450) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `CASfecha` date NOT NULL,
   `CASestado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -75,11 +75,11 @@ CREATE TABLE `oevcastcaso` (
 --
 
 INSERT INTO `oevcastcaso` (`CAScodigo`, `CASnombre`, `CASdescripcion`, `CASfecha`, `CASestado`) VALUES
-(1, 'aula virtual', 'problemas, inconveniencias o sugerencias que ', '2021-02-25', 1),
-(2, 'Sistema de Videoconferencia', 'problemas, inconveniencias y sugerencias con ', '2021-02-25', 1),
-(3, 'Microsoft Teams', 'problemas, inconveniencias y sugerencias con ', '2021-02-25', 1),
-(4, 'EEERR', 'RRRRRRRRRR', '2021-03-24', 1),
-(5, 'RRRRRRRRRRRRRRRRRRRRRRRRRR', 'RRRRRRRRRRRRRRRRRRRRRR', '2021-03-24', 1);
+(1, 'aula virtual', 'problemas, inconveniencias o sugerencias que se presenten con respecto al aula virtual', '2021-02-25', 1),
+(2, 'Sistema de Videoconferencia', 'problemas, inconveniencias y sugerencias que se presenten con respecto al Sistema de Videoconferencia', '2021-02-25', 1),
+(3, 'Microsoft Teams', 'problemas, inconveniencias y sugerencias que se presenten con respecto al Microsoft Teams', '2021-02-25', 1),
+(4, 'Aula Virtual CEPU', 'Aula virtual de Admisión -CEPU', '2021-03-24', 1),
+(5, 'nuevo caso', 'descripción de nuevo caso', '2021-03-24', 1);
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,8 @@ INSERT INTO `oevpeutpersonaluptvirtual` (`PEUcodigo`, `ROPcodigo`, `PEUDNI`, `PE
 (3, 3, '74562015', 'Fanny', 'Clemente Cruz', 'secuptvirtual@upt.pe', '965741236', 'dirección', '2021-02-25', 1),
 (4, 1, '78596321', 'Francisco', 'Zapata', 'fzapatam@upt.pe', '987456321', 'direccion', '2021-02-25', 1),
 (5, 5, '78526143', 'Gisela', 'Flores Colque', 'giselafloresc13@gmail.com', '963214587', 'direccion', '2021-02-25', 1),
-(6, 4, '95632147', 'jenny', 'Huayta Curo', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1);
+(6, 4, '95632147', 'jenny', 'Huayta Curo', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1),
+(8, 1, '96325874', 'nuevo nombre', 'nuevo apellido', 'correo electronico', '985632147', 'nueva dirección', '2021-03-25', 1);
 
 -- --------------------------------------------------------
 
@@ -121,7 +122,7 @@ INSERT INTO `oevpeutpersonaluptvirtual` (`PEUcodigo`, `ROPcodigo`, `PEUDNI`, `PE
 CREATE TABLE `oevroptrolpersonal` (
   `ROPcodigo` int(11) NOT NULL,
   `ROPnombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `ROPdescripcion` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `ROPdescripcion` varchar(450) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `ROPfecha` date NOT NULL,
   `ROPestado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -131,12 +132,12 @@ CREATE TABLE `oevroptrolpersonal` (
 --
 
 INSERT INTO `oevroptrolpersonal` (`ROPcodigo`, `ROPnombre`, `ROPdescripcion`, `ROPfecha`, `ROPestado`) VALUES
-(1, 'soporte técnico', 'soporte técnico del Aula Virtual de la Univer', '2021-02-25', 1),
-(2, 'Jefe', 'jefe de la oficina de educación virtual de la', '2021-02-25', 1),
-(3, 'Apoyo Administrativo', 'Apoyo administrativo de la oficina de educaci', '2021-02-25', 1),
-(4, 'Docente Capacitador', 'Docente capacitador de la Oficina de educació', '2021-02-25', 1),
-(5, 'Apoyo soporte tecnico', 'Apoyo soporte técnico de la Oficina de educac', '2021-02-25', 1),
-(6, 'Apoyo docente', 'Apoyo docente de la oficina de educación virt', '2021-02-25', 1);
+(1, 'soporte técnico', 'soporte técnico del Aula Virtual de la Universidad Privada de Tacna', '2021-02-25', 1),
+(2, 'Jefe', 'jefe de la oficina de educación virtual de la UPT', '2021-02-15', 1),
+(3, 'Apoyo Administrativo', 'Apoyo administrativo de la oficina de educación virtual', '2021-02-25', 1),
+(4, 'Docente Capacitador', 'Docente capacitador de la Oficina de educación virtual', '2021-03-15', 2),
+(5, 'Apoyo soporte tecnico', 'Apoyo soporte técnico de la Oficina de educación virtual', '2021-02-25', 1),
+(6, 'Apoyo docente', 'Apoyo docente de la oficina de educación virtual', '2021-03-19', 2);
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ INSERT INTO `oevroptrolpersonal` (`ROPcodigo`, `ROPnombre`, `ROPdescripcion`, `R
 CREATE TABLE `oevtipttipoqrs` (
   `TIPcodigo` int(11) NOT NULL,
   `TIPnombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `TIPdescripcion` varchar(45) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `TIPdescripcion` varchar(450) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `TIPfecha` date NOT NULL,
   `TIPestado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -157,9 +158,9 @@ CREATE TABLE `oevtipttipoqrs` (
 --
 
 INSERT INTO `oevtipttipoqrs` (`TIPcodigo`, `TIPnombre`, `TIPdescripcion`, `TIPfecha`, `TIPestado`) VALUES
-(1, 'Reclamo', 'Reclamos que se presenten ya sea del aula vir', '2021-02-25', 1),
-(2, 'Quejas', 'quejas que se presentan con respecto al aula ', '2021-02-25', 1),
-(3, 'Sugerencias', 'sugerencias con respecto al aula virtual y/o ', '2021-02-25', 1);
+(1, 'Reclamo', 'Reclamos que se presenten del Aula Virtual', '2021-02-25', 1),
+(2, 'Quejas', 'quejas que se presentan con respecto al aula virtual, sistema de videoconferencia , etc.', '2021-02-25', 1),
+(3, 'Sugerencias', 'sugerencias con respecto al aula virtual y/o sistema de videoconferencias', '2021-02-25', 1);
 
 -- --------------------------------------------------------
 
@@ -170,7 +171,7 @@ INSERT INTO `oevtipttipoqrs` (`TIPcodigo`, `TIPnombre`, `TIPdescripcion`, `TIPfe
 CREATE TABLE `oevtiuttipousuario` (
   `TIUcodigo` int(11) NOT NULL,
   `TIUnombre` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `TIUdescripcion` varchar(45) COLLATE utf8_spanish2_ci DEFAULT NULL,
+  `TIUdescripcion` varchar(450) COLLATE utf8_spanish2_ci DEFAULT NULL,
   `TIUfecha` date NOT NULL,
   `TIUestado` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
@@ -181,7 +182,7 @@ CREATE TABLE `oevtiuttipousuario` (
 
 INSERT INTO `oevtiuttipousuario` (`TIUcodigo`, `TIUnombre`, `TIUdescripcion`, `TIUfecha`, `TIUestado`) VALUES
 (1, 'Estudiante', 'Estudiante de la Universidad Privada de Tacna', '2021-02-25', 1),
-(2, 'Docente', 'Docente de la Universidad Privada de Tacna', '2021-02-25', 1);
+(2, 'Docente', 'Docente de la Universidad Privada de Tacna', '2021-03-25', 1);
 
 -- --------------------------------------------------------
 
@@ -204,11 +205,12 @@ CREATE TABLE `oevuputusuariopersonaluptvirtual` (
 --
 
 INSERT INTO `oevuputusuariopersonaluptvirtual` (`UPUcodigo`, `PEUcodigo`, `UPUusuario`, `UPUclave`, `UPUprivilegio`, `UPUfecha`, `UPUestado`) VALUES
-(1, 1, 'william', 'william123', 3, '2021-02-25', 1),
-(2, 2, 'jefetito', 'tito123456', 1, '2021-02-25', 1),
-(3, 3, 'fanny', 'fanny123456', 2, '2021-02-25', 1),
-(4, 4, 'francisco', 'francisco123456', 3, '2021-02-25', 1),
-(5, 6, 'nelia', 'nelia123456', 3, '2021-02-25', 1);
+(1, 1, 'william', 'cnIyV01SOTJDS28xak5LWUF4bkpHZz09', 3, '2021-02-25', 1),
+(2, 2, 'jefetito', 'dko0dVRBdXpHaGRrdlRWaFRXcklQdz09', 1, '2021-02-25', 1),
+(3, 3, 'fanny', 'UE9xaE1IQTA0aUVraTF6M29CTkRIQT09', 2, '2021-02-25', 1),
+(4, 4, 'francisco', 'NGtyOEhMYjVidFdUQUk4VkhWSmZmZz09', 3, '2021-02-25', 1),
+(5, 6, 'nelia', 'U3lsSkR1SUJ2cVlLS3NDNUVpREI4dz09', 3, '2021-02-25', 1),
+(7, 3, 'fanny2021', 'UE9xaE1IQTA0aUVraTF6M29CTkRIQT09', 2, '2021-03-25', 1);
 
 --
 -- Índices para tablas volcadas
@@ -282,7 +284,7 @@ ALTER TABLE `oevcastcaso`
 -- AUTO_INCREMENT de la tabla `oevpeutpersonaluptvirtual`
 --
 ALTER TABLE `oevpeutpersonaluptvirtual`
-  MODIFY `PEUcodigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `PEUcodigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `oevroptrolpersonal`
@@ -306,7 +308,7 @@ ALTER TABLE `oevtiuttipousuario`
 -- AUTO_INCREMENT de la tabla `oevuputusuariopersonaluptvirtual`
 --
 ALTER TABLE `oevuputusuariopersonaluptvirtual`
-  MODIFY `UPUcodigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `UPUcodigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
