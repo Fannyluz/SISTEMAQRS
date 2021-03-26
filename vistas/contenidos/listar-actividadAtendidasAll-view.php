@@ -34,10 +34,11 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         Exportar Excel
         </button>
       </input>
-        <!--
-      <a href="../vistas/pdf/pdfAtendidasAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        
+      <a href="../vistas/pdf/reportesatendidas.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
-        </a>-->
+        </a>
+        <!-- para poder coemntar-->
     </form> 
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportAtendidasAll" value="exportAtendidasAll" />    
@@ -115,10 +116,17 @@ foreach($datos as $row){
 
                                 
                                 <td>
-                                <a href="<?php echo SERVERURL?>ver-actividadAtendidaAll/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+
+
+                                <?php
+require_once "modelos/modeloPrincipal.php";
+  $principal= new modeloPrincipal();
+  
+?>
+                                <a href="<?php echo SERVERURL?>ver-actividadAtendidaAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
 
-                                <a href="<?php echo SERVERURL?>editar-actividadAtendidaAll/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>editar-actividadAtendidaAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>            
                                                 
                                  </td>

@@ -717,7 +717,8 @@
       public function Ver_ActividadesQrs_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=ActividadQrsModelo::Ver_actividadesQrs_Modelo($codigo);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=ActividadQrsModelo::Ver_actividadesQrs_Modelo($codigodesencriptado);
          return $datos;
 
       } // fin del controlador
@@ -726,7 +727,8 @@
       public function Ver_ActividadesQrsPendientesALL_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=ActividadQrsModelo::Ver_actividadesQrsPendientesAll_Modelo($codigo);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=ActividadQrsModelo::Ver_actividadesQrsPendientesAll_Modelo($codigodesencriptado);
          return $datos;
 
       } // fin del controlador 
@@ -745,7 +747,8 @@
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
         $codigoUsuario=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
-         $datos=ActividadQrsModelo::Ver_actividadesQrsPendientes_Modelo($codigo,$codigoUsuario);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=ActividadQrsModelo::Ver_actividadesQrsPendientes_Modelo($codigodesencriptado,$codigoUsuario);
          return $datos;
 
       } // fin del controlador 
@@ -754,7 +757,8 @@
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
         $codigoUsuario=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
-         $datos=ActividadQrsModelo::Ver_actividadesQrsAtendidas_Modelo($codigo,$codigoUsuario);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=ActividadQrsModelo::Ver_actividadesQrsAtendidas_Modelo($codigodesencriptado,$codigoUsuario);
          return $datos;
 
       } // fin del controlador 

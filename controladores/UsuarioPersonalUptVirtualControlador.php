@@ -193,7 +193,8 @@
       public function Ver_usuariopersonaluptvirtual_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=UsuarioPersonalUptVirtualModelo::Ver_usuariopersonaluptvirtual_Modelo($codigo);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=UsuarioPersonalUptVirtualModelo::Ver_usuariopersonaluptvirtual_Modelo($codigodesencriptado);
          return $datos;
 
       } // fin del controlador 

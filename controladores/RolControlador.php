@@ -97,7 +97,8 @@
   public function Ver_rol_controlador($codigo)
   {
     $codigo=modeloPrincipal::limpiar_cadena($codigo);
-     $datos=RolModelo::Ver_Rol_Modelo($codigo); 
+    $codigodesencriptado=modeloPrincipal::decryption($codigo);
+     $datos=RolModelo::Ver_Rol_Modelo($codigodesencriptado); 
      return $datos;
 
   } // fin del controlador

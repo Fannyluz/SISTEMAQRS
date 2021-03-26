@@ -126,10 +126,16 @@ foreach($datos as $row){
 
                                 
                                 <td>
-                                <a href="<?php echo SERVERURL?>ver-actividadU/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+
+                                <?php
+require_once "modelos/modeloPrincipal.php";
+  $principal= new modeloPrincipal();
+  
+?>
+                                <a href="<?php echo SERVERURL?>ver-actividadU/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
 
-                                <a href="<?php echo SERVERURL?>editar-actividadU/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>editar-actividadU/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>          
                                                 
                                  </td>

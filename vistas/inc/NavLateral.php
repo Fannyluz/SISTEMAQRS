@@ -22,9 +22,22 @@
             <font color="#10226a" SIZE=2>
 
           <align="center"><i>UNIVERSIDAD PRIVADA DE TACNA</i>
+          
           </font>
 
           </div>
+
+          <div style="background-color:#034ba3s;" align="center">
+          <br> 
+          <font color="#edf1f5" SIZE=3>
+
+          <?php
+            echo date('h:i:s A');
+            ?>
+            </font>
+            </div>
+
+
 
             <div style="background-color:#FF0000;">
 <p> 

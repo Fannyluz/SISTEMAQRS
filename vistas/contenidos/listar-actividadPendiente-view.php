@@ -114,10 +114,16 @@ foreach($datos as $row){
 
                                 
                                 <td>
-                                <a href="<?php echo SERVERURL?>ver-actividadPendiente/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+
+                                <?php
+require_once "modelos/modeloPrincipal.php";
+  $principal= new modeloPrincipal();
+  
+?>
+                                <a href="<?php echo SERVERURL?>ver-actividadPendiente/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
 
-                                <a href="<?php echo SERVERURL?>editar-actividadPendiente/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>editar-actividadPendiente/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>             
                                                 
                                  </td>

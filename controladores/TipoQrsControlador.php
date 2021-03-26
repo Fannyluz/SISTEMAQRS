@@ -163,8 +163,9 @@
         /*mostrar datos del tipo qrs */
       public function Ver_tipoqrs_controlador($codigo)
       {
-        $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=TipoQrsModelo::Ver_tipoqrs_Modelo($codigo);
+        $codigo=modeloPrincipal::limpiar_cadena($codigo); 
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+        $datos=TipoQrsModelo::Ver_tipoqrs_Modelo($codigodesencriptado);
          return $datos;
 
       } // fin del controlador 

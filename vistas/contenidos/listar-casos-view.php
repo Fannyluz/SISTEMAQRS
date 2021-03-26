@@ -15,7 +15,9 @@ if($_SESSION['privilegio_spm']!=1){
                             <div class="x_panel">
 
                                 <div class="x_title" style="color:#10226a;">
-                                    <h2>UPTvirtual <small>Lista de Casos</small></h2>
+                                    <h2>UPTvirtual <small>Lista de Casos</small>
+                                    
+                                    </h2>
                                      <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -99,7 +101,7 @@ if($_SESSION['privilegio_spm']!=1){
                                  ?></td> 
                                
 
-                                <td>
+                                <td> 
 
                                                  
      <form class="FormularioAjax" action="<?php echo SERVERURL; ?>ajax/CasoAjax.php" method="POST" data-form="delete" novalidate>
@@ -107,7 +109,7 @@ if($_SESSION['privilegio_spm']!=1){
 require_once "modelos/modeloPrincipal.php";
   $principal= new modeloPrincipal();
   
-?>
+?> 
 <a href="<?php echo SERVERURL?>ver-caso/<?php echo $principal->encryption($row['CAScodigo'])?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
 </a> 
 

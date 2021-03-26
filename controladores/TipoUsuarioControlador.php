@@ -167,7 +167,8 @@
       public function Ver_tipousuario_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=TipoUsuarioModelo::Ver_tipousuario_Modelo($codigo);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=TipoUsuarioModelo::Ver_tipousuario_Modelo($codigodesencriptado);
          return $datos;
 
       } // fin del controlador 

@@ -49,13 +49,14 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         Exportar Excel </button>
 
       </input>
-        <!--
-      <a href="../vistas/pdf/pdfPendienteAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        
+      
+        <!-- para comentar-->
+    </form>
+    <a href="../vistas/pdf/reportespendientes.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
-        </a>-->
-    </form>
-
+        </a>
     
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
@@ -67,7 +68,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
       </input>
       
     </form>
-    
+
     
                              <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
@@ -136,10 +137,16 @@ foreach($datos as $row){
 
                                 
                                 <td>
-                                <a href="<?php echo SERVERURL?>ver-actividadPendienteAll/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+
+                                <?php
+require_once "modelos/modeloPrincipal.php";
+  $principal= new modeloPrincipal();
+  
+?>
+                                <a href="<?php echo SERVERURL?>ver-actividadPendienteAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
 
-                                <a href="<?php echo SERVERURL?>editar-actividadPendienteAll/<?php echo $row['ACTcodigo']; ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>editar-actividadPendienteAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>       
                                                 
                                  </td>

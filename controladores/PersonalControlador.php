@@ -165,7 +165,8 @@
       public function Ver_personal_controlador($codigo)
       {
          $codigo=modeloPrincipal::limpiar_cadena($codigo);
-         $datos=PersonalModelo::Veer_personal_Modelo($codigo);
+         $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=PersonalModelo::Veer_personal_Modelo($codigodesencriptado);
          return $datos;
 
       } // fin del controlador
@@ -175,6 +176,7 @@
       {
          $codigo=$_SESSION['personal_spm'];
          $codigo=modeloPrincipal::limpiar_cadena($codigo);
+
          $datos=PersonalModelo::Veer_perfil_Modelo($codigo);
          return $datos;
 
