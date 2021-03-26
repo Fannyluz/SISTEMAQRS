@@ -806,7 +806,7 @@
            ';
           }
           $output .= '</table>';
-          header('Content-Type: application/doc');
+          header('Content-Type: application/doc; boundary=something'); 
           header('Content-Disposition: attachment; filename=ActividadesQrsALL.doc');
           echo $output;
          

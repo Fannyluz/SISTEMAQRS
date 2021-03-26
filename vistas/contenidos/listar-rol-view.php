@@ -94,7 +94,7 @@ if($_SESSION['privilegio_spm']!=1){
 
                                 <input type="hidden" name="rol_codigo_del" value="<?php echo $row['ROPcodigo']; ?>" />    
                                 <button type="submit" class="btn btn-round btn-outline-danger btn-sm">
-                                        <i class="fa fa-trash-o fa-sm"></i>  
+                                        <i class="fa fa-trash-o fa-sm"></i>   
 
                                 </button>
                                 </input>
