@@ -33,12 +33,12 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         Exportar Excel
 
         </button>
-        
+          <!--
       </input>
       <a href="../vistas/pdf/pdfActividadesAll.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
         Exportar PDF 
 
-        </a>
+        </a>-->
     </form> 
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="export" value="export" />    

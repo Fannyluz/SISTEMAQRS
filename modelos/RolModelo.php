@@ -23,6 +23,16 @@ class RolModelo extends modeloPrincipal{
         return $datos;
         
     }
+// listar rol estado=activo
+     public function listar_rol_estado_modelo(){
+        $consulta="SELECT * FROM oevroptrolpersonal WHERE ROPestado=1";
+        $conexion=modeloPrincipal::conectar();
+        $datos=$conexion->query($consulta);
+        $datos=$datos->fetchAll();
+        return $datos;
+        
+    }
+
 
 
     //datos del caso

@@ -84,6 +84,15 @@
          return $datos;
       } // fin del controlador 
 
+
+
+  /*controlador listar personales de la oficina de educación virtual*/
+      public function Listar_rol_estado_controlador()
+      {
+         $datos=RolModelo::listar_rol_estado_modelo();
+         return $datos;
+      } // fin del controlador 
+
   /*controlador datos del caso*/
   public function Ver_rol_controlador($codigo)
   {
