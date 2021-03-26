@@ -38,7 +38,7 @@ class CasoModelo extends modeloPrincipal{
   {
     $sql=modeloPrincipal::conectar()->prepare("DELETE FROM oevcastcaso WHERE  CAScodigo=:CAScodigo");
     $sql->bindParam(":CAScodigo",$codigo);
-    $sql->execute();
+    $sql->execute(); 
     return $sql;
   }
 
