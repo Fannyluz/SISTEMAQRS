@@ -80,7 +80,7 @@
                                         </ul>
                                       </div>
                                       <div class="right col-md-5 col-sm-5 text-center">
-                                        <img src="<?php echo SERVERURL; ?>vistas/images/picture.jpg" alt="" class="img-circle img-fluid">
+                                        <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" alt="" class="img-circle img-fluid">
                                       </div>
                                     </div>
                                     <div class=" profile-bottom text-center">
