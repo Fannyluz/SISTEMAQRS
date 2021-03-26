@@ -59,11 +59,11 @@
 
                exit();
             }
-
+          $claveEncriptado=modeloPrincipal::encryption($clave);
             $datos_usuariopersonaluptvirtual_registro=[
                "PEUcodigo"=>$personaluptvirtual,
                "UPUusuario"=>$usuario,
-               "UPUclave"=>$clave,
+               "UPUclave"=>$claveEncriptado,
                "UPUprivilegio"=>$privilegio,
                "UPUfecha"=>$fecha,
                "UPUestado"=>$estado
@@ -260,11 +260,11 @@
                exit();
             }
 
-
+          $claveEncriptado=modeloPrincipal::encryption($clave);
             $datos_UsuarioPersonalUPTvirtual_update=[
                 "PEUcodigo"=>$personaluptvirtual,
                "UPUusuario"=>$usuario,
-               "UPUclave"=>$clave,
+               "UPUclave"=>$claveEncriptado,
                "UPUprivilegio"=>$privilegio,
                "UPUfecha"=>$fecha,
                "UPUestado"=>$estado,

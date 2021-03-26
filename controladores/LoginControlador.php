@@ -27,9 +27,11 @@
            ';
          }
 
+          $claveDesencriptado=modeloPrincipal::encryption($clave);
+
          $datos_login=[
             "UPUusuario"=>$usuario,
-            "UPUclave"=>$clave
+            "UPUclave"=>$claveDesencriptado
          ];
          $datos_cuenta=LoginModelo::iniciar_sesion_modelo($datos_login);
          if($datos_cuenta->rowCount()==1)
