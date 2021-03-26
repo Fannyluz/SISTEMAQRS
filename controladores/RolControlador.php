@@ -214,11 +214,11 @@ public function Eliminar_rol_controlador()
 
    }
    
-   // comprobar el caso en la tabla actividad QRS -BD
-   $check_rol_actividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo FROM oevroptrolpersonal WHERE ROPcodigo='$codigo' LIMIT 1");
+   // comprobar el caso en la tabla personal QRS -BD
+   $check_rol_personalQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT ROPcodigo FROM oevpeutpersonaluptvirtual WHERE ROPcodigo='$codigo' LIMIT 1");
 
 
-   if($check_rol_actividadQRS->rowCount()>0)
+   if($check_rol_personalQRS->rowCount()>0)
    {
      $alerta=[
             "Alerta"=>"simple",
