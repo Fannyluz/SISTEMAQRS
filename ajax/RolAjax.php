@@ -3,7 +3,7 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['rol_nombre_reg'])){
+    if(isset($_POST['rol_nombre_reg']) || isset($_POST['rol_codigo_up'])){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/RolControlador.php";
         $ins_rol = new RolControlador();

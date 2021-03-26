@@ -32,7 +32,7 @@ public function get_rolpersonal($CodRolPersonal){
     }
     public function listar_personal_modelo(){
         $consulta="SELECT * FROM oevpeutpersonaluptvirtual AS pu 
-        INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo";
+        INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo ORDER BY PEUfecha DESC";
         $conexion=modeloPrincipal::conectar();
         $datos=$conexion->query($consulta);
         $datos=$datos->fetchAll();
