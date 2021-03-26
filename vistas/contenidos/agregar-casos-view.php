@@ -7,10 +7,6 @@ if($_SESSION['privilegio_spm']!=1){
 <div class="right_col" role="main">
                 <div class="">
                     <div class="page-title">
-                        <div class="title_left" style="color:#10226a;">
-                        <h3>UPT <small>Oficina de Educación Virtual</small></h3>
-           
-                        </div>
 
                        
                     </div>
