@@ -84,7 +84,6 @@ if($_SESSION['privilegio_spm']!=3){
                                 <th>Nombres y Apellidos</th>
                                 <th>Descripcion</th>
                                 <th>Celular</th>
-                                <th>CorreoElectronico</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
@@ -115,7 +114,7 @@ foreach($datos as $row){
                                 <td><?php echo $row['ACTnombres']?> <?php echo $row['ACTapellidos']?></td>
                                 <td><?php echo $row['ACTDescripcion']?></td> 
                                 <td><?php echo $row['ACTcelular']?></td>
-                                <td><?php echo $row['ACTcorreoelectronico']?></td> 
+                               
                                 <td><?php echo $row['ACTfecha']?></td>
                                 
                                  <td><?php if($row['ACTestado']=="1")

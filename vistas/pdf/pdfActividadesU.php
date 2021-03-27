@@ -72,7 +72,9 @@ INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
 INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE act.UPUcodigo=$codigo ORDER BY ACTfecha DESC";
   
 
-$resultado = $mysql->query($consulta );
+$resultado = $mysql->query($consulta);
+$conexion=modeloPrincipal::conectar();
+$datos=$conexion->query($consulta);
 // Creación del objeto de la clase heredada
 $pdf = new PDF();
 
@@ -81,7 +83,7 @@ $pdf->AddPage('landscape');
 $pdf->SetFont('Times','',8);
 
 $i = 1;
-while ($row = $resultado->fetch_assoc()){
+while ($row = $datos->fetch_assoc()){
     $pdf->Cell(7,10, $i,1,0,'C',0);
     //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
     $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
