@@ -37,7 +37,7 @@ class modeloPrincipal{
 		}
         
         /*------Función para limpiar cadenas----*/
-        protected static function limpiar_cadena($cadena){
+        public static function limpiar_cadena($cadena){
             $cadena=trim($cadena);
             $cadena=stripslashes($cadena);
             $cadena=str_ireplace("<script>","",$cadena);
