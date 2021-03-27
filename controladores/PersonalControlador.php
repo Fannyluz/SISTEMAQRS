@@ -18,7 +18,7 @@
             $imagen=modeloPrincipal::limpiar_cadena('personal_foto_reg');
   $foto=$_FILES[$imagen]['name'];
   $ruta=trim ($_FILES[$imagen]['tmp_name']);
-  $destino="../imagenes/".$foto;
+  $destino="../imagenes/".$foto; 
   copy($ruta,$destino);
 
 

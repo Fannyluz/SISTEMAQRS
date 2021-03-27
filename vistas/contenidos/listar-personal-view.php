@@ -76,7 +76,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <td><?php echo $row['PEUnombres']?></td> 
                                 <td><?php echo $row['PEUapellidos']?></td>
                                 
-                                <td><?php echo $row['PEUfoto']?></td>
+                                <td><?php echo "<img src='".$row['PEUfoto']."' width='50'>";?></td>
                                 <td><?php echo $row['PEUcorreoElectronico']?></td>
                                 <td><?php echo $row['PEUcelular']?></td> 
                                 <td><?php echo $row['PEUdireccion']?></td>  
