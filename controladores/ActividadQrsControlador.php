@@ -6,6 +6,7 @@
         require_once "./modelos/ActividadQrsModelo.php";
      }
 
+     
 
      class ActividadQrsControlador extends ActividadQrsModelo{
       
@@ -561,52 +562,10 @@
               }
  public function generarpdfActividades_Controlador()
       {
-        $output = '';
-         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportar']);
-        $datos=ActividadQrsModelo::listar_ActividadQrsU_modelo($codigo);
-        $count=1;
-        $nuevoestado="Activo";
        
-          $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
-                                 <th>Item</th>
-                                <th>Tipo</th>
-                                <th>Caso</th>
-                                <th>Tipo Emisor</th>
-                                <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
-                                <th>Nombres y Apellidos</th>
-                                <th>Descripcion</th>
-                                <th>Celular</th>
-                                <th>CorreoElectronico</th>
-                                <th>Fecha</th>
-                            </tr>
-          ';
-          foreach($datos as $row){  
-           $output .= '
-            <tr>  
-                                 <td>'.$count++.'</td> 
-                                 <td>'.$row["TIPnombre"].'</td>
-                                 <td>'.$row["CASnombre"].'</td>
-                                 <td>'.$row["TIUnombre"].'</td>
-                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                 <td>'.$row["ACTcodigoUPT"].'</td>  
-                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
-                                 <td>'.$row["ACTDescripcion"].'</td>  
-                                 <td>'.$row["ACTcelular"].'</td> 
-                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
-           ';
-          }
-          $output .= '</table>';
-          header('Content-Type: application/pdf');
-          header('Content-Disposition: attachment; filename=ActividadesQRS.pdf');
-          echo $output;
          
               }
-    public function generarpdfActividadPendientesQRSALL_Controlador()
+    public function generarpdfActividadPendientesQRSALL_Controlador() 
       {
         $output = '';
        $datos=ActividadQrsModelo::listar_ActividadQrsPendientesAll_modelo();

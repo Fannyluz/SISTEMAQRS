@@ -6,13 +6,15 @@ $peticionAjax=true;
 if(isset($_POST["export"]) || isset($_POST["exportPendientesAll"]) || isset($_POST["exportAtendidasAll"]) || isset($_POST["exportarActividadesPendientes"]) || isset($_POST["exportarActividadesAtendidas"]) || isset($_POST["exportar"]))
 {
 	require_once "../controladores/ActividadQrsControlador.php";
+    require_once "../vistas/pdf/pdfActividadesU.php";
   $ins_pdf = new ActividadQrsControlador();
+  $pdf = new pdfActividadesU();
 	// Actividades Pendientes
      if(isset($_POST['export'])){
-    echo $ins_pdf->generarpdfActividadQRSALL_Controlador();
+    echo $ins_pdf->generarpdfActividadQRSALL_Controlador(); 
             }
 if(isset($_POST['exportar'])){
-    		echo $ins_pdf->generarpdfActividades_Controlador();
+    		echo $pdf->Agregarpdf();
             }
 
 			if(isset($_POST['exportPendientesAll'])){

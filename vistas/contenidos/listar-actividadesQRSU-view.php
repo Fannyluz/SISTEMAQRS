@@ -36,13 +36,22 @@ if($_SESSION['privilegio_spm']!=3){
         Exportar Excel
 
         </button>
-          <!--
+          
       </input>
-      <a href="../vistas/pdf/pdfActividadesU.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
-        Exportar PDF 
-
-        </a>-->
+      
     </form> 
+    <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
+     <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
+       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar PDF
+
+        </button>
+          
+      </input>
+      
+    </form> 
+   
+
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">

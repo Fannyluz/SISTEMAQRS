@@ -35,7 +35,7 @@ if($datos_caso->rowCount()==1){
 
                   <div class="col-md-5 col-sm-5">
                       <div class="product-image">
-                        <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" width="50" height="250">
+                        <img src="../../imagenes/"<?php $campos['PEUfoto'] ?> width="50" height="250">
                         
                       </div>
                      
