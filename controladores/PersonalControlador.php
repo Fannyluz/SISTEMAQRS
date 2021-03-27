@@ -14,6 +14,10 @@
             $dni=modeloPrincipal::limpiar_cadena($_POST['personal_dni_reg']);
             $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_reg']);
             $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_reg']);
+            $foto=modeloPrincipal::limpiar_cadena($_FILES['personal_foto_reg']['name']);
+            $ruta=modeloPrincipal::limpiar_cadena($_FILES['personal_foto_reg']['tmp_name']);
+            $destino="images/".$foto;
+            copy($ruta,$destino);
             $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_reg']);
             $celular=modeloPrincipal::limpiar_cadena($_POST['personal_celular_reg']);
             $direccion=modeloPrincipal::limpiar_cadena($_POST['personal_direccion_reg']);
@@ -39,6 +43,7 @@
                "PEUDNI"=>$dni,
                "PEUnombres"=>$nombre,
                "PEUapellidos"=>$apellido,
+               "PEUfoto"=>$destino,
                "PEUcorreoElectronico"=>$correo,
                "PEUcelular"=>$celular,
                "PEUdireccion"=>$direccion,

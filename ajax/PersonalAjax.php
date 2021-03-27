@@ -11,7 +11,7 @@
             // agregar un caso
             if(isset($_POST['rol_nombre_reg']) && isset($_POST['personal_dni_reg']) 
             && isset($_POST['personal_nombre_reg']) && isset($_POST['personal_apellido_reg']) 
-            
+            && isset($_FILES['personal_foto_reg'])
             && isset($_POST['personal_correo_reg']) 
             && isset($_POST['personal_celular_reg']) 
             && isset($_POST['personal_direccion_reg']) && isset($_POST['personal_fecha_reg']) 

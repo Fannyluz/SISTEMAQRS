@@ -25,7 +25,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="x_content">
-                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="save" novalidate>
+                                    <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="save" enctype="multipart/form-data" novalidate>
                                         
                                         </p>
                                         <span class="section">Agregar el Rol para el Personal de la Oficina de Educación Virtual</span>
@@ -80,7 +80,12 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                             </div>
                                         </div>
                                         
-                                        
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_reg" id="personal_foto" accept="image/*"/>
+                                            </div>
+                                        </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Correo Electronico<span class="required"></span></label>

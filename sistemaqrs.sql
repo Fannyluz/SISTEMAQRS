@@ -93,6 +93,7 @@ CREATE TABLE `oevpeutpersonaluptvirtual` (
   `PEUDNI` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUnombres` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUapellidos` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
+  `PEUfoto` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUcorreoElectronico` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUcelular` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUdireccion` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,

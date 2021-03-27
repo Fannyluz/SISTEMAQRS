@@ -108,9 +108,13 @@
                                         </p>
                                       </div>
                                       <div class=" col-sm-6 emphasis">
+                                      <?php
+                                    require_once "modelos/modeloPrincipal.php";
+                                    $principal= new modeloPrincipal();
+  
+                                      ?> 
                                         
-                                        
-                                        <a href="<?php echo SERVERURL?>ver-usuariopersonal-uptvirtual/<?php echo $row['PEUcodigo']; ?>" class="btn btn-round btn-outline btn-sm" style="background-color:#fdaf17;color:white;"><i class="fa fa-eye fa-sm"></i> Ver
+                                        <a href="<?php echo SERVERURL?>ver-usuariopersonal-uptvirtual/<?php echo $principal->encryption($row['PEUcodigo']) ?>" class="btn btn-round btn-outline btn-sm" style="background-color:#fdaf17;color:white;"><i class="fa fa-eye fa-sm"></i> Ver
                                         </a>
                                       </div>
                                     </div>

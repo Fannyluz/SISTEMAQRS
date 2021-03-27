@@ -15,13 +15,14 @@ public function get_rolpersonal($CodRolPersonal){
   /*----- Modelo agregar tipo personal -----*/ 
  protected static function agregar_personal_modelo($datos){
       $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevpeutpersonaluptvirtual(
-      ROPcodigo,PEUDNI,PEUnombres,PEUapellidos,PEUcorreoElectronico,PEUcelular,PEUdireccion,PEUfecha,PEUestado) 
-      VALUES(:ROPcodigo,:PEUDNI,:PEUnombres,:PEUapellidos,:PEUcorreoElectronico,:PEUcelular,:PEUdireccion,:PEUfecha,:PEUestado)");
+      ROPcodigo,PEUDNI,PEUnombres,PEUapellidos,PEUfoto,PEUcorreoElectronico,PEUcelular,PEUdireccion,PEUfecha,PEUestado) 
+      VALUES(:ROPcodigo,:PEUDNI,:PEUnombres,:PEUapellidos,:PEUfoto, :PEUcorreoElectronico,:PEUcelular,:PEUdireccion,:PEUfecha,:PEUestado)");
       
       $sql->bindParam(":ROPcodigo",$datos['ROPcodigo']);
       $sql->bindParam(":PEUDNI",$datos['PEUDNI']);
       $sql->bindParam(":PEUnombres",$datos['PEUnombres']);
       $sql->bindParam(":PEUapellidos",$datos['PEUapellidos']);
+      $sql->bindParam(":PEUfoto",$datos['PEUfoto']); 
       $sql->bindParam(":PEUcorreoElectronico",$datos['PEUcorreoElectronico']);
       $sql->bindParam(":PEUcelular",$datos['PEUcelular']);
       $sql->bindParam(":PEUdireccion",$datos['PEUdireccion']);
