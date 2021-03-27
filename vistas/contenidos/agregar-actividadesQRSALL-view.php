@@ -133,7 +133,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="ACTcelular_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="ACTcelular_reg" id="clave" placeholder="Ingrese la descripción" maxlength="9" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">

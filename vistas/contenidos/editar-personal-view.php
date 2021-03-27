@@ -74,6 +74,13 @@ if($datos_caso->rowCount()==1){
                                             </div>
                                         </div>
                                        
+                                       <div class="field item form-group">
+            <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
+            <div class="col-md-6 col-sm-6">
+            <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" accept="image/*"/>
+            </div>
+        </div>
+
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
