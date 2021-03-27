@@ -132,13 +132,25 @@
          return $datos;
       } // fin del controlador 
 
-      
+       
+      public function Listar_excel() 
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
+         return $datos;
+      } // fin del controlador 
+
+
+
       public function generarexcelActividadQRSALL_Controlador()
       {
         $output = '';
        $datos=ActividadQrsModelo::listar_ActividadQrsAll_modelo();
         $count=1;
         $nuevoestado="Activo";
+        if($nuevoestado==1)
+        {
+
+        }
        
           $output .= '
            <table class="table" bordered="1">  
@@ -170,9 +182,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                                 <td>'.$row["ACTestado"].'</td>
-                            </tr>
+                                <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '</tr>
            ';
           }
           $output .= '</table>';
@@ -203,6 +226,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -219,12 +243,25 @@
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
                                  <td>'.$row["ACTfecha"].'</td>
-                            </tr>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '</tr>
            ';
           }
           $output .= '</table>';
           header('Content-Type: application/xls');
-          header('Content-Disposition: attachment; filename=ActividadesQRS.xls');
+          header('Content-Disposition: attachment; filename=ActividadesQRS_U.xls');
           echo $output;
          
               }
@@ -249,6 +286,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -264,8 +302,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '</tr>
            ';
           }
           $output .= '</table>';
@@ -297,6 +347,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -312,8 +363,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '</tr>
            ';
           }
           $output .= '</table>';
@@ -344,6 +407,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -359,8 +423,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '</tr>
            ';
           }
           $output .= '</table>';
@@ -392,6 +468,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Edtado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -407,8 +484,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '</tr>
            ';
           }
           $output .= '</table>';

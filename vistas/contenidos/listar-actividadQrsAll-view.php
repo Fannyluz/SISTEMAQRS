@@ -41,6 +41,11 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         </a>
         <!-- para poder tapar-->
     </form> 
+
+        <a href="../vistas/excel/excel.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+            Generar XLS-fanny
+          </a>
+
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="export" value="export" />    
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">

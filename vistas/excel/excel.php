@@ -1,5 +1,6 @@
 <?php
 
+
         header('Content-Type: application/xls');
         header('Content-Disposition: attachment; filename=ActividadesQrsALL.xls');
 ?>
@@ -21,12 +22,11 @@
         <th>Acciones</th>
     </tr>
     <?php
-        require_once "././controladores/ActividadQrsControlador.php";
-        $casos=new ActividadQrsControlador();
-        $datos=$casos->listar_ActividadQrsAll_controlador();
-        $count=1;
-        $nuevoestado="Activo";
-
+         require_once "../../controladores/ActividadQrsControlador.php";
+                                $casos=new ActividadQrsControlador();
+                                $datos=$casos->listar_ActividadQrsAll_controlador();
+                                $count=1;
+                                $nuevoestado="Activo";
         foreach($datos as $row) {
             ?>
                 <tr>
