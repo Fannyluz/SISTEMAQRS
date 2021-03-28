@@ -37,6 +37,19 @@ if($_SESSION['privilegio_spm']!=3){
       </input>
 
     </form> 
+
+    <!-- Boton de pdf-->
+  <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
+     <input type="hidden" name="exportarPdfActividadesPendientes" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
+       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar PDF
+
+        </button>
+          
+      </input>
+      
+    </form> 
+
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportarActividadesPendientes" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">

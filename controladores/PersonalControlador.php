@@ -16,10 +16,10 @@
             $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_reg']);
 
             $imagen=modeloPrincipal::limpiar_cadena('personal_foto_reg');
-  $foto=$_FILES[$imagen]['name'];
-  $ruta=trim ($_FILES[$imagen]['tmp_name']);
-  $destino="../imagenes/".$foto; 
-  copy($ruta,$destino);
+            $foto=$_FILES[$imagen]['name'];
+            $ruta=trim ($_FILES[$imagen]['tmp_name']);
+            $destino="../imagenes/".$foto; 
+            copy($ruta,$destino);
 
 
             $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_reg']);
@@ -197,9 +197,9 @@
        //recuperar el codigo
      
         $codigo=modeloPrincipal::limpiar_cadena($_POST['personal_codigo_up']);
-
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
           //comprobar caso en la base de datos
-       $check_casos=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigo'");
+       $check_casos=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevpeutpersonaluptvirtual WHERE PEUcodigo='$codigodesencriptado'");
 
        if($check_casos->rowCount()<=0){
            $alerta=[
@@ -250,7 +250,7 @@
             "PEUdireccion"=>$direccion,
             "PEUfecha"=>$fecha,
             "PEUestado"=>$estado,
-            "CODIGO"=>$codigo
+            "CODIGO"=>$codigodesencriptado
            ];
 
         if(PersonalModelo::Editar_Personal_Modelo($datos_personal_update)){

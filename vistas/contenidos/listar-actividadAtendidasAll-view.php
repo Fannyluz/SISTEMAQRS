@@ -35,15 +35,23 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         </button>
       </input>
         
-      <a href="../vistas/pdf/reportesatendidas.php" type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
-        Exportar PDF 
-        </a>
+     
         <!-- para poder coemntar-->
     </form> 
 
-    <a href="<?php echo SERVERURL?>ver-actividadAtendidaAll/">
-            Generar XLS-fanny
-          </a>
+ <!-- Boton de pdf-->
+  <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
+     <input type="hidden" name="exportarPdfActividadesAtendidasAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
+       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+        Exportar PDF
+
+        </button>
+          
+      </input>
+      
+    </form> 
+   
+
 
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportAtendidasAll" value="exportAtendidasAll" />    

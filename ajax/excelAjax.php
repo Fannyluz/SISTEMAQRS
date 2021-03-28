@@ -8,10 +8,10 @@ if(isset($_POST["export"]) || isset($_POST["exportPendientesAll"]) || isset($_PO
 	require_once "../controladores/ActividadQrsControlador.php";
   $ins_excel = new ActividadQrsControlador();
 	// Actividades Pendientes
-     if(isset($_POST['export'])){
-    echo $ins_excel->generarexcelActividadQRSALL_Controlador();
+        if(isset($_POST['export'])){
+         echo $ins_excel->generarexcelActividadQRSALL_Controlador();
             }
-if(isset($_POST['exportar'])){
+        if(isset($_POST['exportar'])){
     		echo $ins_excel->generarexcelActividades_Controlador();
             }
 

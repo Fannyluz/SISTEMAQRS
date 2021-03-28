@@ -110,10 +110,11 @@ public function Editar_rol_controlador()
 {
   //recuperar el codigo
 
-$codigo=modeloPrincipal::limpiar_cadena($_POST['rol_codigo_up']);
+    $codigo=modeloPrincipal::limpiar_cadena($_POST['rol_codigo_up']);
+    $codigodesencriptado=modeloPrincipal::decryption($codigo);
 
      //comprobar caso en la base de datos
-  $check_rol=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevroptrolpersonal WHERE ROPcodigo='$codigo'");
+  $check_rol=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevroptrolpersonal WHERE ROPcodigo='$codigodesencriptado'");
 
   if($check_rol->rowCount()<=0){
       $alerta=[
@@ -154,7 +155,7 @@ $codigo=modeloPrincipal::limpiar_cadena($_POST['rol_codigo_up']);
          "ROPdescripcion"=>$descripcion,
          "ROPfecha"=>$fecha,
          "ROPestado"=>$estado,
-         "CODIGO"=>$codigo
+         "CODIGO"=>$codigodesencriptado
       ];
 
    if(RolModelo::Editar_Rol_Modelo($datos_rol_update)){

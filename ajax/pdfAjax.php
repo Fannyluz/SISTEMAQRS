@@ -3,34 +3,51 @@ $peticionAjax=true;
   require_once "../config/APP.php";
 
 
-if(isset($_POST["export"]) || isset($_POST["exportPendientesAll"]) || isset($_POST["exportAtendidasAll"]) || isset($_POST["exportarActividadesPendientes"]) || isset($_POST["exportarActividadesAtendidas"]) || isset($_POST["exportar"]))
+if(isset($_POST["exportar"]) || isset($_POST["exportarPdfActividadesAtendidasAll"]) || isset($_POST["exportarPdfActividadesPendientesAll"]) || isset($_POST["exportarPdfActividadesAll"]) || isset($_POST["exportarPdfActividadesPendientes"]) || isset($_POST["exportarPdfActividadesAtendidas"]) )
 {
-	require_once "../controladores/ActividadQrsControlador.php";
-    require_once "../vistas/pdf/pdfActividadesU.php";
-  $ins_pdf = new ActividadQrsControlador();
-  $pdf = new pdfActividadesU();
+	
+    require_once "../vistas/pdf/pdfActividades.php";
+    
+    $pdf = new pdfActividades();
 	// Actividades Pendientes
      if(isset($_POST['export'])){
     echo $ins_pdf->generarpdfActividadQRSALL_Controlador(); 
             }
-if(isset($_POST['exportar'])){
+
+
+            // expotar pdf actividades del un personal 
+            if(isset($_POST['exportar'])){
     		echo $pdf->Agregarpdf();
             }
 
-			if(isset($_POST['exportPendientesAll'])){
-    		echo $ins_pdf->generarpdfActividadPendientesQRSALL_Controlador();
+            // expotar pdf actividades Atendidas All 
+            if(isset($_POST['exportarPdfActividadesAtendidasAll'])){
+            echo $pdf->AgregarPdfActividesAtendidasAll();
             }
 
-            if(isset($_POST['exportAtendidasAll'])){
-    		echo $ins_pdf->generarpdfActividadAtendidasQRSALL_Controlador();
-            }
-            if(isset($_POST['exportarActividadesPendientes'])){
-    		echo $ins_pdf->generarpdfActividadPendientesQRS_Controlador();
+// expotar pdf actividades Pendientes All 
+            if(isset($_POST['exportarPdfActividadesPendientesAll'])){
+            echo $pdf->AgregarPdfActividesPendientesAll();
             }
 
-            if(isset($_POST['exportarActividadesAtendidas'])){
-    		echo $ins_pdf->generarpdfActividadAtendidasQRS_Controlador();
+// expotar pdf actividades All 
+            if(isset($_POST['exportarPdfActividadesAll'])){
+            echo $pdf->AgregarPdfActividesAll();
             }
+
+
+
+
+// expotar pdf actividades Pendientes de cada personal 
+            if(isset($_POST['exportarPdfActividadesPendientes'])){
+            echo $pdf->AgregarPdfActividadPendiente();
+            }
+
+// expotar pdf actividades Atendidos  de cada personal 
+            if(isset($_POST['exportarPdfActividadesAtendidas'])){
+            echo $pdf->ExportarPdfActividadAtendido();
+            }
+
             
 
 

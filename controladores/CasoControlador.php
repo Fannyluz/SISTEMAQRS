@@ -10,7 +10,7 @@
      class CasoControlador extends CasoModelo{
       
             /*--- controlador agregar usuario--*/
-           public function agregar_caso_controlador(){
+        public function agregar_caso_controlador(){
 
             $nombre=modeloPrincipal::limpiar_cadena($_POST['caso_nombre_reg']);
             $descripcion=modeloPrincipal::limpiar_cadena($_POST['caso_descripcion_reg']);
@@ -175,14 +175,14 @@
 
 
 /*controlador editar caso*/
-      public function Editar_caso_controlador()
-      {
+    public function Editar_caso_controlador()
+    {
         //recuperar el codigo
       
-    $codigo=modeloPrincipal::limpiar_cadena($_POST['caso_codigo_up']);
-
+      $codigo=modeloPrincipal::limpiar_cadena($_POST['caso_codigo_up']);
+      $codigodesencriptado=modeloPrincipal::decryption($codigo);
            //comprobar caso en la base de datos
-        $check_casos=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevcastcaso WHERE CAScodigo='$codigo'");
+        $check_casos=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevcastcaso WHERE CAScodigo='$codigodesencriptado'");
 
         if($check_casos->rowCount()<=0){
             $alerta=[
@@ -223,7 +223,7 @@
                "CASdescripcion"=>$descripcion,
                "CASfecha"=>$fecha,
                "CASestado"=>$estado,
-               "CODIGO"=>$codigo
+               "CODIGO"=>$codigodesencriptado
             ];
 
          if(CasoModelo::Editar_Caso_Modelo($datos_caso_update)){

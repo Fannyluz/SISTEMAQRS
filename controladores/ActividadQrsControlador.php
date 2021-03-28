@@ -205,7 +205,8 @@
           echo $output;
          
               }
- public function generarexcelActividades_Controlador()
+
+   public function generarexcelActividades_Controlador()
       {
         $output = '';
          $codigo=modeloPrincipal::limpiar_cadena($_POST['exportar']);
@@ -266,6 +267,8 @@
           echo $output;
          
               }
+  
+
     public function generarexcelActividadPendientesQRSALL_Controlador()
       {
         $output = '';
@@ -386,6 +389,7 @@
           echo $output;
          
               }
+  
   public function generarexcelActividadPendientesQRS_Controlador()
       {
         $output = '';
@@ -447,7 +451,7 @@
          
               }
 
-              public function generarexcelActividadAtendidasQRS_Controlador()
+  public function generarexcelActividadAtendidasQRS_Controlador()
       {
         $output = '';
          $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarActividadesAtendidas']);
@@ -511,256 +515,7 @@
 
               //probar pdf
 
-              
-      public function generarpdfActividadQRSALL_Controlador()
-      {
-        $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsAll_modelo();
-        $count=1;
-        $nuevoestado="Activo";
-       
-          $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
-                                 <th>Item</th>
-                                <th>Tipo</th>
-                                <th>Caso</th>
-                                <th>Tipo Emisor</th>
-                                <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
-                                <th>Nombres y Apellidos</th>
-                                <th>Descripcion</th>
-                                <th>Celular</th>
-                                <th>CorreoElectronico</th>
-                                <th>Fecha</th>
-                                <th>Estado</th> 
-                            </tr>
-          ';
-          foreach($datos as $row){  
-           $output .= '
-            <tr>  
-                                 <td>'.$count++.'</td> 
-                                 <td>'.$row["TIPnombre"].'</td>
-                                 <td>'.$row["CASnombre"].'</td>
-                                 <td>'.$row["TIUnombre"].'</td>
-                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                 <td>'.$row["ACTcodigoUPT"].'</td>  
-                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
-                                 <td>'.$row["ACTDescripcion"].'</td>  
-                                 <td>'.$row["ACTcelular"].'</td> 
-                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                                 <td>'.$row["ACTestado"].'</td>
-                            </tr>
-           ';
-          }
-          $output .= '</table>';
-          header('Content-Type: application/pdf');
-          header('Content-Disposition: attachment; filename=ActividadesQrsALL.pdf');
-          echo $output;
-         
-              }
- public function generarpdfActividades_Controlador()
-      {
-       
-         
-              }
-    public function generarpdfActividadPendientesQRSALL_Controlador() 
-      {
-        $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsPendientesAll_modelo();
-        $count=1;
-        $nuevoestado="Activo";
-       
-          $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
-                                 <th>Item</th>
-                                <th>Tipo</th>
-                                <th>Caso</th>
-                                <th>Tipo Emisor</th>
-                                <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
-                                <th>Nombres y Apellidos</th>
-                                <th>Descripcion</th>
-                                <th>Celular</th>
-                                <th>CorreoElectronico</th>
-                                <th>Fecha</th>
-                            </tr>
-          ';
-          foreach($datos as $row){  
-           $output .= '
-            <tr>  
-                                 <td>'.$count++.'</td> 
-                                 <td>'.$row["TIPnombre"].'</td>
-                                 <td>'.$row["CASnombre"].'</td>
-                                 <td>'.$row["TIUnombre"].'</td>
-                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                 <td>'.$row["ACTcodigoUPT"].'</td>  
-                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
-                                 <td>'.$row["ACTDescripcion"].'</td>  
-                                 <td>'.$row["ACTcelular"].'</td> 
-                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
-           ';
-          }
-          $output .= '</table>';
-          //header('Content-Type: application/pdf');
-          header('Content-Type: application/pdf; charset=utf-8');
-          header('Content-Disposition: attachment; filename=ActividadesPendientesGeneral.pdf');
-          header('Content-Transfer-Encoding:binary');
-         
-          echo $output;
-         
-              }
-
-
-    public function generarpdfActividadAtendidasQRSALL_Controlador()
-      {
-        $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
-        $count=1;
-        $nuevoestado="Activo";
-       
-          $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
-                                 <th>Item</th>
-                                <th>Tipo</th>
-                                <th>Caso</th>
-                                <th>Tipo Emisor</th>
-                                <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
-                                <th>Nombres y Apellidos</th>
-                                <th>Descripcion</th>
-                                <th>Celular</th>
-                                <th>CorreoElectronico</th>
-                                <th>Fecha</th>
-                            </tr>
-          ';
-          foreach($datos as $row){  
-           $output .= '
-            <tr>  
-                                 <td>'.$count++.'</td> 
-                                 <td>'.$row["TIPnombre"].'</td>
-                                 <td>'.$row["CASnombre"].'</td>
-                                 <td>'.$row["TIUnombre"].'</td>
-                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                 <td>'.$row["ACTcodigoUPT"].'</td>  
-                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
-                                 <td>'.$row["ACTDescripcion"].'</td>  
-                                 <td>'.$row["ACTcelular"].'</td> 
-                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
-           ';
-          } 
-          $output .= '</table>';
-          header('Content-Type: application/pdf');
-          header('Content-Disposition: attachment; filename=ActividadesAtentidasAGeneral.pdf');
-          
-          echo $output;
-         
-              }
-  public function generarpdfActividadPendientesQRS_Controlador()
-      {
-        $output = '';
-         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarActividadesPendientes']);
-        $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($codigo);
-        $count=1;
-        $nuevoestado="Activo";
-       
-          $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
-                                 <th>Item</th>
-                                <th>Tipo</th>
-                                <th>Caso</th>
-                                <th>Tipo Emisor</th>
-                                <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
-                                <th>Nombres y Apellidos</th>
-                                <th>Descripcion</th>
-                                <th>Celular</th>
-                                <th>CorreoElectronico</th>
-                                <th>Fecha</th>
-                            </tr>
-          ';
-          foreach($datos as $row){  
-           $output .= '
-            <tr>  
-                                 <td>'.$count++.'</td> 
-                                 <td>'.$row["TIPnombre"].'</td>
-                                 <td>'.$row["CASnombre"].'</td>
-                                 <td>'.$row["TIUnombre"].'</td>
-                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                 <td>'.$row["ACTcodigoUPT"].'</td>  
-                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
-                                 <td>'.$row["ACTDescripcion"].'</td>  
-                                 <td>'.$row["ACTcelular"].'</td> 
-                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
-           ';
-          }
-          $output .= '</table>';
-          header('Content-Type: application/pdf');
-          header('Content-Disposition: attachment; filename=ActividadesPendientes.pdf');
-          echo $output;
-         
-              }
-
-              public function generarpdfActividadAtendidasQRS_Controlador()
-      {
-        $output = '';
-         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarActividadesAtendidas']);
-        $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasU_modelo($codigo);
-        $count=1;
-        $nuevoestado="Activo";
-       
-          $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
-                                 <th>Item</th>
-                                <th>Tipo</th>
-                                <th>Caso</th>
-                                <th>Tipo Emisor</th>
-                                <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
-                                <th>Nombres y Apellidos</th>
-                                <th>Descripcion</th>
-                                <th>Celular</th>
-                                <th>CorreoElectronico</th>
-                                <th>Fecha</th>
-                            </tr>
-          ';
-          foreach($datos as $row){  
-           $output .= '
-            <tr>  
-                                 <td>'.$count++.'</td> 
-                                 <td>'.$row["TIPnombre"].'</td>
-                                 <td>'.$row["CASnombre"].'</td>
-                                 <td>'.$row["TIUnombre"].'</td>
-                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                 <td>'.$row["ACTcodigoUPT"].'</td>  
-                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
-                                 <td>'.$row["ACTDescripcion"].'</td>  
-                                 <td>'.$row["ACTcelular"].'</td> 
-                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                            </tr>
-           ';
-          }
-          $output .= '</table>';
-          header('Content-Type: application/pdf');
-          header('Content-Disposition: attachment; filename=ActividadesAtendidas.pdf');
-          echo $output;
-         
-              }
-
-              //fin del probar pdf
-
+  
 /*mostrar datos detallados de actividades QRS pendientes ALL */
       public function Ver_ActividadesQrs_controlador($codigo)
       {
@@ -853,7 +608,20 @@
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
                                  <td>'.$row["ACTfecha"].'</td>
-                                 <td>'.$row["ACTestado"].'</td>
+                                 <td>'.$row["ACTestado"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '
                             </tr>
            ';
           }
@@ -900,7 +668,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '
                             </tr>
            ';
           }
@@ -946,7 +727,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '
                             </tr>
            ';
           }
@@ -997,7 +791,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '
                             </tr>
            ';
           } 
@@ -1045,7 +852,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '
                             </tr>
            ';
           }
@@ -1093,7 +913,20 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
+                                 <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '
                             </tr>
            ';
           }

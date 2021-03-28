@@ -207,9 +207,9 @@
         //recuperar el codigo
       
     $codigo=modeloPrincipal::limpiar_cadena($_POST['UsuarioPersonalUPTvirtual_codigo_up']);
-
+    $codigodesencriptado=modeloPrincipal::decryption($codigo);
            //comprobar caso en la base de datos
-        $check_UsuarioPersonalUPTvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo='$codigo'");
+        $check_UsuarioPersonalUPTvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo='$codigodesencriptado'");
 
         if($check_UsuarioPersonalUPTvirtual->rowCount()<=0){
             $alerta=[
@@ -269,7 +269,7 @@
                "UPUprivilegio"=>$privilegio,
                "UPUfecha"=>$fecha,
                "UPUestado"=>$estado,
-               "CODIGO"=>$codigo
+               "CODIGO"=>$codigodesencriptado
             ];
 
          if(UsuarioPersonalUptVirtualModelo::Editar_usuariopersonaluptvirtual_Modelo($datos_UsuarioPersonalUPTvirtual_update)){

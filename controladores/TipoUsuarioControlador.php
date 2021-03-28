@@ -180,9 +180,9 @@
         //recuperar el codigo
       
     $codigo=modeloPrincipal::limpiar_cadena($_POST['tipoUsuario_codigo_up']);
-
+    $codigodesencriptado=modeloPrincipal::decryption($codigo);
            //comprobar caso en la base de datos
-        $check_tipoUsuario=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevtiuttipousuario WHERE TIUcodigo='$codigo'");
+        $check_tipoUsuario=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevtiuttipousuario WHERE TIUcodigo='$codigodesencriptado'");
 
         if($check_tipoUsuario->rowCount()<=0){
             $alerta=[
@@ -224,7 +224,7 @@
                "TIUdescripcion"=>$descripcion,
                "TIUfecha"=>$fecha,
                "TIUestado"=>$estado,
-               "CODIGO"=>$codigo
+               "CODIGO"=>$codigodesencriptado
             ];
 
          if(TipoUsuarioModelo::Editar_tipousuario_Modelo($datos_tipoUsuario_update)){

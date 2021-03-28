@@ -71,7 +71,7 @@ class ActividadQrsModelo extends modeloPrincipal{
     INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
     INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
     INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
-    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.UPUcodigo=$codigo ORDER BY ACTfecha DESC";
+    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.UPUcodigo=$codigo ORDER BY act.ACTfecha DESC";
     $conexion=modeloPrincipal::conectar();
     $datos=$conexion->query($consulta);
     $datos=$datos->fetchAll();
