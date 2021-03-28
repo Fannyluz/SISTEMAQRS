@@ -1,5 +1,5 @@
 <?php
-    const SERVERURL="http://localhost:8080/SISTEMAQRS/";
+    const SERVERURL="http://localhost/SISTEMAQRS/";
     
     const COMPANY="SISTEMAQRS";
     const MONEDA ="$";
