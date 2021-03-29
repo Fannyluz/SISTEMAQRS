@@ -29,33 +29,27 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         
  
     <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
-     <input type="hidden" name="exportAtendidasAll" value="exportAtendidasAll" />    
-       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+     <input type="hidden" name="exportarExcelAtendidasAll" value="exportAtendidasAll" />    
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Exportar Excel
         </button>
       </input>
-        
-     
-        <!-- para poder coemntar-->
     </form> 
 
  <!-- Boton de pdf-->
-  <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
+    <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesAtendidasAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Exportar PDF
-
         </button>
-          
       </input>
-      
     </form> 
    
 
 
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportAtendidasAll" value="exportAtendidasAll" />    
-       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Exportar Word
         </button>
       </input>
