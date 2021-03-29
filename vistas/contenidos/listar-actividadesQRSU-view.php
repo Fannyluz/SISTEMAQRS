@@ -41,7 +41,7 @@ if($_SESSION['privilegio_spm']!=3){
       
     </form> 
     <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
-     <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
+     <input type="hidden" name="exportarPdfActividades" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Exportar PDF
 

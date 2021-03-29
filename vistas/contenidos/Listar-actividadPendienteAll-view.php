@@ -41,6 +41,15 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         </button>
           
       </input>
+
+      <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
+     
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;" >
+        Exportar Word
+
+        </button> 
+      </input>
+      
       
     </form>
    
@@ -54,6 +63,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         </button>
           
       </input>
+
+
       
     </form> 
 
