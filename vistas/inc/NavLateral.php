@@ -7,7 +7,7 @@
           
           
               <a class=" site_title left" align="center"> 
-             <!--<img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="50" height="50" class="img-circle">-->
+             <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="50" height="50" class="img-circle">
                   UPT VIRTUAL
                   </a>
 

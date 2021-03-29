@@ -609,8 +609,7 @@
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
                                  <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                 <td>'.$row["ACTfecha"].'</td>
-                                 <td>'.$row["ACTestado"].'</td>';
+                                 <td>'.$row["ACTfecha"].'</td>';
                           
                           if($row["ACTestado"]==1)
                           {
@@ -655,6 +654,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -714,6 +714,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -778,6 +779,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -839,6 +841,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
@@ -900,6 +903,7 @@
                                 <th>Celular</th>
                                 <th>CorreoElectronico</th>
                                 <th>Fecha</th>
+                                <th>Estado</th>
                             </tr>
           ';
           foreach($datos as $row){  
