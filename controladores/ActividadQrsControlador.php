@@ -209,7 +209,7 @@
    public function generarexcelActividades_Controlador()
       {
         $output = '';
-         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportar']);
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarExcelActividades']);
         $datos=ActividadQrsModelo::listar_ActividadQrsU_modelo($codigo);
         $count=1;
         $nuevoestado="Activo";
@@ -393,7 +393,7 @@
   public function generarexcelActividadPendientesQRS_Controlador()
       {
         $output = '';
-         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarActividadesPendientes']);
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarExcelActividadesPendientes']);
         $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($codigo);
         $count=1;
         $nuevoestado="Activo";
@@ -454,7 +454,7 @@
   public function generarexcelActividadAtendidasQRS_Controlador()
       {
         $output = '';
-         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarActividadesAtendidas']);
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['exportarExcelActividadesAtendidas']);
         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasU_modelo($codigo);
         $count=1;
         $nuevoestado="Activo";

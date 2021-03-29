@@ -27,30 +27,12 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     <div class="row">
                                         <div class="col-sm-12">
 
-<form method="post" action="<?php echo SERVERURL; ?>ajax/ExportarAjax.php">
+<form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
      <input type="hidden" name="exportExcelPendientesAll" value="exportPendientesAll" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Exportar Excel </button>
 
-      </input> 
-
-      <input type="hidden" name="exportarPdfActividadesPendientesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        Exportar PDF
-
-        </button>
-          
-      </input>
-
-      <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
-     
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;" >
-        Exportar Word
-
-        </button> 
-      </input>
-      
-      
+      </input>    
     </form>
    
     
