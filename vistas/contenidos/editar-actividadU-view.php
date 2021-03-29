@@ -34,7 +34,7 @@ if($datos_caso->rowCount()==1){
                                 <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
                                 $tipoqrs=new UsuarioPersonalUptVirtualControlador();
-                                $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_controlador();
+                                $datosTipoQRS=$tipoqrs->Obtener_usuariopersonaluptvirtual_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
