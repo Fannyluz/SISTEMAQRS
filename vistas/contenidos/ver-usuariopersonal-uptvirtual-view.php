@@ -60,7 +60,7 @@ if($datos_caso->rowCount()==1){
                                           <br>
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['PEUcelular']?></li>
                                         </ul>
-<br>
+                                        <br>
 
                           <?php if($campos['PEUestado']=="1")
                           {
