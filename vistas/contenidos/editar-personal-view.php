@@ -8,7 +8,7 @@ if($_SESSION['privilegio_spm']!=1 ){
 <?php 
 require_once "./controladores/PersonalControlador.php"; 
 $nuevoestado="";
-$ins_caso = new PersonalControlador();
+$ins_caso = new PersonalControlador(); 
 $datos_caso= $ins_caso->Ver_Personal_controlador($pagina[1]);
 if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch(); 
@@ -28,7 +28,7 @@ if($datos_caso->rowCount()==1){
 
                                 <div class="x_content">
 
-                <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="update" novalidate>             
+                <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="update" enctype="multipart/form-data" novalidate>             
                 
                 <input type="hidden" name="personal_codigo_up" value="<?php echo $pagina[1]?>">
                 </p>
@@ -39,6 +39,7 @@ if($datos_caso->rowCount()==1){
                                 $datosTipoQRS=$tipoqrs->Listar_rol_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
+                                
                                 ?>
 
                                 <div class="field item form-group">
@@ -77,7 +78,7 @@ if($datos_caso->rowCount()==1){
                                        <div class="field item form-group">
             <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
             <div class="col-md-6 col-sm-6">
-            <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" accept="image/*"/>
+            <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" value="<?php echo $campos['PEUfoto']?>" accept="image/*"/>
             </div>
         </div>
 

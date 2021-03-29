@@ -4,6 +4,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2 && $_SESSION
     exit();
 }
 ?>
+
 <div class="right_col" role="main">
 <?php 
 require_once "./controladores/PersonalControlador.php"; 
@@ -12,6 +13,7 @@ $ins_caso = new PersonalControlador();
 $datos_caso= $ins_caso->Ver_personal_controlador($pagina[1]);
 if($datos_caso->rowCount()==1){
   $campos=$datos_caso->fetch();
+
 ?>
           <div class="">
    
@@ -31,7 +33,7 @@ if($datos_caso->rowCount()==1){
                     </ul>
                     <div class="clearfix"></div>
                   </div>
-                  <div class="x_content">
+                  <div class="x_content"> 
 
                   <div class="col-md-5 col-sm-5">
                       <div class="product-image">

@@ -9,10 +9,20 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2 && $_SESSION
 require_once "./controladores/PersonalControlador.php"; 
 $nuevoestado="";
 $ins_caso = new PersonalControlador(); 
+
+
 $datos_caso= $ins_caso->Ver_perfil_controlador($pagina[1]);
+
 if($datos_caso->rowCount()==1){
+  
   $campos=$datos_caso->fetch();
+
+  
+    
 ?>
+
+
+
           <div class="">
    
             
@@ -32,10 +42,13 @@ if($datos_caso->rowCount()==1){
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-
-                  <div class="col-md-5 col-sm-5">
+                  <br>
+                  <br>
+                  <br>
+                  <div class="col-md-5 col-sm-5" enctype="multipart/form-data">
                       <div class="product-image">
-                        <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" alt="...">
+                        <img src="<?php echo $campos['PEUfoto'] ; ?>" height="300" width="100" /> 
+                        <img src="imagenes/<?php echo $row['PEUfoto']; ?>" class="img-rounded" width="250px" height="250px" />
                       </div>
                      
                     </div>
@@ -56,9 +69,10 @@ if($datos_caso->rowCount()==1){
                                           <li><i class="fa fa-envelope"></i> <?php echo $campos['PEUcorreoElectronico']?></li>
                                           <br>
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['PEUcelular']?></li>
+                                        
                                         </ul>
 <br>
-
+                          
                           <?php if($campos['PEUestado']=="1")
                           {
 
@@ -66,7 +80,7 @@ if($datos_caso->rowCount()==1){
                                               <h5><?php echo $nuevoestado = "Activo"?></h5>
                                               <h5>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
-                                              <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;" </span></a>
+                                              <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"> </span></a>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
                                               </h5>
                                               <?php

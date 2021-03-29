@@ -175,7 +175,7 @@
       {
          $codigo=modeloPrincipal::limpiar_cadena($codigo);
          $codigodesencriptado=modeloPrincipal::decryption($codigo);
-         $datos=PersonalModelo::Veer_personal_Modelo($codigodesencriptado);
+         $datos=PersonalModelo::Veer_personal_Modelo($codigodesencriptado); 
          return $datos;
 
       } // fin del controlador
@@ -219,6 +219,11 @@
        $dni=modeloPrincipal::limpiar_cadena($_POST['personal_dni_up']);
        $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_up']);
        $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_up']);
+       $imagen=modeloPrincipal::limpiar_cadena($_POST['personal_foto_up']);
+       $foto=$_FILES[$imagen]['name'];
+      $ruta=trim ($_FILES[$imagen]['tmp_name']);
+         $destino="../imagenes/".$foto; 
+         copy($ruta,$destino);
        $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_up']);
        $celular=modeloPrincipal::limpiar_cadena($_POST['personal_celular_up']);
        $direccion=modeloPrincipal::limpiar_cadena($_POST['personal_direccion_up']);
@@ -245,6 +250,7 @@
             "PEUDNI"=>$dni,
             "PEUnombres"=>$nombre,
             "PEUapellidos"=>$apellido,
+            "PEUfoto"=>$ruta,
             "PEUcorreoElectronico"=>$correo,
             "PEUcelular"=>$celular,
             "PEUdireccion"=>$direccion,
@@ -273,5 +279,8 @@
          echo json_encode($alerta);
 
      } // fin del controlador 
+
+
+
  
 }
