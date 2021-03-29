@@ -15,10 +15,7 @@ $datos_caso= $ins_caso->Ver_perfil_controlador($pagina[1]);
 
 if($datos_caso->rowCount()==1){
   
-  $campos=$datos_caso->fetch();
-
-  
-    
+  $campos=$datos_caso->fetch();  
 ?>
 
 
@@ -45,19 +42,19 @@ if($datos_caso->rowCount()==1){
                   <br>
                   <br>
                   <br>
+
                   <div class="col-md-5 col-sm-5" enctype="multipart/form-data">
                       <div class="product-image">
-                        <img src="<?php echo $campos['PEUfoto'] ; ?>" height="300" width="100" /> 
-                        <img src="imagenes/<?php echo $row['PEUfoto']; ?>" class="img-rounded" width="250px" height="250px" />
+                        <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="50%" height="50%">
+
                       </div>
-                     
+                         
                     </div>
 
 
                     <div class="col-md-7 col-sm-7" style="border:0px solid #e5e5e5;">
 
                       <h3 class="prod_title"><b><?php echo $campos['PEUnombres']?>  <?php echo $campos['PEUapellidos']?></b></h3>
-
                       <div class="">
                         <div class="product_price">
                           <h6>

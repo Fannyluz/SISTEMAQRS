@@ -15,9 +15,9 @@
             $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_reg']);
             $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_reg']);
 
-            $imagen=modeloPrincipal::limpiar_cadena('personal_foto_reg');
+           $imagen=modeloPrincipal::limpiar_cadena('personal_foto_reg');
             $foto=$_FILES[$imagen]['name'];
-            $ruta=trim ($_FILES[$imagen]['tmp_name']);
+            $ruta=($_FILES[$imagen]['tmp_name']);
             $destino="../imagenes/".$foto; 
             copy($ruta,$destino);
 
@@ -47,7 +47,7 @@
                "PEUDNI"=>$dni,
                "PEUnombres"=>$nombre,
                "PEUapellidos"=>$apellido,
-               "PEUfoto"=>$ruta,
+               "PEUfoto"=>$foto,
                "PEUcorreoElectronico"=>$correo,
                "PEUcelular"=>$celular,
                "PEUdireccion"=>$direccion,
@@ -219,11 +219,13 @@
        $dni=modeloPrincipal::limpiar_cadena($_POST['personal_dni_up']);
        $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_up']);
        $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_up']);
-       $imagen=modeloPrincipal::limpiar_cadena($_POST['personal_foto_up']);
-       $foto=$_FILES[$imagen]['name'];
-      $ruta=trim ($_FILES[$imagen]['tmp_name']);
-         $destino="../imagenes/".$foto; 
-         copy($ruta,$destino);
+
+           $imagen=modeloPrincipal::limpiar_cadena('personal_foto_reg');
+            $foto=$_FILES[$imagen]['name'];
+            $ruta=trim ($_FILES[$imagen]['tmp_name']);
+            $destino="../imagenes/".$foto; 
+            copy($ruta,$destino);
+
        $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_up']);
        $celular=modeloPrincipal::limpiar_cadena($_POST['personal_celular_up']);
        $direccion=modeloPrincipal::limpiar_cadena($_POST['personal_direccion_up']);

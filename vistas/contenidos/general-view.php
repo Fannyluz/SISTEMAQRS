@@ -20,6 +20,7 @@
                                     <div class="clearfix"></div>
                                       <div style="text-align: center;">
                                     <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" alt="" width="20%" height="20%">
+
                                         </div>
 
                                           <p style="text-align: justify;">
@@ -80,7 +81,7 @@
                                         </ul>
                                       </div> 
                                       <div class="right col-md-5 col-sm-5 text-center">
-                                        <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" alt="" class="img-circle img-fluid">
+                                        <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $row['PEUfoto'] ; ?>" alt="" width="50%" height="40%" class="img-circle img-fluid">
                                       </div>
                                     </div>
                                     <div class=" profile-bottom text-center">

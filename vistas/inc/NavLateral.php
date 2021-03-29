@@ -6,8 +6,8 @@
             <div class="navbar nav_title" style="border: 0;">
           
           
-              <a class=" site_title left"> 
-              <img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="50" height="50" class="img-circle">
+              <a class=" site_title left" align="center"> 
+             <!--<img src="<?php echo SERVERURL; ?>vistas/images/upt.jpg" width="50" height="50" class="img-circle">-->
                   UPT VIRTUAL
                   </a>
 
@@ -48,9 +48,10 @@
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" alt="..." class="img-circle profile_img">
+                <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $_SESSION['imagen_spm']?>" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
+
                 <span>BIENVENIDO</span>
                  <!--
                 <h2><?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?> </h2>

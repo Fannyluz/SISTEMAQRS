@@ -42,6 +42,7 @@
             $_SESSION['personal_spm']=$row['PEUcodigo'];
             $_SESSION['nombres_spm']=$row['PEUnombres'];
             $_SESSION['apellidos_spm']=$row['PEUapellidos'];
+            $_SESSION['imagen_spm']=$row['PEUfoto'];
             $_SESSION['rolpersonal_spm']=$row['ROPnombre'];
             $_SESSION['usuario_spm']=$row['UPUusuario'];
             $_SESSION['clave_spm']=md5(uniqid(mt_rand(),true));
