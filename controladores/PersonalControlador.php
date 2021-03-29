@@ -220,12 +220,14 @@
        $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_up']);
        $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_up']);
 
-           $imagen=modeloPrincipal::limpiar_cadena('personal_foto_up');
+             $imagen=modeloPrincipal::limpiar_cadena('personal_foto_up');
             $foto=$_FILES[$imagen]['name'];
             $ruta=trim ($_FILES[$imagen]['tmp_name']);
             $destino="../imagenes/".$foto; 
             copy($ruta,$destino);
 
+
+       $fotoantes=modeloPrincipal::limpiar_cadena($_POST['fotoantes']);
        $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_up']);
        $celular=modeloPrincipal::limpiar_cadena($_POST['personal_celular_up']);
        $direccion=modeloPrincipal::limpiar_cadena($_POST['personal_direccion_up']);
@@ -245,9 +247,7 @@
               exit();
            } 
 
-
-
-           $datos_personal_update=[
+              $datos_personal_update=[
             "ROPcodigo"=>$rolpersonal,
             "PEUDNI"=>$dni,
             "PEUnombres"=>$nombre,
@@ -279,6 +279,9 @@
            }
      
          echo json_encode($alerta);
+            
+
+           
 
      } // fin del controlador 
 

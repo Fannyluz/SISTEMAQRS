@@ -39,10 +39,12 @@ if($datos_caso->rowCount()==1){
                            <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="25%" height="25%">
                           </div>
                         <label><b>Foto</b><span class="required">*</span></label>
-                        
+
                     <div class="field item form-group">
                         <div>
-                        <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" value="<?php echo $campos['PEUfoto']?>" accept="image/*"/>
+                         <input  name="fotoantes" value="<?php echo $campos['PEUfoto']?>">
+
+                        <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" accept="image/*"/>
                         </div>
                     </div>
                 </div>
