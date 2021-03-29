@@ -26,39 +26,29 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <div class="x_content">
                                     <div class="row">
                                         <div class="col-sm-12">
-  <!-- Esto es un comentario 
-   <div class="field item form-group">
-        <div>
-              <label><b>...Desde...</b> <span class="required"></span></label>
-             <input class="form-control" class='date' type="date" name="desde" id="desde"required='required'>
-         </div><b> ...</b>
-         <div>
-              <label><b>Hasta...</b><span class="required"></span></label>
-             <input class="form-control" class='date' type="date" name="hasta"id="hasta" required='required'>
-         </div>
-    </div>
--->
 
-<form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
-
-  
-    
-
-     <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
-       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+<form method="post" action="<?php echo SERVERURL; ?>ajax/ExportarAjax.php">
+     <input type="hidden" name="exportExcelPendientesAll" value="exportPendientesAll" />    
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Exportar Excel </button>
 
+      </input> 
+
+      <input type="hidden" name="exportarPdfActividadesPendientesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+        Exportar PDF
+
+        </button>
+          
       </input>
-        
       
-        <!-- para comentar-->
     </form>
    
     
  <!-- Boton de pdf-->
   <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesPendientesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Exportar PDF
 
         </button>
@@ -70,7 +60,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportPendientesAll" value="exportPendientesAll" />    
      
-       <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;" >
+       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;" >
         Exportar Word
 
         </button> 
