@@ -8,7 +8,8 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false" style="color:#10226a;">
-                    <img src="<?php echo SERVERURL; ?>vistas/images/nuevo.png" alt=""> <?php echo $_SESSION['nombres_spm']?> <?php echo $_SESSION['apellidos_spm'] ?>
+                    <i class="fa fa-user"></i> <?php echo $_SESSION['nombres_spm']?> <?php echo $_SESSION['apellidos_spm'] ?>
+                    
                     (<?php echo $_SESSION['rolpersonal_spm']?>)
                     
                   </a>
