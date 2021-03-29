@@ -48,13 +48,13 @@ CREATE TABLE `oevactpactividadqrs` (
 --
 
 INSERT INTO `oevactpactividadqrs` (`ACTcodigo`, `TIPcodigo`, `CAScodigo`, `TIUcodigo`, `UPUcodigo`, `ACTcodigoUPT`, `ACTnombres`, `ACTapellidos`, `ACTDescripcion`, `ACTcelular`, `ACTcorreoelectronico`, `ACTfecha`, `ACTestado`) VALUES
-(1, 1, 1, 1, 1, '2014956320', 'Gladys', 'Condori', 'tengo problemas con el aula virtual, no puedo', '963987456', 'correo', '2021-02-25', 1),
-(2, 2, 1, 2, 1, '269854', 'fredy', 'porto', 'tengo problemas con el aula virtual, no me sa', '968745213', 'correo', '2021-02-25', 2),
-(3, 2, 2, 1, 3, '2314569874', 'luciana', 'mercedes', 'no visualiza las grabaciones de las clases', '963452178', 'correo', '2021-02-25', 1),
-(4, 1, 3, 2, 5, '968745', 'fernando', 'quispe', 'No puedo configurar la sala de videoconferenc', '985632147', 'correo', '2021-02-25', 1),
-(5, 3, 2, 2, 5, '', 'rolando', 'caceres', 'recomienda que se use el google meet y que se', '963784521', '', '2021-02-25', 3),
-(6, 2, 2, 2, 5, '984562', 'olinda', 'Quispe', 'No le visualiza el sala que cree en mi calend', '968745213', '', '2021-02-25', 2),
-(7, 2, 2, 2, 5, '968541', 'Jaime', 'Condori', 'tengo problemas con el Google Meet, no puedo ', '963845216', '', '2021-02-28', 1);
+(1, 1, 1, 1, 1, '2014956320', 'Gladys', 'Condori', 'Problemas con el aula virtual, no puedo ver las notas', '963987456', 'correo', '2021-02-25', 1),
+(2, 2, 1, 2, 1, '269854', 'Fredy', 'Oporto', 'Poblemas con el aula virtual, me vota del sistema', '968745213', 'correo', '2021-02-25', 2),
+(3, 2, 2, 1, 3, '2314569874', 'Luciana', 'Caceres', 'No visualiza las grabaciones de las clases', '963452178', 'correo', '2021-02-25', 1),
+(4, 1, 3, 2, 5, '968745', 'Fernando', 'Quispe', 'No puedo configurar la sala de videoconferencia', '985632147', 'correo', '2021-02-25', 1),
+(5, 3, 2, 2, 5, '', 'Rolando', 'Condori', 'Recomienda que se use el google meet', '963784521', '', '2021-02-25', 3),
+(6, 2, 2, 2, 5, '984562', 'Olinda', 'Quispe', 'No le visualiza el sala que cree en mi calendio', '968745213', '', '2021-02-25', 2),
+(7, 2, 2, 2, 5, '968541', 'Jaime', 'Condori', 'Problemas con el microsoft teams, no puedo ingresar a la clase', '963845216', '', '2021-02-28', 1);
 
 -- --------------------------------------------------------
 
@@ -75,11 +75,11 @@ CREATE TABLE `oevcastcaso` (
 --
 
 INSERT INTO `oevcastcaso` (`CAScodigo`, `CASnombre`, `CASdescripcion`, `CASfecha`, `CASestado`) VALUES
-(1, 'aula virtual', 'problemas, inconveniencias o sugerencias que se presenten con respecto al aula virtual', '2021-02-25', 1),
-(2, 'Sistema de Videoconferencia', 'problemas, inconveniencias y sugerencias que se presenten con respecto al Sistema de Videoconferencia', '2021-02-25', 1),
-(3, 'Microsoft Teams', 'problemas, inconveniencias y sugerencias que se presenten con respecto al Microsoft Teams', '2021-02-25', 1),
-(4, 'Aula Virtual CEPU', 'Aula virtual de Admisión -CEPU', '2021-03-24', 1),
-(5, 'nuevo caso', 'descripción de nuevo caso', '2021-03-24', 1);
+(1, 'Aula Virtual', 'Problemas, inconveniencias o sugerencias que se presenten con respecto al aula virtual', '2021-02-25', 1),
+(2, 'Sistema de Videoconferencia', 'Problemas, inconveniencias y sugerencias que se presenten con respecto al Sistema de Videoconferencia', '2021-02-25', 1),
+(3, 'Microsoft Teams', 'Problemas, inconveniencias y sugerencias que se presenten con respecto al Microsoft Teams', '2021-02-25', 1),
+(4, 'Aula Virtual CEPU', 'Inconvenientes con el Aula virtual de Admisión -CEPU', '2021-03-24', 1),
+
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ CREATE TABLE `oevpeutpersonaluptvirtual` (
   `PEUDNI` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUnombres` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUapellidos` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
-  `PEUfoto` varchar(200) COLLATE utf8_spanish2_ci NOT NULL,
+  `PEUfoto` varchar(450) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUcorreoElectronico` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUcelular` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
   `PEUdireccion` varchar(45) COLLATE utf8_spanish2_ci NOT NULL,
@@ -111,8 +111,8 @@ INSERT INTO `oevpeutpersonaluptvirtual` (`PEUcodigo`, `ROPcodigo`, `PEUDNI`, `PE
 (3, 3, '74562015', 'Fanny', 'Clemente Cruz', 'secuptvirtual@upt.pe', '965741236', 'dirección', '2021-02-25', 1),
 (4, 1, '78596321', 'Francisco', 'Zapata', 'fzapatam@upt.pe', '987456321', 'direccion', '2021-02-25', 1),
 (5, 5, '78526143', 'Gisela', 'Flores Colque', 'giselafloresc13@gmail.com', '963214587', 'direccion', '2021-02-25', 1),
-(6, 4, '95632147', 'jenny', 'Huayta Curo', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1),
-(8, 1, '96325874', 'nuevo nombre', 'nuevo apellido', 'correo electronico', '985632147', 'nueva dirección', '2021-03-25', 1);
+(6, 4, '95632147', 'Jenny', 'Huayta Curo', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1),
+(8, 1, '96325874', 'Nelia', 'Escalante', 'nelia@gmail.com', '985632147', 'nueva dirección', '2021-03-25', 1);
 
 -- --------------------------------------------------------
 
@@ -133,8 +133,8 @@ CREATE TABLE `oevroptrolpersonal` (
 --
 
 INSERT INTO `oevroptrolpersonal` (`ROPcodigo`, `ROPnombre`, `ROPdescripcion`, `ROPfecha`, `ROPestado`) VALUES
-(1, 'soporte técnico', 'soporte técnico del Aula Virtual de la Universidad Privada de Tacna', '2021-02-25', 1),
-(2, 'Jefe', 'jefe de la oficina de educación virtual de la UPT', '2021-02-15', 1),
+(1, 'Soporte técnico', 'Soporte técnico del Aula Virtual de la Universidad Privada de Tacna', '2021-02-25', 1),
+(2, 'Jefe', 'Jefe de la oficina de educación virtual de la UPT', '2021-02-15', 1),
 (3, 'Apoyo Administrativo', 'Apoyo administrativo de la oficina de educación virtual', '2021-02-25', 1),
 (4, 'Docente Capacitador', 'Docente capacitador de la Oficina de educación virtual', '2021-03-15', 2),
 (5, 'Apoyo soporte tecnico', 'Apoyo soporte técnico de la Oficina de educación virtual', '2021-02-25', 1),
@@ -160,8 +160,8 @@ CREATE TABLE `oevtipttipoqrs` (
 
 INSERT INTO `oevtipttipoqrs` (`TIPcodigo`, `TIPnombre`, `TIPdescripcion`, `TIPfecha`, `TIPestado`) VALUES
 (1, 'Reclamo', 'Reclamos que se presenten del Aula Virtual', '2021-02-25', 1),
-(2, 'Quejas', 'quejas que se presentan con respecto al aula virtual, sistema de videoconferencia , etc.', '2021-02-25', 1),
-(3, 'Sugerencias', 'sugerencias con respecto al aula virtual y/o sistema de videoconferencias', '2021-02-25', 1);
+(2, 'Quejas', 'Quejas que se presentan con respecto al aula virtual, sistema de videoconferencia , etc.', '2021-02-25', 1),
+(3, 'Sugerencias', 'Sugerencias con respecto al aula virtual y/o sistema de videoconferencias', '2021-02-25', 1);
 
 -- --------------------------------------------------------
 
@@ -183,8 +183,8 @@ CREATE TABLE `oevtiuttipousuario` (
 
 INSERT INTO `oevtiuttipousuario` (`TIUcodigo`, `TIUnombre`, `TIUdescripcion`, `TIUfecha`, `TIUestado`) VALUES
 (1, 'Estudiante', 'Estudiante de la Universidad Privada de Tacna', '2021-02-25', 1),
-(2, 'Docente', 'Docente de la Universidad Privada de Tacna', '2021-03-25', 1);
-
+(2, 'Docente', 'Docente de la Universidad Privada de Tacna', '2021-03-25', 1),
+(3, 'Docente', 'Docente de Postgrado de la Universidad Privada de Tacna', '2021-03-25', 1);
 -- --------------------------------------------------------
 
 --

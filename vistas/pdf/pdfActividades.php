@@ -15,7 +15,8 @@ class PDF extends FPDF
 function Header()
 {
     // Logo
-    
+    $this->Image('../images/logo.jpg',30,0,25);
+    $this->Image('../images/logoo.jpg',245,0,20);
     // Arial bold 15
     $this->SetFont('Arial','B',15);
     // Movernos a la derecha
@@ -23,21 +24,22 @@ function Header()
     //$this->Cell(115);
     // Título
     $this->Write(5,'Reporte de Actividades');
+    $this->SetFillColor(232,232,232);
     // Salto de línea
     $this->Ln(20);
     $this->SetFont('Arial','B',7);
-    $this->Cell(7,10, utf8_decode("N°"), 1, 0, 'C', 0);
-    $this->Cell(15,10, "Tipo", 1, 0, 'C', 0);
-    $this->Cell(35,10, "Caso", 1, 0, 'C', 0);
-    $this->Cell(15,10, "Emisor", 1, 0, 'C', 0);
-    $this->Cell(26,10, "Personal UPTVirtual", 1, 0, 'C', 0);
-    $this->Cell(17,10, "Codigo", 1, 0, 'C', 0);
-    $this->Cell(27,10, "Nombres y Apellidos", 1, 0, 'C', 0);
-    $this->Cell(65,10, "Descripcion", 1, 0, 'C', 0);
-    $this->Cell(15,10, "Celular", 1, 0, 'C', 0);
-    $this->Cell(25,10, "Correo", 1, 0, 'C', 0);
-    $this->Cell(16,10, "Fecha", 1, 0, 'C', 0);
-    $this->Cell(15,10, "Estado", 1, 1, 'C', 0);
+    $this->Cell(7,10, utf8_decode("N°"), 1, 0, 'C', 1);
+    $this->Cell(15,10, "Tipo", 1, 0, 'C', 1);
+    $this->Cell(35,10, "Caso", 1, 0, 'C', 1);
+    $this->Cell(15,10, "Emisor", 1, 0, 'C', 1);
+    $this->Cell(26,10, "Personal UPTVirtual", 1, 0, 'C', 1);
+    $this->Cell(17,10, "Codigo", 1, 0, 'C', 1);
+    $this->Cell(27,10, "Nombres y Apellidos", 1, 0, 'C', 1);
+    $this->Cell(65,10, "Descripcion", 1, 0, 'C', 1);
+    $this->Cell(15,10, "Celular", 1, 0, 'C', 1);
+    $this->Cell(25,10, "Correo", 1, 0, 'C', 1);
+    $this->Cell(16,10, "Fecha", 1, 0, 'C', 1);
+    $this->Cell(15,10, "Estado", 1, 1, 'C', 1);
 }
 
 // Pie de página
