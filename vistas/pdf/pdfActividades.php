@@ -64,7 +64,7 @@ class pdfActividades{
 
         require_once "../modelos/modeloPrincipal.php";
         $principal= new modeloPrincipal();
-        $codigo=$principal->limpiar_cadena($_POST['exportar']);
+        $codigo=$principal->limpiar_cadena($_POST['exportarPdfActividades']);
 
         $consulta="SELECT * FROM oevactpactividadqrs AS act
     INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo

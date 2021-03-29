@@ -37,7 +37,7 @@ if($datos_caso->rowCount()==1){
 
                   <div class="col-md-5 col-sm-5">
                       <div class="product-image">
-                        <img src="../../imagenes/"<?php $campos['PEUfoto'] ?> width="50" height="250">
+                       <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="50%" height="50%">
                         
                       </div>
                      
@@ -95,7 +95,7 @@ if($datos_caso->rowCount()==1){
                       <div class="product_social">
                         <ul class="list-inline display-layout">
                           
-                          <a href="<?php echo SERVERURL?>listar-usuario-personaluptvirtual/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
+                          <a href="<?php echo SERVERURL?>general/" class="btn btn-round btn-danger btn-sm"><i class="fa fa-mail-reply fa-sm"></i> Atras
                                 </a>
 
                         </ul>
