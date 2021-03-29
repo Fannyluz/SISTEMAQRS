@@ -173,7 +173,7 @@ if($datos_caso->rowCount()==1){
                                                 <select class="form-control" name="ACTestado_up">
                                                     <option <?php echo $campos['ACTestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>
                                                     <option <?php echo $campos['ACTestado'] == 2 ? 'selected' : ''; ?> value="2">Atendido</option>
-                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="2">Rechazado</option>
+                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="3">Rechazado</option>
                                                 </select>
                                             </div>
 

@@ -539,7 +539,8 @@
       public function Ver_ActividadesQrsAtendidasALL_controlador($codigo)
       {
         $codigo=modeloPrincipal::limpiar_cadena($codigo);  
-         $datos=ActividadQrsModelo::Ver_actividadesQrsAtendidasAll_Modelo($codigo);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=ActividadQrsModelo::Ver_actividadesQrsAtendidasAll_Modelo($codigodesencriptado);
          return $datos;
 
       } 
@@ -557,12 +558,13 @@
       } // fin del controlador 
       /*mostrar datos detallados de actividades QRS atendidas Personal */
       public function Ver_ActividadesQrsAtendidas_controlador($codigo)
-      {
-        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+      {      
+         $codigo=modeloPrincipal::limpiar_cadena($codigo);
         $codigoUsuario=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
         $codigodesencriptado=modeloPrincipal::decryption($codigo);
-         $datos=ActividadQrsModelo::Ver_actividadesQrsAtendidas_Modelo($codigodesencriptado,$codigoUsuario);
+         $datos=ActividadQrsModelo::Ver_actividadesQrsPendientes_Modelo($codigodesencriptado,$codigoUsuario);
          return $datos;
+
 
       } // fin del controlador 
 
@@ -945,9 +947,9 @@
         //recuperar el codigo
       
     $codigo=modeloPrincipal::limpiar_cadena($_POST['ActividadQRS_codigo_up']);
-
+$codigodesencriptado=modeloPrincipal::decryption($codigo);
            //comprobar caso en la base de datos
-        $check_ActividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevactpactividadqrs WHERE ACTcodigo='$codigo'");
+        $check_ActividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevactpactividadqrs WHERE ACTcodigo='$codigodesencriptado'");
 
         if($check_ActividadQRS->rowCount()<=0){
             $alerta=[
@@ -1005,7 +1007,7 @@
                "ACTcorreoelectronico"=>$correoElectronico,
                "ACTfecha"=>$fecha,
                "ACTestado"=>$estado,
-               "CODIGO"=>$codigo
+               "CODIGO"=>$codigodesencriptado
             ];
 
          if(ActividadQrsModelo::Editar_ActividadQRS_Modelo($datos_actividadQRS_update)){

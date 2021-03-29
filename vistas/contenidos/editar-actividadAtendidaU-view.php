@@ -15,11 +15,11 @@ if($datos_caso->rowCount()==1){
 ?>
             
                     <div class="clearfix"></div>
-                    <div class="row">
+                    <div class="row"> 
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title" style="color:#10226a;">
-                                <h2>UPTvirtual <small>Editar Actividad QRS</small></h2>
+                                <h2>UPTvirtual <small>Agregar Actividad QRS</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -30,8 +30,10 @@ if($datos_caso->rowCount()==1){
 
                                 <div class="x_content">
 
-                <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="update" novalidate>
-                <input type="hidden" name="ActividadQRS_codigo_up" value="<?php echo $pagina[1]?>">                     
+  <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="update" novalidate>
+
+    <input type="hidden" name="ActividadQRS_codigo_up" value="<?php echo $pagina[1]?>">
+                                        
                 </p>
                 <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
 
@@ -166,7 +168,7 @@ if($datos_caso->rowCount()==1){
                                         </div>
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha</b><span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>fecha</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="ACTfecha_up" value="<?php echo $campos['ACTfecha']?>" required='required'></div>
                                         </div>
@@ -179,7 +181,7 @@ if($datos_caso->rowCount()==1){
                                                 <select class="form-control" name="ACTestado_up">
                                                     <option <?php echo $campos['ACTestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>
                                                     <option <?php echo $campos['ACTestado'] == 2 ? 'selected' : ''; ?> value="2">Atendido</option>
-                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="2">Rechazado</option>
+                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="3">Rechazado</option>
                                                 </select>
                                             </div>
 
@@ -214,5 +216,5 @@ if($datos_caso->rowCount()==1){
 ?>
             </div>
             <?php
-	include "./vistas/inc/validator.php"
-	?>
+    include "./vistas/inc/validator.php"
+    ?>
