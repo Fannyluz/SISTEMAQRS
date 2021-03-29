@@ -28,11 +28,27 @@ if($datos_caso->rowCount()==1){
 
                                 <div class="x_content">
 
+
                 <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/PersonalAjax.php" method="POST" data-form="update" enctype="multipart/form-data" novalidate>             
                 
                 <input type="hidden" name="personal_codigo_up" value="<?php echo $pagina[1]?>">
                 </p>
-                                
+
+                <div class="col-md-3 col-sm-3">
+                          <div class="product-image">
+                           <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="25%" height="25%">
+                          </div>
+                        <label><b>Foto</b><span class="required">*</span></label>
+                    <div class="field item form-group">
+                        <div>
+                        <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" value="<?php echo $campos['PEUfoto']?>" accept="image/*"/>
+                        </div>
+                    </div>
+                </div>
+                          
+
+
+                 <div class="col-md-7 col-sm-7" style="border:0px solid #e5e5e5;">      
                                 <?php 
                                 require_once "./controladores/RolControlador.php";
                                 $tipoqrs=new RolControlador();
@@ -75,12 +91,7 @@ if($datos_caso->rowCount()==1){
                                             </div>
                                         </div>
                                        
-                                       <div class="field item form-group">
-            <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
-            <div class="col-md-6 col-sm-6">
-            <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" value="<?php echo $campos['PEUfoto']?>" accept="image/*"/>
-            </div>
-        </div>
+       
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required">*</span></label>
@@ -130,10 +141,9 @@ if($datos_caso->rowCount()==1){
                                                 </div>
                                             </div>
                                         </div>
+
+                                </div>
                                     </form>
-                                
-                            
-                                
                                 
                                 </div>
 

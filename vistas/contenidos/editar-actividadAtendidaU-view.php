@@ -58,6 +58,7 @@ if($datos_caso->rowCount()==1){
                                     </select>
                                     </div>
                             </div>
+                            
                                 <?php 
                                 require_once "./controladores/TipoQrsControlador.php";
                                 $tipoqrs=new TipoQrsControlador();

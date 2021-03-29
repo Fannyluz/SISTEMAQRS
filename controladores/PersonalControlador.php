@@ -220,7 +220,7 @@
        $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_up']);
        $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_up']);
 
-           $imagen=modeloPrincipal::limpiar_cadena('personal_foto_reg');
+           $imagen=modeloPrincipal::limpiar_cadena('personal_foto_up');
             $foto=$_FILES[$imagen]['name'];
             $ruta=trim ($_FILES[$imagen]['tmp_name']);
             $destino="../imagenes/".$foto; 
@@ -252,7 +252,7 @@
             "PEUDNI"=>$dni,
             "PEUnombres"=>$nombre,
             "PEUapellidos"=>$apellido,
-            "PEUfoto"=>$ruta,
+            "PEUfoto"=>$foto,
             "PEUcorreoElectronico"=>$correo,
             "PEUcelular"=>$celular,
             "PEUdireccion"=>$direccion,

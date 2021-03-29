@@ -226,6 +226,11 @@
         }
 
 
+
+
+
+
+
             $personaluptvirtual=modeloPrincipal::limpiar_cadena($_POST['personaluptvirtual_up']);
             $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_up']);
             $clave=modeloPrincipal::limpiar_cadena($_POST['clave_up']);
@@ -245,7 +250,9 @@
                echo json_encode($alerta);
 
                exit();
-            }     
+            }
+
+
             
 //comprobar la clave
             if($clave!=$repetirclave)
@@ -260,6 +267,51 @@
 
                exit();
             }
+
+
+
+
+//verificar contraseña
+
+            $check_nombre=modeloPrincipal::ejecutar_consulta_simple("SELECT UPUusuario FROM oevuputusuariopersonaluptvirtual WHERE UPUclave='$clave'");
+
+            if($check_nombre->rowCount()>0){
+
+          
+            $datos_UsuarioPersonalUPTvirtual_update=[
+                "PEUcodigo"=>$personaluptvirtual,
+               "UPUusuario"=>$usuario,
+               "UPUclave"=>$clave,
+               "UPUprivilegio"=>$privilegio,
+               "UPUfecha"=>$fecha,
+               "UPUestado"=>$estado,
+               "CODIGO"=>$codigodesencriptado
+            ];
+
+         if(UsuarioPersonalUptVirtualModelo::Editar_usuariopersonaluptvirtual_Modelo($datos_UsuarioPersonalUPTvirtual_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Usuario personal de UPTvirtual Actualizado",
+                  "Texto"=>"los datos se actualizaron correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+               
+            }
+            else
+            {
+
+
 
           $claveEncriptado=modeloPrincipal::encryption($clave);
             $datos_UsuarioPersonalUPTvirtual_update=[
@@ -290,6 +342,7 @@
             }
       
           echo json_encode($alerta);
+          }
 
       } // fin del controlador 
 
