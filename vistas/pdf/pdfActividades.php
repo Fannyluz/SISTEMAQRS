@@ -27,16 +27,16 @@ function Header()
     $this->Ln(20);
     $this->SetFont('Arial','B',7);
     $this->Cell(7,10, utf8_decode("N°"), 1, 0, 'C', 0);
-    $this->Cell(10,10, "Tipo", 1, 0, 'C', 0);
-    $this->Cell(10,10, "Caso", 1, 0, 'C', 0);
+    $this->Cell(15,10, "Tipo", 1, 0, 'C', 0);
+    $this->Cell(35,10, "Caso", 1, 0, 'C', 0);
     $this->Cell(15,10, "Emisor", 1, 0, 'C', 0);
-    $this->Cell(30,10, "Personal UPTVirtual", 1, 0, 'C', 0);
-    $this->Cell(25,10, "Codigo", 1, 0, 'C', 0);
-    $this->Cell(25,10, "Nombres y Apellidos", 1, 0, 'C', 0);
-    $this->Cell(40,10, "Descripcion", 1, 0, 'C', 0);
-    $this->Cell(25,10, "Celular", 1, 0, 'C', 0);
+    $this->Cell(26,10, "Personal UPTVirtual", 1, 0, 'C', 0);
+    $this->Cell(17,10, "Codigo", 1, 0, 'C', 0);
+    $this->Cell(27,10, "Nombres y Apellidos", 1, 0, 'C', 0);
+    $this->Cell(65,10, "Descripcion", 1, 0, 'C', 0);
+    $this->Cell(15,10, "Celular", 1, 0, 'C', 0);
     $this->Cell(25,10, "Correo", 1, 0, 'C', 0);
-    $this->Cell(25,10, "Fecha", 1, 0, 'C', 0);
+    $this->Cell(16,10, "Fecha", 1, 0, 'C', 0);
     $this->Cell(15,10, "Estado", 1, 1, 'C', 0);
 }
 
@@ -86,17 +86,17 @@ class pdfActividades{
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
             $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(30,10,utf8_decode( $row['PEUapellidos'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
             $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
                 $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
@@ -112,6 +112,7 @@ class pdfActividades{
             $i++;
         }
         $pdf->Output('D','Actividades.pdf');
+        //$pdf->Output();
     }
 
     //metodo decargar pdf Actividdes generales AtendidasALL
@@ -142,17 +143,17 @@ class pdfActividades{
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
             $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(30,10,utf8_decode( $row['PEUapellidos'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
             $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
                 $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
@@ -168,6 +169,7 @@ class pdfActividades{
             $i++;
         }
         $pdf->Output('D','ActividadesAtendidas.pdf');
+        //$pdf->Output();
     }
 
     //metodo decargar pdf Actividdes generales AtendidasALL
@@ -197,17 +199,17 @@ class pdfActividades{
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
             $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(30,10,utf8_decode( $row['PEUapellidos'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
             $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
                 $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
@@ -223,6 +225,7 @@ class pdfActividades{
             $i++;
         }
         $pdf->Output('D','ActividadesPendientes.pdf');
+        //$pdf->Output();
     }
 
 
@@ -253,17 +256,17 @@ class pdfActividades{
         foreach($datos as $row){  
            $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
             $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(30,10,utf8_decode( $row['PEUapellidos'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
             $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
                 $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
@@ -279,6 +282,7 @@ class pdfActividades{
             $i++;
         }
         $pdf->Output('D','Actividades.pdf');
+        //$pdf->Output();
     }
 
     //metodo decargar pdf Actividades Pendientes de un personal 
@@ -311,17 +315,17 @@ class pdfActividades{
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0, 'D', 0);
             $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(30,10,utf8_decode( $row['PEUapellidos'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
             $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
                 $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
@@ -337,6 +341,7 @@ class pdfActividades{
             $i++;
         }
         $pdf->Output('D','ActividadesPendientes.pdf');
+        //$pdf->Output();
     }
 
 //metodo decargar pdf actividades atendidas de un personal 
@@ -369,17 +374,17 @@ class pdfActividades{
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(10,10,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
             $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(30,10,utf8_decode( $row['PEUapellidos'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(40,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
             $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
                 $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
@@ -395,11 +400,10 @@ class pdfActividades{
             $i++;
         }
         $pdf->Output('D','ActividadesAtendidos.pdf');
+        //$pdf->Output();
     }
 
 }
 
 
-
-//$pdf->Output();
 ?>
