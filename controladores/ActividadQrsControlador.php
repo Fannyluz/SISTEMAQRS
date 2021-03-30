@@ -154,8 +154,8 @@
         }
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -215,8 +215,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+          <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -277,8 +277,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -338,8 +338,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+          <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -399,8 +399,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;"> 
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -460,8 +460,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;"> 
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -580,8 +580,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="3">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;"> 
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -641,8 +641,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -701,8 +701,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -766,8 +766,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -828,8 +828,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
@@ -890,8 +890,8 @@
         $nuevoestado="Activo";
        
           $output .= '
-           <table class="table" bordered="1">  
-                            <tr>  
+           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
