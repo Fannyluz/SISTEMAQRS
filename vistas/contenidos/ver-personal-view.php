@@ -43,9 +43,15 @@ if($datos_caso->rowCount()==1){
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  <img src="<?php echo $campos['PEUfoto'] ; ?>" height="300" width="100" /> 
-                        <img src="imagenes/<?php echo $row['PEUfoto']; ?>" class="img-rounded" width="250px" height="250px" />
+                
 			            
+                    <div class="col-md-3 col-sm-3">
+                      <div class="product-image">
+                       <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="25%" height="25%">
+                        
+                      </div>
+                     
+                    </div>
 
                     <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
 
@@ -62,9 +68,6 @@ if($datos_caso->rowCount()==1){
                          <h6>
                          <p><strong>Apellidos: </strong> <?php echo $campos['PEUapellidos']?></p></h6>
                          <h6>
-                        
-                          <tr><img src="data:image/<?php echo $user['PEUfoto']; ?>" height="200" width="200"/>';
-                       
                          <p><strong>Correo Electronico: </strong> <?php echo $campos['PEUcorreoElectronico']?></p></h6>
                          <p><strong>Celular: </strong> <?php echo $campos['PEUcelular']?></p></h6>
                          <p><strong>Direccion: </strong> <?php echo $campos['PEUdireccion']?></p></h6>

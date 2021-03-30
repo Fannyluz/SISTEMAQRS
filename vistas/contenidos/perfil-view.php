@@ -43,7 +43,7 @@ if($datos_caso->rowCount()==1){
                   <br>
                   <br>
 
-                  <div class="col-md-5 col-sm-5" enctype="multipart/form-data">
+                  <div class="col-md-3 col-sm-3" enctype="multipart/form-data">
                       <div class="product-image">
                         <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="50%" height="50%">
 

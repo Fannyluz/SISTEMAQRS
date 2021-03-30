@@ -35,7 +35,7 @@ if($datos_caso->rowCount()==1){
                   </div>
                   <div class="x_content"> 
 
-                  <div class="col-md-5 col-sm-5">
+                  <div class="col-md-3 col-sm-3">
                       <div class="product-image">
                        <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="50%" height="50%">
                         
@@ -60,7 +60,7 @@ if($datos_caso->rowCount()==1){
                                           <br>
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['PEUcelular']?></li>
                                         </ul>
-<br>
+                                        <br>
 
                           <?php if($campos['PEUestado']=="1")
                           {
