@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-03-2021 a las 03:16:50
+-- Tiempo de generación: 30-03-2021 a las 00:00:27
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.2
 
@@ -48,13 +48,13 @@ CREATE TABLE `oevactpactividadqrs` (
 --
 
 INSERT INTO `oevactpactividadqrs` (`ACTcodigo`, `TIPcodigo`, `CAScodigo`, `TIUcodigo`, `UPUcodigo`, `ACTcodigoUPT`, `ACTnombres`, `ACTapellidos`, `ACTDescripcion`, `ACTcelular`, `ACTcorreoelectronico`, `ACTfecha`, `ACTestado`) VALUES
-(1, 1, 1, 1, 1, '2014956320', 'Gladys', 'Condori', 'Problemas con el aula virtual, no puedo ver las notas', '963987456', 'correo', '2021-02-25', 1),
-(2, 2, 1, 2, 1, '269854', 'Fredy', 'Oporto', 'Poblemas con el aula virtual, me vota del sistema', '968745213', 'correo', '2021-02-25', 2),
-(3, 2, 2, 1, 3, '2314569874', 'Luciana', 'Caceres', 'No visualiza las grabaciones de las clases', '963452178', 'correo', '2021-02-25', 1),
-(4, 1, 3, 2, 5, '968745', 'Fernando', 'Quispe', 'No puedo configurar la sala de videoconferencia', '985632147', 'correo', '2021-02-25', 1),
-(5, 3, 2, 2, 5, '', 'Rolando', 'Condori', 'Recomienda que se use el google meet', '963784521', '', '2021-02-25', 3),
-(6, 2, 2, 2, 5, '984562', 'Olinda', 'Quispe', 'No le visualiza el sala que cree en mi calendio', '968745213', '', '2021-02-25', 2),
-(7, 2, 2, 2, 5, '968541', 'Jaime', 'Condori', 'Problemas con el microsoft teams, no puedo ingresar a la clase', '963845216', '', '2021-02-28', 1);
+(1, 1, 1, 1, 1, '2014956320', 'Gladys', 'Condori', 'tengo problemas con el aula virtual, no puedo', '963987456', 'correo', '2021-02-25', 1),
+(2, 2, 1, 2, 1, '269854', 'fredy', 'porto', 'tengo problemas con el aula virtual, no me sa', '968745213', 'correo', '2021-02-25', 2),
+(3, 2, 2, 1, 3, '2314569874', 'luciana', 'mercedes', 'no visualiza las grabaciones de las clases', '963452178', 'correo', '2021-02-25', 1),
+(4, 1, 3, 2, 5, '968745', 'fernando', 'quispe', 'No puedo configurar la sala de videoconferenc', '985632147', 'correo', '2021-02-25', 1),
+(5, 3, 2, 2, 5, '', 'rolando', 'caceres', 'recomienda que se use el google meet y que se', '963784521', '', '2021-02-25', 3),
+(6, 2, 2, 2, 5, '984562', 'olinda', 'Quispe', 'No le visualiza el sala que cree en mi calend', '968745213', '', '2021-02-25', 2),
+(7, 2, 2, 2, 5, '968541', 'Jaime', 'Condori', 'tengo problemas con el Google Meet, no puedo ', '963845216', '', '2021-02-28', 1);
 
 -- --------------------------------------------------------
 
@@ -75,11 +75,10 @@ CREATE TABLE `oevcastcaso` (
 --
 
 INSERT INTO `oevcastcaso` (`CAScodigo`, `CASnombre`, `CASdescripcion`, `CASfecha`, `CASestado`) VALUES
-(1, 'Aula Virtual', 'Problemas, inconveniencias o sugerencias que se presenten con respecto al aula virtual', '2021-02-25', 1),
-(2, 'Sistema de Videoconferencia', 'Problemas, inconveniencias y sugerencias que se presenten con respecto al Sistema de Videoconferencia', '2021-02-25', 1),
-(3, 'Microsoft Teams', 'Problemas, inconveniencias y sugerencias que se presenten con respecto al Microsoft Teams', '2021-02-25', 1),
-(4, 'Aula Virtual CEPU', 'Inconvenientes con el Aula virtual de Admisión -CEPU', '2021-03-24', 1),
-
+(1, 'aula virtual', 'problemas, inconveniencias o sugerencias que se presenten con respecto al aula virtual', '2021-02-25', 1),
+(2, 'Sistema de Videoconferencia', 'problemas, inconveniencias y sugerencias que se presenten con respecto al Sistema de Videoconferencia', '2021-02-25', 1),
+(3, 'Microsoft Teams', 'problemas, inconveniencias y sugerencias que se presenten con respecto al Microsoft Teams', '2021-02-25', 1),
+(5, 'nuevo caso', 'descripción de nuevo caso', '2021-03-24', 1);
 
 -- --------------------------------------------------------
 
@@ -105,14 +104,17 @@ CREATE TABLE `oevpeutpersonaluptvirtual` (
 -- Volcado de datos para la tabla `oevpeutpersonaluptvirtual`
 --
 
-INSERT INTO `oevpeutpersonaluptvirtual` (`PEUcodigo`, `ROPcodigo`, `PEUDNI`, `PEUnombres`, `PEUapellidos`, `PEUcorreoElectronico`, `PEUcelular`, `PEUdireccion`, `PEUfecha`, `PEUestado`) VALUES
-(1, 1, '78965214', 'William', 'Rodriguez', 'wvrodriguez@upt.pe', '965874123', 'dirección', '2021-02-25', 1),
-(2, 2, '96875412', 'Tito', 'Ale Nieto', 'titofale@gmail.com', '983 625 569', 'direccion', '2021-02-25', 1),
-(3, 3, '74562015', 'Fanny', 'Clemente Cruz', 'secuptvirtual@upt.pe', '965741236', 'dirección', '2021-02-25', 1),
-(4, 1, '78596321', 'Francisco', 'Zapata', 'fzapatam@upt.pe', '987456321', 'direccion', '2021-02-25', 1),
-(5, 5, '78526143', 'Gisela', 'Flores Colque', 'giselafloresc13@gmail.com', '963214587', 'direccion', '2021-02-25', 1),
-(6, 4, '95632147', 'Jenny', 'Huayta Curo', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1),
-(8, 1, '96325874', 'Nelia', 'Escalante', 'nelia@gmail.com', '985632147', 'nueva dirección', '2021-03-25', 1);
+INSERT INTO `oevpeutpersonaluptvirtual` (`PEUcodigo`, `ROPcodigo`, `PEUDNI`, `PEUnombres`, `PEUapellidos`, `PEUfoto`, `PEUcorreoElectronico`, `PEUcelular`, `PEUdireccion`, `PEUfecha`, `PEUestado`) VALUES
+(1, 1, '78965214', 'William', 'Rodriguez', 'logoo.jpg', 'wvrodriguez@upt.pe', '965874123', 'dirección', '2021-02-25', 1),
+(2, 2, '96875412', 'Tito', 'Ale Nieto', 'logo.jpg', 'titofale@gmail.com', '983 625 569', 'direccion', '2021-02-25', 1),
+(3, 3, '74562015', 'Fanny', 'Clemente Cruz', 'logoo.jpg', 'secuptvirtual@upt.pe', '965741236', 'dirección', '2021-02-25', 1),
+(4, 1, '78596321', 'Francisco', 'Zapata', 'nuevo.png', 'fzapatam@upt.pe', '987456321', 'direccion', '2021-02-25', 1),
+(5, 5, '78526143', 'Gisela', 'Flores Colque', 'logoo.jpg', 'giselafloresc13@gmail.com', '963214587', 'direccion', '2021-02-25', 1),
+(6, 4, '95632147', 'jenny', 'Huayta Curo', 'logo.jpg', 'jhuaytac@gmail.com', '963784521', 'direccion', '2021-02-25', 1),
+(34, 1, '99999999', 'nuevo nombre', 'nuevo apellido', 'logoo.jpg', 'mail@upt.pe', '999999999', 'direccion', '2021-03-26', 1),
+(36, 1, '99999999', 'nuevo nombre', 'nuevo apellido', 'logoo.jpg', 'mail@upt.pe', '999999999', 'direccion', '2021-03-29', 1),
+(37, 1, '99999999', 'nuevo nombre', 'flores colque', 'nuevo.png', 'correo@gmail.com', '999999999', 'direccion', '2021-03-29', 1),
+(38, 2, '99999999', 'nuevo nombre', 'nuevo apellido', 'upt.jpg', 'correo electronico', '999999999', 'direccion', '2021-03-29', 1);
 
 -- --------------------------------------------------------
 
@@ -133,12 +135,12 @@ CREATE TABLE `oevroptrolpersonal` (
 --
 
 INSERT INTO `oevroptrolpersonal` (`ROPcodigo`, `ROPnombre`, `ROPdescripcion`, `ROPfecha`, `ROPestado`) VALUES
-(1, 'Soporte técnico', 'Soporte técnico del Aula Virtual de la Universidad Privada de Tacna', '2021-02-25', 1),
-(2, 'Jefe', 'Jefe de la oficina de educación virtual de la UPT', '2021-02-15', 1),
+(1, 'soporte técnico', 'soporte técnico del Aula Virtual de la Universidad Privada de Tacna', '2021-02-25', 1),
+(2, 'Jefe', 'jefe de la oficina de educación virtual de la UPT', '2021-02-15', 1),
 (3, 'Apoyo Administrativo', 'Apoyo administrativo de la oficina de educación virtual', '2021-02-25', 1),
 (4, 'Docente Capacitador', 'Docente capacitador de la Oficina de educación virtual', '2021-03-15', 2),
 (5, 'Apoyo soporte tecnico', 'Apoyo soporte técnico de la Oficina de educación virtual', '2021-02-25', 1),
-(6, 'Apoyo docente', 'Apoyo docente de la oficina de educación virtual', '2021-03-19', 2);
+(6, 'Apoyo docente', 'Apoyo docente de la oficina de educación virtual', '2021-03-19', 1);
 
 -- --------------------------------------------------------
 
@@ -159,9 +161,9 @@ CREATE TABLE `oevtipttipoqrs` (
 --
 
 INSERT INTO `oevtipttipoqrs` (`TIPcodigo`, `TIPnombre`, `TIPdescripcion`, `TIPfecha`, `TIPestado`) VALUES
-(1, 'Reclamo', 'Reclamos que se presenten del Aula Virtual', '2021-02-25', 1),
-(2, 'Quejas', 'Quejas que se presentan con respecto al aula virtual, sistema de videoconferencia , etc.', '2021-02-25', 1),
-(3, 'Sugerencias', 'Sugerencias con respecto al aula virtual y/o sistema de videoconferencias', '2021-02-25', 1);
+(1, 'Reclamo', 'Reclamos que se presenten del Aula Virtual', '2021-02-25', 2),
+(2, 'Quejas', 'quejas que se presentan con respecto al aula virtual, sistema de videoconferencia , etc.', '2021-02-25', 1),
+(3, 'Sugerencias', 'sugerencias con respecto al aula virtual y/o sistema de videoconferencias', '2021-02-25', 1);
 
 -- --------------------------------------------------------
 
@@ -183,8 +185,8 @@ CREATE TABLE `oevtiuttipousuario` (
 
 INSERT INTO `oevtiuttipousuario` (`TIUcodigo`, `TIUnombre`, `TIUdescripcion`, `TIUfecha`, `TIUestado`) VALUES
 (1, 'Estudiante', 'Estudiante de la Universidad Privada de Tacna', '2021-02-25', 1),
-(2, 'Docente', 'Docente de la Universidad Privada de Tacna', '2021-03-25', 1),
-(3, 'Docente', 'Docente de Postgrado de la Universidad Privada de Tacna', '2021-03-25', 1);
+(2, 'Docente', 'Docente de la Universidad Privada de Tacna', '2021-03-25', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -211,7 +213,7 @@ INSERT INTO `oevuputusuariopersonaluptvirtual` (`UPUcodigo`, `PEUcodigo`, `UPUus
 (3, 3, 'fanny', 'UE9xaE1IQTA0aUVraTF6M29CTkRIQT09', 2, '2021-02-25', 1),
 (4, 4, 'francisco', 'NGtyOEhMYjVidFdUQUk4VkhWSmZmZz09', 3, '2021-02-25', 1),
 (5, 6, 'nelia', 'U3lsSkR1SUJ2cVlLS3NDNUVpREI4dz09', 3, '2021-02-25', 1),
-(7, 3, 'fanny2021', 'UE9xaE1IQTA0aUVraTF6M29CTkRIQT09', 2, '2021-03-25', 1);
+(7, 3, 'fanny2021', 'WG44TGxVUXpSbFRJS1N2dmZ5S2o5MkNGcWVDZ0ZGYU9uZXFVdjQ3N3JDNmVmQjFjRWVUQ0xISUtkV2RDL2JVYlcwaHU0SUJaNm43MXpQWERRS3Z4M09lSmwydTgyVU95VnJ5RitHT1FFdjFodVc4Y3RwZkpOZkhRVC9YRytyUVM=', 2, '2021-03-25', 1);
 
 --
 -- Índices para tablas volcadas
@@ -285,7 +287,7 @@ ALTER TABLE `oevcastcaso`
 -- AUTO_INCREMENT de la tabla `oevpeutpersonaluptvirtual`
 --
 ALTER TABLE `oevpeutpersonaluptvirtual`
-  MODIFY `PEUcodigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `PEUcodigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT de la tabla `oevroptrolpersonal`
