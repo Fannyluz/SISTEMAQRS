@@ -8,23 +8,16 @@
         <section class="login_content">
       <form action="" method="POST" autocomplete="off" >
         <h1><i class="fa fa-home"></i>    UPT VIRTUAL</h1>
-        <br>
-        <br>
         <div>
-          <input type="text" class="form-control" id="UserName" name="usuario_log" pattern="[a-zA-Z0-9]{1,35}" required="" >
+          <input type="text" class="form-control" id="UserName" name="usuario_log" pattern="[a-zA-Z0-9]{1,35}" maxlength="35" required="" >
         </div>
 
         <div>
-              <input type="password" class="form-control" id="UserPassword" name="clave_log" pattern="[a-zA-Z0-9$@.-]{3,100}" required="" >
+              <input type="password" class="form-control" id="UserPassword" name="clave_log" pattern="[a-zA-Z0-9$@.-]{7,100}" required="" >
         </div>
 
-        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white; ">Acceder</button>
+        <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">Acceder</button>
 
-<br>
-<br>
-<br>
-<br>
-<br>
               <div class="separator">
                 <div>
                   <p>Universidad Privada de Tacna
