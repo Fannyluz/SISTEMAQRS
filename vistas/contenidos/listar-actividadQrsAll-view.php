@@ -25,8 +25,10 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                                 <div class="x_content">
                                     <div class="row">
-                                        <div class="col-sm-12">
+<div class="col-sm-12">
 
+<div class="col-sm-5">
+<div class="col-sm-3">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
      <input type="hidden" name="exportarExcelActividadAll" value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
@@ -38,7 +40,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
         <!-- para poder tapar-->
     </form> 
-
+</div>
+<div class="col-sm-3">
        <!-- Boton de pdf-->
   <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
@@ -49,8 +52,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
           
       </input>
       
-    </form> 
-
+    </form>
+    </div> 
+<div class="col-sm-3">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="export" value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
@@ -60,12 +64,75 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
       </input>
       
     </form> 
+</div>
+</br>
+</br>
+</br>
     
+    </div>
     
- 
+  <?php 
+                                require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
+                                $tipoqrs=new UsuarioPersonalUptVirtualControlador();
+                                $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_estado_controlador();
+                                $count=1;
+                                $nuevoestado="Activo";
+                                ?>
+                            </br>
+                    <div   class="col-md-10 col-sm-10">
 
+                           
+                                    <div class="col-md-3 col-sm-3" >
+                                    <select class="form-control" name="personal_reg" >
+                                        <?php foreach($datosTipoQRS as $row){ ?>
+                                            <option value=<?php echo $row['UPUcodigo']?>><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>)</option>
+                                        <?php }?>
+                                    </select>
+                                    </div>
 
-                                       <p align="right">
+                        <div class="col-md-3 col-sm-3">
+                                   <p>
+                            <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
+                                </a></p>
+                        </div>
+                           
+
+                </div>
+                
+</br>
+</br>
+</br>
+</br>
+</br>
+<?php 
+                                                    require_once "./controladores/TipoQrsControlador.php";
+                                                    $tipoqrs=new TipoQrsControlador();
+                                                    $datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
+                                                    $count=1;
+                                                    $nuevoestado="Activo";
+                                                    ?>
+        <div div class="col-md-10 col-sm-10">
+
+                           
+                                    <div  class="col-md-3 col-sm-3">
+                                    <select class="form-control" name="personal_reg" >
+                                        <?php foreach($datosTipoQRS as $row){ ?>
+                                                                <option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
+                                                            <?php }?>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3">
+                                   <p>
+                            <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
+                                </a></p>
+                        </div>
+                           
+
+                </div>
+
+                                                    
+
+                                       <p align="right" class="x_title">
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>
                                     

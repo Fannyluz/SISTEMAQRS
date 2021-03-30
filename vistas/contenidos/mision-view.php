@@ -31,6 +31,7 @@
                                     
                                    
                                     <div class="clearfix"></div>
+                                    
                                     <p style="text-align: justify;">
                                     El objetivo del Aula Virtual de la Universidad Privada de Tacna es proveer un espacio
 educativo en el que tanto los docentes como los estudiantes puedan desarrollar sus
