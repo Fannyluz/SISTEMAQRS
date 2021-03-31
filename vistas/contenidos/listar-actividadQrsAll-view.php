@@ -27,8 +27,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     <div class="row">
 <div class="col-sm-12">
 
-<div class="col-sm-5">
-<div class="col-sm-3">
+<div class="col-sm-7">
+<div class="col-sm-2">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
      <input type="hidden" name="exportarExcelActividadAll" value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
@@ -41,7 +41,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
         <!-- para poder tapar-->
     </form> 
 </div>
-<div class="col-sm-3">
+<div class="col-sm-2">
        <!-- Boton de pdf-->
   <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
@@ -54,7 +54,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
       
     </form>
     </div> 
-<div class="col-sm-3">
+<div class="col-sm-2">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="export" value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
@@ -65,6 +65,18 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
       
     </form> 
 </div>
+<div class="col-sm-3">
+       <!-- Boton de pdf-->
+  <form>
+    <input type="hidden" name="export" value="export" />    
+      
+        <a href="<?php echo SERVERURL?>graficospie/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">REPORTES GRAFICOS
+          
+        </a>
+     
+      
+    </form>
+    </div>
 </br>
 </br>
 </br>
@@ -95,6 +107,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
                                 </a></p>
                         </div>
+
+                        
+
                            
 
                 </div>
@@ -121,22 +136,29 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                                             <?php }?>
                                     </select>
                                     </div>
-                                    <div class="col-md-3 col-sm-3">
+                        <div class="col-md-3 col-sm-3">
                                    <p>
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
                                 </a></p>
+
                         </div>
                            
 
                 </div>
 
-                                                    
+                                        <div>
+                                            <div class="col-md-3 col-sm-3" align="right">
+                                            aaa
+                                        </div>
+                                        <div>
 
+                         
                                        <p align="right" class="x_title">
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>
+
                                     
-                                        <div class="card-box table-responsive">
+                    <div class="card-box table-responsive">
                         
                         <table id="datatable" class="table table-bordered border-warning" style="width:100%" >
                        

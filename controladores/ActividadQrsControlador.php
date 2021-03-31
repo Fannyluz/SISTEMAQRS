@@ -90,7 +90,6 @@
          $datos=ActividadQrsModelo::listar_ActividadQrsAll_modelo();
          return $datos;
       } // fin del controlador 
-
       
        /*controlador listar actividades pendientes All*/
       public function listar_ActividadQrsPendientesAll_controlador()
@@ -154,20 +153,25 @@
         }
        
           $output .= '
-           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
-                            <tr class="tr-primary" style="background-color:#10226a;color:white;">  
-                                 <th>Item</th>
-                                <th>Tipo</th>
-                                <th>Caso</th>
-                                <th>Tipo Emisor</th>
-                                <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
-                                <th>Nombres y Apellidos</th>
-                                <th>Descripcion</th>
-                                <th>Celular</th>
-                                <th>CorreoElectronico</th>
-                                <th>Fecha</th>
-                                <th>Estado</th> 
+           <table id="datatable" class="table table-bordered border-warning" style="width:100%"> 
+           <tr>
+           <td colspan="12" bgcolor="Yellow"><center><strong>REPORTE DE ACTIVIDADES</strong></center>
+           </td>
+           <td> </td>
+           </tr>
+                            <tr colspan="12" class="tr-primary">  
+                                 <th colspan="1" style="background-color:#10226a;color:white;">Item</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Tipo</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Caso</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Tipo Emisor</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Personal UptVirtual (Destinatario)</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Codigo</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Nombres y Apellidos</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Descripcion</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Celular</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">CorreoElectronico</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Fecha</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Estado</th> 
                             </tr>
           ';
           foreach($datos as $row){  
@@ -1035,5 +1039,13 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
 
       } // fin del controlador 
 
+
+
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsAll_Reporte_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsAll_Reporte_modelo();
+         return $datos;
+      } // fin del controlador 
 
      }

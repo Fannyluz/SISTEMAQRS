@@ -36,6 +36,17 @@ class ActividadQrsModelo extends modeloPrincipal{
       $datos=$datos->fetchAll();
       return $datos;
   }
+
+
+  public function listar_ActividadQrsAll_Reporte_modelo(){ 
+     $consulta="SELECT count(*) as Contador,c.CASnombre FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo 
+    GROUP BY act.CAScodigo";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  }
   public function listar_ActividadQrsPendientesAll_modelo(){ 
       $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
