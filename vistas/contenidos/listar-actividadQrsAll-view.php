@@ -45,9 +45,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
        <!-- Boton de pdf-->
   <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+       <button type="submit"  class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+       
         Exportar PDF
-
         </button>
           
       </input>
