@@ -216,7 +216,7 @@ if($_SESSION['privilegio_spm']!=1){
 			        }
 			    },
 			    series: [{
-			        name: 'Total caso',
+			        name: 'Casos',
 			        data: [
 			        <?php  foreach($datos as $row){ 
 			        ?>
