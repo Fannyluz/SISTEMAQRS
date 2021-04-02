@@ -30,9 +30,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 <div class="col-sm-7">
 <div class="col-sm-2">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
-     <input type="hidden" name="exportarExcelActividadAll" value="export" />    
+     <input type="hidden" name="exportarExcelActividadAll"  value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        Exportar Excel
+         <i class="fa fa-download fa-sm"></i> Excel
 
         </button>
           
@@ -46,8 +46,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
   <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
        <button type="submit"  class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-       
-        Exportar PDF
+       <i class="fa fa-download fa-sm"></i> PDF
         </button>
           
       </input>
@@ -58,8 +57,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="export" value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        Exportar Word
-
+        <i class="fa fa-download fa-sm"></i>Word
         </button>
       </input>
       
@@ -70,8 +68,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
   <form>
     <input type="hidden" name="export" value="export" />    
       
-        <a href="<?php echo SERVERURL?>graficospie/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">REPORTES GRAFICOS
-          
+        <a href="<?php echo SERVERURL?>graficos/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+          <i class="fa fa-pie-chart fa-sm"></i>Reportes
         </a>
      
       
