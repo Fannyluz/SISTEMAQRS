@@ -39,8 +39,9 @@ class ActividadQrsModelo extends modeloPrincipal{
 
 
   public function listar_ActividadQrsAll_Reporte_modelo(){ 
-     $consulta="SELECT count(*) as Contador,c.CASnombre FROM oevactpactividadqrs AS act
-      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo 
+     $consulta="SELECT count(*) as Contador,c.CASnombre,tq.TIPnombre FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
     GROUP BY act.CAScodigo ORDER BY Contador DESC" ;
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
