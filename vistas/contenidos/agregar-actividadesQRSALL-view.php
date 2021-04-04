@@ -381,7 +381,7 @@ $nuevoestado="Activo";
                       <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                       <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="save" novalidate>
                                                             
-                                                            </p>
+                                                            </p> 
                                                             <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
                         
                         
