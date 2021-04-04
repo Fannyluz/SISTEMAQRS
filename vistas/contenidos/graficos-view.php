@@ -182,7 +182,7 @@ if($_SESSION['privilegio_spm']!=1){
 	                    },
 	                    series: [{
 	                        type: 'pie',
-	                        name: 'Total caso',
+	                        name: 'Porcentaje del caso',
 	                        data: [
 	                        <?php  foreach($datos as $row){ 
 	                        	echo " ['".$row['CASnombre']."', ".$row['Contador']."],";
@@ -199,10 +199,7 @@ if($_SESSION['privilegio_spm']!=1){
 
 		<figure class="highcharts-figure">
     <div id="container"></div>
-    <p class="highcharts-description">
-        A variation of a 3D pie chart with an inner radius added.
-        These charts are often referred to as donut charts.
-    </p>
+    
 </figure>
 
 
@@ -228,7 +225,7 @@ Highcharts.chart('container', {
         }
     },
     series: [{
-        name: 'Delivered amount',
+        name: 'Total de casos',
         data: [
             <?php  foreach($datos as $row){ 
 	                        	echo " ['".$row['CASnombre']."', ".$row['Contador']."],";
