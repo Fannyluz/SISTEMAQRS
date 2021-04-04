@@ -88,6 +88,12 @@
          return $datos;
       } // fin del controlador 
 
+      /*controlador listar select estado=activo
+      public function Listar_tipoqrs_estado_controlador()
+      {
+         $datos=TipoQrsModelo::listar_tipoqrs_estado_modelo();
+         return $datos;
+      } // fin del controlador */
 
 
 

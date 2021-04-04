@@ -30,9 +30,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 <div class="col-sm-7">
 <div class="col-sm-2">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
-     <input type="hidden" name="exportarExcelActividadAll"  value="export" />    
+     <input type="hidden" name="exportarExcelActividadAll" value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-         <i class="fa fa-download fa-sm"></i> Excel
+        Exportar Excel
 
         </button>
           
@@ -46,7 +46,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
   <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
        <button type="submit"  class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-       <i class="fa fa-download fa-sm"></i> PDF
+       
+        Exportar PDF
         </button>
           
       </input>
@@ -57,7 +58,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="export" value="export" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        <i class="fa fa-download fa-sm"></i>Word
+        Exportar Word
+
         </button>
       </input>
       
@@ -68,8 +70,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
   <form>
     <input type="hidden" name="export" value="export" />    
       
-        <a href="<?php echo SERVERURL?>graficos/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-          <i class="fa fa-pie-chart fa-sm"></i>Reportes
+        <a href="<?php echo SERVERURL?>graficospie/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">REPORTES GRAFICOS
+          
         </a>
      
       
@@ -125,7 +127,6 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                                     require_once "./controladores/TipoQrsControlador.php";
                                                     $tipoqrs=new TipoQrsControlador();
                                                     $datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
-                                                    
                                                     $count=1;
                                                     $nuevoestado="Activo";
                                                     ?>
@@ -141,7 +142,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     </div>
                                     <div class="col-md-3 col-sm-3">
                                    <p>
-                                    <a href="<?php echo SERVERURL?>buscar-caso/" <?php echo $row['ACTcodigo'] ?>  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
+                                    <a href="<?php echo SERVERURL?>buscar-caso/" <?php echo $row['TIPcodigo'] ?>  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
                                 </a></p>
 
                                 </div>
@@ -261,5 +262,3 @@ require_once "modelos/modeloPrincipal.php";
                     </div>
         </div>
  </div>
- 
- 

@@ -79,9 +79,22 @@
             
             echo json_encode($alerta);
       } // fin del controlador 
+/* probar buscar*/
+public function Buscar_ActividadQRS_controlador($codigo){
+  $codigo=modeloPrincipal::limpiar_cadena($_POST['caso_buscar']);
+  $datos=ActividadQrsModelo::listar_ActividadQrsAlll_modelo($codigo);
+         return $datos;
+}
 
+/*fin del probar*/
 
-     
+     /*controlador listar actividades select All*/
+     public function listar_ActividadQrsAlll_controlador()
+     {
+      $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $datos=ActividadQrsModelo::listar_ActividadQrsAlll_modelo($codigo);
+        return $datos;
+     } // fin del controlador 
 
 
       /*controlador listar actividades All*/

@@ -97,6 +97,7 @@ $nuevoestado="Activo";
 </div>
 </div>
                                                          
+<<<<<<< Updated upstream
 <?php 
 require_once "./controladores/CasoControlador.php";
 $caso=new CasoControlador();
@@ -130,18 +131,78 @@ $nuevoestado="Activo";
 <select class="form-control" name="tipousuario_reg">
 <?php foreach($datosUsuario as $row){ ?>
 <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
+=======
+                                                    <?php 
+                                                    require_once "./controladores/CasoControlador.php";
+                                                    $caso=new CasoControlador();
+                                                    $datosCaso=$caso->Listar_casos_estado_controlador(); 
+                                                    $count=1;
+                                                    $nuevoestado="Activo";
+                                                    ?>
+
+                                                    <div class="field item form-group">
+                                                     <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Caso:</b><span class="required">*</span></label>
+
+                                                        <div class="col-md-6 col-sm-6">
+                                                        <select class="form-control" name="caso_reg">
+                                                            <?php foreach($datosCaso as $row){ ?>
+                                                                <option value=<?php echo $row['CAScodigo']?>><?php echo $row['CASnombre']?></option>
+                                                            <?php }?>
+                                                        </select>
+                                                        </div> 
+                                                    </div>
+
+                                                    <?php 
+                                                    require_once "./controladores/TipoUsuarioControlador.php";
+                                                    $tipoUsuario=new TipoUsuarioControlador();
+                                                    $datosUsuario=$tipoUsuario->Listar_tipousuario_estado_controlador();
+                                                    $count=1;
+                                                    $nuevoestado="Activo";
+                                                    ?>
+                                                    
+                                                    
+
+                                                    <div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
+<div class="col-md-6 col-sm-6">
+<select class="form-control" name="tipousuario_reg">
+<?php 
+
+foreach($datosUsuario as $row){ 
+if($row['TIUcodigo']=="2")
+{
+    ?>
+    <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
+    <?php
+}
+    ?>
+}
+
+>>>>>>> Stashed changes
 <?php }?>
 </select>
 </div>
 </div>
 
 
+<<<<<<< Updated upstream
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
 <div class="col-md-6 col-sm-6">
 <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
 </div>
 </div>
+=======
+                                                   
+
+
+                                                            <div class="field item form-group">
+                                                               <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
+                                                                <div class="col-md-6 col-sm-6">
+                                                                    <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
+                                                                </div>
+                                                            </div>
+>>>>>>> Stashed changes
                                                             
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
@@ -293,17 +354,26 @@ $nuevoestado="Activo";
                                                                             $nuevoestado="Activo";
                                                                             ?>
                         
-                                                                            <div class="field item form-group">
-                                                                               <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
-                        
-                                                                                <div class="col-md-6 col-sm-6">
-                                                                                <select class="form-control" name="tipousuario_reg">
-                                                                                    <?php foreach($datosUsuario as $row){ ?>
-                                                                                        <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
-                                                                                    <?php }?>
-                                                                                </select>
-                                                                                </div>
-                                                                            </div>
+                        <div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
+<div class="col-md-6 col-sm-6">
+<select class="form-control" name="tipousuario_reg">
+<?php 
+
+foreach($datosUsuario as $row){ 
+if($row['TIUcodigo']=="1")
+{
+    ?>
+    <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
+    <?php
+}
+    ?>
+}
+
+<?php }?>
+</select>
+</div>
+</div>
                         
                         
                                                                                     <div class="field item form-group">
@@ -450,17 +520,26 @@ $nuevoestado="Activo";
                                                                             $nuevoestado="Activo";
                                                                             ?>
                         
-                                                                            <div class="field item form-group">
-                                                                               <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
-                        
-                                                                                <div class="col-md-6 col-sm-6">
-                                                                                <select class="form-control" name="tipousuario_reg">
-                                                                                    <?php foreach($datosUsuario as $row){ ?>
-                                                                                        <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
-                                                                                    <?php }?>
-                                                                                </select>
-                                                                                </div>
-                                                                            </div>
+                        <div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
+<div class="col-md-6 col-sm-6">
+<select class="form-control" name="tipousuario_reg">
+<?php 
+
+foreach($datosUsuario as $row){ 
+if($row['TIUcodigo']=="3")
+{
+    ?>
+    <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
+    <?php
+}
+    ?>
+}
+
+<?php }?>
+</select>
+</div>
+</div>
                         
                         
                                                                                    

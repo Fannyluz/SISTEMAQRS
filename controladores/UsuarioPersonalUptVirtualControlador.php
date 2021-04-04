@@ -111,6 +111,15 @@
       } // fin del controlador 
 
 
+      /*probarrrrrr con fe*/
+      public function Listar_usuariopersonaluptvirtual_buscador_controlador() 
+      {
+         $codigo=$usuario['UPUusuario'];
+         $datos=UsuarioPersonalUptVirtualModelo::listar_usuariopersonaluptvirtual_buscador_modelo($codigo);
+         return $datos;
+      } // fin del controlador 
+
+
       /*controlador obtener usuario _codigo para asi poder obtener la informacion para el formario de agregar actividad qrs personal*/
          public function Obtener_usuariopersonaluptvirtual_controlador()
       {

@@ -21,6 +21,9 @@
             if(isset($_POST['UsuarioPersonalUPTvirtual_codigo_up'])){
                 echo $ins_caso->Editar_usuariopersonaluptvirtual_controlador();
             }
+            if(isset($_POST['personal_busc'])){
+                echo $ins_caso->Listar_usuariopersonaluptvirtual_buscador_controlador();
+            }
         
     }else{
         session_start(['name' => 'QRS']);

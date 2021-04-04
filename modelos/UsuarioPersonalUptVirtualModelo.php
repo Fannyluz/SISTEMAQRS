@@ -30,6 +30,23 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
     return $datos;
 }
 
+
+
+//Listar usuario personal estado=activo listar_usuariopersonaluptvirtual_buscador_modelo
+public function listar_usuariopersonaluptvirtual_buscador_modelo($codigo){
+  $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual AS up 
+  INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+  INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE UPUusuario=$codigo";
+  $conexion=modeloPrincipal::conectar();
+  $datos=$conexion->query($consulta);
+  $datos=$datos->fetchAll();
+  return $datos;
+}
+
+
+
+
+
 //Listar usuario personal estado=activo
   public function listar_usuariopersonaluptvirtual_estado_modelo(){
     $consulta="SELECT * FROM oevuputusuariopersonaluptvirtual AS up 

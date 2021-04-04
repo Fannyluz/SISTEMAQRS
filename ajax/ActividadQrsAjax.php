@@ -2,7 +2,7 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['ACTnombres_reg'])  || isset($_POST['ActividadQRS_codigo_up'])){
+    if(isset($_POST['ACTnombres_reg'])  || isset($_POST['ActividadQRS_codigo_up']) || isset($_POST['caso_buscar']) ){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/ActividadQrsControlador.php";
         $ins_tiperson = new ActividadQrsControlador();
@@ -14,6 +14,9 @@
             // editar un Actividad QRS
             if(isset($_POST['ActividadQRS_codigo_up'])){
                 echo $ins_tiperson->Editar_ActividadQRS_controlador();
+            }
+            if(isset($_POST['caso_buscar'])){
+                echo $ins_tiperson->Buscar_ActividadQRS_controlador();
             }
             
         
