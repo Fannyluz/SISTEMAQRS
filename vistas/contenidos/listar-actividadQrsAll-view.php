@@ -141,7 +141,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     </div>
                                     <div class="col-md-3 col-sm-3">
                                    <p>
-                                    <a href="<?php echo SERVERURL?>buscar-caso/" <?php echo $row['ACTcodigo'] ?>  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
+                                    <a href="<?php echo SERVERURL?>buscar-caso/" <?php echo $row['TIPcodigo'] ?>  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
                                 </a></p>
 
                                 </div>

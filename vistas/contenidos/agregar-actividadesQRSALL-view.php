@@ -31,7 +31,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                     <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" > 
-                         <i class="fa fa-user-secret fa-sm"></i> Docente
+                         <i class="fa fa-user fa-sm"></i> Docente
                      </a>
                       </li>
                       <li class="nav-item">
@@ -46,7 +46,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" id="otros-tab" data-toggle="tab" href="#otros" role="tab" aria-controls="otros" aria-selected="false" >
-                            <i class="fa fa-user fa-sm"></i> Otros
+                            <i class="fa fa-users fa-sm"></i> Otros
                         </a>
                       </li>
                     </ul>
