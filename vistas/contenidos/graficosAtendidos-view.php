@@ -155,7 +155,7 @@ if($_SESSION['privilegio_spm']!=1){
 <?php 
 	                                  require_once "./controladores/ActividadQrsControlador.php";
 	                                  $casos=new ActividadQrsControlador();
-	                                  $datos=$casos->listar_ActividadQrsAll_Reporte_controlador();
+	                                  $datos=$casos->listar_ActividadQrsAtendidasCasoAll_Reporte_controlador();
 	                                  $count=1;
 	                                  $nuevoestado="Activo";?>
 <div class="col-md-12"> 	 
@@ -176,7 +176,7 @@ Highcharts.chart('container_DONUT', {
         }
     },
     title: {
-        text: 'Porcentaje de actividades por caso - DONUT'
+        text: 'Porcentaje de actividades atendidas por caso - DONUT'
     },accessibility: {
 	                        point: {
 	                            valueSuffix: '%'
@@ -227,7 +227,7 @@ Highcharts.chart('container_DONUT', {
 				        }
 				    },
 				    title: {
-				        text: 'Actividades por caso - 3D'
+				        text: 'Actividades Atendidas por caso - 3D'
 				    },
 				    
 				    plotOptions: {
@@ -302,7 +302,7 @@ Highcharts.chart('container_DONUT', {
              <?php 
 	                                  require_once "./controladores/ActividadQrsControlador.php";
 	                                  $casos=new ActividadQrsControlador();
-	                                  $datos=$casos->listar_ActividadQrsAll_ReporteTipo_controlador();
+	                                  $datos=$casos->listar_ActividadAtendidasQrsAll_ReporteTipo_controlador();
 	                                  $count=1;
 	                                  $nuevoestado="Activo";?>
 <div class="col-md-12"> 	 
@@ -318,7 +318,7 @@ Highcharts.chart('container_DONUT', {
 			        type: 'pyramid'
 			    },
 			    title: {
-			        text: 'Actividades por caso- PIRAMIDE',
+			        text: 'Actividades atendidas por caso- PIRAMIDE',
 			        x: -50
 			    },
 			    plotOptions: {
@@ -392,7 +392,7 @@ Highcharts.chart('container_cilindro_Tipo', {
         }
     },
 				    title: {
-				        text: 'Actividades por caso - CYLINDER'
+				        text: 'Actividades atendidas por caso - CYLINDER'
 				    },
 				    
 				    plotOptions: {
@@ -489,7 +489,7 @@ $nuevoestado="Activo";
              <?php 
 	                                  require_once "./controladores/ActividadQrsControlador.php";
 	                                  $casos=new ActividadQrsControlador();
-	                              $datos=$casos->listar_ActividadQrsAll_ReportePersonal_controlador();
+	                              $datos=$casos->listar_ActividadesAtendidasQrsAll_ReportePersonal_controlador();
 	                                  $count=1;
 	                                  $nuevoestado="Activo";?>
 <div class="col-md-12"> 	 
@@ -514,10 +514,7 @@ Highcharts.chart('container_cilindro_Personal', {
         }
     },
 				    title: {
-				        text: 'Actividades por caso - CYLINDER'
-				    },
-				    subtitle: {
-				        text: 'Notice the difference between a 0 value and a null point'
+				        text: 'Actividades atendidad por caso - CYLINDER'
 				    },
 				    plotOptions: {
         series: {
@@ -578,7 +575,7 @@ Highcharts.chart('container_DONUT_Personal', {
         }
     },
     title: {
-        text: 'Porcentaje de actividades por caso - DONUT'
+        text: 'Porcentaje de actividades atendidas por caso - DONUT'
     },accessibility: {
 	                        point: {
 	                            valueSuffix: '%'

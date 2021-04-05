@@ -1034,7 +1034,7 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          if(ActividadQrsModelo::Editar_ActividadQRS_Modelo($datos_actividadQRS_update)){
           $alerta=[
                   "Alerta"=>"recargar",
-                  "Titulo"=>"Actividad QRS Actualizado",
+                  "Titulo"=>"Caso Actualizado",
                   "Texto"=>"los datos se actualizaron correctamente",
                   "Tipo"=>"success"
                ];
@@ -1057,7 +1057,21 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadQrsAll_Reporte_controlador()
       {
-         $datos=ActividadQrsModelo::listar_ActividadQrsAll_Reporte_modelo();
+         $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReporteCaso_modelo();
+         return $datos;
+      } // fin del controlador 
+
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsAtendidasCasoAll_Reporte_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidosCasoAll_Reporte_modelo();
+         return $datos;
+      } // fin del controlador 
+
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsPendientesCasoAll_Reporte_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsPendientesCasoAll_Reporte_modelo();
          return $datos;
       } // fin del controlador 
 
@@ -1065,6 +1079,18 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
       public function listar_ActividadQrsAll_ReporteTipo_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReporteTipo_modelo();
+         return $datos;
+      } // fin del controlador 
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadAtendidasQrsAll_ReporteTipo_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsAll_ReporteTipo_modelo();
+         return $datos;
+      } // fin del controlador 
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadPendientesQrsAll_ReporteTipo_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReporteTipo_modelo();
          return $datos;
       } // fin del controlador 
 
@@ -1078,7 +1104,7 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
         }
         else
         {
-          $buscar=modeloPrincipal::limpiar_cadena($_POST['buscarTipoPersonal_Reporte']);
+          $buscar=2;
           $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar);
         }
 
@@ -1086,7 +1112,18 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          
          return $datos;
       } // fin del controlador 
-      /*controlador listar actividades All reporte por casos*/
-      
 
+      public function listar_ActividadesAtendidasQrsAll_ReportePersonal_controlador()
+      {
+        
+        $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo();
+return $datos;
+      } // fin del controlador 
+      public function listar_ActividadesPendientesQrsAll_ReportePersonal_controlador()
+      {
+        
+        $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReportePersonal_modelo();
+return $datos;
+      } // fin del controlador 
+      
      }

@@ -38,10 +38,30 @@ class ActividadQrsModelo extends modeloPrincipal{
   }
 
 
-  public function listar_ActividadQrsAll_Reporte_modelo(){ 
+  public function listar_ActividadQrsAll_ReporteCaso_modelo(){ 
      $consulta="SELECT count(*) as Contador,c.CASnombre,tq.TIPnombre FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+    GROUP BY act.CAScodigo ORDER BY Contador DESC" ;
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  }
+  public function listar_ActividadQrsAtendidosCasoAll_Reporte_modelo(){ 
+     $consulta="SELECT count(*) as Contador,c.CASnombre,tq.TIPnombre FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo WHERE act.ACTestado=2
+    GROUP BY act.CAScodigo ORDER BY Contador DESC" ;
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  }
+  public function listar_ActividadQrsPendientesCasoAll_Reporte_modelo(){ 
+     $consulta="SELECT count(*) as Contador,c.CASnombre,tq.TIPnombre FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo WHERE act.ACTestado=1
     GROUP BY act.CAScodigo ORDER BY Contador DESC" ;
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
@@ -58,7 +78,26 @@ class ActividadQrsModelo extends modeloPrincipal{
       $datos=$datos->fetchAll();
       return $datos;
   }
-
+public function listar_ActividadesAtendidasQrsAll_ReporteTipo_modelo(){ 
+     $consulta="SELECT count(*) as Contador,tq.TIPnombre FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo WHERE act.ACTestado=2
+    GROUP BY act.TIPcodigo ORDER BY Contador DESC" ;
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  }
+public function listar_ActividadesPendientesQrsAll_ReporteTipo_modelo(){ 
+     $consulta="SELECT count(*) as Contador,tq.TIPnombre FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo WHERE act.ACTestado=1
+    GROUP BY act.TIPcodigo ORDER BY Contador DESC" ;
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  }
   public function listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar){ 
     if($buscar=="")
     {
@@ -78,7 +117,7 @@ class ActividadQrsModelo extends modeloPrincipal{
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
       INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
       INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
-      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.TIPcodigo=$buscar
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.TIPcodigo=$codigo
     GROUP BY act.UPUcodigo ORDER BY Contador DESC" ;
       
       
@@ -89,6 +128,37 @@ class ActividadQrsModelo extends modeloPrincipal{
      return $datos;
   }
 
+public function listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo(){ 
+    
+      $consulta="SELECT count(*) as Contador,pu.PEUnombres FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=2
+    GROUP BY act.UPUcodigo ORDER BY Contador DESC" ;
+
+    $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+     return $datos;
+  }
+
+  public function listar_ActividadesPendientesQrsAll_ReportePersonal_modelo(){ 
+    
+      $consulta="SELECT count(*) as Contador,pu.PEUnombres FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=1
+    GROUP BY act.UPUcodigo ORDER BY Contador DESC" ;
+
+    $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+     return $datos;
+  }
 
   public function listar_ActividadQrsAll_ReportePersonal_modelo(){ 
     $consulta="SELECT count(*) as Contador,tq.TIUnombre FROM oevactpactividadqrs AS act
