@@ -176,11 +176,14 @@ Highcharts.chart('container_DONUT', {
         }
     },
     title: {
-        text: 'Actividades por Caso - DONUT'
-    },
-    subtitle: {
-        text: '3D donut in Highcharts'
-    },
+        text: 'Porcentaje de actividades por caso - DONUT'
+    },accessibility: {
+	                        point: {
+	                            valueSuffix: '%'
+	                        }
+	                    },tooltip: {
+	                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	                    },
     plotOptions: {
         pie: {
             innerSize: 100,
@@ -205,14 +208,112 @@ Highcharts.chart('container_DONUT', {
 		
 	<div class="col-md-6">
 
-		
+			<figure class="highcharts-figure">
+		    <div id="container_3D_Tipo">
+		    	
+		    </div>
+		</figure>
 
+
+		<script type="text/javascript">
+				Highcharts.chart('container_3D_Tipo', {
+				    chart: {
+				        type: 'column',
+				        options3d: {
+				            enabled: true,
+				            alpha: 10,
+				            beta: 25,
+				            depth: 70
+				        }
+				    },
+				    title: {
+				        text: 'Actividades por caso - 3D'
+				    },
+				    
+				    plotOptions: {
+        series: {
+            depth: 25,
+            colorByPoint: true
+        }
+    },
+				    xAxis: {
+				        categories: [
+				        <?php  foreach($datos as $row){ 
+				        ?>
+				        	['<?php echo $row['CASnombre']?>'],
+				        <?php } ?>
+				        ],
+				  
+				    },
+				    yAxis: {
+				        title: {
+				            text: null
+				        }
+				    },
+				    series: [{
+				        name: 'CASOS',
+				        data: [
+				        <?php  foreach($datos as $row){ 
+				        ?>
+
+				        	[<?php echo $row['Contador']?>],
+
+				        	<?php } ?>
+				        ]
+				         
+				    }]
+				});
+						</script>
+
+	</div>
+
+</div>
+         
+
+
+     <div class="col-md-12"> 	
+		 <hr noshade="noshade" color="#10226a">
+		<hr noshade="noshade" color="#fdaf17">
+		<hr noshade="noshade" color="#10226a">
+		<div class="col-md-6">
+					
+
+		</div>
+
+		<div class="col-md-6">
+
+			
+		</div>
+
+
+
+
+     </div>
+
+                             
+    </form>
+                           
+  </div>
+
+
+
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <form>
+             <?php 
+	                                  require_once "./controladores/ActividadQrsControlador.php";
+	                                  $casos=new ActividadQrsControlador();
+	                                  $datos=$casos->listar_ActividadQrsAll_ReporteTipo_controlador();
+	                                  $count=1;
+	                                  $nuevoestado="Activo";?>
+<div class="col-md-12"> 	 
+	<div class="col-md-6">
+							
 
 		<figure class="highcharts-figure">
-				    <div id="container_PIRAMIDE"></div>    
+				    <div id="container_PIRAMIDE_tipo"></div>    
 				</figure>
 			<script type="text/javascript">
-			Highcharts.chart('container_PIRAMIDE', {
+			Highcharts.chart('container_PIRAMIDE_tipo', {
 			    chart: {
 			        type: 'pyramid'
 			    },
@@ -239,7 +340,242 @@ Highcharts.chart('container_DONUT', {
 			        data: [
 			    
 			 <?php  foreach($datos as $row){ 
-			                        	echo " ['".$row['CASnombre']."', ".$row['Contador']."],";
+			                        	echo " ['".$row['TIPnombre']."', ".$row['Contador']."],";
+			                          }  
+			                        ?>
+
+			        ]
+			    }],
+
+			    responsive: {
+			        rules: [{
+			            condition: {
+			                maxWidth: 500
+			            },
+			            chartOptions: {
+			                plotOptions: {
+			                    series: {
+			                        dataLabels: {
+			                            inside: true
+			                        },
+			                        center: ['50%', '50%'],
+			                        width: '100%'
+			                    }
+			                }
+			            }
+			        }]
+			    }
+			});
+			</script>
+	  		
+	</div>
+		
+	<div class="col-md-6">
+
+		
+<figure class="highcharts-figure">
+    <div id="container_cilindro_Tipo"></div>
+   
+</figure>
+
+
+		<script type="text/javascript">
+Highcharts.chart('container_cilindro_Tipo', {
+    chart: {
+        type: 'cylinder',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            depth: 50,
+            viewDistance: 25
+        }
+    },
+				    title: {
+				        text: 'Actividades por caso - CYLINDER'
+				    },
+				    
+				    plotOptions: {
+        series: {
+            depth: 25,
+            colorByPoint: true
+        }
+    },
+				    xAxis: {
+				        categories: [
+				        <?php  foreach($datos as $row){ 
+				        ?>
+				        	['<?php echo $row['TIPnombre']?>'],
+				        <?php } ?>
+				        ],
+				  
+				    },
+				    yAxis: {
+				        title: {
+				            text: null
+				        }
+				    },
+				    series: [{
+				        name: 'TIPOS',
+				        data: [
+				        <?php  foreach($datos as $row){ 
+				        ?>
+
+				        	[<?php echo $row['Contador']?>],
+
+				        	<?php } ?>
+				        ]
+				         
+				    }]
+				});
+						</script>
+
+
+	</div>
+
+</div>
+         
+
+
+     <div class="col-md-12"> 	
+		 <hr noshade="noshade" color="#10226a">
+		<hr noshade="noshade" color="#fdaf17">
+		<hr noshade="noshade" color="#10226a">
+		<div class="col-md-6">
+
+		</div>
+
+		<div class="col-md-6">
+
+			
+		</div>
+
+
+
+
+     </div>       
+      </form>
+    </div>
+
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+ <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST" data-form="search" novalidate>
+
+     	<?php 
+require_once "./controladores/TipoQrsControlador.php";
+$tipoqrs=new TipoQrsControlador();
+$datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
+$count=1;
+$nuevoestado="Activo";
+?>
+
+<div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo:</b><span class="required">*</span></label>
+<div class="col-md-6 col-sm-6">
+<select class="form-control" name="buscarTipoPersonal_Reporte">
+<?php foreach($datosTipoQRS as $row){ ?>
+<option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
+<?php }?>
+</select>
+</div>
+</div>
+
+<button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+        Buscar
+
+        </button>
+
+
+             <?php 
+	                                  require_once "./controladores/ActividadQrsControlador.php";
+	                                  $casos=new ActividadQrsControlador();
+	                              $datos=$casos->listar_ActividadQrsAll_ReportePersonal_controlador();
+	                                  $count=1;
+	                                  $nuevoestado="Activo";?>
+<div class="col-md-12"> 	 
+	<div class="col-md-6">
+			<figure class="highcharts-figure">
+    <div id="container_DONUT_Personal"></div>
+    
+</figure>
+
+
+		<script type="text/javascript">
+Highcharts.chart('container_DONUT_Personal', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45
+        }
+    },
+    title: {
+        text: 'Porcentaje de actividades por caso - DONUT'
+    },accessibility: {
+	                        point: {
+	                            valueSuffix: '%'
+	                        }
+	                    },tooltip: {
+	                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	                    },
+    plotOptions: {
+        pie: {
+            innerSize: 100,
+            depth: 45
+        }
+    },
+    series: [{
+        name: 'Total de casos',
+        data: [
+            <?php  foreach($datos as $row){ 
+	                        	echo " ['".$row['PEUnombres']."', ".$row['Contador']."],";
+	                          }  
+	                        ?>
+        ]
+    }]
+});
+		</script>
+
+	           
+	  		
+	</div>
+		
+	<div class="col-md-6">
+
+		
+
+
+		<figure class="highcharts-figure">
+				    <div id="container_PIRAMIDE_Personal"></div>    
+				</figure>
+			<script type="text/javascript">
+			Highcharts.chart('container_PIRAMIDE_Personal', {
+			    chart: {
+			        type: 'pyramid'
+			    },
+			    title: {
+			        text: 'Actividades por caso- PIRAMIDE',
+			        x: -50
+			    },
+			    plotOptions: {
+			        series: {
+			            dataLabels: {
+			                enabled: true,
+			                format: '<b>{point.name}</b> ({point.y:,.0f})',
+			                softConnector: true
+			            },
+			            center: ['40%', '50%'],
+			            width: '80%'
+			        }
+			    },
+			    legend: {
+			        enabled: false
+			    },
+			    series: [{
+			        name: 'Total caso',
+			        data: [
+			    
+			 <?php  foreach($datos as $row){ 
+			                        	echo " ['".$row['PEUnombres']."', ".$row['Contador']."],";
 			                          }  
 			                        ?>
 
@@ -280,16 +616,13 @@ Highcharts.chart('container_DONUT', {
 		<div class="col-md-6">
 					
 <figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        Chart showing basic use of 3D cylindrical columns. A 3D cylinder chart
-        is similar to a 3D column chart, with a different shape.
-    </p>
+    <div id="container_cilindro_Personal"></div>
+   
 </figure>
 
 
 		<script type="text/javascript">
-Highcharts.chart('container', {
+Highcharts.chart('container_cilindro_Personal', {
     chart: {
         type: 'cylinder',
         options3d: {
@@ -316,7 +649,7 @@ Highcharts.chart('container', {
 				        categories: [
 				        <?php  foreach($datos as $row){ 
 				        ?>
-				        	['<?php echo $row['CASnombre']?>'],
+				        	['<?php echo $row['PEUnombres']?>'],
 				        <?php } ?>
 				        ],
 				  
@@ -345,14 +678,14 @@ Highcharts.chart('container', {
 		<div class="col-md-6">
 
 			<figure class="highcharts-figure">
-		    <div id="container_3D">
+		    <div id="container_3D_Personal">
 		    	
 		    </div>
 		</figure>
 
 
 		<script type="text/javascript">
-				Highcharts.chart('container_3D', {
+				Highcharts.chart('container_3D_Personal', {
 				    chart: {
 				        type: 'column',
 				        options3d: {
@@ -378,7 +711,7 @@ Highcharts.chart('container', {
 				        categories: [
 				        <?php  foreach($datos as $row){ 
 				        ?>
-				        	['<?php echo $row['CASnombre']?>'],
+				        	['<?php echo $row['PEUnombres']?>'],
 				        <?php } ?>
 				        ],
 				  
@@ -407,23 +740,8 @@ Highcharts.chart('container', {
 
 
 
-     </div>
-
-                             
-    </form>
-                           
-  </div>
-
-
-
-    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <form>
-              eer       ee         
+     </div>       
       </form>
-    </div>
-
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-     ptrp
     </div>
 
     <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">

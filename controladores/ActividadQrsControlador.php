@@ -1068,4 +1068,22 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          return $datos;
       } // fin del controlador 
 
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsAll_ReportePersonal_controlador()
+      {
+        $buscar="";
+       if($buscar=="")
+       {
+        $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar);
+        }
+        else
+        {
+          $buscar=modeloPrincipal::limpiar_cadena($_POST['buscarTipoPersonal_Reporte']);
+          $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar);
+        }
+
+
+         
+         return $datos;
+      } // fin del controlador 
      }
