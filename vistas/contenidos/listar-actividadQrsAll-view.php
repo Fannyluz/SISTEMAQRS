@@ -96,7 +96,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                            
                                     <div class="col-md-3 col-sm-3" >
-                                    <select class="form-control" name="personal_buscar" >
+                                    <select class="form-control" method="POST" name="personal_buscar" >
                                         <?php foreach($datosTipoQRS as $row){ ?>
                                             <option value=<?php echo $row['UPUcodigo']?>><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>)</option>
                                         <?php }?>
@@ -114,7 +114,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 </a></p>
                         </div>       
 
-                </div>
+                        </div>
                 
                                             </br>
                                             </br>
@@ -134,9 +134,14 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                            
                                     <div  class="col-md-3 col-sm-3">
                                     <select class="form-control" name="caso_buscar" id="caso_buscar" >
-                                        <?php foreach($datosTipoQRS as $row){ ?>
-                                                                <option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
-                                                            <?php }?>
+                                        <?php 
+                                        foreach($datosTipoQRS as $row){ 
+                                        if($row['TIPcodigo'] == $row['TIPcodigo']){
+                                            ?>
+                                            <option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
+                                            <?php
+                                        } ?>}
+                                        <?php }?>
                                     </select>
                                     </div>
                                     <div class="col-md-3 col-sm-3">
@@ -163,7 +168,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     
                     <div class="card-box table-responsive">
                         
-                        <table id="datatable" class="table table-bordered border-warning" style="width:100%" >
+                        <table id="datatable" class="table table-hover table-condensed table-bordered border-warning" style="width:100%" >
                        
 
                             <thead  class="thead-primary" style="background-color:#10226a;color:white;">

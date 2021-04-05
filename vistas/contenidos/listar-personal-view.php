@@ -37,7 +37,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                            
                                         <div class="card-box table-responsive">
                         
-                        <table id="datatable" class="table table-bordered border-warning" style="width:100%" >
+                        <table id="datatable" class="table table-hover table-condensed table-bordered border-warning" style="width:100%" >
                        
 
                             <thead  class="thead-primary" style="background-color:#10226a;color:white;">

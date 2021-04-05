@@ -423,7 +423,7 @@ Highcharts.chart('container', {
     </div>
 
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-     ptrp
+	
     </div>
 
     <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">

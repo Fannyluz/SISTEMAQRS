@@ -1068,4 +1068,11 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          return $datos;
       } // fin del controlador 
 
+      /*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsAll_ReportePersonal_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonal_modelo();
+         return $datos;
+      } // fin del controlador 
+
      }
