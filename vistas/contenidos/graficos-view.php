@@ -744,6 +744,13 @@ Highcharts.chart('container_cilindro_Personal', {
       </form>
     </div>
 
+<<<<<<< HEAD
+=======
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+	
+    </div>
+
+>>>>>>> 60cb0a9a92a33d7e1aeb03c899f8efbf2754bbc0
     <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
      GENERAL
     </div>

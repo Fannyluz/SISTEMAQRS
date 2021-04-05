@@ -58,6 +58,7 @@ class ActividadQrsModelo extends modeloPrincipal{
       $datos=$datos->fetchAll();
       return $datos;
   }
+<<<<<<< HEAD
   public function listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar){ 
     if($buscar=="")
     {
@@ -90,6 +91,20 @@ class ActividadQrsModelo extends modeloPrincipal{
 public function listar_ActividadQrsAll_ReportePersonal_modelo($buscar){ 
     
   }
+=======
+
+  public function listar_ActividadQrsAll_ReportePersonal_modelo(){ 
+    $consulta="SELECT count(*) as Contador,tq.TIUnombre FROM oevactpactividadqrs AS act
+     INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+     INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+   GROUP BY act.CAScodigo ORDER BY Contador DESC" ;
+     $conexion=modeloPrincipal::conectar();
+     $datos=$conexion->query($consulta);
+     $datos=$datos->fetchAll();
+     return $datos;
+ }
+
+>>>>>>> 60cb0a9a92a33d7e1aeb03c899f8efbf2754bbc0
   public function listar_ActividadQrsPendientesAll_modelo(){ 
       $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo

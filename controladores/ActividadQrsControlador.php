@@ -1068,6 +1068,7 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          return $datos;
       } // fin del controlador 
 
+<<<<<<< HEAD
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadQrsAll_ReportePersonal_controlador()
       {
@@ -1086,4 +1087,13 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          
          return $datos;
       } // fin del controlador 
+=======
+      /*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsAll_ReportePersonal_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonal_modelo();
+         return $datos;
+      } // fin del controlador 
+
+>>>>>>> 60cb0a9a92a33d7e1aeb03c899f8efbf2754bbc0
      }
