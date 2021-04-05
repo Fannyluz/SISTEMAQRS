@@ -81,7 +81,7 @@
                                         </ul>
                                       </div> 
                                       <div class="right col-md-5 col-sm-5 text-center">
-                                        <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $row['PEUfoto'] ; ?>" alt="" width="50%" height="40%" class="img-circle img-fluid">
+                                        <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $row['PEUfoto'] ; ?>" alt=""  width="100" style="max-width: 250px; max-height: 100px"  class="img-circle img-fluid">
                                       </div>
                                     </div>
                                     <div class=" profile-bottom text-center">

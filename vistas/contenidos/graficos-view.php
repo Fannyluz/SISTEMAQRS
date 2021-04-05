@@ -127,22 +127,22 @@ if($_SESSION['privilegio_spm']!=1){
                       <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
                       <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" > 
-                         <i class="fa fa-users fa-sm"></i> Por Caso
+                         <i class="fa fa-list-alt fa-sm"></i> Caso
                      </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" >
-                            <i class="fa fa-graduation-cap fa-sm"></i> Por Tipo
+                            <i class="fa fa-commenting-o fa-sm"></i> Tipo
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" >
-                            <i class="fa fa-user fa-sm"></i> Por Personal
+                            <i class="fa fa-user fa-sm"></i> Personal
                         </a>
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="false" >
-                            <i class="fa fa-user fa-sm"></i> General
+                            <i class="fa fa-home fa-sm"></i> General
                         </a>
                       </li>
                     </ul>
