@@ -65,6 +65,17 @@
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/export-data.js"></script>
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/accessibility.js"></script>
 
+
+<!-- area basic -->
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/highcharts.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/exporting.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/export-data.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/accessibility.js"></script>
+
+
+
+
+
 <!-- COLUMNAS COMPARATIVAS -->
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/highcharts.js"></script>
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/data.js"></script>
@@ -73,6 +84,14 @@
 
 
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/highcharts.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/exporting.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/export-data.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/accessibility.js"></script>
+
+<!-- -->
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/highcharts.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/highcharts-3d.js"></script>
+<script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/cylinder.js"></script>
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/exporting.js"></script>
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/export-data.js"></script>
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/accessibility.js"></script>
@@ -133,78 +152,22 @@ if($_SESSION['privilegio_spm']!=1){
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
 <form>
-
-<div class="col-md-12"> 	 
-	<div class="col-md-6">
-		
-	            <figure class="highcharts-figure">
-	                <div id="container_PIE"></div>
-	            </figure>
-
-	                              <?php 
+<?php 
 	                                  require_once "./controladores/ActividadQrsControlador.php";
 	                                  $casos=new ActividadQrsControlador();
 	                                  $datos=$casos->listar_ActividadQrsAll_Reporte_controlador();
 	                                  $count=1;
 	                                  $nuevoestado="Activo";?>
-	                                  
-	                		<script type="text/javascript">
-	                Highcharts.chart('container_PIE', {
-	                    chart: {
-	                        type: 'pie',
-	                        options3d: {
-	                            enabled: true,
-	                            alpha: 45,
-	                            beta: 0
-	                        }
-	                    },
-	                    title: {
-	                        text: 'REPORTE DE ACTIVIDADES POR CASOS - PALETA'
-	                    },
-	                    accessibility: {
-	                        point: {
-	                            valueSuffix: '%'
-	                        }
-	                    },
-	                    tooltip: {
-	                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-	                    },
-	                    plotOptions: {
-	                        pie: {
-	                            allowPointSelect: true,
-	                            cursor: 'pointer',
-	                            depth: 35,
-	                            dataLabels: {
-	                                enabled: true,
-	                                format: '{point.name}'
-	                            }
-	                        }
-	                    },
-	                    series: [{
-	                        type: 'pie',
-	                        name: 'Porcentaje del caso',
-	                        data: [
-	                        <?php  foreach($datos as $row){ 
-	                        	echo " ['".$row['CASnombre']."', ".$row['Contador']."],";
-	                          }  
-	                        ?>
-	                        ]
-	                    }]
-	                });
-	    </script>     
-	  		
-	</div>
-		
+<div class="col-md-12"> 	 
 	<div class="col-md-6">
-
-		<figure class="highcharts-figure">
-    <div id="container"></div>
+			<figure class="highcharts-figure">
+    <div id="container_DONUT"></div>
     
 </figure>
 
 
 		<script type="text/javascript">
-Highcharts.chart('container', {
+Highcharts.chart('container_DONUT', {
     chart: {
         type: 'pie',
         options3d: {
@@ -235,18 +198,17 @@ Highcharts.chart('container', {
     }]
 });
 		</script>
+
+	           
+	  		
 	</div>
+		
+	<div class="col-md-6">
 
-</div>
-         
+		
 
 
-     <div class="col-md-12"> 	
-		 <hr noshade="noshade" color="#10226a">
-		<hr noshade="noshade" color="#fdaf17">
-		<hr noshade="noshade" color="#10226a">
-		<div class="col-md-6">
-					<figure class="highcharts-figure">
+		<figure class="highcharts-figure">
 				    <div id="container_PIRAMIDE"></div>    
 				</figure>
 			<script type="text/javascript">
@@ -304,6 +266,80 @@ Highcharts.chart('container', {
 			    }
 			});
 			</script>
+
+	</div>
+
+</div>
+         
+
+
+     <div class="col-md-12"> 	
+		 <hr noshade="noshade" color="#10226a">
+		<hr noshade="noshade" color="#fdaf17">
+		<hr noshade="noshade" color="#10226a">
+		<div class="col-md-6">
+					
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Chart showing basic use of 3D cylindrical columns. A 3D cylinder chart
+        is similar to a 3D column chart, with a different shape.
+    </p>
+</figure>
+
+
+		<script type="text/javascript">
+Highcharts.chart('container', {
+    chart: {
+        type: 'cylinder',
+        options3d: {
+            enabled: true,
+            alpha: 15,
+            beta: 15,
+            depth: 50,
+            viewDistance: 25
+        }
+    },
+				    title: {
+				        text: 'REPORTE DE ACTIVIDADES POR CASOS - 3D'
+				    },
+				    subtitle: {
+				        text: 'Notice the difference between a 0 value and a null point'
+				    },
+				    plotOptions: {
+        series: {
+            depth: 25,
+            colorByPoint: true
+        }
+    },
+				    xAxis: {
+				        categories: [
+				        <?php  foreach($datos as $row){ 
+				        ?>
+				        	['<?php echo $row['CASnombre']?>'],
+				        <?php } ?>
+				        ],
+				  
+				    },
+				    yAxis: {
+				        title: {
+				            text: null
+				        }
+				    },
+				    series: [{
+				        name: 'Casos',
+				        data: [
+				        <?php  foreach($datos as $row){ 
+				        ?>
+
+				        	[<?php echo $row['Contador']?>],
+
+				        	<?php } ?>
+				        ]
+				         
+				    }]
+				});
+						</script>
 		</div>
 
 		<div class="col-md-6">
@@ -333,10 +369,11 @@ Highcharts.chart('container', {
 				        text: 'Notice the difference between a 0 value and a null point'
 				    },
 				    plotOptions: {
-				        column: {
-				            depth: 25
-				        }
-				    },
+        series: {
+            depth: 25,
+            colorByPoint: true
+        }
+    },
 				    xAxis: {
 				        categories: [
 				        <?php  foreach($datos as $row){ 
@@ -371,7 +408,8 @@ Highcharts.chart('container', {
 
 
      </div>
-                                         
+
+                             
     </form>
                            
   </div>
