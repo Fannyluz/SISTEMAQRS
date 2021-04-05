@@ -176,7 +176,7 @@ Highcharts.chart('container_DONUT', {
         }
     },
     title: {
-        text: 'Contents of Highsoft\'s weekly fruit delivery'
+        text: 'Actividades por Caso - DONUT'
     },
     subtitle: {
         text: '3D donut in Highcharts'
@@ -217,7 +217,7 @@ Highcharts.chart('container_DONUT', {
 			        type: 'pyramid'
 			    },
 			    title: {
-			        text: 'REPORTE DE ACTIVIDADES POR CASOS - PIRAMIDE',
+			        text: 'Actividades por caso- PIRAMIDE',
 			        x: -50
 			    },
 			    plotOptions: {
@@ -301,7 +301,7 @@ Highcharts.chart('container', {
         }
     },
 				    title: {
-				        text: 'REPORTE DE ACTIVIDADES POR CASOS - 3D'
+				        text: 'Actividades por caso - CYLINDER'
 				    },
 				    subtitle: {
 				        text: 'Notice the difference between a 0 value and a null point'
@@ -363,7 +363,7 @@ Highcharts.chart('container', {
 				        }
 				    },
 				    title: {
-				        text: 'REPORTE DE ACTIVIDADES POR CASOS - 3D'
+				        text: 'Actividades por caso - 3D'
 				    },
 				    subtitle: {
 				        text: 'Notice the difference between a 0 value and a null point'
