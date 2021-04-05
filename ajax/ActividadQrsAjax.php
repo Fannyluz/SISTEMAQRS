@@ -8,7 +8,7 @@
         $ins_tiperson = new ActividadQrsControlador();
 
             // agregar Actividad QRS
-            if(isset($_POST['ACTnombres_reg']) && isset($_POST['ACTapellidos_reg']) && isset($_POST['ACTdescripcion_reg']) && isset($_POST['ACTcelular_reg']) && isset($_POST['ACTfecha_reg']) && isset($_POST['ACTestado_reg'])){
+            if(isset($_POST['ACTfacultad_reg']) && isset($_POST['ACTnombres_reg']) && isset($_POST['ACTapellidos_reg']) && isset($_POST['ACTdescripcion_reg']) && isset($_POST['ACTcelular_reg']) && isset($_POST['ACTfecha_reg']) && isset($_POST['ACTestado_reg'])){
                 echo $ins_tiperson->agregar_ActividadQRS_controlador();
             }
             // editar un Actividad QRS
@@ -18,9 +18,16 @@
             if(isset($_POST['caso_buscar'])){
                 echo $ins_tiperson->Buscar_ActividadQRS_controlador();
             }
+<<<<<<< Updated upstream
             if(isset($_POST['BuscarPorTipo'])){
                 echo $ins_tiperson->listar_ActividadQrsAll_ReportePersonal_controlador();
             }
+=======
+            //buscar personal por quejas 
+            //if(var_dump($_POST['buscarTipoPersonal_Reporte'])){
+              //  echo $ins_tiperson->listar_ActividadQrsAll_ReportePersonal_controlador();
+            //}
+>>>>>>> Stashed changes
             
         
     }else{

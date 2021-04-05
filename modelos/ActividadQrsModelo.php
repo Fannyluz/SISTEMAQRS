@@ -6,13 +6,14 @@ class ActividadQrsModelo extends modeloPrincipal{
     
 
     protected static function agregar_ActividadQrs_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevactpactividadqrs(TIPcodigo ,CAScodigo,TIUcodigo,UPUcodigo,ACTcodigoUPT,ACTnombres,ACTapellidos,ACTDescripcion,ACTcelular,ACTcorreoelectronico,ACTfecha,ACTestado) 
-      VALUES(:TIPcodigo,:CAScodigo,:TIUcodigo,:UPUcodigo,:ACTcodigoUPT,:ACTnombres,:ACTapellidos,:ACTDescripcion,:ACTcelular,:ACTcorreoelectronico,:ACTfecha,:ACTestado)");
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevactpactividadqrs(TIPcodigo ,CAScodigo,TIUcodigo,UPUcodigo,ACTcodigoUPT,ACTfacultad,ACTnombres,ACTapellidos,ACTDescripcion,ACTcelular,ACTcorreoelectronico,ACTfecha,ACTestado) 
+      VALUES(:TIPcodigo,:CAScodigo,:TIUcodigo,:UPUcodigo,:ACTcodigoUPT,:ACTfacultad,:ACTnombres,:ACTapellidos,:ACTDescripcion,:ACTcelular,:ACTcorreoelectronico,:ACTfecha,:ACTestado)");
       $sql->bindParam(":TIPcodigo",$datos['TIPcodigo']);
       $sql->bindParam(":CAScodigo",$datos['CAScodigo']);
       $sql->bindParam(":TIUcodigo",$datos['TIUcodigo']);
       $sql->bindParam(":UPUcodigo",$datos['UPUcodigo']);
       $sql->bindParam(":ACTcodigoUPT",$datos['ACTcodigoUPT']);
+      $sql->bindParam(":ACTfacultad",$datos['ACTfacultad']);
       $sql->bindParam(":ACTnombres",$datos['ACTnombres']);
       $sql->bindParam(":ACTapellidos",$datos['ACTapellidos']);
       $sql->bindParam(":ACTDescripcion",$datos['ACTDescripcion']);
@@ -36,6 +37,25 @@ class ActividadQrsModelo extends modeloPrincipal{
       $datos=$datos->fetchAll();
       return $datos;
   }
+  /*probar ----------------*/
+  public function listarr_ActividadQrsAll_modelo($std){ 
+    $data = [];
+    $consulta="SELECT *  FROM oevactpactividadqrs AS act
+    INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+    INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+    INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+    INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.TIUcodigo LIKE '%search%' standard = '$std'";
+    if($conexion=modeloPrincipal::conectar()){
+      while( $datos=$conexion->query($consulta)){
+        $datos=$datos->fetchAll();
+        $data[]= $row;
+      }
+    }  
+    
+    return $datos;
+}
+  /*------------------------*/
 
 
   public function listar_ActividadQrsAll_ReporteCaso_modelo(){ 

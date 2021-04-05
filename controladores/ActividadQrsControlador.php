@@ -18,6 +18,7 @@
             $caso=modeloPrincipal::limpiar_cadena($_POST['caso_reg']);
             $tipoemisor=modeloPrincipal::limpiar_cadena($_POST['tipousuario_reg']);
             $codigoUPT=modeloPrincipal::limpiar_cadena($_POST['codigo_reg']);
+            $facultad=modeloPrincipal::limpiar_cadena($_POST['ACTfacultad_reg']);
             $nombres=modeloPrincipal::limpiar_cadena($_POST['ACTnombres_reg']);
             $apellidos=modeloPrincipal::limpiar_cadena($_POST['ACTapellidos_reg']);
             $descripcion=modeloPrincipal::limpiar_cadena($_POST['ACTdescripcion_reg']);
@@ -47,6 +48,7 @@
                "TIUcodigo"=>$tipoemisor,
                "UPUcodigo"=>$personal,
                "ACTcodigoUPT"=>$codigoUPT,
+               "ACTfacultad"=>$facultad,
                "ACTnombres"=>$nombres,
                "ACTapellidos"=>$apellidos,
                "ACTDescripcion"=>$descripcion,

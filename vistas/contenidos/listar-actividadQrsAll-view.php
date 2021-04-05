@@ -133,7 +133,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                            
                                     <div  class="col-md-3 col-sm-3">
-                                    <select class="form-control" name="caso_buscar" id="caso_buscar" >
+                                    <select class="form-control" class="selectpicker" data-live-search="true" name="caso_buscar" id="caso_buscar" >
                                         <?php 
                                         foreach($datosTipoQRS as $row){ 
                                         if($row['TIPcodigo'] == $row['TIPcodigo']){

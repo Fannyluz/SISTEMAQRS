@@ -157,12 +157,27 @@ if($row['TIUcodigo']=="2")
                                                    
 
 
-                                                            <div class="field item form-group">
-                                                               <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
-                                                                <div class="col-md-6 col-sm-6">
-                                                                    <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
-                                                                </div>
-                                                            </div>
+<div class="field item form-group">
+     <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
+    <div class="col-md-6 col-sm-6">
+         <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
+     </div>
+</div>
+<div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Facultad:</b><span class="required">*</span></label>
+<div class="col-md-6 col-sm-6">
+<select class="form-control" name="ACTfacultad_reg">
+<option value="0" selected="">Seleccione</option>
+<option value="1">FAING</option>
+<option value="2">FAEDCOH</option>
+<option value="3">FADE</option>
+<option value="4">FACSA</option>
+<option value="5">FACEM</option>
+<option value="6">FAU</option>
+</select>
+</div>
+</div>
+
                                                             
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
@@ -394,7 +409,18 @@ if($row['TIUcodigo']=="1")
                                                                                         </div>
                                                                                     </div>
                                                                                     <br>
-                        
+                                                                                    
+
+                                                                                    <select class="form-control" name="ACTfacultad_reg" style="visibility:hidden">
+                                                                                        <option value="0" selected="">Seleccione</option>
+                                                                                        <option value="1">FAING</option>
+                                                                                        <option value="2">FAEDCOH</option>
+                                                                                        <option value="3">FADE</option>
+                                                                                        <option value="4">FACSA</option>
+                                                                                        <option value="5">FACEM</option>
+                                                                                        <option value="6">FAU</option>
+                                                                                    </select>
+
                                                                                     <div class="ln_solid">
                                                                                         <div class="form-group">
                                                                                             <div class="col-md-6 offset-md-3">
@@ -561,6 +587,17 @@ if($row['TIUcodigo']=="3")
                                                                                         <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre"  style="visibility:hidden" />
                                                                                         <!--</div>
                                                                                     </div>-->
+
+                                                                                    <select class="form-control" name="ACTfacultad_reg" style="visibility:hidden">
+                                                                                        <option value="0" selected="">Seleccione</option>
+                                                                                        <option value="1">FAING</option>
+                                                                                        <option value="2">FAEDCOH</option>
+                                                                                        <option value="3">FADE</option>
+                                                                                        <option value="4">FACSA</option>
+                                                                                        <option value="5">FACEM</option>
+                                                                                        <option value="6">FAU</option>
+                                                                                    </select>
+
                                                                                     <div class="ln_solid">
                                                                                         <div class="form-group">
                                                                                             <div class="col-md-6 offset-md-3">
@@ -672,12 +709,7 @@ if($row['TIUcodigo']!="1" && $row['TIUcodigo']!="2" && $row['TIUcodigo']!="3")
 </div>
                         
                         
-                                                                                    <div class="field item form-group">
-                                                                                       <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
-                                                                                        <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
-                                                                                        </div>
-                                                                                    </div>
+                                                                                    
                                                                                     
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
@@ -730,6 +762,23 @@ if($row['TIUcodigo']!="1" && $row['TIUcodigo']!="2" && $row['TIUcodigo']!="3")
                                                                                         </div>
                                                                                     </div>
                                                                                     <br>
+
+                                                                                    <!-- <div class="field item form-group">
+                                                                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label> 
+                                                                                        <div class="col-md-6 col-sm-6">-->
+                                                                                        <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre"  style="visibility:hidden" />
+                                                                                        <!--</div>
+                                                                                    </div>-->
+
+                                                                                    <select class="form-control" name="ACTfacultad_reg" style="visibility:hidden">
+                                                                                        <option value="0" selected="">Seleccione</option>
+                                                                                        <option value="1">FAING</option>
+                                                                                        <option value="2">FAEDCOH</option>
+                                                                                        <option value="3">FADE</option>
+                                                                                        <option value="4">FACSA</option>
+                                                                                        <option value="5">FACEM</option>
+                                                                                        <option value="6">FAU</option>
+                                                                                    </select>
                         
                                                                                     <div class="ln_solid">
                                                                                         <div class="form-group">
