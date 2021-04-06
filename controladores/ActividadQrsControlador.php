@@ -1167,9 +1167,101 @@ public function ListaActualActividadesAll()
          $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReporteTipo_modelo();
          return $datos;
       } // fin del controlador 
+////aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
+      public function buscar_cliente_prestamo_controlador(){
+        /* recuperar el select que estamos enviando */
+        $count=1;
+        $cliente =modeloPrincipal::limpiar_cadena($_POST['buscar_cliente']);
+        /* seleccionando clientes en la bd */
+        $datos_cliente=modeloPrincipal::ejecutar_consulta_simple("SELECT *  FROM oevactpactividadqrs AS act 
+        INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+        INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+        INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+        INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+        INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+        WHERE act.UPUcodigo LIKE'%$cliente%' ORDER BY act.UPUcodigo ASC");
+        
+        if($datos_cliente->rowCount()>=1){
+          $datos_cliente=$datos_cliente->fetchAll();
+
+          $output='<table class="table table-bordered border-warning" style="width:100%" bordered="1">  
+                           <tr class="tr-primary" style="background-color:#10226a;color:white;"> 
+                                <th>Item</th>
+                               <th>Tipo</th>
+                               <th>Caso</th>
+                               <th>Tipo Emisor</th>
+                               <th>Personal UptVirtual (Destinatario)</th>
+                               <th>Codigo</th>
+                               <th>Nombres y Apellidos</th>
+                               <th>Descripcion</th>
+                               <th>Celular</th>
+                               <th>CorreoElectronico</th>
+                               <th>Fecha</th>
+                               <th>Estado</th> 
+                               <th>Acciones</th> 
+                           </tr>
+         ';
+         foreach($datos_cliente as $row){  
+          $output .= '
+           <tr>  
+                                <td>'.$count++.'</td> 
+                                <td>'.$row["TIPnombre"].'</td>
+                                <td>'.$row["CASnombre"].'</td>
+                                <td>'.$row["TIUnombre"].'</td>
+                                <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                <td>'.$row["ACTcodigoUPT"].'</td>  
+                                <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                <td>'.$row["ACTDescripcion"].'</td>  
+                                <td>'.$row["ACTcelular"].'</td> 
+                                <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                <td>'.$row["ACTfecha"].'</td>';
+                         
+                         if($row["ACTestado"]==1)
+                         {
+                           $output.='<td><label class="badge bg-warning" style="background-color:#10226a;color:white;">Pendiente</label></td>';
+                         }else if($row["ACTestado"]==2)
+                         {
+                           $output.='<td><label class="badge bg-success" style="background-color:#10226a;color:white;">Atendido</label></td>';
+                         }else
+                         {
+                           $output.='<td><label class="badge bg-danger" style="background-color:#10226a;color:white;">Rechazado</label></td>';
+                         }
+                         $output.='<td></a>
+                          <a href="'.SERVERURL.'ver-actividadAll/'.modeloPrincipal::encryption($row['ACTcodigo']).'" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
+                     </a>
+                     <a href="'.SERVERURL.'editar-actividadAll/'.modeloPrincipal::encryption($row['ACTcodigo']).'" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
+                     </a> </td>';
+                         
+                         '
+                           </tr>
+                           
+          ';
+                          
+        
+        }
+              $output.='</tbody></table></div>';
+              return $output;
+        }else{
+          return '<div class="alert alert-warning" role="alert">
+            <p class="text-center mb-0">
+            <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+            No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
+            </p>
+            </div>';
+            exit();
+        }
+      }
+
+<<<<<<< Updated upstream
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadPendientesQrsU_ReporteTipo_controlador()
+=======
+
+///finnnnnnnnnnnnnnnnnnnnnnnnn
+
+      public function listar_ActividadQrsAll_ReportePersonal_controlador()
+>>>>>>> Stashed changes
       {
          $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
          $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsU_ReporteTipo_modelo($codigo);
@@ -1214,4 +1306,8 @@ return $datos;
 return $datos;
       } // fin del controlador 
       
+
+
+
+
      }

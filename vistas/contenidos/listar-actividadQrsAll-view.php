@@ -2,6 +2,8 @@
 if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     echo $lc->forzar_cierre_sesion_controlador();
     exit();
+
+    //unset($_SESSION['consulta']);
 }
 ?>
 <div class="right_col" role="main">
@@ -91,12 +93,12 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                                 
 
-                            </br>
-                    <div   class="col-md-10 col-sm-10">
+                                </br>
+                                <div   class="col-md-10 col-sm-10">
 
                            
                                     <div class="col-md-3 col-sm-3" >
-                                    <select class="form-control" method="POST" name="personal_buscar" >
+                                    <select class="form-control input-sm" id="buscarvivo" method="POST" name="buscarvivo" >
                                         <?php foreach($datosTipoQRS as $row){ ?>
                                             <option value=<?php echo $row['UPUcodigo']?>><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>)</option>
                                         <?php }?>
@@ -109,13 +111,15 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                         $principal= new modeloPrincipal();
   
                         ?>
-                                   <p>
-                            <a href="<?php echo SERVERURL?>buscar-actividadqrsAll/" <?php echo $principal->encryption($row['UPUcodigo']) ?> style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
+                                   <p>  
+                                   <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_cliente()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
+                
                                 </a></p>
                         </div>       
 
                         </div>
-                
+
+                        
                                             </br>
                                             </br>
                                             </br>
@@ -168,7 +172,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     
                     <div class="card-box table-responsive">
                         
-                        <table id="datatable" class="table table-hover table-condensed table-bordered border-warning" style="width:100%" >
+                        <table id="tabla_clientes" class="table table-hover table-condensed table-bordered border-warning" style="width:100%" >
                        
 
                             <thead  class="thead-primary" style="background-color:#10226a;color:white;">
@@ -230,10 +234,10 @@ foreach($datos as $row){
                                 <td>
 
                                 <?php
-require_once "modelos/modeloPrincipal.php";
-  $principal= new modeloPrincipal();
+                                require_once "modelos/modeloPrincipal.php";
+                                $principal= new modeloPrincipal();
   
-?>
+                                ?>
                                 <a href="<?php echo SERVERURL?>ver-actividadAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
                                 <a href="<?php echo SERVERURL?>editar-actividadAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
@@ -266,5 +270,21 @@ require_once "modelos/modeloPrincipal.php";
                     </div>
         </div>
  </div>
- 
- 
+ <?php include_once "./vistas/inc/reservation.php"; ?>
+ <!-- probar -->
+ <script type="text/javascript">
+		$(document).ready(function(){
+			$('#buscadorvivo').select2();
+			
+			$('#buscadorvivo').change(function(){
+				$.ajax({
+					type:"post",
+					data:'valor=' + $('#buscadorvivo').val(),
+					url:'php/crearsession.php',
+					success:function(r){
+						$('#tabla').load('contenidos/buscar-actividadqrsAll.php');
+					}
+				});
+			});
+		});
+	</script>

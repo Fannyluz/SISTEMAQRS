@@ -158,7 +158,7 @@ if($row['TIUcodigo']=="2")
 
 
 <div class="field item form-group">
-     <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
+     <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario:</b><span class="required"></span></label>
     <div class="col-md-6 col-sm-6">
          <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
      </div>
@@ -352,7 +352,7 @@ if($row['TIUcodigo']=="1")
                         
                         
                                                                                     <div class="field item form-group">
-                                                                                       <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label>
+                                                                                       <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario:</b><span class="required"></span></label>
                                                                                         <div class="col-md-6 col-sm-6">
                                                                                             <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
                                                                                         </div>
@@ -418,7 +418,7 @@ if($row['TIUcodigo']=="1")
                                                                                         <option value="3">FADE</option>
                                                                                         <option value="4">FACSA</option>
                                                                                         <option value="5">FACEM</option>
-                                                                                        <option value="6">FAU</option>
+                                                                                        <option value="6">FAU</option> 
                                                                                     </select>
 
                                                                                     <div class="ln_solid">
@@ -794,44 +794,11 @@ if($row['TIUcodigo']!="1" && $row['TIUcodigo']!="2" && $row['TIUcodigo']!="3")
                                                                                 </form>
                       </div>
 
-
-
-
-
-
-
-
-
-
-
-
                     </div>
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-               
-                                
-                            
-                                
-                                
+                  
                                 </div>
 
                             </div>

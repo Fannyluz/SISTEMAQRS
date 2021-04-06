@@ -43,19 +43,48 @@ if($datos_caso->rowCount()==1){
                           <p><strong>Caso: </strong><?php echo $campos['CASnombre']?></p></h6>
                         <div class="product_price">
                         	<h6>
-                        	<p><strong><u>Datos del Emisor: </strong> <?php echo $campos['TIUnombre']?> </u></strong></p>
+                        	<p><strong><u>Datos del Emisor: </u> </strong> <?php echo $campos['TIUnombre']?> </strong></p>
 
                           <p><strong>Codigo: </strong> <?php echo $campos['ACTcodigoUPT']?></p>
+                          <p><strong>Facultad:  <?php if($campos['ACTfacultad']=="1")
+                                {
+                                    ?> <h5> <label class="badge bg-warning" style="background-color:#6a1022;color:white;"><?php echo $nuevoestado = "FAING"; ?></label></h5>
+                                    <?php
+                                }else if($campos['ACTfacultad']=="2")
+                                {
+                                     ?> <h5> <label class="badge bg-primary" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "FAEDCOH"; ?></label></h5>
+                                    <?php
+                                }else if($campos['ACTfacultad']=="3")
+                                {
+                                     ?> <h5> <label class="badge bg-secondary" style="background-color:#226a10;color:white;"><?php echo $nuevoestado = "FADE"; ?></label></h5>
+                                    <?php
+                                }else if($campos['ACTfacultad']=="4")
+                                {
+                                     ?> <h5> <label class="badge bg-info" style="background-color:#6a104f;color:white;"><?php echo $nuevoestado = "FACSA"; ?></label></h5>
+                                    <?php
+                                }else if($campos['ACTfacultad']=="5")
+                                {
+                                     ?> <h5> <label class="badge bg-light" style="background-color:#4f6a10;color:white;"><?php echo $nuevoestado = "FACEM"; ?></label></h5>
+                                    <?php
+                                }
+                                else{
+                                     ?> <h5> <label class="badge bg-danger" style="background-color:#f96913;color:white;"><?php echo $nuevoestado = "FAU"; ?></label></h5>
+                                    <?php
+                                }
+                                 ?></strong> </P>
+                                 <h6>
                           <p><strong>Nombres: </strong><?php echo $campos['ACTnombres']?></p>
                            <p><strong>Apellidos: </strong><?php echo $campos['ACTapellidos']?></p>
-                           <p><strong>Descripción: </strong> <?php echo $campos['ACTDescripcion']?></p>
-                          <ul class="list-unstyled">
-
+                           <p><strong>Descripción: </strong> <?php echo $campos['ACTDescripcion']?></p></h6>
+                           <h6>
+                           <ul class="list-unstyled">
+                           <p><strong>Correo:</strong></p>
                                           <li><i class="fa fa-envelope"></i> <?php echo $campos['ACTcorreoelectronico']?></li>
                                           <br>
+                                          <p><strong>Celular:</strong></p>
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['ACTcelular']?></li>
                                 </ul>
-</h6>
+                              </h6>
 
                           <?php if($campos['ACTestado']=="1")
                                 {
@@ -71,7 +100,7 @@ if($datos_caso->rowCount()==1){
                                     <?php
                                 }
                                  ?>
-
+                          </h6>
                           <h6><?php echo $campos['CASfecha']?></h6>
                           <br>
                         </div>

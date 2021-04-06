@@ -2,7 +2,12 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
+<<<<<<< Updated upstream
     if(isset($_POST['ACTnombres_reg'])  || isset($_POST['ActividadQRS_codigo_up']) || isset($_POST['caso_buscar']) || isset($_POST['buscar_cliente'])){
+=======
+    if(isset($_POST['ACTnombres_reg'])  || isset($_POST['ActividadQRS_codigo_up']) || isset($_POST['caso_buscar'])
+     || isset($_POST['BuscarPorTipo']) || isset($_POST['buscar_cliente'])){
+>>>>>>> Stashed changes
         /*--- Instanacia al controlador--*/
         require_once "../controladores/ActividadQrsControlador.php";
         $ins_tiperson = new ActividadQrsControlador();
@@ -18,6 +23,7 @@
             if(isset($_POST['caso_buscar'])){
                 echo $ins_tiperson->Buscar_ActividadQRS_controlador();
             }
+<<<<<<< Updated upstream
 
             if(isset($_POST['buscar_cliente'])){
                 echo $ins_tiperson->ListaActualActividadesAll();
@@ -25,6 +31,19 @@
 
           
 
+=======
+            if(isset($_POST['BuscarPorTipo'])){
+              echo $ins_tiperson->listar_ActividadQrsAll_ReportePersonal_controlador();
+            }
+
+            if(isset($_POST['buscar_cliente'])){
+                echo $ins_tiperson->buscar_cliente_prestamo_controlador();
+            }
+            //buscar personal por quejas 
+            //if(var_dump($_POST['buscarTipoPersonal_Reporte'])){
+              //  echo $ins_tiperson->listar_ActividadQrsAll_ReportePersonal_controlador();
+            //}
+>>>>>>> Stashed changes
             
         
     }else{

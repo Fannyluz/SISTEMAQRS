@@ -187,13 +187,34 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                             </thead>
                             <tbody>
                             
-                                <?php 
-                                require_once "./controladores/ActividadQrsControlador.php";
-                                $casos=new ActividadQrsControlador();
-                                $datos=$casos->listar_ActividadQrsAll_controlador(); 
-                                $count=1;
-                                $nuevoestado="Activo";
-foreach($datos as $row){  
+                            <?php 
+
+if(isset($_SESSION['consulta'])){
+    if($_SESSION['consulta'] > 0){
+        $idp=$_SESSION['consulta'];
+        $sql="SELECT * FROM oevuputusuariopersonaluptvirtual AS up 
+        INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
+        INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE UPUcodigo='$idp'";
+    }else{
+        $sql="SELECT *  FROM oevactpactividadqrs AS act
+        INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+        INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+        INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+        INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+        INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo";
+    }
+}else{
+    $sql="SELECT *  FROM oevactpactividadqrs AS act
+    INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+    INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+    INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+    INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo";
+}
+
+$result=mysqli_query($conexion,$sql);
+$principal= new modeloPrincipal();
+while($ver=mysqli_fetch_row($result)){ 
 
 ?>
 

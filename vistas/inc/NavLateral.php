@@ -1,3 +1,47 @@
+<style>
+.widget {
+	width: 10%;
+	margin: -1em;
+  align:left;
+	/*margin:32px; */
+}
+.widget p {
+	display: inline-block;
+	line-height: 1em;
+  
+  
+  
+}
+
+.fecha {
+	font-family: Oswald, Arial;
+	text-align: center;
+	font-size:1em;	
+  color:#fff;
+	width: 85%;
+}
+
+.reloj {
+	font-family: Oswald, Arial;
+	width: 85%;
+	color:#fff;
+	font-size: 2.5em;
+	text-align: center;
+	
+}
+
+.reloj .caja-segundos {
+	display: inline-block;
+}
+
+.reloj .segundos,
+.reloj .ampm {
+	font-size: 0.8rem;
+	display: block;
+}
+
+
+</style>
 <body class="nav-md">
     <div class="container body">
       <div class="main_container">
@@ -26,23 +70,34 @@
           </font>
 
           </div>
+          <div>
+          <br>
+          
+          <div class="widget">
+			<div class="fecha">
+				<p id="diaSemana" class="diaSemana"></p>
+				<p id="dia" class="dia">27</p>
+				<p>de </p>
+				<p id="mes" class="mes"></p>
+				<p>del </p>
+				<p id="year" class="year"></p>
+			</div>
+	
+			<div class="reloj">
+				<p id="horas" class="horas"></p>
+				<p>:</p>
+				<p id="minutos" class="minutos"></p>
+				<p>:</p>
+				<div class="caja-segundos">
+					<p id="ampm" class="ampm"></p>
+					<p id="segundos" class="segundos"></p>
+				</div>
+			</div>
 
-          <div style="background-color:#034ba3s;" align="center">
-          <br> 
-          <font color="#edf1f5" SIZE=3>
-
-          <?php
-            echo date('h:i:s A');
-            ?>
-            </font>
-            </div>
+	</div>
 
 
 
-            <div style="background-color:#FF0000;">
-<p> 
-
-</p>
 </div>
 
             <!-- menu profile quick info -->
@@ -190,6 +245,5 @@
           </div>
         </div>
 
-      
 
 

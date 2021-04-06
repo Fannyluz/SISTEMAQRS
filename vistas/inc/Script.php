@@ -59,8 +59,11 @@
     <script src="<?php echo SERVERURL; ?>vistas/vendors/jszip/dist/jszip.min.js"></script>
     <script src="<?php echo SERVERURL; ?>vistas/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="<?php echo SERVERURL; ?>vistas/vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="<?php echo SERVERURL; ?>vistas/select2/dist/js/select2.js"></script>
 
+    <script src="<?php echo SERVERURL; ?>vistas/js/reloj.js"></script>
 
     <script src="<?php echo SERVERURL; ?>vistas/js/alertas.js"></script>
+    
 
 
