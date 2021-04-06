@@ -1062,11 +1062,9 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
       } // fin del controlador 
 
 
-public function ListaActualActividadesAll($codigo)
+public function ListaActualActividadesAll()
     {
-      $codigo=modeloPrincipal::limpiar_cadena($_GET['buscar']);
-        $datos=ActividadQrsModelo::XD($codigo);
-         return $datos;
+     
 
       } // fin del controlador 
 

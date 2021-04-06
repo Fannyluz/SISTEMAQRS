@@ -2,7 +2,7 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['ACTnombres_reg'])  || isset($_POST['ActividadQRS_codigo_up']) || isset($_POST['caso_buscar']) || isset($_GET['buscar'])){
+    if(isset($_POST['ACTnombres_reg'])  || isset($_POST['ActividadQRS_codigo_up']) || isset($_POST['caso_buscar']) || isset($_POST['buscar_cliente'])){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/ActividadQrsControlador.php";
         $ins_tiperson = new ActividadQrsControlador();
@@ -19,7 +19,7 @@
                 echo $ins_tiperson->Buscar_ActividadQRS_controlador();
             }
 
-            if(isset($_GET['buscar'])){
+            if(isset($_POST['buscar_cliente'])){
                 echo $ins_tiperson->ListaActualActividadesAll();
             }
 

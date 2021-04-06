@@ -545,9 +545,9 @@ Highcharts.chart('container_cilindro_Tipo', {
     </div>
 
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-<form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="GET" data-form="update" novalidate>
+<form>
 
-<input name="buscar" value="2" />  
+<input id="buscar" name="buscar" value="2" />  
 
 
  <?php 
@@ -574,7 +574,7 @@ require_once "./controladores/ActividadQrsControlador.php";
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo:</b><span class="required">*</span></label>
 <div class="col-md-6 col-sm-6">
-<select class="form-control" name="buscarTipoPersonal_Reporte">
+<select class="form-control" id="buscarP" name="buscarP">
 <?php foreach($datosTipoQRS as $row){ ?>
 <option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
 <?php }?>
@@ -583,7 +583,7 @@ require_once "./controladores/ActividadQrsControlador.php";
 </div>
 
 
-<button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+<button type="submit" class="btn btn-round btn-sm" onclick="buscar_cliente()" style="background-color:#10226a;color:white;">
         Buscar
 
         </button>
@@ -594,9 +594,41 @@ require_once "./controladores/ActividadQrsControlador.php";
     <div id="container_cilindro_Personal"></div>
    
 </figure>
+<div id="id"> </div>
 
 
 		<script type="text/javascript">
+		function buscar_cliente(){
+		let input_cliente=document.querySelector('#buscar').value;
+		input_cliente=input_cliente.trim();
+		if(input_cliente!=""){
+			let datos = new FormData(this);
+			datos.append("buscar_cliente",input_cliente);
+
+			fetch("<?php echo SERVERURL;?>ajax/ActividadQrsAjax.php",{
+				method:'POST',
+				body: datos
+				})
+	          .then(respuesta=>respuesta.text())
+	          .then(respuesta => {
+
+	       let reporte_personal=document.querySelector('#id').value;
+	          });
+	          reporte_personal.innerHTML=respuesta;
+
+
+		}else{
+			Swal.fire({
+	            title: 'Ocurrio en el Titulo',
+	            text: 'Debes introducir el ',
+	            type: 'error',
+	            confirmButtonText: 'Aceptar'
+	          });
+		}
+		alert (input_cliente);
+	}
+
+
 Highcharts.chart('container_cilindro_Personal', {
     chart: {
         type: 'cylinder',
