@@ -97,7 +97,7 @@
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/accessibility.js"></script>
 
 <?php 
-if($_SESSION['privilegio_spm']!=1){
+if($_SESSION['privilegio_spm']!=3){
     echo $lc->forzar_cierre_sesion_controlador();
     exit();
 }
@@ -135,29 +135,28 @@ if($_SESSION['privilegio_spm']!=1){
                             <i class="fa fa-commenting-o fa-sm"></i> Tipo
                         </a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" >
-                            <i class="fa fa-user fa-sm"></i> Personal
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="false" >
-                            <i class="fa fa-home fa-sm"></i> General
-                        </a>
-                      </li>
                     </ul>
+
+<?php 
+	                            require_once "./controladores/ActividadQrsControlador.php";
+	                            $casos=new ActividadQrsControlador();
+	                            $datos=$casos->listar_ActividadQrsPendientesUCaso_Reporte_controlador();
+	                            ;?>
+
+
+<?php 
+	                            require_once "./controladores/ActividadQrsControlador.php";
+	                            $tipos=new ActividadQrsControlador();
+	                            $datostipo=$tipos->listar_ActividadPendientesQrsU_ReporteTipo_controlador();
+	                            ;?>
+
 
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
 <form>
-<?php 
-	                                  require_once "./controladores/ActividadQrsControlador.php";
-	                                  $casos=new ActividadQrsControlador();
-	                                  $datos=$casos->listar_ActividadQrsPendientesCasoAll_Reporte_controlador();
-	                                  $count=1;
-	                                  $nuevoestado="Activo";?>
+
 <div class="col-md-12"> 	 
 	<div class="col-md-6">
 			<figure class="highcharts-figure">
@@ -191,7 +190,7 @@ Highcharts.chart('container_DONUT', {
         }
     },
     series: [{
-        name: 'Total de casos',
+        name: 'Porcentaje caso',
         data: [
             <?php  foreach($datos as $row){ 
 	                        	echo " ['".$row['CASnombre']."', ".$row['Contador']."],";
@@ -251,7 +250,7 @@ Highcharts.chart('container_DONUT', {
 				        }
 				    },
 				    series: [{
-				        name: 'CASOS',
+				        name: 'Total casos',
 				        data: [
 				        <?php  foreach($datos as $row){ 
 				        ?>
@@ -275,19 +274,6 @@ Highcharts.chart('container_DONUT', {
 		 <hr noshade="noshade" color="#10226a">
 		<hr noshade="noshade" color="#fdaf17">
 		<hr noshade="noshade" color="#10226a">
-		<div class="col-md-6">
-					
-
-		</div>
-
-		<div class="col-md-6">
-
-			
-		</div>
-
-
-
-
      </div>
 
                              
@@ -299,12 +285,7 @@ Highcharts.chart('container_DONUT', {
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <form>
-             <?php 
-	                                  require_once "./controladores/ActividadQrsControlador.php";
-	                                  $casos=new ActividadQrsControlador();
-	                                  $datos=$casos->listar_ActividadPendientesQrsAll_ReporteTipo_controlador();
-	                                  $count=1;
-	                                  $nuevoestado="Activo";?>
+             
 <div class="col-md-12"> 	 
 	<div class="col-md-6">
 							
@@ -318,7 +299,7 @@ Highcharts.chart('container_DONUT', {
 			        type: 'pyramid'
 			    },
 			    title: {
-			        text: 'Actividades pendientes por caso- PIRAMIDE',
+			        text: 'Actividades pendientes por tipo- PIRAMIDE',
 			        x: -50
 			    },
 			    plotOptions: {
@@ -336,11 +317,11 @@ Highcharts.chart('container_DONUT', {
 			        enabled: false
 			    },
 			    series: [{
-			        name: 'Total caso',
+			        name: 'Total tipo',
 			        data: [
 			    
-			 <?php  foreach($datos as $row){ 
-			                        	echo " ['".$row['TIPnombre']."', ".$row['Contador']."],";
+			 <?php  foreach($datostipo as $rowtipo){ 
+			                        	echo " ['".$rowtipo['TIPnombre']."', ".$rowtipo['Contador']."],";
 			                          }  
 			                        ?>
 
@@ -392,7 +373,7 @@ Highcharts.chart('container_cilindro_Tipo', {
         }
     },
 				    title: {
-				        text: 'Actividades pendientes por caso - CYLINDER'
+				        text: 'Actividades pendientes por tipo - CYLINDER'
 				    },
 				    
 				    plotOptions: {
@@ -403,9 +384,9 @@ Highcharts.chart('container_cilindro_Tipo', {
     },
 				    xAxis: {
 				        categories: [
-				        <?php  foreach($datos as $row){ 
+				        <?php  foreach($datostipo as $rowtipo){ 
 				        ?>
-				        	['<?php echo $row['TIPnombre']?>'],
+				        	['<?php echo $rowtipo['TIPnombre']?>'],
 				        <?php } ?>
 				        ],
 				  
@@ -416,12 +397,12 @@ Highcharts.chart('container_cilindro_Tipo', {
 				        }
 				    },
 				    series: [{
-				        name: 'TIPOS',
+				        name: 'Total tipo',
 				        data: [
-				        <?php  foreach($datos as $row){ 
+				        <?php  foreach($datostipo as $rowtipo){ 
 				        ?>
 
-				        	[<?php echo $row['Contador']?>],
+				        	[<?php echo $rowtipo['Contador']?>],
 
 				        	<?php } ?>
 				        ]
@@ -446,7 +427,6 @@ Highcharts.chart('container_cilindro_Tipo', {
 		</div>
 
 		<div class="col-md-6">
-
 			
 		</div>
 
@@ -457,180 +437,6 @@ Highcharts.chart('container_cilindro_Tipo', {
       </form>
     </div>
 
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
- <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST"novalidate>
-
-     	<?php 
-require_once "./controladores/TipoQrsControlador.php";
-$tipoqrs=new TipoQrsControlador();
-$datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
-$count=1;
-$nuevoestado="Activo";
-?>
-<input type="hidden" name="BuscarPorTipo" value="exportAtendidasAll" />   
-
-<div class="field item form-group">
-<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo:</b><span class="required">*</span></label>
-<div class="col-md-6 col-sm-6">
-<select class="form-control" name="buscarTipoPersonal_Reporte">
-<?php foreach($datosTipoQRS as $row){ ?>
-<option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
-<?php }?>
-</select>
-</div>
-</div>
-
-<button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        Buscar
-
-        </button>
-
-
-             <?php 
-	                                  require_once "./controladores/ActividadQrsControlador.php";
-	                                  $casos=new ActividadQrsControlador();
-	                              $datos=$casos->listar_ActividadesPendientesQrsAll_ReportePersonal_controlador();
-	                                  $count=1;
-	                                  $nuevoestado="Activo";?>
-<div class="col-md-12"> 	 
-	<div class="col-md-6">
-			
-<figure class="highcharts-figure">
-    <div id="container_cilindro_Personal"></div>
-   
-</figure>
-
-
-		<script type="text/javascript">
-Highcharts.chart('container_cilindro_Personal', {
-    chart: {
-        type: 'cylinder',
-        options3d: {
-            enabled: true,
-            alpha: 15,
-            beta: 15,
-            depth: 50,
-            viewDistance: 25
-        }
-    },
-				    title: {
-				        text: 'Actividades pendientes por caso - CYLINDER'
-				    },
-				    plotOptions: {
-        series: {
-            depth: 25,
-            colorByPoint: true
-        }
-    },
-				    xAxis: {
-				        categories: [
-				        <?php  foreach($datos as $row){ 
-				        ?>
-				        	['<?php echo $row['PEUnombres']?>'],
-				        <?php } ?>
-				        ],
-				  
-				    },
-				    yAxis: {
-				        title: {
-				            text: null
-				        }
-				    },
-				    series: [{
-				        name: 'Casos',
-				        data: [
-				        <?php  foreach($datos as $row){ 
-				        ?>
-
-				        	[<?php echo $row['Contador']?>],
-
-				        	<?php } ?>
-				        ]
-				         
-				    }]
-				});
-						</script>
-	           
-	  		
-	</div>
-		
-	<div class="col-md-6">
-
-		
-
-
-		<figure class="highcharts-figure">
-    <div id="container_DONUT_Personal"></div>
-    
-</figure>
-
-
-		<script type="text/javascript">
-Highcharts.chart('container_DONUT_Personal', {
-    chart: {
-        type: 'pie',
-        options3d: {
-            enabled: true,
-            alpha: 45
-        }
-    },
-    title: {
-        text: 'Porcentaje de actividades pendientes por caso - DONUT'
-    },accessibility: {
-	                        point: {
-	                            valueSuffix: '%'
-	                        }
-	                    },tooltip: {
-	                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-	                    },
-    plotOptions: {
-        pie: {
-            innerSize: 100,
-            depth: 45
-        }
-    },
-    series: [{
-        name: 'Total de casos',
-        data: [
-            <?php  foreach($datos as $row){ 
-	                        	echo " ['".$row['PEUnombres']."', ".$row['Contador']."],";
-	                          }  
-	                        ?>
-        ]
-    }]
-});
-		</script>
-	</div>
-
-</div>
-         
-
-
-     <div class="col-md-12"> 	
-		 <hr noshade="noshade" color="#10226a">
-		<hr noshade="noshade" color="#fdaf17">
-		<hr noshade="noshade" color="#10226a">
-		<div class="col-md-6">
-					
-
-		</div>
-
-		<div class="col-md-6">
-
-		</div>
-
-
-
-
-     </div>       
-      </form>
-    </div>
-
-
-
-    <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
-     GENERAL
-    </div>
 </div>
                        
 

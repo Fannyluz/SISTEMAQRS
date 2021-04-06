@@ -68,7 +68,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
             <form>
     <input type="hidden" name="export" value="export" />    
       
-        <a href="<?php echo SERVERURL?>graficosPendientes/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+        <a href="<?php echo SERVERURL?>graficosPendientesALL/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
           <i class="fa fa-pie-chart fa-sm"></i>Reportes
         </a>
      

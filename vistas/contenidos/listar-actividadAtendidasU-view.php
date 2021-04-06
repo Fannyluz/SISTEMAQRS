@@ -27,37 +27,61 @@ if($_SESSION['privilegio_spm']!=3){
                                     <div class="row">
                                         <div class="col-sm-12">
                                         
-  <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
+<div class="col-sm-12">
+
+<div class="col-sm-7">
+<div class="col-sm-2">
+      <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
      <input type="hidden" name="exportarExcelActividadesAtendidas" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        Exportar Excel
+         <i class="fa fa-download fa-sm"></i> Excel
 
         </button>
       </input>
 
-    </form> 
-
-
-    <!-- Boton de pdf-->
+    </form>
+</div>
+<div class="col-sm-2">
+       <!-- Boton de pdf-->
   <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividadesAtendidas" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        Exportar PDF
-
+       <button type="submit"  class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+       <i class="fa fa-download fa-sm"></i> PDF
         </button>
           
       </input>
       
     </form> 
+</div>
+<div class="col-sm-2">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
      <input type="hidden" name="exportarActividadesAtendidas" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        Exportar Word
-
+        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+        <i class="fa fa-download fa-sm"></i>Word
         </button>
       </input>
       
     </form> 
+</div>
+<div class="col-sm-3">
+    <form>
+    <input type="hidden" name="export" value="export" />    
+      
+        <a href="<?php echo SERVERURL?>graficosAtendidosU/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+          <i class="fa fa-pie-chart fa-sm"></i>Reportes
+        </a>
+     
+      
+    </form>
+</div>
+</div>
+</div>
+
+ 
+
+
+ 
+    
                     <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadQRS/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>

@@ -1062,22 +1062,62 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
       } // fin del controlador 
 
 
+public function ListaActualActividadesAll($codigo)
+    {
+      $codigo=modeloPrincipal::limpiar_cadena($_GET['buscar']);
+        $datos=ActividadQrsModelo::XD($codigo);
+         return $datos;
+
+      } // fin del controlador 
 
 
 
-/*controlador listar actividades All reporte por casos*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*controlador listar actividades POR CASO PARA EL JEFE  reporte por casos*/
       public function listar_ActividadQrsAll_Reporte_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReporteCaso_modelo();
          return $datos;
       } // fin del controlador 
+/*controlador listar actividades POR CASO PARA CADA PERSONAL reporte por casos*/
+      public function listar_ActividadQrs_Reporte_controlador()
+      {
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $datos=ActividadQrsModelo::listar_ActividadQrs_ReporteCaso_modelo($codigo);
+         return $datos;
+      } // fin del controlador
 
-/*controlador listar actividades All reporte por casos*/
+/*controlador listar actividades atendidas por caso All reporte por casos*/
       public function listar_ActividadQrsAtendidasCasoAll_Reporte_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadQrsAtendidosCasoAll_Reporte_modelo();
          return $datos;
       } // fin del controlador 
+
+/*controlador listar actividades atendidas por caso para cada personal -reporte por casos*/
+      public function listar_ActividadQrsAtendidasUCaso_Reporte_controlador()
+      {
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidosUCaso_Reporte_modelo($codigo);
+         return $datos;
+      } // fin del controlador 
+
+
 
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadQrsPendientesCasoAll_Reporte_controlador()
@@ -1086,16 +1126,41 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          return $datos;
       } // fin del controlador 
 
-      /*controlador listar actividades All reporte por casos*/
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsPendientesUCaso_Reporte_controlador()
+      {
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::listar_ActividadQrsPendientesUCaso_Reporte_modelo($codigo);
+         return $datos;
+      } // fin del controlador 
+
+      /*controlador listar reporte por tipo*/
       public function listar_ActividadQrsAll_ReporteTipo_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReporteTipo_modelo();
          return $datos;
       } // fin del controlador 
+
+      /*controlador listar reporte por tipo para cada personal de la oficina*/
+      public function listar_ActividadQrs_ReporteTipo_controlador()
+      {
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::listar_ActividadQrs_ReporteTipo_modelo($codigo);
+         return $datos;
+      } // fin del controlador 
+
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadAtendidasQrsAll_ReporteTipo_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsAll_ReporteTipo_modelo();
+         return $datos;
+      } // fin del controlador 
+
+      /*controlador listar actividades atendidas por tipo para cada personal de la oficina - reporte por tipo*/
+      public function listar_ActividadAtendidasQrsU_ReporteTipo_controlador()
+      {
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsU_ReporteTipo_modelo($codigo);
          return $datos;
       } // fin del controlador 
 /*controlador listar actividades All reporte por casos*/
@@ -1105,24 +1170,38 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
          return $datos;
       } // fin del controlador 
 
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadPendientesQrsU_ReporteTipo_controlador()
+      {
+         $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsU_ReporteTipo_modelo($codigo);
+         return $datos;
+      } // fin del controlador 
+
+
 
       public function listar_ActividadQrsAll_ReportePersonal_controlador()
       {
-        $buscar=1;
-       if($buscar=="")
-       {
-        $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar);
-        }
-        else
-        {
-          
-          $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar);
-        }
-
-
-         
+       
+        $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo();
          return $datos;
       } // fin del controlador 
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
       public function listar_ActividadesAtendidasQrsAll_ReportePersonal_controlador()
       {

@@ -147,34 +147,17 @@ if($_SESSION['privilegio_spm']!=1){
                       </li>
                     </ul>
 
-<?php 
-	                                  require_once "./controladores/ActividadQrsControlador.php";
-	                                  $casos=new ActividadQrsControlador();
-	                                  $datos=$casos->listar_ActividadQrsAll_Reporte_controlador();
-	                                  $count=1;
-	                                  $nuevoestado="Activo";?>
-
-
-<?php 
-	                                  require_once "./controladores/ActividadQrsControlador.php";
-	                                  $tipos=new ActividadQrsControlador();
-	                                  $datostipo=$tipos->listar_ActividadQrsAll_ReporteTipo_controlador();
-	                                  $count=1;
-	                                  $nuevoestado="Activo";?>
-
-
-	                                  <?php 
-	                                  require_once "./controladores/ActividadQrsControlador.php";
-	                                  $comparativos=new ActividadQrsControlador();
-	                                  $datoscomparativos=$comparativos->listar_ActividadQrsAll_ReporteComparativo_controlador();
-	                                  ;?>
-
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
 <form>
-
+<?php 
+	                                  require_once "./controladores/ActividadQrsControlador.php";
+	                                  $casos=new ActividadQrsControlador();
+	                                  $datos=$casos->listar_ActividadQrsPendientesCasoAll_Reporte_controlador();
+	                                  $count=1;
+	                                  $nuevoestado="Activo";?>
 <div class="col-md-12"> 	 
 	<div class="col-md-6">
 			<figure class="highcharts-figure">
@@ -193,7 +176,7 @@ Highcharts.chart('container_DONUT', {
         }
     },
     title: {
-        text: 'Porcentaje de actividades por caso - DONUT'
+        text: 'Porcentaje de actividades pendientes por caso - DONUT'
     },accessibility: {
 	                        point: {
 	                            valueSuffix: '%'
@@ -208,7 +191,7 @@ Highcharts.chart('container_DONUT', {
         }
     },
     series: [{
-        name: 'Porcentaje de casos',
+        name: 'Porcentaje caso',
         data: [
             <?php  foreach($datos as $row){ 
 	                        	echo " ['".$row['CASnombre']."', ".$row['Contador']."],";
@@ -244,7 +227,7 @@ Highcharts.chart('container_DONUT', {
 				        }
 				    },
 				    title: {
-				        text: 'Actividades por caso - 3D'
+				        text: 'Actividades pendientes por caso - 3D'
 				    },
 				    
 				    plotOptions: {
@@ -294,82 +277,7 @@ Highcharts.chart('container_DONUT', {
 		<hr noshade="noshade" color="#10226a">
 		<div class="col-md-6">
 					
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        A basic column chart compares rainfall values between four cities.
-        Tokyo has the overall highest amount of rainfall, followed by New York.
-        The chart is making use of the axis crosshair feature, to highlight
-        months as they are hovered over.
-    </p>
-</figure>
 
-
-
-		<script type="text/javascript">
-Highcharts.chart('container', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Monthly Average Rainfall'
-    },
-    subtitle: {
-        text: 'Source: WorldClimate.com'
-    },
-    xAxis: {
-        categories: [
-            <?php  foreach($datostipo as $rowtipo){ 
-				        ?>
-				        	['<?php echo $rowtipo['TIPnombre']?>'],
-				        <?php } ?>
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Rainfall (mm)'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Tokyo',
-        data: [<?php  foreach($datoscomparativos as $rowcomparativos){ 
-				        ?>
-
-				        	[<?php echo $rowcomparativos['Contador']?>],
-
-				        	<?php } ?>]
-
-    }, {
-        name: 'New York',
-        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-    }, {
-        name: 'London',
-        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-    }, {
-        name: 'Berlin',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-    }]
-});
-		</script>
 		</div>
 
 		<div class="col-md-6">
@@ -391,7 +299,12 @@ Highcharts.chart('container', {
 
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
       <form>
-             
+             <?php 
+	                                  require_once "./controladores/ActividadQrsControlador.php";
+	                                  $casos=new ActividadQrsControlador();
+	                                  $datos=$casos->listar_ActividadPendientesQrsAll_ReporteTipo_controlador();
+	                                  $count=1;
+	                                  $nuevoestado="Activo";?>
 <div class="col-md-12"> 	 
 	<div class="col-md-6">
 							
@@ -405,7 +318,7 @@ Highcharts.chart('container', {
 			        type: 'pyramid'
 			    },
 			    title: {
-			        text: 'Actividades por tipo- PIRAMIDE',
+			        text: 'Actividades pendientes por tipo- PIRAMIDE',
 			        x: -50
 			    },
 			    plotOptions: {
@@ -426,8 +339,8 @@ Highcharts.chart('container', {
 			        name: 'Total tipo',
 			        data: [
 			    
-			 <?php  foreach($datostipo as $rowtipo){ 
-			                        	echo " ['".$rowtipo['TIPnombre']."', ".$rowtipo['Contador']."],";
+			 <?php  foreach($datos as $row){ 
+			                        	echo " ['".$row['TIPnombre']."', ".$row['Contador']."],";
 			                          }  
 			                        ?>
 
@@ -479,7 +392,7 @@ Highcharts.chart('container_cilindro_Tipo', {
         }
     },
 				    title: {
-				        text: 'Actividades por tipo - CYLINDER'
+				        text: 'Actividades pendientes por tipo - CYLINDER'
 				    },
 				    
 				    plotOptions: {
@@ -490,9 +403,9 @@ Highcharts.chart('container_cilindro_Tipo', {
     },
 				    xAxis: {
 				        categories: [
-				        <?php  foreach($datostipo as $rowtipo){ 
+				        <?php  foreach($datos as $row){ 
 				        ?>
-				        	['<?php echo $rowtipo['TIPnombre']?>'],
+				        	['<?php echo $row['TIPnombre']?>'],
 				        <?php } ?>
 				        ],
 				  
@@ -505,10 +418,10 @@ Highcharts.chart('container_cilindro_Tipo', {
 				    series: [{
 				        name: 'Total tipo',
 				        data: [
-				        <?php  foreach($datostipo as $rowtipo){ 
+				        <?php  foreach($datos as $row){ 
 				        ?>
 
-				        	[<?php echo $rowtipo['Contador']?>],
+				        	[<?php echo $row['Contador']?>],
 
 				        	<?php } ?>
 				        ]
@@ -545,31 +458,16 @@ Highcharts.chart('container_cilindro_Tipo', {
     </div>
 
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-<form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="GET" data-form="update" novalidate>
+ <form class="form-neon FormularioAjax" action="<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php" method="POST"novalidate>
 
-<input name="buscar" value="2" />  
-
-
- <?php 
- 
- $variable = "";
+     	<?php 
 require_once "./controladores/TipoQrsControlador.php";
 $tipoqrs=new TipoQrsControlador();
 $datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
-
-
-if($variable=="")
-{
-require_once "./controladores/ActividadQrsControlador.php";
-	$casos=new ActividadQrsControlador();
-	$datos=$casos->listar_ActividadQrsAll_ReportePersonal_controlador();
-}else
-{
-	require_once "./controladores/ActividadQrsControlador.php";
-	$casos=new ActividadQrsControlador();
-	$datos=$casos->ListaActualActividadesAll();
-}
+$count=1;
+$nuevoestado="Activo";
 ?>
+<input type="hidden" name="BuscarPorTipo" value="exportAtendidasAll" />   
 
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo:</b><span class="required">*</span></label>
@@ -582,11 +480,18 @@ require_once "./controladores/ActividadQrsControlador.php";
 </div>
 </div>
 
-
 <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         Buscar
 
         </button>
+
+
+             <?php 
+	                                  require_once "./controladores/ActividadQrsControlador.php";
+	                                  $casos=new ActividadQrsControlador();
+	                              $datos=$casos->listar_ActividadesPendientesQrsAll_ReportePersonal_controlador();
+	                                  $count=1;
+	                                  $nuevoestado="Activo";?>
 <div class="col-md-12"> 	 
 	<div class="col-md-6">
 			
@@ -609,9 +514,8 @@ Highcharts.chart('container_cilindro_Personal', {
         }
     },
 				    title: {
-				        text: 'Actividades por personal UPTvirtual - CYLINDER'
+				        text: 'Actividades pendientes por personal UPTvirtual - CYLINDER'
 				    },
-				    
 				    plotOptions: {
         series: {
             depth: 25,
@@ -671,7 +575,7 @@ Highcharts.chart('container_DONUT_Personal', {
         }
     },
     title: {
-        text: 'Porcentaje de actividades por personal UPTvirtual - DONUT'
+        text: 'Porcentaje de actividades pendientes por personal UPTvirtual - DONUT'
     },accessibility: {
 	                        point: {
 	                            valueSuffix: '%'
