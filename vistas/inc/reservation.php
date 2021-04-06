@@ -3,6 +3,7 @@
         //obtener el valor
         let input_cliente = document.querySelector('#buscarvivo').value;
 
+        
         if(input_cliente != 0){
             let datos = new FormData();
             datos.append("buscar_cliente",input_cliente);

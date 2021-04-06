@@ -99,7 +99,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                            
                                     <div class="col-md-3 col-sm-3" >
                                     <select class="form-control input-sm" id="buscarvivo" method="POST" name="buscarvivo" >
-                                        <?php foreach($datosTipoQRS as $row){ ?>
+                                    <option value="vacia" selected="">Seleccione(Usuario)</option>    
+                                    <?php foreach($datosTipoQRS as $row){ ?>
+                                            
                                             <option value=<?php echo $row['UPUcodigo']?>><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>)</option>
                                         <?php }?>
                                     </select>
@@ -136,8 +138,9 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         <div div class="col-md-10 col-sm-10">
 
                            
-                                    <div  class="col-md-3 col-sm-3">
-                                    <select class="form-control" class="selectpicker" data-live-search="true" name="caso_buscar" id="caso_buscar" >
+                                    <!--<div  class="col-md-3 col-sm-3">
+                                    <select class="form-control" id="buscartipo" class="selectpicker" data-live-search="true" name="caso_buscar" id="caso_buscar"  >
+                                    <option value="" selected="">Seleccione(Caso)</option>
                                         <?php 
                                         foreach($datosTipoQRS as $row){ 
                                         if($row['TIPcodigo'] == $row['TIPcodigo']){
@@ -153,7 +156,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     <a href="<?php echo SERVERURL?>buscar-caso/" <?php echo $row['TIPcodigo'] ?>  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
                                 </a></p>
 
-                                </div>
+                                </div>-->
                            
 
                 </div>
@@ -272,19 +275,3 @@ foreach($datos as $row){
  </div>
  <?php include_once "./vistas/inc/reservation.php"; ?>
  <!-- probar -->
- <script type="text/javascript">
-		$(document).ready(function(){
-			$('#buscadorvivo').select2();
-			
-			$('#buscadorvivo').change(function(){
-				$.ajax({
-					type:"post",
-					data:'valor=' + $('#buscadorvivo').val(),
-					url:'php/crearsession.php',
-					success:function(r){
-						$('#tabla').load('contenidos/buscar-actividadqrsAll.php');
-					}
-				});
-			});
-		});
-	</script>
