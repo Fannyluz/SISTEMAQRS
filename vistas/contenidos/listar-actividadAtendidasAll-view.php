@@ -126,8 +126,8 @@ foreach($datos as $row){
                                 <td><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></td> 
                                 <td><?php echo $row['ACTcodigoUPT'] ?></td> 
                                 <td><?php echo $row['ACTnombres']?> <?php echo $row['ACTapellidos']?></td>
-                                <td><?php echo $row['ACTcelular']?></td>
-                                <td><?php echo $row['ACTcorreoelectronico']?></td> 
+                                <td><?php echo $row['ACTDescripcion']?></td>
+                                <td><?php echo $row['ACTcelular']?></td> 
                                 <td><?php echo $row['ACTfecha']?></td>
                                 
                                  <td><?php if($row['ACTestado']=="1")
