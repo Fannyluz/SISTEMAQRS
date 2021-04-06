@@ -1253,15 +1253,8 @@ public function ListaActualActividadesAll()
         }
       }
 
-<<<<<<< Updated upstream
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadPendientesQrsU_ReporteTipo_controlador()
-=======
-
-///finnnnnnnnnnnnnnnnnnnnnnnnn
-
-      public function listar_ActividadQrsAll_ReportePersonal_controlador()
->>>>>>> Stashed changes
       {
          $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
          $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsU_ReporteTipo_modelo($codigo);

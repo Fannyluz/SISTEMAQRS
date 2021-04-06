@@ -29,50 +29,28 @@ if($_SESSION['privilegio_spm']!=3){
 
 <div class="col-sm-12">
 
-<<<<<<< Updated upstream
 <div class="col-sm-7">
 <div class="col-sm-2">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
      <input type="hidden" name="exportarExcelActividades" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
          <i class="fa fa-download fa-sm"></i> Excel
-=======
-                        
-<div class="col-sm-7">
-<div class="col-sm-2">                                        
-<form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
-     <input type="hidden" name="exportarExcelActividades" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-       <i class="fa fa-download fa-sm"></i> Excel
->>>>>>> Stashed changes
 
         </button>
           
       </input>
       
     </form> 
-<<<<<<< Updated upstream
 </div>
 <div class="col-sm-2">
     <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
      <input type="hidden" name="exportarPdfActividades" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
        <button type="submit"  class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
        <i class="fa fa-download fa-sm"></i> PDF
-=======
-    </div>
-
-    <div class="col-sm-2">
-    <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
-     <input type="hidden" name="exportarPdfActividades" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-       <i class="fa fa-download fa-sm"></i> PDF
-
->>>>>>> Stashed changes
         </button>
           
       </input>
       
-<<<<<<< Updated upstream
     </form> 
 </div>
 <div class="col-sm-2">
@@ -80,21 +58,10 @@ if($_SESSION['privilegio_spm']!=3){
      <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
        <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
         <i class="fa fa-download fa-sm"></i>Word
-=======
-    </form>  
-    </div> 
-    <div class="col-sm-2">
-    <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
-     <input type="hidden" name="exportar" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />    
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-       <i class="fa fa-download fa-sm"></i>Word
-
->>>>>>> Stashed changes
         </button>
       </input>
       
     </form> 
-<<<<<<< Updated upstream
 
 </div>
 <div class="col-sm-3">
@@ -119,10 +86,6 @@ if($_SESSION['privilegio_spm']!=3){
 
     
     
-=======
-    </div>
-</div>
->>>>>>> Stashed changes
                                     <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadQRS/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>

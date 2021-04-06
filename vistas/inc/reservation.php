@@ -1,11 +1,3 @@
-<<<<<<< Updated upstream
-<script type="text/javascript">
-	
-	function buscar_cliente(){
-		alert("hola muenco")
-	}
-
-=======
 <script>
     function buscar_cliente(){
         //obtener el valor
@@ -27,5 +19,4 @@
 
         }
     }
->>>>>>> Stashed changes
 </script>
