@@ -1054,6 +1054,15 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
 
       } // fin del controlador 
 
+/*controlador listar actividades All reporte por casos*/
+      public function listar_ActividadQrsAll_ReporteComparativo_controlador()
+      {
+         $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReporteComparativo_modelo();
+         return $datos;
+      } // fin del controlador 
+
+
+
 
 
 /*controlador listar actividades All reporte por casos*/
@@ -1099,14 +1108,14 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
 
       public function listar_ActividadQrsAll_ReportePersonal_controlador()
       {
-        $buscar="";
+        $buscar=1;
        if($buscar=="")
        {
         $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar);
         }
         else
         {
-          $buscar=2;
+          
           $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo($buscar);
         }
 
