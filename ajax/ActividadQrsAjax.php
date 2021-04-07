@@ -3,7 +3,7 @@
     require_once "../config/APP.php";
 
     if(isset($_POST['ACTnombres_reg'])  || isset($_POST['ActividadQRS_codigo_up']) || isset($_POST['caso_buscar'])
-     || isset($_POST['BuscarPorTipo']) || isset($_POST['buscar_cliente'])){
+     || isset($_POST['BuscarPorTipo']) || isset($_POST['buscar_cliente']) || isset($_POST['buscar_atendidos']) || isset($_POST['buscar_pendiente']) ){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/ActividadQrsControlador.php";
         $ins_tiperson = new ActividadQrsControlador();
@@ -24,6 +24,13 @@
             }
 
             if(isset($_POST['buscar_cliente'])){
+                echo $ins_tiperson->buscar_cliente_prestamo_controlador();
+            }
+
+            if(isset($_POST['buscar_atendidos'])){
+                echo $ins_tiperson->buscar_cliente_prestamo_controlador();
+            }
+            if(isset($_POST['buscar_pendiente'])){
                 echo $ins_tiperson->buscar_cliente_prestamo_controlador();
             }
             //buscar personal por quejas 

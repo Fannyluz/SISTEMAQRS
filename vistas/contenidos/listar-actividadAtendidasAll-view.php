@@ -72,9 +72,50 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     </form>
         </div>
     </div>
+    <br>
+    <br>
+    
+    
+    <br>
  </div>
 
-   
+ <?php 
+                                require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
+                                $tipoqrs=new UsuarioPersonalUptVirtualControlador();
+                                $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_estado_controlador();
+                                $count=1;
+                                $nuevoestado="Activo";
+                                ?>
+
+                                
+
+                                </br>
+                                <div   class="col-md-10 col-sm-10">
+
+                           
+                                    <div class="col-md-3 col-sm-3" >
+                                    <select class="form-control input-sm" id="buscaratendido" method="POST" name="buscaratendido" >
+                                    <option value="vacia" selected="">Seleccione(Usuario)</option>    
+                                    <?php foreach($datosTipoQRS as $row){ ?>
+                                            
+                                            <option value=<?php echo $row['UPUcodigo']?>><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?> (<?php echo $row['ROPnombre']?>)</option>
+                                        <?php }?>
+                                    </select>
+                                    </div>
+
+                        <div class="col-md-3 col-sm-3">
+                        <?php
+                        require_once "modelos/modeloPrincipal.php";
+                        $principal= new modeloPrincipal();
+  
+                        ?>
+                                   <p>  
+                                   <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_atendidos()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
+                
+                                </a></p>
+                        </div>       
+
+                        </div>
  
 
 
@@ -186,4 +227,4 @@ require_once "modelos/modeloPrincipal.php";
         </div>
  </div>
 
- 
+ <?php include_once "./vistas/inc/reservation.php"; ?>

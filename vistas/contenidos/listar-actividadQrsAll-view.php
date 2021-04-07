@@ -77,11 +77,13 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
       
     </form>
     </div>
+</div>
+</div>
 </br>
 </br>
-</br>
+
     
-    </div>
+    
     
                                 <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
@@ -90,13 +92,8 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
-
-                                
-
                                 </br>
                                 <div   class="col-md-10 col-sm-10">
-
-                           
                                     <div class="col-md-3 col-sm-3" >
                                     <select class="form-control input-sm" id="buscarvivo" method="POST" name="buscarvivo" >
                                     <option value="vacia" selected="">Seleccione(Usuario)</option>    
@@ -106,12 +103,10 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         <?php }?>
                                     </select>
                                     </div>
-
                         <div class="col-md-3 col-sm-3">
                         <?php
                         require_once "modelos/modeloPrincipal.php";
                         $principal= new modeloPrincipal();
-  
                         ?>
                                    <p>  
                                    <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_cliente()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
@@ -121,53 +116,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                         </div>
 
-                        
-                                            </br>
-                                            </br>
-                                            </br>
-                                            </br>
-                                            </br>
-                                            <?php 
-                                                    require_once "./controladores/TipoQrsControlador.php";
-                                                    $tipoqrs=new TipoQrsControlador();
-                                                    $datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
-                                                    
-                                                    $count=1;
-                                                    $nuevoestado="Activo";
-                                                    ?>
-                                        <div div class="col-md-10 col-sm-10">
-
-                           
-                                    <!--<div  class="col-md-3 col-sm-3">
-                                    <select class="form-control" id="buscartipo" class="selectpicker" data-live-search="true" name="caso_buscar" id="caso_buscar"  >
-                                    <option value="" selected="">Seleccione(Caso)</option>
-                                        <?php 
-                                        foreach($datosTipoQRS as $row){ 
-                                        if($row['TIPcodigo'] == $row['TIPcodigo']){
-                                            ?>
-                                            <option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
-                                            <?php
-                                        } ?>}
-                                        <?php }?>
-                                    </select>
-                                    </div>
-                                    <div class="col-md-3 col-sm-3">
-                                   <p>
-                                    <a href="<?php echo SERVERURL?>buscar-caso/" <?php echo $row['TIPcodigo'] ?>  style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-search fa-sm"></i> Buscar
-                                </a></p>
-
-                                </div>-->
-                           
-
-                </div>
-
-                                        <div>
-                                            <div class="col-md-3 col-sm-3" align="right">
-                                            
-                                        </div>
-                                        <div>
-
-                         
+   
                                        <p align="right" class="x_title">
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>
@@ -175,7 +124,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     
                     <div class="card-box table-responsive">
                         
-                        <table id="tabla_clientes" class="table table-hover table-condensed table-bordered border-warning" style="width:100%" >
+                        <table id="datatable" class="table table-hover table-condensed table-bordered border-warning" style="width:100%" >
                        
 
                             <thead  class="thead-primary" style="background-color:#10226a;color:white;">
