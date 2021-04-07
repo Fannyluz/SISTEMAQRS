@@ -28,27 +28,27 @@ if($_SESSION['privilegio_spm']!=1){
 
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombre</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" data-validate-length-range="3" name="tipoqrs_nombre_reg" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Descripción</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <textarea class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_reg" id="caso_descripcion" placeholder="Ingrese la descripción"></textarea>
                                             </div>
                                         </div>
                                         <?php $fcha = date("Y-m-d");?>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="tipoqrs_fecha_reg"  value="<?php echo $fcha;?>" required='required'></div>
                                         </div>
 
                                          <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="tipoqrs_estado_reg">
                                                     <option value="1" selected="">Activo</option>
