@@ -236,7 +236,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" href="https://twitter.com/uptvirtual?lang=es" data-placement="top" title="Inicio">
+              <a data-toggle="tooltip" href="https://twitter.com/uptvirtual?lang=es" data-placement="top" title="twitter">
                 <span class="fa fa-twitter" aria-hidden="true"></span>
               </a>
               <a data-toggle="tooltip" href="http://www.upt.edu.pe/upt/web/index.php" data-placement="top" title="Lugar">
