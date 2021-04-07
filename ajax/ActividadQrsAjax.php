@@ -31,7 +31,7 @@
                 echo $ins_tiperson->buscar_actividadesAtendidosPorPersonal__controlador();
             }
             if(isset($_POST['buscar_pendiente'])){
-                echo $ins_tiperson->buscar_cliente_prestamo_controlador();
+                echo $ins_tiperson->buscar_actividadesPendientesPorPersonal_controlador();
             }
             //buscar personal por quejas 
             //if(var_dump($_POST['buscarTipoPersonal_Reporte'])){

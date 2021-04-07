@@ -109,7 +109,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                         $principal= new modeloPrincipal();
   
                         ?>
-                                   <p>  
+                                   <p>   
                                    <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_atendidos()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
                 
                                 </a></p>

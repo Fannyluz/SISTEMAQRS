@@ -50,7 +50,7 @@
         
         if(input_cliente != 0){
             let datos = new FormData();
-            datos.append("buscar_cliente",input_cliente);
+            datos.append("buscar_pendiente",input_cliente);
 
             fetch("<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php",{
                 method: 'POST',

@@ -99,7 +99,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     </div>
                         <div class="col-md-3 col-sm-3">
                         <?php
-                        require_once "modelos/modeloPrincipal.php";
+                        require_once "modelos/modeloPrincipal.php"; 
                         $principal= new modeloPrincipal();
                         ?>
                                    <p>  
