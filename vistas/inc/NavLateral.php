@@ -61,11 +61,11 @@
               </br>
             <div class="clearfix"  ></div>
             
-            <div style="background-color:#fdaf17;">
+            <div style="background-color:#fdaf17;" width="100" height="50">
      
             <font color="#10226a" SIZE=2>
 
-          <align="center"><i>UNIVERSIDAD PRIVADA DE TACNA</i>
+          <align="center"><i><b>UNIVERSIDAD PRIVADA DE TACNA</b></i>
           
           </font>
 
@@ -113,13 +113,21 @@
                 <h2><?php echo $_SESSION['personal_spm']?> </h2>
                 <h2><?php echo $_SESSION['usuario_spm']?> </h2>-->
                 <h2><?php echo $_SESSION['nombres_spm']?> <?php echo $_SESSION['apellidos_spm']?></h2>
-                <h2><?php echo $_SESSION['rolpersonal_spm']?> </h2>
+              
+               <!-- <h2><?php echo $_SESSION['rolpersonal_spm']?> </h2>-->
               </div>
+              
             </div>
+            <div align="center" >
+              <p style="background-color:#fdaf17;color:black;">  <?php echo $_SESSION['rolpersonal_spm']?>  </p> 
+
+            </div>
+            <br>
             <!-- /menu profile quick info -->
 
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">

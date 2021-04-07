@@ -97,7 +97,7 @@
 <script src="<?php echo SERVERURL; ?>vistas/Graficas/code/modules/accessibility.js"></script>
 
 <?php 
-if($_SESSION['privilegio_spm']!=1){
+if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     echo $lc->forzar_cierre_sesion_controlador();
     exit();
 }

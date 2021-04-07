@@ -1,10 +1,9 @@
 <?php 
-if($_SESSION['privilegio_spm']!=1){
+if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
     echo $lc->forzar_cierre_sesion_controlador();
     exit();
 }
-
-
+?>
 
 ?>
 <div class="right_col" role="main">

@@ -28,7 +28,7 @@
             }
 
             if(isset($_POST['buscar_atendidos'])){
-                echo $ins_tiperson->buscar_cliente_prestamo_controlador();
+                echo $ins_tiperson->buscar_actividadesAtendidosPorPersonal__controlador();
             }
             if(isset($_POST['buscar_pendiente'])){
                 echo $ins_tiperson->buscar_cliente_prestamo_controlador();

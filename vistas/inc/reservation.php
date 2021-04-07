@@ -23,15 +23,15 @@
 
     function buscar_atendidos(){
         //obtener el valor
-        let input_cliente = document.querySelector('#buscaratendido').value;
+        let input_clienteU = document.querySelector('#buscaratendido').value;
 
         
-        if(input_cliente != 0){
+        if(input_clienteU != 0){
             let datos = new FormData();
-            datos.append("buscar_cliente",input_cliente);
+            datos.append("buscar_atendidos",input_clienteU);
 
             fetch("<?php echo SERVERURL; ?>ajax/ActividadQrsAjax.php",{
-                method: 'POST',
+                method:'POST',
                 body: datos
             })
             .then(respuesta => respuesta.text())

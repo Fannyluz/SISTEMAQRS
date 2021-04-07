@@ -115,7 +115,7 @@
   
                                       ?> 
                                         
-                                        <a href="<?php echo SERVERURL?>ver-usuariopersonal-uptvirtual/<?php echo $principal->encryption($row['PEUcodigo']) ?>" class="btn btn-round btn-outline btn-sm" style="background-color:#fdaf17;color:white;"><i class="fa fa-eye fa-sm"></i> Ver
+                                        <a href="<?php echo SERVERURL?>ver-personal-general/<?php echo $principal->encryption($row['PEUcodigo']) ?>" class="btn btn-round btn-outline btn-sm" style="background-color:#fdaf17;color:white;"><i class="fa fa-eye fa-sm"></i> Ver
                                         </a>
                                       </div>
                                     </div>
