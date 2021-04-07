@@ -121,7 +121,7 @@ foreach($datos as $row){
 ?>
 
                                 <tr>
-                                <td><?php echo $count++?></td> 
+                                <td><?php echo $count?></td> 
                                 <td><?php echo $row['TIPnombre']?></td> 
                                 <td><?php echo $row['CASnombre']?></td> 
                                 <td><?php echo $row['TIUnombre']?></td> 
@@ -162,6 +162,7 @@ require_once "modelos/modeloPrincipal.php";
                                 </a>            
                                                 
                                  </td>
+                                 <?php $count ++?>
                             </tr>
 							<?php
 

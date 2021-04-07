@@ -40,6 +40,22 @@
 
                exit();
             }     
+
+            if($correoElectronico!="")
+            {
+              if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $correoElectronico)){
+                $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"El correo es invalido",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }
+            }
+            
             
 
             $datos_actividadQRS_registro=[
