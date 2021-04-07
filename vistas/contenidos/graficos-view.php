@@ -140,11 +140,7 @@ if($_SESSION['privilegio_spm']!=1){
                             <i class="fa fa-user fa-sm"></i> Personal
                         </a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="false" >
-                            <i class="fa fa-home fa-sm"></i> General
-                        </a>
-                      </li>
+                      
                     </ul>
 
 <?php 
@@ -294,82 +290,11 @@ Highcharts.chart('container_DONUT', {
 		<hr noshade="noshade" color="#10226a">
 		<div class="col-md-6">
 					
-<figure class="highcharts-figure">
-    <div id="container"></div>
-    <p class="highcharts-description">
-        A basic column chart compares rainfall values between four cities.
-        Tokyo has the overall highest amount of rainfall, followed by New York.
-        The chart is making use of the axis crosshair feature, to highlight
-        months as they are hovered over.
-    </p>
-</figure>
 
 
 
-		<script type="text/javascript">
-Highcharts.chart('container', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Monthly Average Rainfall'
-    },
-    subtitle: {
-        text: 'Source: WorldClimate.com'
-    },
-    xAxis: {
-        categories: [
-            <?php  foreach($datostipo as $rowtipo){ 
-				        ?>
-				        	['<?php echo $rowtipo['TIPnombre']?>'],
-				        <?php } ?>
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'Rainfall (mm)'
-        }
-    },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
-        name: 'Tokyo',
-        data: [<?php  foreach($datoscomparativos as $rowcomparativos){ 
-				        ?>
 
-				        	[<?php echo $rowcomparativos['Contador']?>],
-
-				        	<?php } ?>]
-
-    }, {
-        name: 'New York',
-        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
-
-    }, {
-        name: 'London',
-        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
-
-    }, {
-        name: 'Berlin',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
-
-    }]
-});
-		</script>
+		
 		</div>
 
 		<div class="col-md-6">
@@ -547,7 +472,7 @@ Highcharts.chart('container_cilindro_Tipo', {
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 <form>
 
-<input id="buscar" name="buscar" value="2" />  
+<!--<input id="buscar" name="buscar" value="2" /> --> 
 
 
  <?php 
@@ -558,19 +483,13 @@ $tipoqrs=new TipoQrsControlador();
 $datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
 
 
-if($variable=="")
-{
+
 require_once "./controladores/ActividadQrsControlador.php";
 	$casos=new ActividadQrsControlador();
 	$datos=$casos->listar_ActividadQrsAll_ReportePersonal_controlador();
-}else
-{
-	require_once "./controladores/ActividadQrsControlador.php";
-	$casos=new ActividadQrsControlador();
-	$datos=$casos->ListaActualActividadesAll();
-}
-?>
 
+?>
+<!--
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo:</b><span class="required">*</span></label>
 <div class="col-md-6 col-sm-6">
@@ -583,10 +502,10 @@ require_once "./controladores/ActividadQrsControlador.php";
 </div>
 
 
-<button type="submit" class="btn btn-round btn-sm" onclick="buscar_cliente()" style="background-color:#10226a;color:white;">
+ <button type="submit" class="btn btn-round btn-sm" onclick="buscar_cliente()" style="background-color:#10226a;color:white;">
         Buscar
 
-        </button>
+        </button>-->
 <div class="col-md-12"> 	 
 	<div class="col-md-6">
 			
@@ -755,10 +674,6 @@ Highcharts.chart('container_DONUT_Personal', {
     </div>
 
 
-
-    <div class="tab-pane fade" id="general" role="tabpanel" aria-labelledby="general-tab">
-     GENERAL
-    </div>
 </div>
                        
 

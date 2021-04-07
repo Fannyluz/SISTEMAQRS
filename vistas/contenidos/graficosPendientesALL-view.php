@@ -140,11 +140,7 @@ if($_SESSION['privilegio_spm']!=1){
                             <i class="fa fa-user fa-sm"></i> Personal
                         </a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" id="general-tab" data-toggle="tab" href="#general" role="tab" aria-controls="general" aria-selected="false" >
-                            <i class="fa fa-home fa-sm"></i> General
-                        </a>
-                      </li>
+                      
                     </ul>
 
 <div class="tab-content" id="myTabContent">
