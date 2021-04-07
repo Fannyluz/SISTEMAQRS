@@ -26,7 +26,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   
-                  <div class="x_content">
+                  <div class="x_content"> 
 
                     <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
                       <li class="nav-item">
@@ -160,7 +160,7 @@ if($row['TIUcodigo']=="2")
 <div class="field item form-group">
      <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario:</b><span class="required"></span></label>
     <div class="col-md-6 col-sm-6">
-         <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
+         <input pattern="[0-9-]{0,20}" data-validate-length-range="3" class="form-control" name="codigo_reg" id="usuario" maxlength="10" required="required" placeholder="Ingrese el codigo" />
      </div>
 </div>
 <div class="field item form-group">
@@ -182,7 +182,7 @@ if($row['TIUcodigo']=="2")
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
 <div class="col-md-6 col-sm-6">
-<input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+<input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese el nombre" required="required" />
 </div>
 </div>
 
@@ -190,7 +190,7 @@ if($row['TIUcodigo']=="2")
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Apellidos:</b><span class="required">*</span></label>
 <div class="col-md-6 col-sm-6">
-<input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+<input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese el apellido" required="required" />
 </div>
 </div>
 
@@ -198,7 +198,7 @@ if($row['TIUcodigo']=="2")
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Descripción:</b><span class="required">*</span></label>
 <div class="col-md-6 col-sm-6">
-<input class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+<textarea class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required"></textarea>
 </div>
 </div>
 
@@ -206,7 +206,7 @@ if($row['TIUcodigo']=="2")
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required">*</span></label>
 <div class="col-md-6 col-sm-6">
-<input class="form-control" name="ACTcelular_reg" id="clave" placeholder="Ingrese la descripción" maxlength="9" required="required" />
+<input class="form-control" name="ACTcelular_reg" id="clave" placeholder="Ingrese el celular" maxlength="9" required="required" />
 </div>
 </div>
 
@@ -214,7 +214,7 @@ if($row['TIUcodigo']=="2")
 <div class="field item form-group">
 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required"></span></label>
 <div class="col-md-6 col-sm-6">
-<input class="form-control" name="ACTcorreoElectronico_reg" id="usuario" placeholder="Ingrese el nombre" />
+<input class="form-control" name="ACTcorreoElectronico_reg" class='email' id="usuario" required="required" type="email" placeholder="Ingrese el correo" />
 </div>
 </div>
 
@@ -354,38 +354,38 @@ if($row['TIUcodigo']=="1")
                                                                                     <div class="field item form-group">
                                                                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario:</b><span class="required"></span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="codigo_reg" id="usuario" placeholder="Ingrese el nombre" />
+                                                                                            <input class="form-control" pattern="[0-9-]{0,20}" maxlength="10" required="required" name="codigo_reg" id="usuario" placeholder="Ingrese el codigo" />
                                                                                         </div>
                                                                                     </div>
                                                                                     
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese el nombre" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                      <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Apellidos:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese el apellido" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Descripción:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <textarea class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required"></textarea>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTcelular_reg" id="clave" placeholder="Ingrese la descripción" maxlength="9" required="required" />
+                                                                                            <input class="form-control" data-validate-length-range="3" maxlength="9" required="required" name="ACTcelular_reg" id="clave" placeholder="Ingrese el celular" maxlength="9" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required"></span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTcorreoElectronico_reg" id="usuario" placeholder="Ingrese el nombre" />
+                                                                                            <input class="form-control" class='email' required="required" type="email" name="ACTcorreoElectronico_reg" id="usuario" placeholder="Ingrese el correo" />
                                                                                         </div>
                                                                                     </div>
                                                                                 
@@ -533,31 +533,31 @@ if($row['TIUcodigo']=="3")
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese el nombre" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                      <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Apellidos:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese el apellido" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Descripción:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <textarea class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required"></textarea>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTcelular_reg" id="clave" placeholder="Ingrese la descripción" maxlength="9" required="required" />
+                                                                                            <input class="form-control" data-validate-length-range="3" name="ACTcelular_reg" id="clave" placeholder="Ingrese el celular" maxlength="9" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required"></span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTcorreoElectronico_reg" id="usuario" placeholder="Ingrese el nombre" />
+                                                                                            <input class="form-control" class='email' required="required" type="email" name="ACTcorreoElectronico_reg" id="usuario" placeholder="Ingrese el correo" />
                                                                                         </div>
                                                                                     </div>
                                                                                 
@@ -714,31 +714,31 @@ if($row['TIUcodigo']!="1" && $row['TIUcodigo']!="2" && $row['TIUcodigo']!="3")
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <input class="form-control" name="ACTnombres_reg" id="clave" placeholder="Ingrese el nombre" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                      <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Apellidos:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <input class="form-control" name="ACTapellidos_reg" id="clave" placeholder="Ingrese el apellido" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Descripción:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                                                            <textarea class="form-control" name="ACTdescripcion_reg" id="clave" placeholder="Ingrese la descripción" required="required"></textarea>
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTcelular_reg" id="clave" placeholder="Ingrese la descripción" maxlength="9" required="required" />
+                                                                                            <input class="form-control" data-validate-length-range="3" name="ACTcelular_reg" id="clave" placeholder="Ingrese el celular" maxlength="9" required="required" />
                                                                                         </div>
                                                                                     </div>
                                                                                     <div class="field item form-group">
                                                                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required"></span></label>
                                                                                         <div class="col-md-6 col-sm-6">
-                                                                                            <input class="form-control" name="ACTcorreoElectronico_reg" id="usuario" placeholder="Ingrese el nombre" />
+                                                                                            <input class="form-control" class='email' required="required" type="email" name="ACTcorreoElectronico_reg" id="usuario" placeholder="Ingrese el correo" />
                                                                                         </div>
                                                                                     </div>
                                                                                 

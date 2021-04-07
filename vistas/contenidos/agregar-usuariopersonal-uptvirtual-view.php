@@ -37,7 +37,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 ?>
 
                                 <div class="field item form-group">
-                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Personal<span class="required">*</span></label>
+                                 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Personal</b><span class="required">*</span></label>
 
                                     <div class="col-md-6 col-sm-6">
                                         <select class="form-control" name="personaluptvirtual_reg">
@@ -50,20 +50,20 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                      
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Usuario<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Usuario</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="usuario_reg" id="usuario" placeholder="Ingrese el nombre" required="required" />
+                                                <input class="form-control" name="usuario_reg" id="usuario" placeholder="Ingrese el usuario" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Clave<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Clave</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input type="password" class="form-control" name="clave_reg" id="clave" placeholder="Ingrese la clave" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Repita la Clave<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Repita la Clave</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input  type="password" class="form-control" name="repetirclave_reg" id="clave" placeholder="Repita la clave" required="required" />
                                             </div>
@@ -72,14 +72,14 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     <?php $fcha = date("Y-m-d");?>
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="fecha_reg" value="<?php echo $fcha;?>"required='required'></div>
                                         </div>
 
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="estado_reg">
                                                     <option value="1" selected="">Activo</option>
@@ -92,7 +92,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"></label>
                                             <div class="col-md-6 col-sm-6">
-                                            <span class="section fa fa-cogs"> Nivel de Privilegio</span>
+                                            <span class="section fa fa-cogs"><b> Nivel de Privilegio</b></span>
                                             <p><span class="badge badge-primary" style="width: 6rem">Control total</span> Permisos para registrar, actualizar y eliminar</p>
                                             <p><span class="badge badge-success" style="width: 6rem">Edición</span> Permisos para registrar y actualizar</p>
                                             <p><span class="badge badge-dark">Registrar</span> Solo permisos para registrar</p>
@@ -102,7 +102,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                        
                                         
                                          <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Privilegio<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Privilegio</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="privilegio_reg">
                                                     <option value="1" selected="">Control Total</option>
