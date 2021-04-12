@@ -1213,7 +1213,6 @@ public function ListaActualActividadesAll()
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
-                                   <th>CorreoElectronico</th>
                                    <th>Fecha</th>
                                    <th>Estado</th> 
                                    <th>Acciones</th> 
@@ -1230,8 +1229,7 @@ public function ListaActualActividadesAll()
                                     <td>'.$row["ACTcodigoUPT"].'</td>  
                                     <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
-                                    <td>'.$row["ACTcelular"].'</td> 
-                                    <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                    <td>'.$row["ACTcelular"].'</td>   
                                     <td>'.$row["ACTfecha"].'</td>';
                              
                              if($row["ACTestado"]==1)
@@ -1298,7 +1296,6 @@ public function ListaActualActividadesAll()
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
-                                   <th>CorreoElectronico</th>
                                    <th>Fecha</th>
                                    <th>Estado</th> 
                                    <th>Acciones</th> 
@@ -1315,8 +1312,7 @@ public function ListaActualActividadesAll()
                                     <td>'.$row["ACTcodigoUPT"].'</td>  
                                     <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
-                                    <td>'.$row["ACTcelular"].'</td> 
-                                    <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                    <td>'.$row["ACTcelular"].'</td>  
                                     <td>'.$row["ACTfecha"].'</td>';
                              
                              if($row["ACTestado"]==1)
@@ -1388,7 +1384,6 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
-                                   <th>CorreoElectronico</th>
                                    <th>Fecha</th>
                                    <th>Estado</th> 
                                    <th>Acciones</th> 
@@ -1405,8 +1400,7 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                     <td>'.$row["ACTcodigoUPT"].'</td>  
                                     <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
-                                    <td>'.$row["ACTcelular"].'</td> 
-                                    <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                    <td>'.$row["ACTcelular"].'</td>  
                                     <td>'.$row["ACTfecha"].'</td>';
                              
                              if($row["ACTestado"]==1)
@@ -1473,7 +1467,6 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
-                                   <th>CorreoElectronico</th>
                                    <th>Fecha</th>
                                    <th>Estado</th> 
                                    <th>Acciones</th> 
@@ -1490,8 +1483,7 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                     <td>'.$row["ACTcodigoUPT"].'</td>  
                                     <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
-                                    <td>'.$row["ACTcelular"].'</td> 
-                                    <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                    <td>'.$row["ACTcelular"].'</td>  
                                     <td>'.$row["ACTfecha"].'</td>';
                              
                              if($row["ACTestado"]==1)
@@ -1563,7 +1555,6 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                              <th>Nombres y Apellidos</th>
                              <th>Descripcion</th>
                              <th>Celular</th>
-                             <th>CorreoElectronico</th>
                              <th>Fecha</th>
                              <th>Estado</th> 
                              <th>Acciones</th> 
@@ -1580,8 +1571,7 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                               <td>'.$row["ACTcodigoUPT"].'</td>  
                               <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
                               <td>'.$row["ACTDescripcion"].'</td>  
-                              <td>'.$row["ACTcelular"].'</td> 
-                              <td>'.$row["ACTcorreoelectronico"].'</td>  
+                              <td>'.$row["ACTcelular"].'</td>  
                               <td>'.$row["ACTfecha"].'</td>';
                        
                        if($row["ACTestado"]==1)
@@ -1648,7 +1638,6 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                              <th>Nombres y Apellidos</th>
                              <th>Descripcion</th>
                              <th>Celular</th>
-                             <th>CorreoElectronico</th>
                              <th>Fecha</th>
                              <th>Estado</th> 
                              <th>Acciones</th> 
@@ -1666,7 +1655,6 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                               <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
                               <td>'.$row["ACTDescripcion"].'</td>  
                               <td>'.$row["ACTcelular"].'</td> 
-                              <td>'.$row["ACTcorreoelectronico"].'</td>  
                               <td>'.$row["ACTfecha"].'</td>';
                        
                        if($row["ACTestado"]==1)
