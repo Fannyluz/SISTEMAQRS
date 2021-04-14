@@ -43,14 +43,14 @@ if($datos_caso->rowCount()==1){
 
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Nombre<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombre:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" data-validate-length-range="3" name="tipoqrs_nombre_up" value="<?php echo $campos['TIPnombre']?>" id="caso_nombre" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Descripción<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Descripción:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                               
                                                 <textarea class="form-control" data-validate-length-range="3" name="tipoqrs_descripcion_up" value="" id="caso_descripcion" placeholder="Ingrese la descripción" required="required" ><?php echo $campos['TIPdescripcion']?></textarea>
@@ -58,13 +58,13 @@ if($datos_caso->rowCount()==1){
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="tipoqrs_fecha_up" value="<?php echo $campos['TIPfecha']?>" required='required'></div>
                                         </div>
 
                                          <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="tipoqrs_estado_up">
                                                     <option <?php echo $campos['TIPestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>

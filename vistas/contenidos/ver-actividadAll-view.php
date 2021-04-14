@@ -72,9 +72,9 @@ if($datos_caso->rowCount()==1){
                                     <?php
                                 }
                                  ?></strong> </P>
-                          <p><strong>Nombres: </strong><?php echo $campos['ACTnombres']?></p>
-                           <p><strong>Apellidos: </strong><?php echo $campos['ACTapellidos']?></p>
-                           <p><strong>Descripción: </strong> <?php echo $campos['ACTDescripcion']?></p>
+                         <h6> <p><strong>Nombres: </strong><?php echo $campos['ACTnombres']?></p></h6>
+                         <h6> <p><strong>Apellidos: </strong><?php echo $campos['ACTapellidos']?></p></h6>
+                         <h6> <p><strong>Descripción: </strong> <?php echo $campos['ACTDescripcion']?></p></h6>
                           <ul class="list-unstyled">
 
                                           <li><i class="fa fa-envelope"></i> <?php echo $campos['ACTcorreoelectronico']?></li>
@@ -83,7 +83,7 @@ if($datos_caso->rowCount()==1){
                                 </ul>
 </h6>
 
-                          <?php if($campos['ACTestado']=="1")
+<h6> <p><strong>Estado: </strong> <?php if($campos['ACTestado']=="1")
                                 {
                                     ?> <h5> <label class="badge bg-warning" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Pendiente"; ?></label></h5>
                                     <?php
@@ -98,7 +98,7 @@ if($datos_caso->rowCount()==1){
                                 }
                                  ?>
 
-                          <h6><?php echo $campos['CASfecha']?></h6>
+                          <h6><strong>Fecha:</strong><?php echo $campos['CASfecha']?></h6>
                           <br>
                         </div>
                       </div>

@@ -62,7 +62,7 @@ if($datos_caso->rowCount()==1){
                                         </ul>
                                         <br>
 
-                          <?php if($campos['PEUestado']=="1")
+                                        <h6><p><strong>Estado:</strong></p></h6> <?php if($campos['PEUestado']=="1")
                           {
 
                                               ?>
@@ -87,7 +87,7 @@ if($datos_caso->rowCount()==1){
                           ?>
                           <br>
 
-                          <span class="price-tax"><?php echo $campos['PEUfecha']?></span>
+                         <h6><p><strong>Fecha:</strong></p></h6> <span class="price-tax"><?php echo $campos['PEUfecha']?></span>
                           <br>
                         </div>
                       </div>

@@ -85,8 +85,8 @@ if($datos_caso->rowCount()==1){
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['ACTcelular']?></li>
                                 </ul>
                               </h6>
-
-                          <?php if($campos['ACTestado']=="1")
+<h6>
+                              <p><strong>Estado: </strong></p><?php if($campos['ACTestado']=="1")
                                 {
                                     ?> <h5> <label class="badge bg-warning" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Pendiente"; ?></label></h5>
                                     <?php
@@ -99,9 +99,9 @@ if($datos_caso->rowCount()==1){
                                      ?> <h5> <label class="badge bg-danger" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Rechazado"; ?></label></h5>
                                     <?php
                                 }
-                                 ?>
+                                 ?></h6>
                           </h6>
-                          <h6><?php echo $campos['CASfecha']?></h6>
+                          <h6><p><strong>Fecha:</strong><?php echo $campos['CASfecha']?></p></h6>
                           <br>
                         </div>
                       </div>

@@ -168,7 +168,7 @@ if($datos_caso->rowCount()==1){
                                         </div>
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>fecha</b><span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="ACTfecha_up" value="<?php echo $campos['ACTfecha']?>" required='required'></div>
                                         </div>
@@ -176,7 +176,7 @@ if($datos_caso->rowCount()==1){
 
 
                                          <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado</b><span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="ACTestado_up">
                                                     <option <?php echo $campos['ACTestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>

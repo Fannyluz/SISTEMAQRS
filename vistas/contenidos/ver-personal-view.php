@@ -74,7 +74,7 @@ if($datos_caso->rowCount()==1){
                         <h6><p><strong>Fecha: </strong><?php echo $campos['PEUfecha']?></p></h6>
                           <br>
                           <br>
-                          <?php if($campos['PEUestado']=="1")
+                          <h6><p><strong>Estado:</strong></p></h6><?php if($campos['PEUestado']=="1")
                           {
 
                                               ?>

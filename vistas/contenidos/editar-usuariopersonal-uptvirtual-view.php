@@ -48,7 +48,7 @@ if($datos_caso->rowCount()==1){
                                 ?>
 
                                 <div class="field item form-group">
-                                 <label class="col-form-label col-md-3 col-sm-3  label-align">Personal<span class="required">*</span></label>
+                                 <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Personal:</b><span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6">
                                         <select class="form-control" name="personaluptvirtual_up">
                             			<?php foreach($datos as $row){ ?>
@@ -62,27 +62,27 @@ if($datos_caso->rowCount()==1){
 
 
                                     	<div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Usuario<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Usuario:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" name="usuario_up" id="usuario" value="<?php echo $campos['UPUusuario']?>" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                         
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Clave<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Clave:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input type="password" class="form-control" name="clave_up"  value="<?php echo $campos['UPUclave']?>" id="clave" placeholder="Ingrese la clave" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Repita la Clave<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Repita la Clave:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input  type="password" class="form-control" name="repetirclave_up" value="<?php echo $campos['UPUclave']?>"id="clave" placeholder="Repita la clave" required="required" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">fecha<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" class='date' type="date" name="fecha_up" value="<?php echo $campos['UPUfecha']?>" required='required'></div>
                                         </div>
@@ -90,7 +90,7 @@ if($datos_caso->rowCount()==1){
 
 
                                        <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Estado<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="estado_up">
                                                     <option <?php echo $campos['UPUestado'] == 1 ? 'selected' : ''; ?> value="1">Activo</option>

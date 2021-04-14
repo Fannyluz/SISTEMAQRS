@@ -51,11 +51,12 @@ if($datos_caso->rowCount()==1){
                           <h6>
                          <p><strong>Descripción: </strong> <?php echo $campos['TIPdescripcion']?></p></h6>
                           <br>
-                          <?php if($campos['TIPestado']=="1")
+                          <h6>
+                          <p><strong>Estado: <?php if($campos['TIPestado']=="1")
                           {
 
                                               ?>
-                                              <h5><?php echo $nuevoestado = "Activo"?></h5>
+                                              <h6><p><strong><?php echo $nuevoestado = "Activo"?></strong></p></h6>
                                               <h5>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;" </span></a>
@@ -65,7 +66,7 @@ if($datos_caso->rowCount()==1){
                           }else{
                                               
                                               ?>
-                                              <h5 class="price"><?php echo $nuevoestado = "Inactivo"?></h5>
+                                              <h6><p><strong><?php echo $nuevoestado = "Inactivo"?></strong></p></h6>
                                                <h5>
                                               <a href="#"><span class="fa fa-star" style="background-color:#fdaf17;color:white;"></span></a>
                                               <a href="#"><span class="fa fa-star" style="background-color:#fdaf17;color:white;"></span></a>
@@ -76,7 +77,7 @@ if($datos_caso->rowCount()==1){
                           ?>
                           <br>
                           <br>
-                          <h6><?php echo $campos['TIPfecha']?></h6>
+                          <h6><p><strong>Fecha:</strong><p><?php echo $campos['TIPfecha']?></h6>
                           <br>
                         </div>
                       </div>

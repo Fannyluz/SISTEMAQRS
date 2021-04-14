@@ -43,7 +43,7 @@ if($datos_caso->rowCount()==1){
 
                     <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
 
-                      <h3 class="prod_title"><b><?php echo $campos['ROPnombre']?></b></h3>
+                      <h3 class="prod_title"><b><strong>Rol:</strong><?php echo $campos['ROPnombre']?></b></h3>
 
                       <div class="">
                         <div class="product_price">
@@ -52,7 +52,7 @@ if($datos_caso->rowCount()==1){
                           <h6>
                          <p><strong>Descripción: </strong> <?php echo $campos['ROPdescripcion']?></p></h6>
                           <br>
-                          <?php if($campos['ROPestado']=="1")
+                         <h6><p><strong>Estado:</strong></p></h6> <?php if($campos['ROPestado']=="1")
                           {
 
                                               ?>
@@ -79,7 +79,7 @@ if($datos_caso->rowCount()==1){
 
                           <br>
                           <br>
-                        <h6><?php echo $campos['ROPfecha']?></h6>
+                        <h6><p><strong>Fecha:</strong></p></h6><?php echo $campos['ROPfecha']?></h6>
                           <br>
 
                         </div>

@@ -43,14 +43,14 @@ if($datos_caso->rowCount()==1){
 
                     <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
 
-                      <h3 class="prod_title"><b><?php echo $campos['TIUnombre']?></b></h3>
+                      <h3 class="prod_title"><b><strong>Tipo de Emisor: </strong><?php echo $campos['TIUnombre']?></b></h3>
 
                       <div class="">
                         <div class="product_price">
                          <h6>
                          <p><strong>Descripción: </strong> <?php echo $campos['TIUdescripcion']?></p></h6>
                           <br>
-                          <?php if($campos['TIUestado']=="1")
+                         <h6><p><strong>Fecha:</strong></p></h6> <?php if($campos['TIUestado']=="1")
                           {
 
                                               ?>
@@ -75,7 +75,7 @@ if($datos_caso->rowCount()==1){
                           ?>
                           <br>
                           <br>
-                          <h6><?php echo $campos['TIUfecha']?></h6>
+                          <h6><p><strong>Fecha:</strong></p><?php echo $campos['TIUfecha']?></h6>
                           <br>
                         </div>
                       </div>

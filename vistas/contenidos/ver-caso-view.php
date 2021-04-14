@@ -43,7 +43,7 @@ if($datos_caso->rowCount()==1){
 
                     <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
 
-                      <h3 class="prod_title"><b><?php echo $campos['CASnombre']?></b></h3>
+                      <h3 class="prod_title"><b>Nombre del caso:<?php echo $campos['CASnombre']?></b></h3>
 
                       <div class="">
                         <div class="product_price">
@@ -52,7 +52,8 @@ if($datos_caso->rowCount()==1){
                           <h6>
                          <p><strong>Descripción: </strong> <?php echo $campos['CASdescripcion']?></p></h6>
                           <br>
-                          <?php if($campos['CASestado']=="1")
+                          <h6>
+                          <p><strong>Estado: </strong><?php if($campos['CASestado']=="1")
                           {
 
                                               ?>
@@ -79,7 +80,7 @@ if($datos_caso->rowCount()==1){
 
                           <br>
                           <br>
-                        <h6><?php echo $campos['CASfecha']?></h6>
+                        <h6><p><strong>Fecha: </strong><?php echo $campos['CASfecha']?></p></h6>
                           <br>
 
                         </div>
