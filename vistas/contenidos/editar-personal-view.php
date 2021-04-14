@@ -36,12 +36,12 @@ if($datos_caso->rowCount()==1){
 
                 <div class="col-md-3 col-sm-3">
                           <div class="product-image">
-                           <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="25%" height="25%">
+                           <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="25%" height="25%" required="required">
                           </div>
                         <label><b>Foto</b><span class="required">*</span></label>
 
                     <div class="field item form-group">
-                        <div>
+                        <div> <!-- name="fotoantes" personal_foto_reg -->
                          <input  name="fotoantes" value="<?php echo $campos['PEUfoto']?>">
 
                         <input class="form-control" type="file" data-validate-length-range="3" name="personal_foto_up" id="personal_foto_up" accept="image/*"/>
@@ -77,20 +77,20 @@ if($datos_caso->rowCount()==1){
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>DNI:</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6"> 
-                                                <input class="form-control" name="personal_dni_up"  value="<?php echo $campos['PEUDNI']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                                <input class="form-control" name="personal_dni_up"  value="<?php echo $campos['PEUDNI']?>" id="usuario" placeholder="Ingrese el DNI" />
                                             </div>
                                         </div>
 
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Nombres:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="personal_nombre_up"  value="<?php echo $campos['PEUnombres']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="personal_nombre_up"  value="<?php echo $campos['PEUnombres']?>" id="clave" placeholder="Ingrese el nombre" required="required" />
                                             </div>
                                         </div>
                                          <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Apellidos:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="personal_apellido_up" value="<?php echo $campos['PEUapellidos']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="personal_apellido_up" value="<?php echo $campos['PEUapellidos']?>" id="clave" placeholder="Ingrese el apellido" required="required" />
                                             </div>
                                         </div>
                                        
@@ -99,19 +99,19 @@ if($datos_caso->rowCount()==1){
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="personal_correo_up" value="<?php echo $campos['PEUcorreoElectronico']?>" id="clave" placeholder="Ingrese la descripción" required="required" />
+                                                <input class="form-control" name="personal_correo_up" class='email' type="email" value="<?php echo $campos['PEUcorreoElectronico']?>" id="clave" placeholder="Ingrese el correo" required="required" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Celular:</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="personal_celular_up" value="<?php echo $campos['PEUcelular']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                                <input class="form-control" data-validate-length-range="3" maxlength="9" name="personal_celular_up" value="<?php echo $campos['PEUcelular']?>" id="usuario" placeholder="Ingrese el celular" />
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Direccion:</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="personal_direccion_up" value="<?php echo $campos['PEUdireccion']?>" id="usuario" placeholder="Ingrese el nombre" />
+                                                <input class="form-control" name="personal_direccion_up" value="<?php echo $campos['PEUdireccion']?>" id="usuario" placeholder="Ingrese la direccion" />
                                             </div>
                                         </div>
 

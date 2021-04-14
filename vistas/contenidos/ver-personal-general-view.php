@@ -68,10 +68,10 @@ if($datos_caso->rowCount()==1){
                          <p><strong>Apellidos: </strong> <?php echo $campos['PEUapellidos']?></p></h6>
                          <h6>
                          <p><strong>Correo Electronico: </strong> <?php echo $campos['PEUcorreoElectronico']?></p></h6>
-                         <p><strong>Celular: </strong> <?php echo $campos['PEUcelular']?></p></h6>
-                         <p><strong>Direccion: </strong> <?php echo $campos['PEUdireccion']?></p></h6>
+                         <h6><p><strong>Celular: </strong> <?php echo $campos['PEUcelular']?></p></h6>
+                         <h6><p><strong>Direccion: </strong> <?php echo $campos['PEUdireccion']?></p></h6>
                          <br>
-                        <h6><?php echo $campos['PEUfecha']?></h6>
+                        <h6><p><strong>Fecha: </strong><?php echo $campos['PEUfecha']?></p></h6>
                           <br>
                           <br>
                           <?php if($campos['PEUestado']=="1")

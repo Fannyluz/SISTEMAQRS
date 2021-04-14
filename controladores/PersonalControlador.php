@@ -194,7 +194,7 @@
      /*controlador editar personal*/
      public function Editar_personal_controlador()
      {
-       //recuperar el codigo
+       //recuperar el codigo 
      
         $codigo=modeloPrincipal::limpiar_cadena($_POST['personal_codigo_up']);
         $codigodesencriptado=modeloPrincipal::decryption($codigo);
@@ -219,14 +219,11 @@
        $dni=modeloPrincipal::limpiar_cadena($_POST['personal_dni_up']);
        $nombre=modeloPrincipal::limpiar_cadena($_POST['personal_nombre_up']);
        $apellido=modeloPrincipal::limpiar_cadena($_POST['personal_apellido_up']);
-
-             $imagen=modeloPrincipal::limpiar_cadena('personal_foto_up');
-            $foto=$_FILES[$imagen]['name'];
-            $ruta=trim ($_FILES[$imagen]['tmp_name']);
-            $destino="../imagenes/".$foto; 
-            copy($ruta,$destino);
-
-
+       $imagen=modeloPrincipal::limpiar_cadena('personal_foto_up');
+       $foto=$_FILES[$imagen]['name'];
+       $ruta=trim ($_FILES[$imagen]['tmp_name']);
+       $destino="../imagenes/".$foto; 
+       copy($ruta,$destino);
        $fotoantes=modeloPrincipal::limpiar_cadena($_POST['fotoantes']);
        $correo=modeloPrincipal::limpiar_cadena($_POST['personal_correo_up']);
        $celular=modeloPrincipal::limpiar_cadena($_POST['personal_celular_up']);
