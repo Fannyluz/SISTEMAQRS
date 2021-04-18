@@ -147,7 +147,6 @@ if($row['TIUcodigo']=="2")
 </div>
 </div>
 
-
                                         <div class="field item form-group">
                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario:</b><span class="required"></span></label>
                                             <div class="col-md-6 col-sm-6">
@@ -226,6 +225,13 @@ if($row['TIUcodigo']=="2")
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
                                         <br>
 
                                         <div class="ln_solid">
@@ -396,6 +402,13 @@ if($row['TIUcodigo']=="1")
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
                                         <br>
                                         <select class="form-control" name="ACTfacultad_reg" style="visibility:hidden">
                                                                                         <option value="0" selected="">Seleccione</option>
@@ -567,6 +580,13 @@ if($row['TIUcodigo']=="3")
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
+                                                                                    <div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
                                                                                     <br>
                                                                                             <!-- <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label> 
@@ -744,6 +764,13 @@ if($row['TIUcodigo']!="1" && $row['TIUcodigo']!="2" && $row['TIUcodigo']!="3")
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
+                                                                                    <div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
                                                                                     <br>
 
                                                                                     <!-- <div class="field item form-group">

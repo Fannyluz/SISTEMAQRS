@@ -237,7 +237,18 @@ if($row['TIUcodigo']=="2")
 <option value="3">Rechazado</option>
 </select>
 </div>
+
+
 </div>
+<!-- -->
+<div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
+
 <br>
 
 <div class="ln_solid">
@@ -329,26 +340,26 @@ if($row['TIUcodigo']=="2")
                                                                             $nuevoestado="Activo";
                                                                             ?>
                         
-                        <div class="field item form-group">
-<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
-<div class="col-md-6 col-sm-6">
-<select class="form-control" name="tipousuario_reg">
-<?php 
+                                                                                    <div class="field item form-group">
+                                                                                    <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo Emisor:</b><span class="required">*</span></label>
+                                                                                    <div class="col-md-6 col-sm-6">
+                                                                                    <select class="form-control" name="tipousuario_reg">
+                                                                                    <?php 
 
-foreach($datosUsuario as $row){ 
-if($row['TIUcodigo']=="1")
-{
-    ?>
-    <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
-    <?php
-}
-    ?>
-}
+                                                                                    foreach($datosUsuario as $row){ 
+                                                                                    if($row['TIUcodigo']=="1")
+                                                                                    {
+                                                                                        ?>
+                                                                                        <option value=<?php echo $row['TIUcodigo']?>><?php echo $row['TIUnombre']?></option>
+                                                                                        <?php
+                                                                                    }
+                                                                                        ?>
+                                                                                    }
 
-<?php }?>
-</select>
-</div>
-</div>
+                                                                                    <?php }?>
+                                                                                    </select>
+                                                                                    </div>
+                                                                                    </div>
                         
                         
                                                                                     <div class="field item form-group">
@@ -408,7 +419,14 @@ if($row['TIUcodigo']=="1")
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <br>
+                                                                                                                                                                            <!-- -->
+<div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
                                                                                     
 
                                                                                     <select class="form-control" name="ACTfacultad_reg" style="visibility:hidden">
@@ -420,6 +438,7 @@ if($row['TIUcodigo']=="1")
                                                                                         <option value="5">FACEM</option>
                                                                                         <option value="6">FAU</option> 
                                                                                     </select>
+                                                                                    
 
                                                                                     <div class="ln_solid">
                                                                                         <div class="form-group">
@@ -580,7 +599,15 @@ if($row['TIUcodigo']=="3")
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <br>
+                                                                                    
+                                                                                    <!-- -->
+<div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
                                                                                             <!-- <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label> 
                                                                                         <div class="col-md-6 col-sm-6">-->
@@ -597,6 +624,8 @@ if($row['TIUcodigo']=="3")
                                                                                         <option value="5">FACEM</option>
                                                                                         <option value="6">FAU</option>
                                                                                     </select>
+
+
 
                                                                                     <div class="ln_solid">
                                                                                         <div class="form-group">
@@ -761,7 +790,15 @@ if($row['TIUcodigo']!="1" && $row['TIUcodigo']!="2" && $row['TIUcodigo']!="3")
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <br>
+                                                                                    
+                                                                                                                                                                            <!-- -->
+<div class="field item form-group">
+<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+<div class="col-md-6 col-sm-6">
+<textarea class="form-control" name="ACTacciones_reg" id="ACTacciones_reg" placeholder="Ingrese las acciones realizadas"></textarea>
+</div>
+</div>
+<!-- -->
 
                                                                                     <!-- <div class="field item form-group">
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Codigo Universitario (Opcional):</b><span class="required"></span></label> 

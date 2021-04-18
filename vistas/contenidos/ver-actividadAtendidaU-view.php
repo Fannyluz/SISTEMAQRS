@@ -43,17 +43,51 @@ if($datos_caso->rowCount()==1){
                           <p><strong>Caso: </strong><?php echo $campos['CASnombre']?></p></h6>
                         <div class="product_price">
                         	<h6>
-                        	<p><strong><u>Datos del Emisor: </u></strong></p>
+                        	<p><strong><u>Datos del Emisor: </u> </strong> <?php echo $campos['TIUnombre']?> </strong></p>
 
                           <p><strong>Codigo: </strong> <?php echo $campos['ACTcodigoUPT']?></p>
-                          <p><strong>Nombres: </strong><?php echo $campos['ACTnombres']?></p>
-                           <p><strong>Apellidos: </strong><?php echo $campos['ACTapellidos']?></p>
-                           <p><strong>Descripción: </strong> <?php echo $campos['ACTDescripcion']?></p>
+
+                          <p><strong>Facultad:</strong> </p> <?php if($campos['ACTfacultad']=="0")
+                                {
+                                    ?> <h5> <label class="badge bg-warning" style="background-color:#9A6B;color:black;"><?php echo "Sin Facultad"; ?></label></h5>
+                                    <?php
+                                }
+                                else if($campos['ACTfacultad']=="1")
+                                {
+                                     ?> <h5> <label class="badge bg-primary" style="background-color:#9A6B;color:gray;"><?php echo $nuevoestado = "FAING"; ?></label></h5>
+                                    <?php
+                                }
+                                else if($campos['ACTfacultad']=="2")
+                                {
+                                     ?> <h5> <label class="badge bg-primary" style="background-color:#9A6B;color:yellow;"><?php echo $nuevoestado = "FAEDCOH"; ?></label></h5>
+                                    <?php
+                                }else if($campos['ACTfacultad']=="3")
+                                {
+                                     ?> <h5> <label class="badge bg-secondary" style="background-color:#9A6B;color:blue;"><?php echo $nuevoestado = "FADE"; ?></label></h5>
+                                    <?php
+                                }else if($campos['ACTfacultad']=="4") 
+                                {
+                                     ?> <h5> <label class="badge bg-info" style="background-color:#9A6B;color:purple;"><?php echo $nuevoestado = "FACSA"; ?></label></h5>
+                                    <?php
+                                }else if($campos['ACTfacultad']=="5")
+                                {
+                                     ?> <h5> <label class="badge bg-light" style="background-color:#9A6B;color:green;"><?php echo $nuevoestado = "FACEM"; ?></label></h5>
+                                    <?php
+                                }
+                                else{
+                                     ?> <h5> <label class="badge bg-danger" style="background-color:#9A6B;color:orange;"><?php echo $nuevoestado = "FAU"; ?></label></h5>
+                                    <?php
+                                }
+                                 ?> 
+
+                          <h6><p><strong>Nombres: </strong><?php echo $campos['ACTnombres']?></p></h6>
+                          <h6><p><strong>Apellidos: </strong><?php echo $campos['ACTapellidos']?></p></h6>
+                          <h6><p><strong>Descripción: </strong> <?php echo $campos['ACTDescripcion']?></p></h6>
                           <ul class="list-unstyled">
 
-                                          <li><i class="fa fa-envelope"></i> <?php echo $campos['ACTcorreoelectronico']?></li>
-                                          <br>
-                                          <li><i class="fa fa-phone"></i> <?php echo $campos['ACTcelular']?></li>
+                          <h6><p><strong>Correo: </strong><li><i class="fa fa-envelope"></i> <?php echo $campos['ACTcorreoelectronico']?></li></p></h6>
+                                          
+                                          <h6><p><strong>Celular: </strong> <li><i class="fa fa-phone"></i> <?php echo $campos['ACTcelular']?></li></p></h6>
                                 </ul>
 </h6>
 <h6>
@@ -73,6 +107,7 @@ if($datos_caso->rowCount()==1){
                                  ?></p><h6>
 
                           <h6><strong>Fecha:</strong><?php echo $campos['CASfecha']?></h6>
+                          <h6><p><strong>Acciones:</strong><?php echo $campos['ACTacciones']?></p></h6>
                           <br>
                         </div>
                       </div>

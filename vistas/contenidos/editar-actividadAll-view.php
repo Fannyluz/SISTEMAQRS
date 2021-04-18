@@ -169,7 +169,7 @@ if($datos_caso->rowCount()==1){
                                     
 
 
-                                         <div class="field item form-group">
+                                         <div class="field item form-group"> 
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="ACTestado_up">
@@ -179,6 +179,13 @@ if($datos_caso->rowCount()==1){
                                                 </select>
                                             </div>
 
+                                        </div>
+
+                                        <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                        <textarea class="form-control" name="ACTacciones_up" id="ACTacciones_up" placeholder="Ingrese las acciones realizadas"></textarea>
+                                        </div>
                                         </div>
 
                                         <div class="ln_solid">

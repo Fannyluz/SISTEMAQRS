@@ -6,8 +6,8 @@ class ActividadQrsModelo extends modeloPrincipal{
     
 
     protected static function agregar_ActividadQrs_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevactpactividadqrs(TIPcodigo ,CAScodigo,TIUcodigo,UPUcodigo,ACTcodigoUPT,ACTfacultad,ACTnombres,ACTapellidos,ACTDescripcion,ACTcelular,ACTcorreoelectronico,ACTfecha,ACTestado) 
-      VALUES(:TIPcodigo,:CAScodigo,:TIUcodigo,:UPUcodigo,:ACTcodigoUPT,:ACTfacultad,:ACTnombres,:ACTapellidos,:ACTDescripcion,:ACTcelular,:ACTcorreoelectronico,:ACTfecha,:ACTestado)");
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevactpactividadqrs(TIPcodigo ,CAScodigo,TIUcodigo,UPUcodigo,ACTcodigoUPT,ACTfacultad,ACTnombres,ACTapellidos,ACTDescripcion,ACTcelular,ACTcorreoelectronico,ACTfecha,ACTestado,ACTacciones) 
+      VALUES(:TIPcodigo,:CAScodigo,:TIUcodigo,:UPUcodigo,:ACTcodigoUPT,:ACTfacultad,:ACTnombres,:ACTapellidos,:ACTDescripcion,:ACTcelular,:ACTcorreoelectronico,:ACTfecha,:ACTestado,:ACTacciones)");
       $sql->bindParam(":TIPcodigo",$datos['TIPcodigo']);
       $sql->bindParam(":CAScodigo",$datos['CAScodigo']);
       $sql->bindParam(":TIUcodigo",$datos['TIUcodigo']);
@@ -21,6 +21,7 @@ class ActividadQrsModelo extends modeloPrincipal{
       $sql->bindParam(":ACTcorreoelectronico",$datos['ACTcorreoelectronico']);
       $sql->bindParam(":ACTfecha",$datos['ACTfecha']);
       $sql->bindParam(":ACTestado",$datos['ACTestado']);
+      $sql->bindParam(":ACTacciones",$datos['ACTacciones']);
       $sql->execute();
       return $sql;
     }
@@ -489,7 +490,7 @@ protected static function Ver_actividadesQrsAtendidasAll_Modelo($codigo)
    protected static function Editar_ActividadQRS_Modelo($datos)
   {
 
-    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevactpactividadqrs SET TIPcodigo=:TIPcodigo,CAScodigo=:CAScodigo,TIUcodigo=:TIUcodigo,UPUcodigo=:UPUcodigo,ACTcodigoUPT=:ACTcodigoUPT,ACTnombres=:ACTnombres,ACTapellidos=:ACTapellidos,ACTDescripcion=:ACTDescripcion,ACTcelular=:ACTcelular,ACTcorreoelectronico=:ACTcorreoelectronico,ACTfecha=:ACTfecha,ACTestado=:ACTestado WHERE ACTcodigo=:CODIGO");
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevactpactividadqrs SET TIPcodigo=:TIPcodigo,CAScodigo=:CAScodigo,TIUcodigo=:TIUcodigo,UPUcodigo=:UPUcodigo,ACTcodigoUPT=:ACTcodigoUPT,ACTnombres=:ACTnombres,ACTapellidos=:ACTapellidos,ACTDescripcion=:ACTDescripcion,ACTcelular=:ACTcelular,ACTcorreoelectronico=:ACTcorreoelectronico,ACTfecha=:ACTfecha,ACTestado=:ACTestado,ACTacciones=:ACTacciones WHERE ACTcodigo=:CODIGO");
 
 
       $sql->bindParam(":TIPcodigo",$datos['TIPcodigo']);
@@ -504,10 +505,26 @@ protected static function Ver_actividadesQrsAtendidasAll_Modelo($codigo)
       $sql->bindParam(":ACTcorreoelectronico",$datos['ACTcorreoelectronico']);
       $sql->bindParam(":ACTfecha",$datos['ACTfecha']);
       $sql->bindParam(":ACTestado",$datos['ACTestado']);
+      $sql->bindParam(":ACTacciones",$datos['ACTacciones']);
    $sql->bindParam(":CODIGO",$datos['CODIGO']);
    $sql->execute();
     return $sql;
   }
+
+  ////editar actividad info
+   protected static function Editar_ActividadQRS_Info_Modelo($datos)
+   {
+ 
+     $sql=modeloPrincipal::conectar()->prepare("UPDATE oevactpactividadqrs SET ACTfecha=:ACTfecha,ACTestado=:ACTestado,ACTacciones=:ACTacciones WHERE ACTcodigo=:CODIGO");
+ 
+ 
+       $sql->bindParam(":ACTfecha",$datos['ACTfecha']);
+       $sql->bindParam(":ACTestado",$datos['ACTestado']);
+       $sql->bindParam(":ACTacciones",$datos['ACTacciones']);
+    $sql->bindParam(":CODIGO",$datos['CODIGO']);
+    $sql->execute();
+     return $sql;
+   }
 
 
 

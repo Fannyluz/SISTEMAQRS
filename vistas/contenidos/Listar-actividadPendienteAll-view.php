@@ -180,16 +180,18 @@ foreach($datos as $row){
                                 <td>
 
                                 <?php
-require_once "modelos/modeloPrincipal.php";
-  $principal= new modeloPrincipal();
+                                    require_once "modelos/modeloPrincipal.php";
+                                    $principal= new modeloPrincipal();
   
-?>
+                                    ?>
                                 <a href="<?php echo SERVERURL?>ver-actividadPendienteAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-primary btn-sm"><i class="fa fa-eye fa-sm"></i> 
                                 </a>
 
                                 <a href="<?php echo SERVERURL?>editar-actividadPendienteAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
-                                </a>       
-                                                
+                                </a> 
+                                      
+                                <a href="<?php echo SERVERURL?>recepcion-actividadAll/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-info fa-sm"></i>
+                                Recepcion</a>            
                                  </td>
                             </tr>
 							<?php
@@ -214,6 +216,8 @@ require_once "modelos/modeloPrincipal.php";
                         </div>
                     </div>
         </div>
+
+
  </div>
 
  <?php include_once "./vistas/inc/reservation.php"; ?>

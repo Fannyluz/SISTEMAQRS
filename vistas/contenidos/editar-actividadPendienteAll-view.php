@@ -185,7 +185,12 @@ if($datos_caso->rowCount()==1){
 
                                         </div>
 
-
+                                        <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                        <textarea class="form-control" name="ACTacciones_up" id="ACTacciones_up" placeholder="Ingrese las acciones realizadas" required="required"></textarea>
+                                        </div>
+                                        </div>
 
                                         <div class="ln_solid">
                                             <div class="form-group">
