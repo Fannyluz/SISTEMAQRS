@@ -176,7 +176,8 @@ public function Buscar_ActividadQRS_controlador($codigo){
       public function generarexcelActividadQRSALL_Controlador()
       {
         $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsAll_modelo();
+        $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscarvivo']);
+       $datos=ActividadQrsModelo::listar_ActividadQrsTODO_modelo($buscarPersonal);
         $count=1;
         $nuevoestado="Activo";
         if($nuevoestado==1)
@@ -611,7 +612,8 @@ public function Buscar_ActividadQRS_controlador($codigo){
       public function generarwordActividadQRSALL_Controlador()
       {
         $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsAll_modelo();
+       $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscarvivo']);
+       $datos=ActividadQrsModelo::listar_ActividadQrsTODO_modelo($buscarPersonal);
         $count=1;
         $nuevoestado="Activo";
        
@@ -1426,6 +1428,76 @@ public function ListaActualActividadesAll()
          }
                   
         
+        }
+
+//excel
+        public function buscar_cliente_prestamoEXCEL_controlador(){
+        /* recuperar el select que estamos enviando */
+       $output = '';
+       $datos=ActividadQrsModelo::listar_ActividadQrsAll_modelo();
+        $count=1;
+        $nuevoestado="Activo";
+        if($nuevoestado==1)
+        {
+
+        }
+       
+          $output .= '
+           <table id="datatable1" class="table table-bordered border-warning" style="width:100%"> 
+           <tr>
+           <td colspan="12" bgcolor="Yellow"><center><strong>REPORTE DE ACTIVIDADES</strong></center>
+           </td>
+           <td> </td>
+           </tr>
+                            <tr colspan="12" class="tr-primary">  
+                                 <th colspan="1" style="background-color:#10226a;color:white;">Item</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Tipo</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Caso</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Tipo Emisor</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Personal UptVirtual (Destinatario)</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Codigo</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Nombres y Apellidos</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Descripcion</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Celular</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">CorreoElectronico</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Fecha</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Estado</th> 
+                            </tr>
+          ';
+          foreach($datos as $row){  
+           $output .= '
+            <tr>  
+                                 <td>'.$count++.'</td> 
+                                 <td>'.$row["TIPnombre"].'</td>
+                                 <td>'.$row["CASnombre"].'</td>
+                                 <td>'.$row["TIUnombre"].'</td>
+                                 <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
+                                 <td>'.$row["ACTcodigoUPT"].'</td>  
+                                 <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                 <td>'.$row["ACTDescripcion"].'</td>  
+                                 <td>'.$row["ACTcelular"].'</td> 
+                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
+                                <td>'.$row["ACTfecha"].'</td>';
+                          
+                          if($row["ACTestado"]==1)
+                          {
+                            $output.='<td>Pendiente</td>';
+                          }else if($row["ACTestado"]==2)
+                          {
+                            $output.='<td>Atendido</td>';
+                          }else
+                          {
+                            $output.='<td>Rechazado</td>';
+                          }
+
+                          '</tr>
+           ';
+          }
+          $output .= '</table>';
+          header('Content-Type: application/xls');
+          header('Content-Disposition: attachment; filename=ActividadesQrsALL.xls');
+          echo $output;
+         
         }
 
 

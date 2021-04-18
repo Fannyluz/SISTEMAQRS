@@ -27,74 +27,53 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                                 <div class="x_content">
                                     <div class="row">
+
+
+
+    <form method="post" action="<?php echo SERVERURL; ?>ajax/ExportarAjax.php">
 <div class="col-sm-12">
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-round btn-sm" name="exportarExcelActividadAll"  value="export" style="background-color:#10226a;color:white;" >
+                 <i class="fa fa-download fa-sm"></i> Excel
 
-<div class="col-sm-7">
-<div class="col-sm-2">
-    <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
-     <input type="hidden" name="exportarExcelActividadAll"  value="export" />    
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-         <i class="fa fa-download fa-sm"></i> Excel
+                </button>
+        </div>
 
-        </button>
-          
-      </input>
-
-        <!-- para poder tapar-->
-    </form> 
-</div>
-<div class="col-sm-2">
-       <!-- Boton de pdf-->
-  <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
-     <input type="hidden" name="exportarPdfActividadesAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-       <button type="submit"  class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+        <div class="col-sm-3">
+            <button type="submit"  class="btn btn-round btn-sm" name="exportarPdfActividadesAll" style="background-color:#10226a;color:white;">
        <i class="fa fa-download fa-sm"></i> PDF
         </button>
-          
-      </input>
-      
-    </form>
-    </div> 
-<div class="col-sm-2">
-    <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
-     <input type="hidden" name="export" value="export" />    
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        <i class="fa fa-download fa-sm"></i>Word
-        </button>
-      </input>
-      
-    </form> 
-</div>
-<div class="col-sm-3">
-       <!-- Boton de pdf-->
-  <form>
-    <input type="hidden" name="export" value="export" />    
-      
-        <a href="<?php echo SERVERURL?>graficos/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-          <i class="fa fa-pie-chart fa-sm"></i>Reportes
-        </a>
-     
-      
-    </form>
+        </div>
+
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-round btn-sm" name="export" value="export" style="background-color:#10226a;color:white;">
+                 <i class="fa fa-download fa-sm"></i>Word
+            </button>
+        </div>
+
+        <div class="col-sm-3">
+                <a href="<?php echo SERVERURL?>graficos/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+                  <i class="fa fa-pie-chart fa-sm"></i>Reportes
+                </a>
+        </div>
+
+
     </div>
 </div>
-</div>
 </br>
-</br>
-
-    
-    
-    
-                                <?php 
+</br></br>
+<div  class="col-md-12 col-sm-12">
+    <div class="col-md-10">
+        <div class="col-sm-6">
+            <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
                                 $tipoqrs=new UsuarioPersonalUptVirtualControlador();
                                 $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_estado_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
-                                </br>
-                                <div   class="col-md-10 col-sm-10">
-                                    <div class="col-md-3 col-sm-3" >
+                                <div class="col-md-12 col-sm-12" >
                                     <select class="form-control input-sm" id="buscarvivo" method="POST" name="buscarvivo" >
                                     <option value="vacia" selected="">Seleccione(Usuario)</option>    
                                     <?php foreach($datosTipoQRS as $row){ ?>
@@ -103,15 +82,31 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                         <?php }?>
                                     </select>
                                     </div>
-                        <div class="col-md-3 col-sm-3">
-                        <?php
-                        require_once "modelos/modeloPrincipal.php";
-                        $principal= new modeloPrincipal();
-                        ?>
-                                   <p>  
-                                   <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_cliente()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
-                
-                                </a></p>
+
+        </div>
+        <div class="col-sm-4">
+            <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_cliente()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
+        </div>
+    </div>
+   
+</div>  
+
+    </form>
+
+
+
+</br>
+</br>
+
+    
+    
+    
+                                
+                                </br>
+                                <div   class="col-md-10 col-sm-10">
+                                                           <div class="col-md-3 col-sm-3">
+      
+
                         </div>       
 
                         </div>
@@ -121,7 +116,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
                                 </a></p>
 
-                                    
+
                     <div class="card-box table-responsive">
                         
                         <table id="datatable" class="table table-hover table-condensed table-bordered border-warning" style="width:100%" >

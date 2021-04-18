@@ -3,22 +3,29 @@ $peticionAjax=true;
   require_once "../config/APP.php";
 
 
-if(isset($_POST["exportExcelPendientesAll"]) || isset($_POST["exportPendientesAll"]))
+if(isset($_POST["exportarExcelActividadAll"]) || isset($_POST["exportarPdfActividadesAll"]) || isset($_POST["export"]))
 {
         require_once "../controladores/ActividadQrsControlador.php";
-        $Exportar = new ActividadQrsControlador();
+  $exportar_actividad = new ActividadQrsControlador();
   
-    // Actividades Pendientes
-        if(isset($_POST['exportExcelPendientesAll'])){
-            echo $Exportar->generarexcelActividadPendientesQRSALL_Controlador();
+  require_once "../vistas/pdf/pdfActividades.php";
+    
+    $pdf = new pdfActividades();
+
+    if(isset($_POST['exportarExcelActividadAll'])){
+         echo $exportar_actividad->generarexcelActividadQRSALL_Controlador();
+            } 
+            
+            // expotar pdf actividades All 
+            if(isset($_POST['exportarPdfActividadesAll'])){
+            echo $pdf->AgregarPdfActividesAll();
             }
 
-            if(isset($_POST['exportPendientesAll'])){
-            echo $Exportar->generarwordActividadPendientesQRSALL_Controlador();
-            }
-            
 
-            
+
+             if(isset($_POST['export'])){
+    echo $exportar_actividad->generarwordActividadQRSALL_Controlador();
+            }
   
 }else{
         session_start(['name' => 'QRS']);

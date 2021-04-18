@@ -20,6 +20,31 @@
 
         }
     }
+    function buscar_clienteEXCEL(){
+        //obtener el valor
+        let input_cliente = document.querySelector('#buscarvivo').value;
+
+        
+        if(input_cliente != 0){
+            let datos = new FormData();
+            datos.append("buscar_cliente",input_cliente);
+
+            fetch("<?php echo SERVERURL; ?>ajax/excelAjax.php",{
+                method: 'POST',
+                body: datos
+            })
+            .then(respuesta => respuesta.text())
+            .then(respuesta => {
+                let tabla_clientes = document.querySelector('#datatable1');
+                tabla_clientes.innerHTML=respuesta;
+            });
+
+        }
+    }
+
+
+    
+
 
     function buscar_atendidos(){
         //obtener el valor
