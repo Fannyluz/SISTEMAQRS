@@ -26,7 +26,7 @@
             $correoElectronico=modeloPrincipal::limpiar_cadena($_POST['ACTcorreoElectronico_reg']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['ACTfecha_reg']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['ACTestado_reg']);
-
+            $acciones=modeloPrincipal::limpiar_cadena($_POST['ACTacciones_reg']);
 
             //comprobar campos vacios
             if($nombres=="" || $apellidos=="" || $descripcion=="" || $celular==""){
@@ -71,7 +71,8 @@
                "ACTcelular"=>$celular,
                "ACTcorreoelectronico"=>$correoElectronico,
                "ACTfecha"=>$fecha,
-               "ACTestado"=>$estado
+               "ACTestado"=>$estado,
+               "ACTacciones"=>$acciones
             ];
 
 
@@ -1025,6 +1026,7 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
             $correoElectronico=modeloPrincipal::limpiar_cadena($_POST['ACTcorreoElectronico_up']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['ACTfecha_up']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['ACTestado_up']);
+            $acciones=modeloPrincipal::limpiar_cadena($_POST['ACTacciones_up']);
 
 
  //comprobar campos vacios
@@ -1054,6 +1056,7 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
                "ACTcorreoelectronico"=>$correoElectronico,
                "ACTfecha"=>$fecha,
                "ACTestado"=>$estado,
+               "ACTacciones"=>$acciones,
                "CODIGO"=>$codigodesencriptado
             ];
 
@@ -1078,6 +1081,78 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
 
       } // fin del controlador 
 
+       //probar con el formulario de info/////////////////////////
+       public function Editar_ActividadQRS_info_controlador()
+       {
+         //recuperar el codigo
+       
+     $codigo=modeloPrincipal::limpiar_cadena($_POST['ActividadQRS_codigo_up_info']);
+ $codigodesencriptado=modeloPrincipal::decryption($codigo);
+            //comprobar caso en la base de datos
+         $check_ActividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevactpactividadqrs WHERE ACTcodigo='$codigodesencriptado'");
+ 
+         if($check_ActividadQRS->rowCount()<=0){
+             $alerta=[
+                   "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"No hemos encontrado la ActividadQRS en el sistema",
+                   "Tipo"=>"error"
+                ];
+                echo json_encode($alerta);
+                exit();
+         }else
+         {
+           $campos=$check_ActividadQRS->fetch();
+         }
+ 
+             $fecha=modeloPrincipal::limpiar_cadena($_POST['ACTfecha_up']);
+             $estado=modeloPrincipal::limpiar_cadena($_POST['ACTestado_up']);
+             $acciones=modeloPrincipal::limpiar_cadena($_POST['ACTacciones_up']);
+ 
+  //comprobar campos vacios
+             if($acciones==""){
+                $alerta=[
+                   "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"No has llenado todos los campos obligatorios",
+                   "Tipo"=>"error"
+                ];
+                echo json_encode($alerta);
+ 
+                exit();
+             }   
+ 
+ 
+             $datos_actividadQRS_update=[
+               
+                "ACTfecha"=>$fecha,
+                "ACTestado"=>$estado,
+                "ACTacciones"=>$acciones,
+                "CODIGO"=>$codigodesencriptado
+             ];
+ 
+          if(ActividadQrsModelo::Editar_ActividadQRS_Info_Modelo($datos_actividadQRS_update)){
+           $alerta=[
+                   "Alerta"=>"recargar",
+                   "Titulo"=>"Caso Actualizado",
+                   "Texto"=>"los datos se actualizaron correctamente",
+                   "Tipo"=>"success"
+                ];
+             }else{
+               $alerta=[
+                   "Alerta"=>"simple",
+                   "Titulo"=>"Ocurrio un error inesperado",
+                   "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
+                   "Tipo"=>"error"
+                ];
+                
+             }
+       
+           echo json_encode($alerta);
+ 
+       } // fin del controlador
+       ///////////////////////////////////////////////////////
+       
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadQrsAll_ReporteComparativo_controlador()
       {
