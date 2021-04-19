@@ -70,7 +70,7 @@
 
     function buscar_pendiente(){
         //obtener el valor
-        let input_cliente = document.querySelector('#buscarpendiente').value;
+        let input_cliente = document.querySelector('#buscarvivo').value;
 
         
         if(input_cliente != 0){

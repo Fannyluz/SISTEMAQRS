@@ -6,8 +6,8 @@ class ActividadQrsModelo extends modeloPrincipal{
     
 
     protected static function agregar_ActividadQrs_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevactpactividadqrs(TIPcodigo ,CAScodigo,TIUcodigo,UPUcodigo,ACTcodigoUPT,ACTfacultad,ACTnombres,ACTapellidos,ACTDescripcion,ACTcelular,ACTcorreoelectronico,ACTfecha,ACTestado,ACTacciones) 
-      VALUES(:TIPcodigo,:CAScodigo,:TIUcodigo,:UPUcodigo,:ACTcodigoUPT,:ACTfacultad,:ACTnombres,:ACTapellidos,:ACTDescripcion,:ACTcelular,:ACTcorreoelectronico,:ACTfecha,:ACTestado,:ACTacciones)");
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevactpactividadqrs(TIPcodigo ,CAScodigo,TIUcodigo,UPUcodigo,ACTcodigoUPT,ACTfacultad,ACTnombres,ACTapellidos,ACTDescripcion,ACTcelular,ACTcorreoelectronico,ACTfecha,ACTestado) 
+      VALUES(:TIPcodigo,:CAScodigo,:TIUcodigo,:UPUcodigo,:ACTcodigoUPT,:ACTfacultad,:ACTnombres,:ACTapellidos,:ACTDescripcion,:ACTcelular,:ACTcorreoelectronico,:ACTfecha,:ACTestado)");
       $sql->bindParam(":TIPcodigo",$datos['TIPcodigo']);
       $sql->bindParam(":CAScodigo",$datos['CAScodigo']);
       $sql->bindParam(":TIUcodigo",$datos['TIUcodigo']);
@@ -21,7 +21,6 @@ class ActividadQrsModelo extends modeloPrincipal{
       $sql->bindParam(":ACTcorreoelectronico",$datos['ACTcorreoelectronico']);
       $sql->bindParam(":ACTfecha",$datos['ACTfecha']);
       $sql->bindParam(":ACTestado",$datos['ACTestado']);
-      $sql->bindParam(":ACTacciones",$datos['ACTacciones']);
       $sql->execute();
       return $sql;
     }
@@ -32,7 +31,7 @@ class ActividadQrsModelo extends modeloPrincipal{
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
       INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
       INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
-      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo 
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo
       ORDER BY ACTfecha DESC";
       $conexion=modeloPrincipal::conectar();
       $datos=$conexion->query($consulta);
@@ -334,6 +333,39 @@ public function listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo(){
  }
 
   public function listar_ActividadQrsPendientesAll_modelo(){ 
+       $consulta="SELECT *  FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=1
+      ORDER BY ACTfecha DESC";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  } 
+  //LISTAR ACTIVIDADES ATENDIDAS -GENERAL
+ 
+  public function listar_ActividadesQrsAtendidasAll_modelo(){ 
+       $consulta="SELECT *  FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=2
+      ORDER BY ACTfecha DESC";
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+  } 
+ 
+
+ protected static function listar_ActividadQrsPendientes_modelo($codigo)
+  {
+    if($codigo=="vacia")
+    {
       $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
@@ -344,11 +376,8 @@ public function listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo(){
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
       return $datos;
-  } 
-
- protected static function listar_ActividadQrsPendientes_modelo($codigo)
-  {
-    $consulta="SELECT * FROM oevactpactividadqrs AS act
+    }else{
+      $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
       INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
@@ -359,6 +388,8 @@ public function listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo(){
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
       return $datos;
+    }
+    
   }
 
 //probar fpdf con estos registros
@@ -378,6 +409,19 @@ public function listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo(){
 
 protected static function listar_ActividadQrsAtendidasU_modelo($codigo)
   {
+     if($codigo=="vacia")
+    {
+      $consulta="SELECT * FROM oevactpactividadqrs AS act
+      INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+      INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+      INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+      INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+      INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=2 ORDER BY ACTfecha DESC" ;
+      $conexion=modeloPrincipal::conectar();
+      $datos=$conexion->query($consulta);
+      $datos=$datos->fetchAll();
+      return $datos;
+    }else{
     $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
@@ -389,30 +433,8 @@ protected static function listar_ActividadQrsAtendidasU_modelo($codigo)
       $datos=$conexion->query($consulta);
       $datos=$datos->fetchAll();
       return $datos;
-  }
-
-
-
-  public function listar_ActividadQrsAtendidasAll_modelo(){ 
-    $consulta="SELECT * FROM oevactpactividadqrs AS act
-    INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
-    INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
-    INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
-    INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
-    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=2 ORDER BY ACTfecha DESC";
-    $conexion=modeloPrincipal::conectar();
-    $datos=$conexion->query($consulta);
-    $datos=$datos->fetchAll();
-    return $datos;
-}
-
-    public function excel(){ 
-      $consulta="SELECT * FROM oevactpactividadqrs";
-    $conexion=modeloPrincipal::conectar();
-    $datos=$conexion->query($consulta);
-    $datos=$datos->fetchAll();
-    return $datos;
     }
+  }
 
     public function pdf(){ 
       $consulta="SELECT * FROM oevactpactividadqrs";
@@ -520,7 +542,7 @@ protected static function Ver_actividadesQrsAtendidasAll_Modelo($codigo)
    protected static function Editar_ActividadQRS_Modelo($datos)
   {
 
-    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevactpactividadqrs SET TIPcodigo=:TIPcodigo,CAScodigo=:CAScodigo,TIUcodigo=:TIUcodigo,UPUcodigo=:UPUcodigo,ACTcodigoUPT=:ACTcodigoUPT,ACTnombres=:ACTnombres,ACTapellidos=:ACTapellidos,ACTDescripcion=:ACTDescripcion,ACTcelular=:ACTcelular,ACTcorreoelectronico=:ACTcorreoelectronico,ACTfecha=:ACTfecha,ACTestado=:ACTestado,ACTacciones=:ACTacciones WHERE ACTcodigo=:CODIGO");
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevactpactividadqrs SET TIPcodigo=:TIPcodigo,CAScodigo=:CAScodigo,TIUcodigo=:TIUcodigo,UPUcodigo=:UPUcodigo,ACTcodigoUPT=:ACTcodigoUPT,ACTnombres=:ACTnombres,ACTapellidos=:ACTapellidos,ACTDescripcion=:ACTDescripcion,ACTcelular=:ACTcelular,ACTcorreoelectronico=:ACTcorreoelectronico,ACTfecha=:ACTfecha,ACTestado=:ACTestado WHERE ACTcodigo=:CODIGO");
 
 
       $sql->bindParam(":TIPcodigo",$datos['TIPcodigo']);
@@ -535,26 +557,10 @@ protected static function Ver_actividadesQrsAtendidasAll_Modelo($codigo)
       $sql->bindParam(":ACTcorreoelectronico",$datos['ACTcorreoelectronico']);
       $sql->bindParam(":ACTfecha",$datos['ACTfecha']);
       $sql->bindParam(":ACTestado",$datos['ACTestado']);
-      $sql->bindParam(":ACTacciones",$datos['ACTacciones']);
    $sql->bindParam(":CODIGO",$datos['CODIGO']);
    $sql->execute();
     return $sql;
   }
-
-  ////editar actividad info
-   protected static function Editar_ActividadQRS_Info_Modelo($datos)
-   {
- 
-     $sql=modeloPrincipal::conectar()->prepare("UPDATE oevactpactividadqrs SET ACTfecha=:ACTfecha,ACTestado=:ACTestado,ACTacciones=:ACTacciones WHERE ACTcodigo=:CODIGO");
- 
- 
-       $sql->bindParam(":ACTfecha",$datos['ACTfecha']);
-       $sql->bindParam(":ACTestado",$datos['ACTestado']);
-       $sql->bindParam(":ACTacciones",$datos['ACTacciones']);
-    $sql->bindParam(":CODIGO",$datos['CODIGO']);
-    $sql->execute();
-     return $sql;
-   }
 
 
 

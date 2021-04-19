@@ -25,75 +25,55 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 
                                 <div class="x_content">
                                     <div class="row">
-                                        <div class="col-sm-12">
-                                        
- <div class="col-sm-12">
-    <div class="col-sm-7">
-        <div class="col-sm-2">
-             <form method="post" action="<?php echo SERVERURL; ?>ajax/excelAjax.php">
-     <input type="hidden" name="exportarExcelAtendidasAll" value="exportAtendidasAll" />    
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-         <i class="fa fa-download fa-sm"></i> Excel
-        </button>
-      </input>
-    </form> 
 
+
+
+
+
+<form method="post" action="<?php echo SERVERURL; ?>ajax/ExportarAjax.php">
+<div class="col-sm-12">
+    <div class="col-sm-12">
+        <div class="col-sm-3">
+            <button type="submit" class="btn btn-round btn-sm" name="exportarExcelAtendidasAll"  value="exportarExcelAtendidasAll" style="background-color:#10226a;color:white;" >
+                 <i class="fa fa-download fa-sm"></i> Excel
+
+                </button>
         </div>
-        <div class="col-sm-2">
-                <!-- Boton de pdf-->
-    <form method="post" action="<?php echo SERVERURL; ?>ajax/pdfAjax.php">
-     <input type="hidden" name="exportarPdfActividadesAtendidasAll" value="<?php echo $_SESSION['CodUsuarioPersonalUptVirtual_spm']?>" />        
-      <button type="submit"  class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+
+        <div class="col-sm-3">
+            <button type="submit"  class="btn btn-round btn-sm" name="exportarPdfActividadesAtendidasAll" style="background-color:#10226a;color:white;">
        <i class="fa fa-download fa-sm"></i> PDF
         </button>
-      </input>
-    </form> 
-   
+        </div>
 
-        </div>
-        <div class="col-sm-2">
-            <form method="post" action="<?php echo SERVERURL; ?>ajax/wordAjax.php">
-     <input type="hidden" name="exportAtendidasAll" value="exportAtendidasAll" />    
-       <button type="submit" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-        <i class="fa fa-download fa-sm"></i>Word
-        </button>
-      </input>
-    </form> 
-        </div>
         <div class="col-sm-3">
-             <form>
-    <input type="hidden" name="export" value="export" />    
-      
-        <a href="<?php echo SERVERURL?>graficosAtendidosALL/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
-          <i class="fa fa-pie-chart fa-sm"></i>Reportes
-        </a>
-     
-      
-    </form>
+            <button type="submit" class="btn btn-round btn-sm" name="exportWordAtendidasAll" value="exportWordAtendidasAll" style="background-color:#10226a;color:white;">
+                 <i class="fa fa-download fa-sm"></i>Word
+            </button>
         </div>
-    </div>
-    <br>
-    <br>
-    
-    
-    <br>
- </div>
 
- <?php 
+        <div class="col-sm-3">
+                <a href="<?php echo SERVERURL?>graficosAtendidosALL/" class="btn btn-round btn-sm" style="background-color:#10226a;color:white;">
+                  <i class="fa fa-pie-chart fa-sm"></i>Reportes
+                </a>
+        </div>
+
+
+    </div>
+</div>
+</br>
+</br></br>
+<div  class="col-md-12 col-sm-12">
+    <div class="col-md-10">
+        <div class="col-sm-6">
+            <?php 
                                 require_once "./controladores/UsuarioPersonalUptVirtualControlador.php";
                                 $tipoqrs=new UsuarioPersonalUptVirtualControlador();
                                 $datosTipoQRS=$tipoqrs->Listar_usuariopersonaluptvirtual_estado_controlador();
                                 $count=1;
                                 $nuevoestado="Activo";
                                 ?>
-
-                                
-
-                                </br>
-                                <div   class="col-md-10 col-sm-10">
-
-                           
-                                    <div class="col-md-3 col-sm-3" >
+                                <div class="col-md-12 col-sm-12" >
                                     <select class="form-control input-sm" id="buscaratendido" method="POST" name="buscaratendido" >
                                     <option value="vacia" selected="">Seleccione(Usuario)</option>    
                                     <?php foreach($datosTipoQRS as $row){ ?>
@@ -103,24 +83,23 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                     </select>
                                     </div>
 
-                        <div class="col-md-3 col-sm-3">
-                        <?php
-                        require_once "modelos/modeloPrincipal.php";
-                        $principal= new modeloPrincipal();
-  
-                        ?>
-                                   <p>   
-                                   <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_atendidos()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
-                
-                                </a></p>
-                        </div>       
+        </div>
+        <div class="col-sm-4">
+            <button type="button" style="background-color:#10226a;color:white;" class="btn btn-round btn-outline btn-sm" onclick="buscar_atendidos()"><i class="fa fa-search fa-sm"></i> &nbsp; Buscar </button>
+        </div>
+    </div>
+   
+</div>  
 
-                        </div>
- 
+    </form>
 
 
-    
- 
+
+
+
+
+                                        <div class="col-sm-12">
+
    
       <p align="right">
                             <a href="<?php echo SERVERURL?>agregar-actividadesQRSALL/"  style="background-color:#fdaf17;color:white;" class="btn btn-round btn-outline btn-sm" align="left"><i class="fa fa-plus fa-sm"></i> Nuevo
