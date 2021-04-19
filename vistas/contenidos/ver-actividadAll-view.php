@@ -85,7 +85,7 @@ if($datos_caso->rowCount()==1){
 
                                           <h6> <p><strong>Correo: </strong><li><i class="fa fa-envelope"></i> <?php echo $campos['ACTcorreoelectronico']?></li></h6>
                                           <br>
-                                          <h6> <p><strong>Celular: </strong><li><i class="fa fa-phone"></i> <?php echo $campos['ACTcelular']?></li></h6>
+                                          <h6> <p><strong>Celular Celular: </strong><li><i class="fa fa-phone"></i> <?php echo $campos['ACTcelular']?></li></h6>
                                 </ul>
 </h6>
 
