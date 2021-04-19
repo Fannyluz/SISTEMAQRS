@@ -102,7 +102,7 @@ if($_SESSION['privilegio_spm']!=3){
                                 <th>Nº</th>
                                 <th>Tipo</th>
                                 <th>Caso</th>
-                                <th>Tipo Emisor</th>
+                                
                                 <th>Personal UptVirtual (Destinatario)</th>
                                 <th>Codigo</th>
                                 <th>Nombres y Apellidos</th>
@@ -132,10 +132,10 @@ if($_SESSION['privilegio_spm']!=3){
                                 <td><?php echo $count++?></td> 
                                 <td><?php echo $row['TIPnombre']?></td> 
                                 <td><?php echo $row['CASnombre']?></td> 
-                                <td><?php echo $row['TIUnombre']?></td> 
+                                 
                                 <td><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></td> 
                                 <td><?php echo $row['ACTcodigoUPT'] ?></td> 
-                                <td><?php echo $row['ACTnombres']?> <?php echo $row['ACTapellidos']?></td>
+                                <td><?php echo $row['ACTnombres']?> <?php echo $row['ACTapellidos']?> (<?php echo $row['TIUnombre']?>)</td>
                                 <td><?php echo $row['ACTDescripcion']?></td> 
                                 <td><?php echo $row['ACTcelular']?></td>
                                
