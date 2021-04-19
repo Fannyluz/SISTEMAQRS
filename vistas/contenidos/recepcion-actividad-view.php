@@ -80,7 +80,7 @@ if($datos_caso->rowCount()==1){
                                                 <br>
                                                     <a href="<?php echo SERVERURL?>listar-actividadPendiente/" class="btn btn-round btn-danger"><i class="fa fa-mail-reply fa-sm"></i> Atras
                                                         </a>
-                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Actualizar</button>
+                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;"><i class="fa fa-check fa-sm"></i>Recepcionar</button>
                                                 </div>
                                             </div>
                                         </div>

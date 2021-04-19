@@ -1347,7 +1347,7 @@ public function ListaActualActividadesAll()
             {
               return '<div class="alert alert-warning" role="alert">
                 <p class="text-center mb-0">
-                <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+                <i class="fa fa-exclamation-triangle fa-2x"></i><br>
                 No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
                 </p>
                 </div>';
@@ -1428,7 +1428,7 @@ public function ListaActualActividadesAll()
             }else{
               return '<div class="alert alert-warning" role="alert">
                 <p class="text-center mb-0">
-                <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+                <i class="fa fa-exclamation-triangle fa-2x"></i><br>
                 No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
                 </p>
                 </div>';
@@ -1588,7 +1588,7 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
             {
               return '<div class="alert alert-warning" role="alert">
                 <p class="text-center mb-0">
-                <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+                <i class="fa fa-exclamation-triangle fa-2x"></i><br>
                 No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
                 </p>
                 </div>';
@@ -1668,7 +1668,7 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
             }else{
               return '<div class="alert alert-warning" role="alert">
                 <p class="text-center mb-0">
-                <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+                <i class="fa fa-exclamation-triangle fa-2x"></i><br>
                 No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
                 </p>
                 </div>';
@@ -1757,7 +1757,7 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
       {
         return '<div class="alert alert-warning" role="alert">
           <p class="text-center mb-0">
-          <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+          <i class="fa fa-exclamation-triangle fa-2x"></i><br>
           No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
           </p>
           </div>';
@@ -1837,7 +1837,7 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
       }else{
         return '<div class="alert alert-warning" role="alert">
           <p class="text-center mb-0">
-          <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+          <i class="fa fa-exclamation-triangle fa-2x"></i><br>
           No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
           </p>
           </div>';
@@ -1867,16 +1867,6 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
         $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo();
          return $datos;
       } // fin del controlador 
-
-
-
- 
-
-
-
-
-
-
 
 
 

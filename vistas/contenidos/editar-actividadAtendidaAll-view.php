@@ -177,14 +177,20 @@ if($datos_caso->rowCount()==1){
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="ACTestado_up">
-                                                    <option <?php echo $campos['ACTestado'] == 10 ? 'selected' : ''; ?> value="10">Pendiente</option>
-                                                    <option <?php echo $campos['ACTestado'] == 20 ? 'selected' : ''; ?> value="20">Atendido</option>
-                                                    <option <?php echo $campos['ACTestado'] == 30 ? 'selected' : ''; ?> value="30">Rechazado</option>
+                                                    <option <?php echo $campos['ACTestado'] == 1 ? 'selected' : ''; ?> value="1">Pendiente</option>
+                                                    <option <?php echo $campos['ACTestado'] == 2 ? 'selected' : ''; ?> value="2">Atendido</option>
+                                                    <option <?php echo $campos['ACTestado'] == 3 ? 'selected' : ''; ?> value="3">Rechazado</option>
                                                 </select>
                                             </div>
 
                                         </div>
 
+                                        <div class="field item form-group">
+                                        <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
+                                        <div class="col-md-6 col-sm-6">
+                                        <textarea class="form-control" name="ACTacciones_up" id="ACTacciones_up" placeholder="Ingrese las acciones realizadas"><?php echo $campos['ACTacciones']?></textarea>
+                                        </div>
+                                        </div>
 
 
                                         <div class="ln_solid">
