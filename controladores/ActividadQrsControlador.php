@@ -206,6 +206,7 @@ public function Buscar_ActividadQRS_controlador($codigo){
                                 <th colspan="1" style="background-color:#10226a;color:white;">Celular</th>
                                 <th colspan="1" style="background-color:#10226a;color:white;">CorreoElectronico</th>
                                 <th colspan="1" style="background-color:#10226a;color:white;">Fecha</th>
+                                <th colspan="1" style="background-color:#10226a;color:white;">Acciones</th>
                                 <th colspan="1" style="background-color:#10226a;color:white;">Estado</th> 
                             </tr>
           ';
@@ -221,8 +222,9 @@ public function Buscar_ActividadQRS_controlador($codigo){
                                  <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
                                  <td>'.$row["ACTDescripcion"].'</td>  
                                  <td>'.$row["ACTcelular"].'</td> 
-                                 <td>'.$row["ACTcorreoelectronico"].'</td>  
-                                <td>'.$row["ACTfecha"].'</td>';
+                                 <td>'.$row["ACTcorreoelectronico"].'</td> 
+                                 <td>'.$row["ACTfecha"].'</td>  
+                                <td>'.$row["ACTacciones"].'</td>';
                           
                           if($row["ACTestado"]==1)
                           {
@@ -1290,9 +1292,9 @@ public function ListaActualActividadesAll()
                                     <th>Item</th>
                                    <th>Tipo</th>
                                    <th>Caso</th>
-                                   <th>Tipo Emisor</th>
+                                   
                                    <th>Personal UptVirtual (Destinatario)</th>
-                                   <th>Codigo</th>
+                                   
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
@@ -1307,10 +1309,10 @@ public function ListaActualActividadesAll()
                                     <td>'.$count++.'</td> 
                                     <td>'.$row["TIPnombre"].'</td>
                                     <td>'.$row["CASnombre"].'</td>
-                                    <td>'.$row["TIUnombre"].'</td>
+                                    
                                     <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                    <td>'.$row["ACTcodigoUPT"].'</td>  
-                                    <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                     
+                                     <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'('.$row["TIUnombre"].')</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
                                     <td>'.$row["ACTcelular"].'</td>   
                                     <td>'.$row["ACTfecha"].'</td>';
@@ -1373,9 +1375,9 @@ public function ListaActualActividadesAll()
                                     <th>Item</th>
                                    <th>Tipo</th>
                                    <th>Caso</th>
-                                   <th>Tipo Emisor</th>
+                                   
                                    <th>Personal UptVirtual (Destinatario)</th>
-                                   <th>Codigo</th>
+                                   
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
@@ -1390,10 +1392,10 @@ public function ListaActualActividadesAll()
                                     <td>'.$count++.'</td> 
                                     <td>'.$row["TIPnombre"].'</td>
                                     <td>'.$row["CASnombre"].'</td>
-                                    <td>'.$row["TIUnombre"].'</td>
+                                    
                                     <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                    <td>'.$row["ACTcodigoUPT"].'</td>  
-                                    <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                    
+                                    <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'('.$row["TIUnombre"].')</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
                                     <td>'.$row["ACTcelular"].'</td>  
                                     <td>'.$row["ACTfecha"].'</td>';
@@ -1531,9 +1533,9 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                     <th>Item</th>
                                    <th>Tipo</th>
                                    <th>Caso</th>
-                                   <th>Tipo Emisor</th>
+                                   
                                    <th>Personal UptVirtual (Destinatario)</th>
-                                   <th>Codigo</th>
+                                   
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
@@ -1548,10 +1550,10 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                     <td>'.$count++.'</td> 
                                     <td>'.$row["TIPnombre"].'</td>
                                     <td>'.$row["CASnombre"].'</td>
-                                    <td>'.$row["TIUnombre"].'</td>
+                                    
                                     <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                    <td>'.$row["ACTcodigoUPT"].'</td>  
-                                    <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                    
+                                     <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'('.$row["TIUnombre"].')</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
                                     <td>'.$row["ACTcelular"].'</td>  
                                     <td>'.$row["ACTfecha"].'</td>';
@@ -1614,9 +1616,9 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                     <th>Item</th>
                                    <th>Tipo</th>
                                    <th>Caso</th>
-                                   <th>Tipo Emisor</th>
+                                   
                                    <th>Personal UptVirtual (Destinatario)</th>
-                                   <th>Codigo</th>
+                                   
                                    <th>Nombres y Apellidos</th>
                                    <th>Descripcion</th>
                                    <th>Celular</th>
@@ -1631,10 +1633,9 @@ public function buscar_actividadesAtendidosPorPersonal__controlador(){
                                     <td>'.$count++.'</td> 
                                     <td>'.$row["TIPnombre"].'</td>
                                     <td>'.$row["CASnombre"].'</td>
-                                    <td>'.$row["TIUnombre"].'</td>
+                                    
                                     <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                                    <td>'.$row["ACTcodigoUPT"].'</td>  
-                                    <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                                     <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'('.$row["TIUnombre"].')</td> 
                                     <td>'.$row["ACTDescripcion"].'</td>  
                                     <td>'.$row["ACTcelular"].'</td>  
                                     <td>'.$row["ACTfecha"].'</td>';
@@ -1702,9 +1703,9 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                               <th>Item</th>
                              <th>Tipo</th>
                              <th>Caso</th>
-                             <th>Tipo Emisor</th>
+                           
                              <th>Personal UptVirtual (Destinatario)</th>
-                             <th>Codigo</th>
+                             
                              <th>Nombres y Apellidos</th>
                              <th>Descripcion</th>
                              <th>Celular</th>
@@ -1719,10 +1720,9 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                               <td>'.$count++.'</td> 
                               <td>'.$row["TIPnombre"].'</td>
                               <td>'.$row["CASnombre"].'</td>
-                              <td>'.$row["TIUnombre"].'</td>
+                             
                               <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                              <td>'.$row["ACTcodigoUPT"].'</td>  
-                              <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                               <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'('.$row["TIUnombre"].')</td> 
                               <td>'.$row["ACTDescripcion"].'</td>  
                               <td>'.$row["ACTcelular"].'</td>  
                               <td>'.$row["ACTfecha"].'</td>';
@@ -1785,9 +1785,9 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                               <th>Item</th>
                              <th>Tipo</th>
                              <th>Caso</th>
-                             <th>Tipo Emisor</th>
+                             
                              <th>Personal UptVirtual (Destinatario)</th>
-                             <th>Codigo</th>
+                             
                              <th>Nombres y Apellidos</th>
                              <th>Descripcion</th>
                              <th>Celular</th>
@@ -1802,10 +1802,9 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
                               <td>'.$count++.'</td> 
                               <td>'.$row["TIPnombre"].'</td>
                               <td>'.$row["CASnombre"].'</td>
-                              <td>'.$row["TIUnombre"].'</td>
+                              
                               <td>'.$row["PEUnombres"].' '.$row["PEUapellidos"].'</td> 
-                              <td>'.$row["ACTcodigoUPT"].'</td>  
-                              <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'</td> 
+                              <td>'.$row["ACTnombres"].' '.$row["ACTapellidos"].'('.$row["TIUnombre"].')</td> 
                               <td>'.$row["ACTDescripcion"].'</td>  
                               <td>'.$row["ACTcelular"].'</td> 
                               <td>'.$row["ACTfecha"].'</td>';

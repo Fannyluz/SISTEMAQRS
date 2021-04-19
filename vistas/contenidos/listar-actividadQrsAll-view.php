@@ -129,7 +129,7 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <th>Caso</th>
                                
                                 <th>Personal UptVirtual (Destinatario)</th>
-                                <th>Codigo</th>
+                                
                                 <th>Nombres y Apellidos</th>
                                 <th>Descripcion</th>
                                 <th>Celular</th>
@@ -156,7 +156,7 @@ foreach($datos as $row){
                                 <td><?php echo $row['CASnombre']?></td> 
                                  
                                 <td><?php echo $row['PEUnombres']?> <?php echo $row['PEUapellidos']?></td> 
-                                <td><?php echo $row['ACTcodigoUPT'] ?></td> 
+                                 
                                 <td><?php echo $row['ACTnombres']?> <?php echo $row['ACTapellidos']?> (<?php echo $row['TIUnombre']?>)</td>
                                 <td><?php echo $row['ACTDescripcion']?></td> 
                                 <td><?php echo $row['ACTcelular']?></td>
