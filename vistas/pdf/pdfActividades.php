@@ -122,7 +122,10 @@ class pdfActividades{
 
         require_once "../modelos/modeloPrincipal.php";
         $principal= new modeloPrincipal();
-        
+        $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscaratendido']);
+       
+if($buscarPersonal=="vacia")
+    {
         $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
@@ -172,6 +175,59 @@ class pdfActividades{
         }
         $pdf->Output('D','ActividadesAtendidas.pdf');
         //$pdf->Output();
+
+    }else{
+
+    }
+        
+        $consulta="SELECT * FROM oevactpactividadqrs AS act
+          INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+          INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+          INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+          INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+          INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=2 and act.UPUcodigo=$buscarPersonal ORDER BY ACTfecha DESC";
+
+                  $conexion=modeloPrincipal::conectar();
+                  $datos=$conexion->query($consulta);
+                  
+            // Creación del objeto de la clase heredada
+            $pdf = new PDF();
+
+            $pdf->AliasNbPages();
+            $pdf->AddPage('landscape');
+            $pdf->SetFont('Times','',8);
+
+            $i = 1;
+            foreach($datos as $row){  
+                $pdf->Cell(7,10, $i,1,0,'C',0);
+                //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
+                $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+                //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+                $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
+                $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+                $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+                $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+                $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
+                $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+                $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+                if($row['ACTestado']==1)
+                    {
+                    $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                    }
+                    else if($row['ACTestado']==2)
+                    {
+                        $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    }else
+                    {
+                        $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    }
+                
+                $i++;
+            }
+            $pdf->Output('D','ActividadesPendientes.pdf');
+            //$pdf->Output();
     }
 
     //metodo decargar pdf Actividdes generales AtendidasALL
@@ -179,7 +235,10 @@ class pdfActividades{
 
         require_once "../modelos/modeloPrincipal.php";
         $principal= new modeloPrincipal();
+        $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscarvivo']);
 
+if($buscarPersonal=="vacia")
+    {
         $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
       INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
@@ -228,6 +287,58 @@ class pdfActividades{
         }
         $pdf->Output('D','ActividadesPendientes.pdf');
         //$pdf->Output();
+    }else
+    {
+            $consulta="SELECT * FROM oevactpactividadqrs AS act
+          INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
+          INNER JOIN oevtipttipoqrs AS tq ON act.TIPcodigo=tq.TIPcodigo
+          INNER JOIN oevtiuttipousuario AS tu ON act.TIUcodigo=tu.TIUcodigo
+          INNER JOIN oevuputusuariopersonaluptvirtual AS up ON act.UPUcodigo=up.UPUcodigo
+          INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo WHERE act.ACTestado=1 and act.UPUcodigo=$buscarPersonal ORDER BY ACTfecha DESC";
+
+                  $conexion=modeloPrincipal::conectar();
+                  $datos=$conexion->query($consulta);
+                  
+            // Creación del objeto de la clase heredada
+            $pdf = new PDF();
+
+            $pdf->AliasNbPages();
+            $pdf->AddPage('landscape');
+            $pdf->SetFont('Times','',8);
+
+            $i = 1;
+            foreach($datos as $row){  
+                $pdf->Cell(7,10, $i,1,0,'C',0);
+                //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
+                $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+                //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
+                $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
+                $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+                $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+                $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+                $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
+                $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+                $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+                if($row['ACTestado']==1)
+                    {
+                    $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                    }
+                    else if($row['ACTestado']==2)
+                    {
+                        $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    }else
+                    {
+                        $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    }
+                
+                $i++;
+            }
+            $pdf->Output('D','ActividadesPendientes.pdf');
+            //$pdf->Output();
+    }
+        
     }
 
 

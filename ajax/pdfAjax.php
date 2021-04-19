@@ -3,7 +3,7 @@ $peticionAjax=true;
   require_once "../config/APP.php";
 
 
-if(isset($_POST["exportarPdfActividades"]) || isset($_POST["exportarPdfActividadesAtendidasAll"]) || isset($_POST["exportarPdfActividadesPendientesAll"]) || isset($_POST["exportarPdfActividadesAll"]) || isset($_POST["exportarPdfActividadesPendientes"]) || isset($_POST["exportarPdfActividadesAtendidas"]) )
+if(isset($_POST["exportarPdfActividades"]) || isset($_POST["exportarPdfActividadesPendientes"]) || isset($_POST["exportarPdfActividadesAtendidas"]) )
 {
 	
     require_once "../vistas/pdf/pdfActividades.php";
@@ -13,24 +13,6 @@ if(isset($_POST["exportarPdfActividades"]) || isset($_POST["exportarPdfActividad
             if(isset($_POST['exportarPdfActividades'])){
     		echo $pdf->Agregarpdf();
             }
-
-            // expotar pdf actividades Atendidas All 
-            if(isset($_POST['exportarPdfActividadesAtendidasAll'])){
-            echo $pdf->AgregarPdfActividesAtendidasAll();
-            }
-
-// expotar pdf actividades Pendientes All 
-            if(isset($_POST['exportarPdfActividadesPendientesAll'])){
-            echo $pdf->AgregarPdfActividesPendientesAll();
-            }
-
-// expotar pdf actividades All 
-            if(isset($_POST['exportarPdfActividadesAll'])){
-            echo $pdf->AgregarPdfActividesAll();
-            }
-
-
-
 
 // expotar pdf actividades Pendientes de cada personal 
             if(isset($_POST['exportarPdfActividadesPendientes'])){

@@ -219,9 +219,9 @@ if($row['TIUcodigo']=="2")
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="ACTestado_reg">
-                                                    <option value="1" selected="">Pendiente</option>
-                                                     <option value="2">Atendido</option>
-                                                     <option value="3">Rechazado</option>
+                                                    <option value="10" selected="">Pendiente</option>
+                                                     <option value="20">Atendido</option>
+                                                     <option value="30">Rechazado</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -396,9 +396,9 @@ if($row['TIUcodigo']=="1")
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <select class="form-control" name="ACTestado_reg">
-                                                    <option value="1" selected="">Pendiente</option>
-                                                     <option value="2">Atendido</option>
-                                                     <option value="3">Rechazado</option>
+                                                    <option value="10" selected="">Pendiente</option>
+                                                     <option value="20">Atendido</option>
+                                                     <option value="30">Rechazado</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -574,9 +574,9 @@ if($row['TIUcodigo']=="3")
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
                                                                                             <select class="form-control" name="ACTestado_reg">
-                                                                                                <option value="1" selected="">Pendiente</option>
-                                                                                                 <option value="2">Atendido</option>
-                                                                                                 <option value="3">Rechazado</option>
+                                                                                                <option value="10" selected="">Pendiente</option>
+                                                                                                 <option value="20">Atendido</option>
+                                                                                                 <option value="30">Rechazado</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -758,9 +758,9 @@ if($row['TIUcodigo']!="1" && $row['TIUcodigo']!="2" && $row['TIUcodigo']!="3")
                                                                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Estado:</b><span class="required">*</span></label>
                                                                                         <div class="col-md-6 col-sm-6">
                                                                                             <select class="form-control" name="ACTestado_reg">
-                                                                                                <option value="1" selected="">Pendiente</option>
-                                                                                                 <option value="2">Atendido</option>
-                                                                                                 <option value="3">Rechazado</option>
+                                                                                                <option value="10" selected="">Pendiente</option>
+                                                                                                 <option value="20">Atendido</option>
+                                                                                                 <option value="30">Rechazado</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>

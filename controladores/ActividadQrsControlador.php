@@ -26,7 +26,7 @@
             $correoElectronico=modeloPrincipal::limpiar_cadena($_POST['ACTcorreoElectronico_reg']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['ACTfecha_reg']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['ACTestado_reg']);
-            $acciones=modeloPrincipal::limpiar_cadena($_POST['ACTacciones_reg']);
+
 
             //comprobar campos vacios
             if($nombres=="" || $apellidos=="" || $descripcion=="" || $celular==""){
@@ -71,8 +71,7 @@
                "ACTcelular"=>$celular,
                "ACTcorreoelectronico"=>$correoElectronico,
                "ACTfecha"=>$fecha,
-               "ACTestado"=>$estado,
-               "ACTacciones"=>$acciones
+               "ACTestado"=>$estado
             ];
 
 
@@ -133,7 +132,7 @@ public function Buscar_ActividadQRS_controlador($codigo){
       /*controlador listar actividadespendientes cpn codigo correspondiente*/
       public function listar_ActividadQrsPendientes_controlador() 
       {
-      	$codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
         $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($codigo);
          return $datos;
         
@@ -141,7 +140,7 @@ public function Buscar_ActividadQRS_controlador($codigo){
 
       public function listar_ActividadQrsU_controlador()
       {
-      	$codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
         $datos=ActividadQrsModelo::listar_ActividadQrsU_modelo($codigo);
          return $datos;
         
@@ -150,7 +149,7 @@ public function Buscar_ActividadQRS_controlador($codigo){
       /*controlador listar actividadespendientes cpn codigo correspondiente*/
       public function listar_ActividadQrsAtendidasU_controlador()
       {
-      	$codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+        $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasU_modelo($codigo);
          return $datos;
         
@@ -160,7 +159,14 @@ public function Buscar_ActividadQRS_controlador($codigo){
       /*controlador listar actividades pendientes All*/ 
       public function listar_ActividadQrsAtendidasAll_controlador() 
       {
-         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
+         $datos=ActividadQrsModelo::listar_ActividadesQrsAtendidasAll_modelo();
+         return $datos;
+      } // fin del controlador 
+
+       /*controlador listar actividades pendientes All*/ 
+      public function listar_ActividadQrsAtend_controlador() 
+      {
+         $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAl_modelo();
          return $datos;
       } // fin del controlador 
 
@@ -179,11 +185,6 @@ public function Buscar_ActividadQRS_controlador($codigo){
         $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscarvivo']);
        $datos=ActividadQrsModelo::listar_ActividadQrsTODO_modelo($buscarPersonal);
         $count=1;
-        $nuevoestado="Activo";
-        if($nuevoestado==1)
-        {
-
-        }
        
           $output .= '
            <table id="datatable" class="table table-bordered border-warning" style="width:100%"> 
@@ -309,10 +310,10 @@ public function Buscar_ActividadQRS_controlador($codigo){
     public function generarexcelActividadPendientesQRSALL_Controlador()
       {
         $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsPendientesAll_modelo();
+
+        $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscarvivo']);
+       $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($buscarPersonal);
         $count=1;
-        $nuevoestado="Activo";
-       
           $output .= '
            <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
                             <tr class="tr-primary" style="background-color:#10226a;color:white;">  
@@ -370,9 +371,10 @@ public function Buscar_ActividadQRS_controlador($codigo){
     public function generarexcelActividadAtendidasQRSALL_Controlador()
       {
         $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
+
+        $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscaratendido']);
+       $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasU_modelo($buscarPersonal);
         $count=1;
-        $nuevoestado="Activo";
        
           $output .= '
           <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
@@ -734,11 +736,11 @@ public function Buscar_ActividadQRS_controlador($codigo){
     public function generarwordActividadPendientesQRSALL_Controlador()
       {
         $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsPendientesAll_modelo();
         $count=1;
-        $nuevoestado="Activo";
-       
-          $output .= '
+        $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscarvivo']);
+        $datos=ActividadQrsModelo::listar_ActividadQrsPendientes_modelo($buscarPersonal);
+
+         $output .= '
            <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
                             <tr class="tr-primary" style="background-color:#10226a;color:white;">  
                                  <th>Item</th>
@@ -792,17 +794,20 @@ public function Buscar_ActividadQRS_controlador($codigo){
           header('Content-Transfer-Encoding:binary');
          
           echo $output;
-         
-              }
+      
+      }
+
 
 
     public function generarwordActividadAtendidasQRSALL_Controlador()
       {
-        $output = '';
-       $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasAll_modelo();
-        $count=1;
-        $nuevoestado="Activo";
        
+       
+       $output = '';
+        $count=1;
+        $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscaratendido']);
+        $datos=ActividadQrsModelo::listar_ActividadQrsAtendidasU_modelo($buscarPersonal);
+
           $output .= '
            <table class="table table-bordered border-warning" style="width:100%" bordered="1">  
                             <tr class="tr-primary" style="background-color:#10226a;color:white;">  
@@ -1020,7 +1025,7 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
             $correoElectronico=modeloPrincipal::limpiar_cadena($_POST['ACTcorreoElectronico_up']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['ACTfecha_up']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['ACTestado_up']);
-            $acciones=modeloPrincipal::limpiar_cadena($_POST['ACTacciones_up']);
+
 
  //comprobar campos vacios
             if($nombres=="" || $apellidos=="" || $descripcion=="" || $celular==""){
@@ -1049,7 +1054,6 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
                "ACTcorreoelectronico"=>$correoElectronico,
                "ACTfecha"=>$fecha,
                "ACTestado"=>$estado,
-               "ACTacciones"=>$acciones,
                "CODIGO"=>$codigodesencriptado
             ];
 
@@ -1074,77 +1078,6 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
 
       } // fin del controlador 
 
-      //probar con el formulario de info/////////////////////////
-      public function Editar_ActividadQRS_info_controlador()
-      {
-        //recuperar el codigo
-      
-    $codigo=modeloPrincipal::limpiar_cadena($_POST['ActividadQRS_codigo_up_info']);
-$codigodesencriptado=modeloPrincipal::decryption($codigo);
-           //comprobar caso en la base de datos
-        $check_ActividadQRS=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevactpactividadqrs WHERE ACTcodigo='$codigodesencriptado'");
-
-        if($check_ActividadQRS->rowCount()<=0){
-            $alerta=[
-                  "Alerta"=>"simple",
-                  "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"No hemos encontrado la ActividadQRS en el sistema",
-                  "Tipo"=>"error"
-               ];
-               echo json_encode($alerta);
-               exit();
-        }else
-        {
-          $campos=$check_ActividadQRS->fetch();
-        }
-
-            $fecha=modeloPrincipal::limpiar_cadena($_POST['ACTfecha_up']);
-            $estado=modeloPrincipal::limpiar_cadena($_POST['ACTestado_up']);
-            $acciones=modeloPrincipal::limpiar_cadena($_POST['ACTacciones_up']);
-
- //comprobar campos vacios
-            if($acciones==""){
-               $alerta=[
-                  "Alerta"=>"simple",
-                  "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"No has llenado todos los campos obligatorios",
-                  "Tipo"=>"error"
-               ];
-               echo json_encode($alerta);
-
-               exit();
-            }   
-
-
-            $datos_actividadQRS_update=[
-              
-               "ACTfecha"=>$fecha,
-               "ACTestado"=>$estado,
-               "ACTacciones"=>$acciones,
-               "CODIGO"=>$codigodesencriptado
-            ];
-
-         if(ActividadQrsModelo::Editar_ActividadQRS_Info_Modelo($datos_actividadQRS_update)){
-          $alerta=[
-                  "Alerta"=>"recargar",
-                  "Titulo"=>"Caso Actualizado",
-                  "Texto"=>"los datos se actualizaron correctamente",
-                  "Tipo"=>"success"
-               ];
-            }else{
-              $alerta=[
-                  "Alerta"=>"simple",
-                  "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"no hemos podido actualizar los datos, por favor intente nuevamente",
-                  "Tipo"=>"error"
-               ];
-               
-            }
-      
-          echo json_encode($alerta);
-
-      } // fin del controlador
-      ///////////////////////////////////////////////////////
 /*controlador listar actividades All reporte por casos*/
       public function listar_ActividadQrsAll_ReporteComparativo_controlador()
       {
@@ -1830,8 +1763,8 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
       }else{
         return '<div class="alert alert-warning" role="alert">
           <p class="text-center mb-0">
-          <i class="fa fa-exclamation-triangle fa-2x"></i><br>
-          No hemos encontrado ningun usuario que coincida <strong>"'.$cliente.'"</strong>
+          <i class="fas fa-exclamation-triangle fa-2x"></i><br>
+          No hemos encontrado ningun cliente que coincida <strong>"'.$cliente.'"</strong>
           </p>
           </div>';
           exit();

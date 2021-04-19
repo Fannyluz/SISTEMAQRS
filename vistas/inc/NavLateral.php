@@ -200,7 +200,10 @@
                     <li><a><i class="fa fa-paste"></i> actividades QRS<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
                         <li><a href=" <?php echo SERVERURL?>agregar-actividadesQRSALL/">Registrar Actividad QRS</a></li>
-                        <li><a href=" <?php echo SERVERURL?>listar-actividadQrsAll/">Listar Actividades QRS</a></li>
+                        <li><a href=" <?php echo SERVERURL?>listar-actividadQrsAll/">Actividades QRS Generales</a></li>
+
+                        <li><a href=" <?php echo SERVERURL?>listar-actividadAtendidasAll/"><i class="fa fa-check"></i>Actividades QRS Atendidas</a></li>
+                        <li><a href=" <?php echo SERVERURL?>listar-actividadPendienteAll/"><i class="fa fa-check"></i>Actividades QRS Pendientes</a></li>
                       </ul>
                    </li>  
                    <?php } ?>
@@ -213,11 +216,13 @@
                       </ul>
                    </li> 
                     <?php } ?>
+                    <!--
             
             <?php if($_SESSION['privilegio_spm']==1 || $_SESSION['privilegio_spm']==2){ ?>
+
             <li><a href=" <?php echo SERVERURL?>listar-actividadAtendidasAll/"><i class="fa fa-check"></i> Actividades QRS Atendidas<span class="label label-success pull-right"></a></li>
             <li><a href=" <?php echo SERVERURL?>listar-actividadPendienteAll/"><i class="fa fa-check"></i> Actividades QRS Pendientes<span class="label label-success pull-right"></a></li>
-            <?php } ?>
+            <?php } ?> -->
 
              <?php if($_SESSION['privilegio_spm']==3){ ?>
             <li><a href=" <?php echo SERVERURL?>listar-actividadAtendidasU/"><i class="fa fa-check"></i> Actividades Atendidas - U<span class="label label-success pull-right"></a></li>

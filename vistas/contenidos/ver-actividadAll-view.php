@@ -89,11 +89,11 @@ if($datos_caso->rowCount()==1){
                                 </ul>
 </h6>
 
-<h6> <p><strong>Estado: </strong> <?php if($campos['ACTestado']=="1")
+<h6> <p><strong>Estado: </strong> <?php if($campos['ACTestado']=="10")
                                 {
                                     ?> <h5> <label class="badge bg-warning" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Pendiente"; ?></label></h5>
                                     <?php
-                                }else if($campos['ACTestado']=="2")
+                                }else if($campos['ACTestado']=="20")
                                 {
                                      ?> <h5> <label class="badge bg-success" style="background-color:#10226a;color:white;"><?php echo $nuevoestado = "Atendido"; ?></label></h5>
                                     <?php
