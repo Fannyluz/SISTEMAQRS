@@ -70,7 +70,7 @@ if($datos_caso->rowCount()==1){
                                         <div class="field item form-group">
                                         <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Acciones:</b><span>*</span></label>
                                         <div class="col-md-6 col-sm-6">
-                                        <textarea class="form-control" name="ACTacciones_up" id="ACTacciones_up" placeholder="Ingrese las acciones realizadas"></textarea>
+                                        <textarea class="form-control" name="ACTacciones_up" id="ACTacciones_up" placeholder="Ingrese las acciones realizadas"><?php echo $campos['ACTacciones']?></textarea>
                                         </div>
                                         </div>
 
@@ -80,7 +80,7 @@ if($datos_caso->rowCount()==1){
                                                 <br>
                                                     <a href="<?php echo SERVERURL?>listar-actividadPendienteAll/" class="btn btn-round btn-danger"><i class="fa fa-mail-reply fa-sm"></i> Atras
                                                         </a>
-                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;">Actualizar</button>
+                                                    <button type="submit" class="btn btn-round" style="background-color:#10226a;color:white;"><i class="fa fa-check fa-sm"></i>Recepcionar</button>
                                                 </div>
                                             </div>
                                         </div>
