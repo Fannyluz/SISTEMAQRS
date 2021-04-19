@@ -27,19 +27,21 @@ function Header()
     $this->SetFillColor(232,232,232);
     // Salto de línea
     $this->Ln(20);
-    $this->SetFont('Arial','B',7);
+    $this->SetFont('Arial','B',5.5);
     $this->Cell(7,10, utf8_decode("N°"), 1, 0, 'C', 1);
-    $this->Cell(15,10, "Tipo", 1, 0, 'C', 1);
-    $this->Cell(35,10, "Caso", 1, 0, 'C', 1);
-    $this->Cell(15,10, "Emisor", 1, 0, 'C', 1);
-    $this->Cell(26,10, "Personal UPTVirtual", 1, 0, 'C', 1);
-    $this->Cell(17,10, "Codigo", 1, 0, 'C', 1);
-    $this->Cell(27,10, "Nombres y Apellidos", 1, 0, 'C', 1);
-    $this->Cell(65,10, "Descripcion", 1, 0, 'C', 1);
-    $this->Cell(15,10, "Celular", 1, 0, 'C', 1);
-    $this->Cell(25,10, "Correo", 1, 0, 'C', 1);
-    $this->Cell(16,10, "Fecha", 1, 0, 'C', 1);
-    $this->Cell(15,10, "Estado", 1, 1, 'C', 1);
+    $this->Cell(13,10, "Tipo", 1, 0, 'C', 1);
+    $this->Cell(24,10, "Caso", 1, 0, 'C', 1);
+    $this->Cell(13,10, "Emisor", 1, 0, 'C', 1);
+    $this->Cell(20,10, "Personal UPTVirtual", 1, 0, 'C', 1);
+    $this->Cell(14,10, "Codigo", 1, 0, 'C', 1);
+    $this->Cell(24,10, "Nombres y Apellidos", 1, 0, 'C', 1);
+    $this->Cell(55,10, "Descripcion", 1, 0, 'C', 1);
+    $this->Cell(10,10, "Celular", 1, 0, 'C', 1);
+    $this->Cell(20,10, "Correo", 1, 0, 'C', 1);
+    $this->Cell(10,10, "Fecha", 1, 0, 'C', 1);
+    $this->Cell(65,10, "Acciones", 1, 0, 'C', 1);
+    $this->Cell(10,10, "Estado", 1, 1, 'C', 1);
+    
 }
 
 // Pie de página
@@ -80,7 +82,7 @@ class pdfActividades{
 
         $pdf->AliasNbPages();
         $pdf->AddPage('landscape');
-        $pdf->SetFont('Times','',8);
+        $pdf->SetFont('Times','',5.5);
 
         $i = 1;
         $nuevo="";
@@ -88,27 +90,28 @@ class pdfActividades{
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+            $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
-                $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                 }
                 else if($row['ACTestado']==2)
                 {
-                    $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                 }else
                 {
-                    $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                 }
             
             $i++;
@@ -124,7 +127,7 @@ class pdfActividades{
         $principal= new modeloPrincipal();
         $buscarPersonal=modeloPrincipal::limpiar_cadena($_POST['buscaratendido']);
        
-if($buscarPersonal=="vacia")
+       if($buscarPersonal=="vacia")
     {
         $consulta="SELECT * FROM oevactpactividadqrs AS act
       INNER JOIN oevcastcaso AS c ON act.CAScodigo=c.CAScodigo
@@ -142,33 +145,34 @@ if($buscarPersonal=="vacia")
 
         $pdf->AliasNbPages();
         $pdf->AddPage('landscape');
-        $pdf->SetFont('Times','',8);
+        $pdf->SetFont('Times','',5.5);
 
         $i = 1;
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+            $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
-                $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                 }
                 else if($row['ACTestado']==2)
                 {
-                    $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                 }else
                 {
-                    $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                 }
             
             $i++;
@@ -195,33 +199,34 @@ if($buscarPersonal=="vacia")
 
             $pdf->AliasNbPages();
             $pdf->AddPage('landscape');
-            $pdf->SetFont('Times','',8);
+            $pdf->SetFont('Times','',5.5);
 
             $i = 1;
             foreach($datos as $row){  
                 $pdf->Cell(7,10, $i,1,0,'C',0);
                 //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-                $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+                $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
                 //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-                $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
-                $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-                $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-                $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-                $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-                $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-                $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-                $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-                $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+                $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
+                $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+                $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+                $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+                $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+                $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+                $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+                $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
                 if($row['ACTestado']==1)
                     {
-                    $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                     }
                     else if($row['ACTestado']==2)
                     {
-                        $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                        $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                     }else
                     {
-                        $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                        $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                     }
                 
                 $i++;
@@ -254,33 +259,34 @@ if($buscarPersonal=="vacia")
 
         $pdf->AliasNbPages();
         $pdf->AddPage('landscape');
-        $pdf->SetFont('Times','',8);
+        $pdf->SetFont('Times','',5.5);
 
         $i = 1;
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+            $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
-                $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                 }
                 else if($row['ACTestado']==2)
                 {
-                    $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                 }else
                 {
-                    $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                 }
             
             $i++;
@@ -304,33 +310,34 @@ if($buscarPersonal=="vacia")
 
             $pdf->AliasNbPages();
             $pdf->AddPage('landscape');
-            $pdf->SetFont('Times','',8);
+            $pdf->SetFont('Times','',5.5);
 
             $i = 1;
             foreach($datos as $row){  
                 $pdf->Cell(7,10, $i,1,0,'C',0);
                 //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-                $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+                $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
                 //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-                $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
-                $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-                $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-                $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-                $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-                $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-                $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-                $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-                $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+                $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
+                $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+                $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+                $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+                $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+                $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+                $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+                $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+                $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
                 if($row['ACTestado']==1)
                     {
-                    $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                     }
                     else if($row['ACTestado']==2)
                     {
-                        $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                        $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                     }else
                     {
-                        $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                        $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                     }
                 
                 $i++;
@@ -367,33 +374,34 @@ if($buscarPersonal=="vacia")
 
         $pdf->AliasNbPages();
         $pdf->AddPage('landscape');
-        $pdf->SetFont('Times','',8);
+        $pdf->SetFont('Times','',5.5);
 
         $i = 1;
         foreach($datos as $row){  
            $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+            $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
-                $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                 }
                 else if($row['ACTestado']==2)
                 {
-                    $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                 }else
                 {
-                    $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                 }
             
             $i++;
@@ -416,33 +424,34 @@ if($buscarPersonal=="vacia")
 
         $pdf->AliasNbPages();
         $pdf->AddPage('landscape');
-        $pdf->SetFont('Times','',8);
+        $pdf->SetFont('Times','',5.5);
 
         $i = 1;
         foreach($datos as $row){  
            $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1,0, 'D', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+            $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
-                $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                 }
                 else if($row['ACTestado']==2)
                 {
-                    $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                 }else
                 {
-                    $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                 }
             
             $i++;
@@ -478,33 +487,34 @@ if($buscarPersonal=="vacia")
 
         $pdf->AliasNbPages();
         $pdf->AddPage('landscape');
-        $pdf->SetFont('Times','',8);
+        $pdf->SetFont('Times','',5.5);
 
         $i = 1;
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1, 0, 'D', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+            $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
-                $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                 }
                 else if($row['ACTestado']==2)
                 {
-                    $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                 }else
                 {
-                    $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                 }
             
             $i++;
@@ -537,33 +547,34 @@ if($buscarPersonal=="vacia")
 
         $pdf->AliasNbPages();
         $pdf->AddPage('landscape');
-        $pdf->SetFont('Times','',8);
+        $pdf->SetFont('Times','',5.5);
 
         $i = 1;
         foreach($datos as $row){  
             $pdf->Cell(7,10, $i,1,0,'C',0);
             //$pdf->Cell(10,10,utf8_decode($row['ACTnombres']), 1, 0, 'C', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIPnombre']), 1, 0, 'C', 0);
             //$pdf->MultiCell(10,5,utf8_decode( $row['CASnombre']), 1, 'D', 0);
-            $pdf->Cell(35,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
-            $pdf->Cell(15,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
-            $pdf->Cell(26,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(17,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
-            $pdf->Cell(27,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
-            $pdf->Cell(65,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
-            $pdf->Cell(15,10, $row['ACTcelular'], 1, 0, 'C', 0);
-            $pdf->Cell(25,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
-            $pdf->Cell(16,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['CASnombre']), 1, 0,'D', 0);
+            $pdf->Cell(13,10,utf8_decode( $row['TIUnombre']), 1, 0, 'C', 0);
+            $pdf->Cell(20,10,utf8_decode( $row['PEUnombres'].' '.$row['PEUapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(14,10, $row['ACTcodigoUPT'], 1, 0, 'C', 0);
+            $pdf->Cell(24,10,utf8_decode( $row['ACTnombres'].' '.$row['ACTapellidos']), 1, 0, 'C', 0);
+            $pdf->Cell(55,10,utf8_decode( $row['ACTDescripcion']), 1, 0, 'D', 0);
+            $pdf->Cell(10,10, $row['ACTcelular'], 1, 0, 'C', 0);
+            $pdf->Cell(20,10, $row['ACTcorreoelectronico'], 1, 0, 'C', 0);
+            $pdf->Cell(10,10, $row['ACTfecha'], 1, 0, 'C', 0);
+            $pdf->Cell(65,10, $row['ACTacciones'], 1, 0, 'C', 0);
             if($row['ACTestado']==1)
                 {
-                $pdf->Cell(15,10, $nuevo="Pendiente", 1, 1, 'C', 0);
+                $pdf->Cell(10,10, $nuevo="Pendiente", 1, 1, 'C', 0);
                 }
                 else if($row['ACTestado']==2)
                 {
-                    $pdf->Cell(15,10, $nuevo="Atendido", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Atendido", 1, 1, 'C', 0);
                 }else
                 {
-                    $pdf->Cell(15,10, $nuevo="Rechazado", 1, 1, 'C', 0);
+                    $pdf->Cell(10,10, $nuevo="Rechazado", 1, 1, 'C', 0);
                 }
             
             $i++;
