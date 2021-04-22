@@ -62,7 +62,7 @@
     <script src="<?php echo SERVERURL; ?>vistas/select2/dist/js/select2.js"></script>
 
     <script src="<?php echo SERVERURL; ?>vistas/js/reloj.js"></script>
-
+    <script src="<?php echo SERVERURL; ?>vistas/js/function.js"></script>
     <script src="<?php echo SERVERURL; ?>vistas/js/alertas.js"></script>
     
 

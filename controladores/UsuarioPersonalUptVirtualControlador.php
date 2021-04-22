@@ -198,6 +198,162 @@
            echo json_encode($alerta);
         } // fin del controlador 
 
+
+        /////////////////////////////////////////////////////////// 
+        /*mostrar informacion detallada del usuario personal de la oficina */
+      public function Cambiar_usuariopersonaluptvirtual_controlador()
+      {
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['cambiar_contra_up']);
+    $codigodesencriptado=modeloPrincipal::decryption($codigo);
+           //comprobar caso en la base de datos
+        $check_UsuarioPersonalUPTvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo='$codigodesencriptado'");
+
+        if($check_UsuarioPersonalUPTvirtual->rowCount()<=0){
+            $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos encontrado ningun usuario personal de UPTvirtual en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+        }else
+        {
+          $campos=$check_UsuarioPersonalUPTvirtual->fetch();
+        }
+
+
+
+            $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_up']);
+            $clave=modeloPrincipal::limpiar_cadena($_POST['clave_up']);
+            $repetirclave=modeloPrincipal::limpiar_cadena($_POST['repetirclave_up']);
+            
+            
+            
+
+//comprobar campos vacios
+            if($usuario=="" || $clave=="" || $repetirclave==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }
+
+//comprobar la longitud de la clave
+
+if(strlen($clave) < 5 || strlen($repetirclave) < 5){
+   $alerta=[
+      "Alerta"=>"simple",
+      "Titulo"=>"Ocurrio un error inesperado",
+      "Texto"=>"La nueva contraseña debe tener 5 caracteres como minimo",
+      "Tipo"=>"error"
+   ];
+   echo json_encode($alerta);
+
+   exit();
+}
+            
+//comprobar la clave
+            if($clave!=$repetirclave)
+            {
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"Las contraseñas deben ser iguales, por favor ingrese nuevamente",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }
+
+
+
+
+//verificar contraseña
+
+            $check_nombre=modeloPrincipal::ejecutar_consulta_simple("SELECT UPUusuario FROM oevuputusuariopersonaluptvirtual WHERE UPUclave='$clave'");
+
+            if($check_nombre->rowCount()>0){
+
+          
+            $datos_UsuarioPersonalUPTvirtual_update=[
+                
+               "UPUusuario"=>$usuario,
+               "UPUclave"=>$clave,
+               
+               
+               
+               "CODIGO"=>$codigodesencriptado
+            ];
+
+         if(UsuarioPersonalUptVirtualModelo::Cambiar_usuariopersonaluptvirtual_Modelo($datos_UsuarioPersonalUPTvirtual_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Contraseña Usuario personal de UPTvirtual Actualizado",
+                  "Texto"=>"La contraseña se actualizó correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos podido actualizar la contraseña, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+               
+            }
+            else
+            {
+
+
+
+          $claveEncriptado=modeloPrincipal::encryption($clave);
+            $datos_UsuarioPersonalUPTvirtual_update=[
+               
+               "UPUusuario"=>$usuario,
+               "UPUclave"=>$claveEncriptado,
+               
+               
+               
+               "CODIGO"=>$codigodesencriptado
+            ];
+
+         if(UsuarioPersonalUptVirtualModelo::Cambiar_usuariopersonaluptvirtual_Modelo($datos_UsuarioPersonalUPTvirtual_update)){
+          $alerta=[
+                  "Alerta"=>"recargar",
+                  "Titulo"=>"Contraseña Usuario personal de UPTvirtual Actualizado",
+                  "Texto"=>"La contraseña se actualizó correctamente",
+                  "Tipo"=>"success"
+               ];
+            }else{
+              $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos podido actualizar la contraseña, por favor intente nuevamente",
+                  "Tipo"=>"error"
+               ];
+               
+            }
+      
+          echo json_encode($alerta);
+          }
+
+      
+
+      } // fin del controlador 
+      ////////////////////////////
+        
+
 /*mostrar informacion detallada del usuario personal de la oficina */
       public function Ver_usuariopersonaluptvirtual_controlador($codigo)
       {
@@ -269,7 +425,7 @@
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
-                  "Texto"=>"las claves deben ser iguales, por favir ingrese nuevamente",
+                  "Texto"=>"las claves deben ser iguales, por favor ingrese nuevamente",
                   "Tipo"=>"error"
                ];
                echo json_encode($alerta);

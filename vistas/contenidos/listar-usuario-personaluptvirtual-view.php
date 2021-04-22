@@ -41,10 +41,10 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
                                 <tr>
                                 <th>Item</th>
                                 <th>DNI</th>
-                                <th>nombres y Apellidos</th>
-                                <th>usuario</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Usuario</th>
                                 <th>Privilegio</th>
-                                <th>fecha</th>
+                                <th>Fecha</th>
                                 <th>Estado</th>
                                 <th>Acciones</th>
                                 </tr>

@@ -185,12 +185,36 @@
       {
          $codigo=$_SESSION['personal_spm'];
          $codigo=modeloPrincipal::limpiar_cadena($codigo);
-
+         $codigodesencriptado=modeloPrincipal::decryption($codigo);
          $datos=PersonalModelo::Veer_perfil_Modelo($codigo);
          return $datos;
 
       } // fin del controlador
       
+      
+
+
+      /*mostrar ver perfil informacion detallada del usuario personal de la oficina */
+      public function Ver_usuariopersonaluptvirtual_controlador($codigo)
+      {
+         $codigo=$_SESSION['personal_spm'];
+        $codigo=modeloPrincipal::limpiar_cadena($codigo);
+        $codigodesencriptado=modeloPrincipal::decryption($codigo);
+         $datos=PersonalModelo::Ver_usuariopersonaluptvirtual_Modelo($codigodesencriptado);
+         return $datos;
+
+      } // fin del controlador 
+
+
+
+
+
+
+
+
+
+
+
      /*controlador editar personal*/
      public function Editar_personal_controlador()
      {

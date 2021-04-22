@@ -20,7 +20,7 @@ if($datos_caso->rowCount()==1){
                         <div class="col-md-12 col-sm-12">
                             <div class="x_panel">
                                 <div class="x_title" style="color:#10226a;">
-                                <h2>UPTvirtual <small>Agregar Usuario Personal de UPTvirtual</small></h2>
+                                <h2>UPTvirtual <small>Editar Usuario Personal de UPTvirtual</small></h2>
                                     <ul class="nav navbar-right panel_toolbox">
                                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                         </li>
@@ -36,7 +36,7 @@ if($datos_caso->rowCount()==1){
     <input type="hidden" name="UsuarioPersonalUPTvirtual_codigo_up" value="<?php echo $pagina[1]?>">
                                         
                                  </p>
-                                        <span class="section">QRS que atiende la Oficina de Educación Virtual</span>
+                                        <span class="section">Usuario de la Oficina de Educación Virtual</span>
 
                                 <?php 
 

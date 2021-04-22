@@ -105,5 +105,20 @@ public function listar_usuariopersonaluptvirtual_buscador_modelo($codigo){
   }
 
 
+  //cambiar contraseña
+  protected static function Cambiar_usuariopersonaluptvirtual_Modelo($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevuputusuariopersonaluptvirtual SET UPUusuario=:UPUusuario,UPUclave=:UPUclave WHERE UPUcodigo =:CODIGO");
+
+   
+   $sql->bindParam(":UPUusuario",$datos['UPUusuario']);
+   $sql->bindParam(":UPUclave",$datos['UPUclave']);
+ 
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
+    return $sql;
+  }
+
 
  }

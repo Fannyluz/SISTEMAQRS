@@ -25,6 +25,8 @@
     
       <!--sweet alert V8.13.0 CSS FILE -->
     <script src="<?php echo SERVERURL; ?>vistas/js/sweetalert2.min.js"></script>
+
+   
     
     
     
@@ -44,3 +46,4 @@
          <link href="<?php echo SERVERURL; ?>vistas/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
          <link href="<?php echo SERVERURL; ?>vistas/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
          <link href="<?php echo SERVERURL; ?>vistas/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+

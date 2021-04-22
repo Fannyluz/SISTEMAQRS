@@ -51,8 +51,10 @@ if($datos_caso->rowCount()==1){
                       <div class="">
                         <div class="product_price">
                           <h6>
+                          <p><strong>Usuario: </strong> <?php echo $campos['UPUusuario']?> </p>
                           <p><strong>DNI: </strong> <?php echo $campos['PEUDNI']?></p>
                           <p><strong>Rol: </strong> <?php echo $campos['ROPnombre']?> </p>
+                          
                            <ul class="list-unstyled">
                                           <li><i class="fa fa-building"></i> <?php echo $campos['PEUdireccion']?></li>
                                           <br>
@@ -69,7 +71,7 @@ if($datos_caso->rowCount()==1){
                                               <h5><?php echo $nuevoestado = "Activo"?></h5>
                                               <h5>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
-                                              <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;" </span></a>
+                                              <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"> </span></a>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
                                               </h5>
                                               <?php

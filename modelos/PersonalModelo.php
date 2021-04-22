@@ -90,14 +90,34 @@ protected static function Veer_personal_Modelo($codigo)
 
   protected static function Veer_perfil_Modelo($codigo)
   {
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevuputusuariopersonaluptvirtual AS up
+    INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo 
+    INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE up.UPUcodigo=:UPUcodigo");
+   $sql->bindParam(":UPUcodigo",$codigo);
+   $sql->execute();
+   return $sql;
 
-    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevpeutpersonaluptvirtual AS pu 
-  INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo 
-  WHERE PEUcodigo=:PEUcodigo");
-    $sql->bindParam(":PEUcodigo",$codigo);
+ 
+  }
+
+  
+
+   //datos del usuario personal de la oficina
+   protected static function Ver_usuariopersonaluptvirtual_Modelo($codigo)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("SELECT * FROM oevuputusuariopersonaluptvirtual AS up
+     INNER JOIN oevpeutpersonaluptvirtual AS pu ON up.PEUcodigo=pu.PEUcodigo 
+     INNER JOIN oevroptrolpersonal AS rl ON pu.ROPcodigo=rl.ROPcodigo WHERE  up.UPUcodigo=:UPUcodigo");
+    $sql->bindParam(":UPUcodigo",$codigo);
     $sql->execute();
     return $sql;
   }
+  /////////////////////////////////////////////////
+
+
+ 
+
   protected static function Veer_imagen_Modelo($codigo)
   {
 

@@ -9,7 +9,7 @@ class vistasModelo{
         ,"agregar-personal","listar-rol","listar-personal","listar-actividadQrsAll","listar-actividadPendienteAll","listar-actividadPendiente","agregar-actividadQRS","agregar-actividadesQRSALL","listar-actividadesQRSU","listar-actividadAtendidasAll","listar-actividadAtendidasU","reportes-pdf","fpdf"
         ,"ver-caso","ver-tipo-qrs","ver-tipo-usuario","ver-usuariopersonal-uptvirtual","ver-actividadPendienteAll","editar-tipo-qrs","editar-tipo-usuario","ver-actividadPendiente","cerrar","ver-actividadAll","editar-usuariopersonal-uptvirtual","editar-actividadPendienteAll","editar-actividadAll","editar-actividadPendiente"
         ,"editar-rol","ver-rol","ver-personal","editar-personal","ver-actividadAtendidaU","editar-actividadAtendidaU","ver-actividadU","editar-actividadU","ver-actividadAtendidaAll","editar-actividadAtendidaAll","perfil","listar-excel","graficos","buscar-caso","buscar-actividadqrsAll","graficosAtendidosALL","graficosAtendidosU",
-        "graficosPendientesALL","graficosPendientesU","graficosU","ver-personal-general","recepcion-actividadAll","recepcion-actividad"];
+        "graficosPendientesALL","graficosPendientesU","graficosU","ver-personal-general","recepcion-actividadAll","recepcion-actividad","cambiar-contra","ajax","probar.html"];
         if(in_array($vistas,$listaBlanca)){
             if(is_file("./vistas/contenidos/".$vistas."-view.php"))
             {

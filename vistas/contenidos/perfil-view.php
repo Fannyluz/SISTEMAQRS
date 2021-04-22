@@ -40,10 +40,9 @@ if($datos_caso->rowCount()==1){
                   </div>
                   <div class="x_content">
                   <br>
-                  <br>
-                  <br>
+               
 
-                  <div class="col-md-3 col-sm-3" enctype="multipart/form-data">
+                  <div class="col-md-5 col-sm-5" enctype="multipart/form-data">
                       <div class="product-image">
                         <img src="<?php echo SERVERURL; ?>imagenes/<?php echo $campos['PEUfoto'] ; ?>" width="50%" height="50%">
 
@@ -52,25 +51,26 @@ if($datos_caso->rowCount()==1){
                     </div>
 
 
-                    <div class="col-md-7 col-sm-7" style="border:0px solid #e5e5e5;">
+                    <div class="col-md-4 col-sm-4" style="border:0px solid #e5e5e5;">
 
-                      <h3 class="prod_title"><b><?php echo $campos['PEUnombres']?>  <?php echo $campos['PEUapellidos']?></b></h3>
+                    <h3 class="prod_title"><b>INFORMACION PERSONAL</b></h3>
+                      <h4 class="prod_title"><b><?php echo $campos['PEUnombres']?>  <?php echo $campos['PEUapellidos']?></b></h4>
                       <div class="">
                         <div class="product_price">
                           <h6>
+                          
                           <p><strong>DNI: </strong> <?php echo $campos['PEUDNI']?></p>
                           <p><strong>Rol: </strong> <?php echo $campos['ROPnombre']?> </p>
-                           <ul class="list-unstyled">
-                                          <li><i class="fa fa-building"></i> <?php echo $campos['PEUdireccion']?></li>
-                                          <br>
-                                          <li><i class="fa fa-envelope"></i> <?php echo $campos['PEUcorreoElectronico']?></li>
-                                          <br>
-                                          <li><i class="fa fa-phone"></i> <?php echo $campos['PEUcelular']?></li>
+                           
+                          <h6><p><strong>Direccion: </strong>  <?php echo $campos['PEUdireccion']?><p></h6>
+                                          
+                          <h6><p><strong>Correo: </strong>  <?php echo $campos['PEUcorreoElectronico']?></p></h6>
+                                          
+                                          <h6><p><strong>Celular: </strong> <?php echo $campos['PEUcelular']?></p></h6>
                                         
                                         </ul>
-<br>
                           
-                          <?php if($campos['PEUestado']=="1")
+<h6><p><strong>Estado: </strong> <?php if($campos['PEUestado']=="1")
                           {
 
                                               ?>
@@ -92,19 +92,44 @@ if($datos_caso->rowCount()==1){
                                             </h5>
                                               <?php
                                           }
-                          ?>
+                          ?></p></h6>
+                          <h6><p><strong>Fecha: </strong><span class="price-tax"><?php echo $campos['PEUfecha']?></span></p></h6>
                           <br>
 
-                          <span class="price-tax"><?php echo $campos['PEUfecha']?></span>
-                          <br>
+                          
+
+
                         </div>
                       </div>
 
 
                     </div>
+                   
 
 
-         
+<?php
+                                    require_once "modelos/modeloPrincipal.php";
+                                    $principal= new modeloPrincipal();
+  
+                                    ?>
+
+<div class="ln_solid" align="center">
+                                            <div class="form-group">
+                                                <div class="col-md-6 offset-md-3">
+                                                <br>
+                                                    <a href="<?php echo SERVERURL?>general/" class="btn btn-round btn-danger"><i class="fa fa-home fa-sm"></i> General
+                                                        </a>
+                                                    
+                                                    <a href="<?php echo SERVERURL?>cambiar-contra/<?php echo $principal->encryption($campos['UPUcodigo']) ?>" class="btn btn-round  btn-sm" style="color:red;"><i class="fa fa-edit fa-sm"></i><b><u>Cambiar contraseña</u></b>
+                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
                   </div>
                 </div>
               </div>
@@ -114,3 +139,4 @@ if($datos_caso->rowCount()==1){
 ?>
           </div>
         </div>
+
