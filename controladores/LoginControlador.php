@@ -35,9 +35,9 @@
          ];
          $datos_cuenta=LoginModelo::iniciar_sesion_modelo($datos_login);
          if($datos_cuenta->rowCount()==1)
-         {
+         { session_start(['name' => 'QRS']);
             $row=$datos_cuenta->fetch();
-            session_start(['name' => 'QRS']);
+           
             $_SESSION['CodUsuarioPersonalUptVirtual_spm']=$row['UPUcodigo'];
             $_SESSION['personal_spm']=$row['PEUcodigo'];
             $_SESSION['nombres_spm']=$row['PEUnombres'];

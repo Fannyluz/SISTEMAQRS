@@ -3,7 +3,7 @@
     require_once "../config/APP.php";
 
 
-    if(isset($_POST['personal_dni_reg']) || isset($_POST['personal_codigo_del']) || isset($_POST['personal_codigo_up'])){
+    if(isset($_POST['personal_dni_reg']) || isset($_POST['personal_codigo_del']) || isset($_POST['personal_codigo_up']) || isset($_POST['emailu'])){
         /*--- Instanacia al controlador-- */
         require_once "../controladores/PersonalControlador.php";
         $ins_person = new PersonalControlador();
@@ -30,7 +30,11 @@
 
             
 
-            
+            // Editar un personal
+            if(isset($_POST['emailu'])){
+                echo $ins_person->buscar_Email();
+            }
+
         
     }else{
         session_start(['name' => 'QRS']);

@@ -307,6 +307,30 @@
      } // fin del controlador 
 
 
+  public function buscar_Email(){ 
+
+            $email=modeloPrincipal::limpiar_cadena($_POST['emailu']);
+
+            if($email!="")
+            {
+              if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $email)){
+                echo '<script language="javascript">alert("El correo es invalido");
+                window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"</script>';
+            }
+            }
+
+              //comprobar el nombre
+            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcorreoElectronico FROM oevpeutpersonaluptvirtual WHERE PEUcorreoElectronico='$email'");
+            if($check_nombreCaso->rowCount()>0){
+                echo '<script language="javascript">alert("Se envi un mensaje a su correo electronico");
+                window.location.href="'.SERVERURL.'listar-tipo-usuario/"</script>';
+
+            }else
+             {
+               echo '<script language="javascript">alert("El correo es incorrecto");
+                window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"</script>';
+             }
+      } // fin del controlador 
 
  
 }

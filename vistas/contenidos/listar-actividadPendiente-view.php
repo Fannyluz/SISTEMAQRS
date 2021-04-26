@@ -160,7 +160,7 @@ require_once "modelos/modeloPrincipal.php";
 
                                 <a href="<?php echo SERVERURL?>editar-actividadPendiente/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-pencil fa-sm"></i>
                                 </a>             
-                                <a href="<?php echo SERVERURL?>recepcion-actividad/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-info btn-sm"><i class="fa fa-info fa-sm"></i>
+                                <a href="<?php echo SERVERURL?>recepcion-actividad/<?php echo $principal->encryption($row['ACTcodigo']) ?>" class="btn btn-round btn-outline-success btn-sm"><i class="fa fa-info fa-sm"></i>
                                 Recepcion</a>                 
                                  </td>
                             </tr>
