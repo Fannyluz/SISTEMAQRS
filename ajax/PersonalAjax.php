@@ -1,8 +1,6 @@
 <?php
     $peticionAjax=true;
     require_once "../config/APP.php";
-
-
     if(isset($_POST['personal_dni_reg']) || isset($_POST['personal_codigo_del']) || isset($_POST['personal_codigo_up']) || isset($_POST['emailu'])){
         /*--- Instanacia al controlador-- */
         require_once "../controladores/PersonalControlador.php";

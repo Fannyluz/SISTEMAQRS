@@ -6,6 +6,7 @@
         require_once "./modelos/PersonalModelo.php";
      }
 
+ 
   class PersonalControlador extends PersonalModelo{
       
            /*--- controlador agregar personal--*/
@@ -318,8 +319,27 @@
             if($email!="")
             {
               if (!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i", $email)){
-                echo '<script language="javascript">alert("El correo es invalido");
-                window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"</script>';
+                // echo '<script language="javascript">alert("El correo es invalido");
+                //window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"</script>';
+
+                echo '
+               <link href="../vistas/css/sweetalert2.min.css" rel="stylesheet">
+ <script src="../vistas/js/sweetalert2.min.js"></script>
+  SISTEMAQRS
+           <script>
+           Swal.fire({
+            title: "Ocurrio un error inesperado",
+            text:"El correo no es valido",
+            type: "error",
+            confirmButtonText: "Aceptar"
+          }).then((result) => {
+        if (result.value) {
+           window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"
+        }
+      });
+            </script>
+           ';
+
             }
             }
 
@@ -344,10 +364,29 @@
 
             }else
              {
-               echo '<script language="javascript">alert("El Usuario, Correo electronico o la Palabra Secreta es incorrecta");
-                window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"</script>';
+               echo '
+               <link href="../vistas/css/sweetalert2.min.css" rel="stylesheet">
+ <script src="../vistas/js/sweetalert2.min.js"></script>
+  SISTEMAQRS
+           <script>
+           Swal.fire({
+            title: "Ocurrio un error inesperado",
+            text:"El usuario, El correo electronico o la Palabra secreta es Incorrecta",
+            type: "error",
+            confirmButtonText: "Aceptar"
+          }).then((result) => {
+        if (result.value) {
+           window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"
+        }
+      });
+            </script>
+           ';
              }
       } // fin del controlador 
+
+
+
+
 
  
 }
