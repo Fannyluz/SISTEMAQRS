@@ -7,11 +7,12 @@ class UsuarioPersonalUptVirtualModelo extends modeloPrincipal{
  /*----- Modelo agregar casos */
 
     protected static function agregar_usuariopersonaluptvirtual_modelo($datos){
-      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevuputusuariopersonaluptvirtual(PEUcodigo,UPUusuario,UPUclave,UPUprivilegio,UPUfecha,UPUestado) 
-      VALUES(:PEUcodigo,:UPUusuario,:UPUclave,:UPUprivilegio,:UPUfecha,:UPUestado)");
+      $sql=modeloPrincipal::conectar()->prepare("INSERT INTO oevuputusuariopersonaluptvirtual(PEUcodigo,UPUusuario,UPUclave,UPUpalabraSecreta,UPUprivilegio,UPUfecha,UPUestado) 
+      VALUES(:PEUcodigo,:UPUusuario,:UPUclave,:UPUpalabraSecreta,:UPUprivilegio,:UPUfecha,:UPUestado)");
       $sql->bindParam(":PEUcodigo",$datos['PEUcodigo']);
       $sql->bindParam(":UPUusuario",$datos['UPUusuario']);
       $sql->bindParam(":UPUclave",$datos['UPUclave']);
+      $sql->bindParam(":UPUpalabraSecreta",$datos['UPUpalabraSecreta']);
       $sql->bindParam(":UPUprivilegio",$datos['UPUprivilegio']);
       $sql->bindParam(":UPUfecha",$datos['UPUfecha']);
       $sql->bindParam(":UPUestado",$datos['UPUestado']);
@@ -91,11 +92,12 @@ public function listar_usuariopersonaluptvirtual_buscador_modelo($codigo){
    protected static function Editar_usuariopersonaluptvirtual_Modelo($datos)
   {
 
-    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevuputusuariopersonaluptvirtual SET PEUcodigo=:PEUcodigo,UPUusuario=:UPUusuario,UPUclave=:UPUclave,UPUprivilegio=:UPUprivilegio,UPUfecha=:UPUfecha,UPUestado=:UPUestado WHERE UPUcodigo =:CODIGO");
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevuputusuariopersonaluptvirtual SET PEUcodigo=:PEUcodigo,UPUusuario=:UPUusuario,UPUclave=:UPUclave,UPUpalabraSecreta=:UPUpalabraSecreta,UPUprivilegio=:UPUprivilegio,UPUfecha=:UPUfecha,UPUestado=:UPUestado WHERE UPUcodigo =:CODIGO");
 
    $sql->bindParam(":PEUcodigo",$datos['PEUcodigo']);
    $sql->bindParam(":UPUusuario",$datos['UPUusuario']);
    $sql->bindParam(":UPUclave",$datos['UPUclave']);
+   $sql->bindParam(":UPUpalabraSecreta",$datos['UPUpalabraSecreta']);
    $sql->bindParam(":UPUprivilegio",$datos['UPUprivilegio']);
    $sql->bindParam(":UPUfecha",$datos['UPUfecha']);
    $sql->bindParam(":UPUestado",$datos['UPUestado']);
@@ -120,5 +122,16 @@ public function listar_usuariopersonaluptvirtual_buscador_modelo($codigo){
     return $sql;
   }
 
+ //cambiar contraseña
+  protected static function Cambiar_usuariopersonaluptvirtual_ModeloOTRO($datos)
+  {
+
+    $sql=modeloPrincipal::conectar()->prepare("UPDATE oevuputusuariopersonaluptvirtual SET UPUclave=:UPUclave WHERE UPUcodigo =:CODIGO");
+   $sql->bindParam(":UPUclave",$datos['UPUclave']);
+ 
+   $sql->bindParam(":CODIGO",$datos['CODIGO']);
+   $sql->execute();
+    return $sql;
+  }
 
  }

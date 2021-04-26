@@ -16,7 +16,7 @@
     <!-- NProgress -->
     <link href="../../vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="../vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="../../vendors/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../../build/css/custom.min.css" rel="stylesheet">
@@ -32,15 +32,35 @@
 
              <h1><i class="fa fa-home"></i>    UPT VIRTUAL</h1>
       
-        
-         <div class="field item form-group">
-          <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Correo Electronico:</b><span class="required"></span></label>
+        <h5><i></i> Valida tus datos</h5>
+
+<div class="field item form-group">
+          <label class="col-form-label col-md-5 col-sm-5  label-align"><b>Usuario:</b><span class="required"></span></label>
           <div class="col-md-9 col-sm-9">
-             <input class="form-control" name="emailu" class='email' id="emailu" required="required" type="email" placeholder="Ingrese el correo" />
+             <input class="form-control" name="usuario" class='email' id="usuario" required="required" type="email" placeholder="Ingrese tu usuario" />
+          </div>
+
+          
+    </div>
+
+         <div class="field item form-group">
+          <label class="col-form-label col-md-5 col-sm-5  label-align"><b>Correo Electronico:</b><span class="required"></span></label>
+          <div class="col-md-9 col-sm-9">
+             <input class="form-control" name="emailu" class='email' id="emailu" required="required" type="email" placeholder="Ingrese su correo electrónico" />
+          </div>
+
+          
+    </div>
+
+<div class="field item form-group">
+          <label class="col-form-label col-md-5 col-sm-5  label-align"><b>Palabra secreta:</b><span class="required"></span></label>
+          
+
+          <div class="col-md-9 col-sm-9">
+             <input class="form-control" name="palabra" id="palabra" required="required" type="email" placeholder="Ingrese tu palabra secreta" />
           </div>
     </div>
 
-    
 
         <button type="submit" class="btn btn-" style="background-color:#10226a;color:white;">Enviar</button>
 

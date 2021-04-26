@@ -17,7 +17,7 @@ class vistasControlador extends vistasModelo{
                $respuesta = vistasModelo::obtener_vistas_modelo($ruta[0]);
            } else
            {
-               $respuesta ="reset";
+               $respuesta ="login";
            }
            return $respuesta;
        }

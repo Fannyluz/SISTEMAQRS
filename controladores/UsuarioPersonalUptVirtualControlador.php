@@ -14,6 +14,7 @@
             $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_reg']);
             $clave=modeloPrincipal::limpiar_cadena($_POST['clave_reg']);
             $repetirclave=modeloPrincipal::limpiar_cadena($_POST['repetirclave_reg']);
+            $palabrasecreta=modeloPrincipal::limpiar_cadena($_POST['PalabraSecreta_reg']);
             $privilegio=modeloPrincipal::limpiar_cadena($_POST['privilegio_reg']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['fecha_reg']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['estado_reg']);
@@ -21,7 +22,7 @@
 
 
             //comprobar campos vacios
-            if($usuario=="" || $clave=="" || $repetirclave=="" || $privilegio==""|| $fecha=="" || $estado==""){
+            if($usuario=="" || $clave=="" || $repetirclave=="" || $palabrasecreta=="" || $privilegio==""|| $fecha=="" || $estado==""){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -64,6 +65,7 @@
                "PEUcodigo"=>$personaluptvirtual,
                "UPUusuario"=>$usuario,
                "UPUclave"=>$claveEncriptado,
+               "UPUpalabraSecreta"=>$palabrasecreta,
                "UPUprivilegio"=>$privilegio,
                "UPUfecha"=>$fecha,
                "UPUestado"=>$estado
@@ -205,6 +207,7 @@
       {
          $codigo=modeloPrincipal::limpiar_cadena($_POST['cambiar_contra_up']);
     $codigodesencriptado=modeloPrincipal::decryption($codigo);
+    
            //comprobar caso en la base de datos
         $check_UsuarioPersonalUPTvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo='$codigodesencriptado'");
 
@@ -353,6 +356,105 @@ if(strlen($clave) < 5 || strlen($repetirclave) < 5){
       } // fin del controlador 
       ////////////////////////////
         
+ /////////////////////////////////////////////////////////// 
+        /*mostrar informacion detallada del usuario personal de la oficina */
+      public function Cambiar_usuariopersonaluptvirtual_controladorOTRO()
+      {
+         $codigo=modeloPrincipal::limpiar_cadena($_POST['cambiar_contra_upp']);
+    $codigodesencriptado=modeloPrincipal::decryption($codigo);
+    
+           //comprobar caso en la base de datos
+        $check_UsuarioPersonalUPTvirtual=modeloPrincipal::ejecutar_consulta_simple("SELECT * FROM oevuputusuariopersonaluptvirtual WHERE UPUcodigo='$codigodesencriptado'");
+
+        if($check_UsuarioPersonalUPTvirtual->rowCount()<=0){
+            $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No hemos encontrado ningun usuario personal de UPTvirtual en el sistema",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+               exit();
+        }else
+        {
+          $campos=$check_UsuarioPersonalUPTvirtual->fetch();
+        }
+
+
+
+            
+            $clave=modeloPrincipal::limpiar_cadena($_POST['clave_up']);
+            $repetirclave=modeloPrincipal::limpiar_cadena($_POST['repetirclave_up']);
+            
+            
+            
+
+//comprobar campos vacios
+            if($clave=="" || $repetirclave==""){
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"No has llenado todos los campos obligatorios",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }
+
+//comprobar la longitud de la clave
+
+if(strlen($clave) < 5 || strlen($repetirclave) < 5){
+   $alerta=[
+      "Alerta"=>"simple",
+      "Titulo"=>"Ocurrio un error inesperado",
+      "Texto"=>"La nueva contraseña debe tener 5 caracteres como minimo",
+      "Tipo"=>"error"
+   ];
+   echo json_encode($alerta);
+
+   exit();
+}
+            
+//comprobar la clave
+            if($clave!=$repetirclave)
+            {
+               $alerta=[
+                  "Alerta"=>"simple",
+                  "Titulo"=>"Ocurrio un error inesperado",
+                  "Texto"=>"Las contraseñas deben ser iguales, por favor ingrese nuevamente",
+                  "Tipo"=>"error"
+               ];
+               echo json_encode($alerta);
+
+               exit();
+            }
+
+
+
+
+//verificar contraseña
+
+          $claveEncriptado=modeloPrincipal::encryption($clave);
+            $datos_UsuarioPersonalUPTvirtual_update=[     
+               "UPUclave"=>$claveEncriptado,
+               "CODIGO"=>$codigodesencriptado
+            ];
+
+         if(UsuarioPersonalUptVirtualModelo::Cambiar_usuariopersonaluptvirtual_ModeloOTRO($datos_UsuarioPersonalUPTvirtual_update)){
+          echo '<script language="javascript">alert("Se cambio la contraseña correctamente");
+                window.location.href="'.SERVERURL.'login/"</script>';
+            }else{
+             echo '<script language="javascript">alert("El Usuario, Correo electronico o la Palabra Secreta es incorrecta");
+                window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"</script>';
+               
+            }
+      
+      
+
+      } // fin del controlador 
+      ////////////////////////////
+        
 
 /*mostrar informacion detallada del usuario personal de la oficina */
       public function Ver_usuariopersonaluptvirtual_controlador($codigo)
@@ -400,12 +502,13 @@ if(strlen($clave) < 5 || strlen($repetirclave) < 5){
             $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario_up']);
             $clave=modeloPrincipal::limpiar_cadena($_POST['clave_up']);
             $repetirclave=modeloPrincipal::limpiar_cadena($_POST['repetirclave_up']);
+            $palabrasecreta=modeloPrincipal::limpiar_cadena($_POST['PalabraSecreta_up']);
             $privilegio=modeloPrincipal::limpiar_cadena($_POST['privilegio_up']);
             $fecha=modeloPrincipal::limpiar_cadena($_POST['fecha_up']);
             $estado=modeloPrincipal::limpiar_cadena($_POST['estado_up']);
 
 //comprobar campos vacios
-            if($usuario=="" || $clave=="" || $repetirclave==""){
+            if($usuario=="" || $clave=="" || $repetirclave=="" || $palabrasecreta==""){
                $alerta=[
                   "Alerta"=>"simple",
                   "Titulo"=>"Ocurrio un error inesperado",
@@ -447,6 +550,7 @@ if(strlen($clave) < 5 || strlen($repetirclave) < 5){
                 "PEUcodigo"=>$personaluptvirtual,
                "UPUusuario"=>$usuario,
                "UPUclave"=>$clave,
+               "UPUpalabraSecreta"=>$palabrasecreta,
                "UPUprivilegio"=>$privilegio,
                "UPUfecha"=>$fecha,
                "UPUestado"=>$estado,

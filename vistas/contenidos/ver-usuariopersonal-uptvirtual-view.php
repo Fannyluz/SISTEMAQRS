@@ -46,14 +46,20 @@ if($datos_caso->rowCount()==1){
 
                     <div class="col-md-7 col-sm-7" style="border:0px solid #e5e5e5;">
 
-                      <h3 class="prod_title"><b><?php echo $campos['PEUnombres']?>  <?php echo $campos['PEUapellidos']?></b></h3>
+                      <h3 class="prod_title"><b><?php echo $campos['PEUnombres']?>  <?php echo $campos['PEUapellidos']?> -  <?php echo $campos['ROPnombre']?></b></h3>
 
                       <div class="">
                         <div class="product_price">
                           <h6>
-                          <p><strong>Usuario: </strong> <?php echo $campos['UPUusuario']?> </p>
+
+                          
                           <p><strong>DNI: </strong> <?php echo $campos['PEUDNI']?></p>
                           <p><strong>Rol: </strong> <?php echo $campos['ROPnombre']?> </p>
+
+
+
+
+                          
                           
                            <ul class="list-unstyled">
                                           <li><i class="fa fa-building"></i> <?php echo $campos['PEUdireccion']?></li>
@@ -63,33 +69,35 @@ if($datos_caso->rowCount()==1){
                                           <li><i class="fa fa-phone"></i> <?php echo $campos['PEUcelular']?></li>
                                         </ul>
                                         <br>
-
-                                        <h6><p><strong>Estado:</strong></p></h6> <?php if($campos['PEUestado']=="1")
+<div class="separator"></div>
+                          <p><strong>Usuario: </strong> <?php echo $campos['UPUusuario']?> </p>
+                          <p><strong>Palabra Secreta: </strong> <?php echo $campos['UPUpalabraSecreta']?> </p>
+                          <p><strong>Estado:</strong> <?php if($campos['PEUestado']=="1")
                           {
 
                                               ?>
-                                              <h5><?php echo $nuevoestado = "Activo"?></h5>
-                                              <h5>
+                                              <?php echo $nuevoestado = "Activo"?>
+                                              
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"> </span></a>
                                               <a href="#"><span class="fa fa-star-o" style="background-color:#fdaf17;color:white;"></span></a>
-                                              </h5>
+                                              
                                               <?php
                           }else{
                                               
                                               ?>
-                                              <h5 class="price"><?php echo $nuevoestado = "Inactivo"?></h5>
-                                               <h5>
+                                               class="price"><?php echo $nuevoestado = "Inactivo"?>
+                                               
                                               <a href="#"><span class="fa fa-star" style="background-color:#fdaf17;color:white;"></span></a>
                                               <a href="#"><span class="fa fa-star" style="background-color:#fdaf17;color:white;"></span></a>
                                               <a href="#"><span class="fa fa-star" style="background-color:#fdaf17;color:white;"></span></a>
-                                            </h5>
+                                            
                                               <?php
                                           }
-                          ?>
-                          <br>
-
-                         <h6><p><strong>Fecha:</strong></p></h6> <span class="price-tax"><?php echo $campos['PEUfecha']?></span>
+                          ?></p>
+                        
+<h6><p><strong>Fecha: </strong> <?php echo $campos['PEUfecha']?></p></h6>
+                         
                           <br>
                         </div>
                       </div>

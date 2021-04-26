@@ -2,7 +2,7 @@
     $peticionAjax=true;
     require_once "../config/APP.php";
 
-    if(isset($_POST['usuario_reg'])|| isset($_POST['usuariopersonaluptvirtual_codigo_del']) || isset($_POST['UsuarioPersonalUPTvirtual_codigo_up']) || isset($_POST['cambiar_contra_up'])){
+    if(isset($_POST['usuario_reg'])|| isset($_POST['usuariopersonaluptvirtual_codigo_del']) || isset($_POST['UsuarioPersonalUPTvirtual_codigo_up']) || isset($_POST['cambiar_contra_up']) || isset($_POST['cambiar_contra_upp'])){
         /*--- Instanacia al controlador--*/
         require_once "../controladores/UsuarioPersonalUptVirtualControlador.php";
         $ins_caso = new UsuarioPersonalUptVirtualControlador();
@@ -28,6 +28,12 @@
             if(isset($_POST['cambiar_contra_up'])){ 
                 echo $ins_caso->Cambiar_usuariopersonaluptvirtual_controlador();
             }
+
+ if(isset($_POST['cambiar_contra_upp'])){ 
+                echo $ins_caso->Cambiar_usuariopersonaluptvirtual_controladorOTRO();
+            }
+
+            
         
     }else{
         session_start(['name' => 'QRS']);

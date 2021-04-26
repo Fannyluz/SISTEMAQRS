@@ -81,6 +81,14 @@ if($datos_caso->rowCount()==1){
                                             </div>
                                         </div>
 
+                                         <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Palabra Secreta</b><span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input class="form-control" name="PalabraSecreta_up" id="PalabraSecreta_up" value="<?php echo $campos['UPUpalabraSecreta']?>" placeholder="Ingrese su palabra secreta" required="required" />
+                                            </div>
+                                        </div>
+
+
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align"><b>Fecha:</b><span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">

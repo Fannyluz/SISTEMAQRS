@@ -5,6 +5,7 @@
      }else{
         require_once "./modelos/PersonalModelo.php";
      }
+
   class PersonalControlador extends PersonalModelo{
       
            /*--- controlador agregar personal--*/
@@ -309,7 +310,10 @@
 
   public function buscar_Email(){ 
 
+            $usuario=modeloPrincipal::limpiar_cadena($_POST['usuario']);
             $email=modeloPrincipal::limpiar_cadena($_POST['emailu']);
+             $palabra=modeloPrincipal::limpiar_cadena($_POST['palabra']);
+
 
             if($email!="")
             {
@@ -320,14 +324,27 @@
             }
 
               //comprobar el nombre
-            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT PEUcorreoElectronico FROM oevpeutpersonaluptvirtual WHERE PEUcorreoElectronico='$email'");
+            $check_nombreCaso=modeloPrincipal::ejecutar_consulta_simple("SELECT UPUcodigo AS codigo,UPUusuario,PEUcorreoElectronico,UPUpalabraSecreta FROM oevpeutpersonaluptvirtual AS pu
+              INNER JOIN oevuputusuariopersonaluptvirtual AS up ON up.PEUcodigo=pu.PEUcodigo
+              WHERE UPUusuario='$usuario' and PEUcorreoElectronico='$email' and UPUpalabraSecreta='$palabra'");
+
+            $datos_cliente=$check_nombreCaso->fetchAll();
+            
+
+
             if($check_nombreCaso->rowCount()>0){
-                echo '<script language="javascript">alert("Se envi un mensaje a su correo electronico");
-                window.location.href="'.SERVERURL.'listar-tipo-usuario/"</script>';
+   
+              
+          foreach($datos_cliente as $row){ 
+            $datos=modeloPrincipal::encryption($row['codigo']);
+
+              return header("Location:".SERVERURL."vistas/contenidos/ContraseñaNueva.php/$datos");
+            }
+  
 
             }else
              {
-               echo '<script language="javascript">alert("El correo es incorrecto");
+               echo '<script language="javascript">alert("El Usuario, Correo electronico o la Palabra Secreta es incorrecta");
                 window.location.href="'.SERVERURL.'vistas/contenidos/reset.php/"</script>';
              }
       } // fin del controlador 
