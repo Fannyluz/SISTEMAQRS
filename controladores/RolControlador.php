@@ -255,11 +255,5 @@ public function Eliminar_rol_controlador()
 } // fin del controlador 
 
  /*controlador datos del caso*/
-public function Ver_caso_controlador($codigo)
-{
-  $codigo=modeloPrincipal::limpiar_cadena($codigo);
-   $datos=CasoModelo::Ver_Caso_Modelo($codigo);
-   return $datos;
 
-} // fin del controlador 
      }

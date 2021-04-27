@@ -26,11 +26,11 @@
             }
 
             if(isset($_POST['cambiar_contra_up'])){ 
-                echo $ins_caso->Cambiar_usuariopersonaluptvirtual_controlador();
+                echo $ins_caso->CambiarContraseña_usuariopersonaluptvirtual_controlador();
             }
 
  if(isset($_POST['cambiar_contra_upp'])){ 
-                echo $ins_caso->Cambiar_usuariopersonaluptvirtual_controladorOTRO();
+                echo $ins_caso->RecuperarContraseña_usuariopersonaluptvirtual_controlador();
             }
 
             

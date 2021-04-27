@@ -1230,40 +1230,12 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
            echo json_encode($alerta);
  
        } // fin del controlador
-       ///////////////////////////////////////////////////////
+
+
        
-/*controlador listar actividades All reporte por casos*/
-      public function listar_ActividadQrsAll_ReporteComparativo_controlador()
-      {
-         $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReporteComparativo_modelo();
-         return $datos;
-      } // fin del controlador 
 
-
-public function ListaActualActividadesAll()
-    {
-     
-
-      } // fin del controlador 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/////////////////////////////////////////////////////////////////////
+//LISTAR ACTIVIDADES POR TIPO TANTO PARA EL ADMIN Y PARA CADA PERSONAL
 /*controlador listar actividades POR CASO PARA EL JEFE  reporte por casos*/
       public function listar_ActividadQrsAll_Reporte_controlador()
       {
@@ -1294,15 +1266,14 @@ public function ListaActualActividadesAll()
       } // fin del controlador 
 
 
-
-/*controlador listar actividades All reporte por casos*/
+/*controlador listar actividades  pendientes por caso reporte por casos*/
       public function listar_ActividadQrsPendientesCasoAll_Reporte_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadQrsPendientesCasoAll_Reporte_modelo();
          return $datos;
       } // fin del controlador 
 
-/*controlador listar actividades All reporte por casos*/
+/*controlador listar actividades pendienstes por caso para cada personal - reporte por casos*/
       public function listar_ActividadQrsPendientesUCaso_Reporte_controlador()
       {
         $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
@@ -1310,7 +1281,11 @@ public function ListaActualActividadesAll()
          return $datos;
       } // fin del controlador 
 
-      /*controlador listar reporte por tipo*/
+
+/////////////////////////////////////////////////////////////////////
+//LISTAR ACTIVIDADES POR TIPO TANTO PARA EL ADMIN Y PARA CADA PERSONAL
+
+      /*controlador listar reporte por tipo - admin*/
       public function listar_ActividadQrsAll_ReporteTipo_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReporteTipo_modelo();
@@ -1325,7 +1300,7 @@ public function ListaActualActividadesAll()
          return $datos;
       } // fin del controlador 
 
-/*controlador listar actividades All reporte por casos*/
+/*controlador listar actividades All reporte por tipo - admin*/
       public function listar_ActividadAtendidasQrsAll_ReporteTipo_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsAll_ReporteTipo_modelo();
@@ -1339,12 +1314,50 @@ public function ListaActualActividadesAll()
          $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsU_ReporteTipo_modelo($codigo);
          return $datos;
       } // fin del controlador 
-/*controlador listar actividades All reporte por casos*/
+/*controlador listar actividades pendientes por tipo - admin */
       public function listar_ActividadPendientesQrsAll_ReporteTipo_controlador()
       {
          $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReporteTipo_modelo();
          return $datos;
       } // fin del controlador 
+
+/*fin*/
+/*controlador listar actividades pednientes por tipo para cada personal*/
+      public function listar_ActividadPendientesQrsU_ReporteTipo_controlador()
+      {
+         $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
+         $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsU_ReporteTipo_modelo($codigo);
+         return $datos;
+      } // fin del controlador 
+
+
+
+///////////
+//REPORTES POR PERSONAL 
+
+      public function listar_ActividadQrsAll_ReportePersonal_controlador()
+      {
+       
+        $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo();
+         return $datos;
+      } // fin del controlador 
+
+      public function listar_ActividadesAtendidasQrsAll_ReportePersonal_controlador()
+      {
+        
+        $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo();
+return $datos;
+      } // fin del controlador 
+      public function listar_ActividadesPendientesQrsAll_ReportePersonal_controlador()
+      {
+        
+        $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReportePersonal_modelo();
+return $datos;
+      } // fin del controlador 
+      
+
+
+
 ////aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
       public function buscar_cliente_prestamo_controlador(){
@@ -1925,45 +1938,6 @@ public function buscar_actividadesPendientesPorPersonal_controlador(){
             
   
   }
-
-
-/*fin*/
-/*controlador listar actividades All reporte por casos*/
-      public function listar_ActividadPendientesQrsU_ReporteTipo_controlador()
-      {
-         $codigo=$_SESSION['CodUsuarioPersonalUptVirtual_spm'];
-         $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsU_ReporteTipo_modelo($codigo);
-         return $datos;
-      } // fin del controlador 
-
-
-
-      public function listar_ActividadQrsAll_ReportePersonal_controlador()
-      {
-       
-        $datos=ActividadQrsModelo::listar_ActividadQrsAll_ReportePersonalVacio_modelo();
-         return $datos;
-      } // fin del controlador 
-
-
-
-
-
-
-
-      public function listar_ActividadesAtendidasQrsAll_ReportePersonal_controlador()
-      {
-        
-        $datos=ActividadQrsModelo::listar_ActividadesAtendidasQrsAll_ReportePersonal_modelo();
-return $datos;
-      } // fin del controlador 
-      public function listar_ActividadesPendientesQrsAll_ReportePersonal_controlador()
-      {
-        
-        $datos=ActividadQrsModelo::listar_ActividadesPendientesQrsAll_ReportePersonal_modelo();
-return $datos;
-      } // fin del controlador 
-      
 
 
 

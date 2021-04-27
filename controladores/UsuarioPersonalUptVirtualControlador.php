@@ -203,7 +203,7 @@
 
         /////////////////////////////////////////////////////////// 
         /*mostrar informacion detallada del usuario personal de la oficina */
-      public function Cambiar_usuariopersonaluptvirtual_controlador()
+      public function CambiarContraseña_usuariopersonaluptvirtual_controlador()
       {
          $codigo=modeloPrincipal::limpiar_cadena($_POST['cambiar_contra_up']);
     $codigodesencriptado=modeloPrincipal::decryption($codigo);
@@ -358,7 +358,7 @@ if(strlen($clave) < 5 || strlen($repetirclave) < 5){
         
  /////////////////////////////////////////////////////////// 
         /*mostrar informacion detallada del usuario personal de la oficina */
-      public function Cambiar_usuariopersonaluptvirtual_controladorOTRO()
+      public function RecuperarContraseña_usuariopersonaluptvirtual_controlador()
       {
          $codigo=modeloPrincipal::limpiar_cadena($_POST['cambiar_contra_upp']);
     $codigodesencriptado=modeloPrincipal::decryption($codigo);

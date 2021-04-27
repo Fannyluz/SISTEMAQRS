@@ -39,11 +39,7 @@
             if(isset($_POST['buscar_pendiente'])){
                 echo $ins_tiperson->buscar_actividadesPendientesPorPersonal_controlador();
             }
-            //buscar personal por quejas 
-            //if(var_dump($_POST['buscarTipoPersonal_Reporte'])){
-              //  echo $ins_tiperson->listar_ActividadQrsAll_ReportePersonal_controlador();
-            //}
-            
+           
         
     }else{
         session_start(['name' => 'QRS']);

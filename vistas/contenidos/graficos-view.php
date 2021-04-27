@@ -158,13 +158,6 @@ if($_SESSION['privilegio_spm']!=1 && $_SESSION['privilegio_spm']!=2){
 	                                  $count=1;
 	                                  $nuevoestado="Activo";?>
 
-
-	                                  <?php 
-	                                  require_once "./controladores/ActividadQrsControlador.php";
-	                                  $comparativos=new ActividadQrsControlador();
-	                                  $datoscomparativos=$comparativos->listar_ActividadQrsAll_ReporteComparativo_controlador();
-	                                  ;?>
-
 <div class="tab-content" id="myTabContent">
 
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -472,40 +465,14 @@ Highcharts.chart('container_cilindro_Tipo', {
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 <form>
 
-<!--<input id="buscar" name="buscar" value="2" /> --> 
-
 
  <?php 
  
- $variable = "";
-require_once "./controladores/TipoQrsControlador.php";
-$tipoqrs=new TipoQrsControlador();
-$datosTipoQRS=$tipoqrs->Listar_tipoqrs_estado_controlador();
-
-
-
 require_once "./controladores/ActividadQrsControlador.php";
 	$casos=new ActividadQrsControlador();
 	$datos=$casos->listar_ActividadQrsAll_ReportePersonal_controlador();
 
 ?>
-<!--
-<div class="field item form-group">
-<label class="col-form-label col-md-3 col-sm-3  label-align"><b>Tipo:</b><span class="required">*</span></label>
-<div class="col-md-6 col-sm-6">
-<select class="form-control" id="buscarP" name="buscarP">
-<?php foreach($datosTipoQRS as $row){ ?>
-<option value=<?php echo $row['TIPcodigo']?>><?php echo $row['TIPnombre']?></option>
-<?php }?>
-</select>
-</div>
-</div>
-
-
- <button type="submit" class="btn btn-round btn-sm" onclick="buscar_cliente()" style="background-color:#10226a;color:white;">
-        Buscar
-
-        </button>-->
 <div class="col-md-12"> 	 
 	<div class="col-md-6">
 			
