@@ -1231,11 +1231,8 @@ $codigodesencriptado=modeloPrincipal::decryption($codigo);
  
        } // fin del controlador
 
-
-       
-
 /////////////////////////////////////////////////////////////////////
-//LISTAR ACTIVIDADES POR TIPO TANTO PARA EL ADMIN Y PARA CADA PERSONAL
+//LISTAR ACTIVIDADES POR caso TANTO PARA EL ADMIN Y PARA CADA PERSONAL
 /*controlador listar actividades POR CASO PARA EL JEFE  reporte por casos*/
       public function listar_ActividadQrsAll_Reporte_controlador()
       {
@@ -1355,8 +1352,6 @@ return $datos;
 return $datos;
       } // fin del controlador 
       
-
-
 
 ////aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
 
